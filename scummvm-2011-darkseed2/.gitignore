@@ -1,8 +1,10 @@
 *.o
 *.a
 .deps/
-scummvm
-config.h
-config.mk
-build.log
+/scummvm
+/config.h
+/config.mk
+/build.log
 *.orig
+!/backends/platform/gp2x/build/mmuhack.o
+/config.log
