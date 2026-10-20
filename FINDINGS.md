@@ -71,13 +71,16 @@ fine. It is probably a later patched English release.
 
 ## Test run
 
-Branch: <https://github.com/kelmer44/scummvm/tree/darkseed-2>, local worktree at
-`~/Desktop/source/scummvm-darkseed2`.
+Snapshot: [`scummvm-2011-darkseed2/`](scummvm-2011-darkseed2/) in this repo. It is a
+complete source tree, ignoring build output. Build and run commands below are run from
+inside that folder.
 
 - Base: ScummVM trunk `936d15673e8` (2011-02-09, right after the `sound/` to `audio/`
   rename), which is the revision the old engine last built against.
-- Commit 1: engine imported unchanged, with `scummvm-patch.diff` applied.
-- Commit 2: two fixes needed on modern macOS (arm64, Apple clang 21, sdl12-compat 1.2.68):
+- DrMcCoy's engine copied in unchanged, with his `scummvm-patch.diff` applied.
+- Two fixes needed on modern macOS (arm64, Apple clang 21, sdl12-compat 1.2.68), also
+  available separately as
+  [`patches/0001-DARKSEED2-Fix-startup-on-modern-macOS-with-sdl12-com.patch`](patches/):
   1. `backends/graphics/sdl/sdl-graphics.cpp`: `getSupportedFormats()` asserted when
      called before a video mode was set. It now detects the formats on demand.
   2. `engines/darkseed2/darkseed2.cpp`: the engine called `initGraphics()` with no pixel
@@ -94,7 +97,7 @@ make -j10 CXXFLAGS+="-w -std=gnu++98"
 Run:
 
 ```bash
-./scummvm -c ../ds2.ini --music-driver=coreaudio --path=$HOME/Desktop/ags/DARKSEED2 darkseed2
+./scummvm -c ds2.ini --music-driver=coreaudio --path=$HOME/Desktop/ags/DARKSEED2 darkseed2
 ```
 
 Result: the engine indexes resources, initialises game variables and the graphics system,
@@ -104,6 +107,10 @@ the picture visually (no screen capture available in that session), gameplay pas
 intro, and which of the known bugs show up.
 
 ## Path to a proper engine in current ScummVM
+
+The port happens on <https://github.com/kelmer44/scummvm/tree/darkseed-2>, branched from
+upstream `scummvm/master` and starting empty, with code copied over from the snapshot piece
+by piece.
 
 1. Port `engines/darkseed2` to the current tree as a new engine, separate from the existing
    `darkseed` (Dark Seed I) engine:

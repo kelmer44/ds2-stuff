@@ -1,0 +1,8 @@
+*.o
+*.a
+.deps/
+scummvm
+config.h
+config.mk
+build.log
+*.orig

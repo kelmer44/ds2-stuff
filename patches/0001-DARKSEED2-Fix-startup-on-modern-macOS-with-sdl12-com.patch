@@ -1,0 +1,45 @@
+From 1793141fa326cdfabc8a1cd4b18f2108bfdccc8e Mon Sep 17 00:00:00 2001
+From: kelmer <kelmer@gmail.com>
+Date: Tue, 20 Oct 2026 13:16:27 +0200
+Subject: [PATCH] DARKSEED2: Fix startup on modern macOS with sdl12-compat
+
+- SDL backend: detect supported formats on demand instead of asserting
+  when getSupportedFormats() is called before a video mode is set.
+- Request RGB565 explicitly, since the engine only converts to 16bpp
+  and the backend otherwise picks the 32bpp hardware format.
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+---
+ backends/graphics/sdl/sdl-graphics.cpp | 2 +-
+ engines/darkseed2/darkseed2.cpp        | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/backends/graphics/sdl/sdl-graphics.cpp b/backends/graphics/sdl/sdl-graphics.cpp
+index 480cf2e7958..dc965eec6c7 100644
+--- a/backends/graphics/sdl/sdl-graphics.cpp
++++ b/backends/graphics/sdl/sdl-graphics.cpp
+@@ -393,7 +393,7 @@ OSystem::TransactionError SdlGraphicsManager::endGFXTransaction() {
+ 
+ #ifdef USE_RGB_COLOR
+ Common::List<Graphics::PixelFormat> SdlGraphicsManager::getSupportedFormats() const {
+-	assert(!_supportedFormats.empty());
++	if (_supportedFormats.empty()) const_cast<SdlGraphicsManager *>(this)->detectSupportedFormats();
+ 	return _supportedFormats;
+ }
+ 
+diff --git a/engines/darkseed2/darkseed2.cpp b/engines/darkseed2/darkseed2.cpp
+index 1b4c7e9d760..ac6ea2dcd38 100644
+--- a/engines/darkseed2/darkseed2.cpp
++++ b/engines/darkseed2/darkseed2.cpp
+@@ -317,7 +317,7 @@ bool DarkSeed2Engine::init(int32 width, int32 height) {
+ bool DarkSeed2Engine::initGraphics(int32 width, int32 height) {
+ 	debug(-1, "Setting up graphics...");
+ 
+-	::initGraphics(width, height, width == 640, 0);
++	{ ::Graphics::PixelFormat f(2, 5, 6, 5, 0, 11, 5, 0, 0); ::initGraphics(width, height, width == 640, &f); }
+ 
+ 	ImgConv.setPixelFormat(g_system->getScreenFormat());
+ 
+-- 
+2.54.0 (Apple Git-157)
+
