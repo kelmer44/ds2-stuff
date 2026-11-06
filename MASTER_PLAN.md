@@ -51,8 +51,10 @@ It does not cover submission.
 
 Follow the Tesoro rule: **fresh function-by-function analysis first; the 2011 code is read only after a
 cluster has its own result, to compare.** Disagreements are findings to resolve with evidence.
-The reference engine is then assembled cluster by cluster, taking the 2011 code as the starting
-point where it matches the EXE and replacing it where it does not.
+**Reuse policy (Gabriel, 6 November 2026): use as much of the 2011 engine as possible, provided it is
+faithful.** After each cluster the 2011 code is compared with the contracts and the verdict goes into
+[re/COMPARISON_2011.md](re/COMPARISON_2011.md); faithful code is the starting point for the reference
+engine (ported to the current API, DrMcCoy credited), differing parts are replaced from the contracts.
 
 Status ladder per function, as in Tesoro: `untouched`, `decompiled`, `understood` (contract written),
 `ported`, `emu-compared`, `original-compared`. Python tools run from a `re/.venv`.
@@ -191,3 +193,17 @@ Windows tree, or Wine), fetching the old format notes, and the 16-bit emulation 
 ## Next step
 
 Cluster the 356 functions by segment and call graph and start with the resource layer (Phase 1).
+
+## Phase 1 progress (6 November 2026)
+
+- `GFILE.HDR` layout recovered from `1028:09f6` and confirmed byte for byte against the file
+  (`re/STRUCTS.md`): 108 glue files, 9291 entries of 22 bytes.
+- Glue files come in two forms, 85 LZ-compressed in 2048-byte blocks and 23 raw. The decoder
+  (`10b8:0368`, a 32-bit code segment that Ghidra decodes wrongly) is understood and an independent
+  Python model decodes all 85 files; every directory matches GFILE.HDR.
+- Our copy's text and speech are **Spanish** (for example `DAG001.TXT` begins "Perdona. ¿Mike
+  Dawson?"). `FINDINGS.md` calls it English. Detection should use `ES_ESP`, not `EN_ANY`.
+- Segments `10b8` and `10c8` are USE32 code (NE segment flag `0x2c50`). Ghidra needs them disassembled
+  as 32-bit; until then they are read with `re/tools/ne_segments.py dis ... --use32`.
+- Still to read in the resource layer: `1088:003e`, `06b4`, `0892`, `04c8`, `051c`, `062c`,
+  `1098:029e`, `1098:0326`, and the callers `1028:03d0`, `1048:2b8e` (when each glue file is loaded).

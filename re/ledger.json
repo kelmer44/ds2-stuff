@@ -16,7 +16,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "main window and input"
  },
  {
   "addr": "1000:0034",
@@ -39,7 +40,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "main window and input"
  },
  {
   "addr": "1000:0236",
@@ -87,7 +89,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "main window and input"
  },
  {
   "addr": "1000:1016",
@@ -103,7 +106,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "main window and input"
  },
  {
   "addr": "1000:12be",
@@ -139,7 +143,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "main window and input"
  },
  {
   "addr": "1000:19f2",
@@ -162,7 +167,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "main window and input"
  },
  {
   "addr": "1000:1a98",
@@ -180,7 +186,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "main window and input"
  },
  {
   "addr": "1000:1b0e",
@@ -199,7 +206,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "main window and input"
  },
  {
   "addr": "1000:1c36",
@@ -220,7 +228,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "main window and input"
  },
  {
   "addr": "1000:1d1a",
@@ -240,7 +249,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "main window and input"
  },
  {
   "addr": "1008:0000",
@@ -262,7 +272,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "main window and input"
  },
  {
   "addr": "1008:004c",
@@ -281,7 +292,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "main window and input"
  },
  {
   "addr": "1008:00b6",
@@ -299,7 +311,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "main window and input"
  },
  {
   "addr": "1008:00d6",
@@ -318,7 +331,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "main window and input"
  },
  {
   "addr": "1008:01b8",
@@ -337,7 +351,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "main window and input"
  },
  {
   "addr": "1008:02a2",
@@ -356,7 +371,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "main window and input"
  },
  {
   "addr": "1008:0428",
@@ -386,7 +402,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "main window and input"
  },
  {
   "addr": "1008:0a58",
@@ -406,7 +423,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "main window and input"
  },
  {
   "addr": "1008:0af6",
@@ -430,7 +448,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "main window and input"
  },
  {
   "addr": "1008:0e16",
@@ -454,7 +473,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "main window and input"
  },
  {
   "addr": "1008:0ece",
@@ -473,7 +493,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "main window and input"
  },
  {
   "addr": "1008:0f86",
@@ -493,7 +514,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "main window and input"
  },
  {
   "addr": "1010:0000",
@@ -511,7 +533,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "dialogs"
  },
  {
   "addr": "1010:00a6",
@@ -527,7 +550,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "dialogs"
  },
  {
   "addr": "1010:011e",
@@ -551,7 +575,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "dialogs"
  },
  {
   "addr": "1010:0230",
@@ -576,7 +601,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "dialogs"
  },
  {
   "addr": "1010:0336",
@@ -595,7 +621,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "dialogs"
  },
  {
   "addr": "1010:0390",
@@ -614,7 +641,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "dialogs"
  },
  {
   "addr": "1010:0794",
@@ -631,7 +659,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "dialogs"
  },
  {
   "addr": "1010:07c6",
@@ -653,7 +682,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "dialogs"
  },
  {
   "addr": "1010:08a2",
@@ -669,7 +699,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "dialogs"
  },
  {
   "addr": "1010:0938",
@@ -685,7 +716,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "dialogs"
  },
  {
   "addr": "1010:0a44",
@@ -704,7 +736,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "dialogs"
  },
  {
   "addr": "1010:0ae0",
@@ -723,7 +756,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "dialogs"
  },
  {
   "addr": "1010:0b72",
@@ -741,7 +775,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "dialogs"
  },
  {
   "addr": "1018:0000",
@@ -759,7 +794,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "dialogs and saves"
  },
  {
   "addr": "1018:01fa",
@@ -779,7 +815,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "dialogs and saves"
  },
  {
   "addr": "1018:0278",
@@ -800,7 +837,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "dialogs and saves"
  },
  {
   "addr": "1018:0566",
@@ -820,7 +858,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "dialogs and saves"
  },
  {
   "addr": "1018:05c0",
@@ -839,7 +878,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "dialogs and saves"
  },
  {
   "addr": "1018:0648",
@@ -866,7 +906,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "dialogs and saves"
  },
  {
   "addr": "1018:09ce",
@@ -888,7 +929,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "dialogs and saves"
  },
  {
   "addr": "1020:0000",
@@ -904,7 +946,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "unassigned"
  },
  {
   "addr": "1020:0102",
@@ -920,7 +963,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "unassigned"
  },
  {
   "addr": "1020:0244",
@@ -936,7 +980,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "unassigned"
  },
  {
   "addr": "1020:0480",
@@ -952,7 +997,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "unassigned"
  },
  {
   "addr": "1020:0656",
@@ -977,7 +1023,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "unassigned"
  },
  {
   "addr": "1020:0a14",
@@ -995,7 +1042,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "unassigned"
  },
  {
   "addr": "1020:0a40",
@@ -1012,7 +1060,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "unassigned"
  },
  {
   "addr": "1028:0000",
@@ -1031,7 +1080,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "resource layer"
  },
  {
   "addr": "1028:007e",
@@ -1047,7 +1097,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "resource layer"
  },
  {
   "addr": "1028:00b6",
@@ -1066,7 +1117,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "resource layer"
  },
  {
   "addr": "1028:014e",
@@ -1086,7 +1138,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "resource layer"
  },
  {
   "addr": "1028:01ea",
@@ -1106,7 +1159,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "resource layer"
  },
  {
   "addr": "1028:03d0",
@@ -1138,7 +1192,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "resource layer"
  },
  {
   "addr": "1028:0766",
@@ -1163,7 +1218,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "resource layer"
  },
  {
   "addr": "1028:090e",
@@ -1181,7 +1237,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "resource layer"
  },
  {
   "addr": "1028:0964",
@@ -1199,7 +1256,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "resource layer"
  },
  {
   "addr": "1028:09b6",
@@ -1217,7 +1275,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "resource layer"
  },
  {
   "addr": "1028:09f6",
@@ -1233,11 +1292,12 @@
    "10d0:03f4"
   ],
   "depth": 8,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_load_gfile_hdr",
+  "status": "understood",
   "engine": "",
-  "notes": "",
-  "cluster_name": ""
+  "notes": "contract 1028_09f6",
+  "cluster_name": "resource",
+  "cluster": "resource layer"
  },
  {
   "addr": "1028:0b48",
@@ -1257,7 +1317,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "resource layer"
  },
  {
   "addr": "1030:0000",
@@ -1276,7 +1337,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "options (INI)"
  },
  {
   "addr": "1030:003e",
@@ -1294,7 +1356,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "options (INI)"
  },
  {
   "addr": "1030:006a",
@@ -1314,7 +1377,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "options (INI)"
  },
  {
   "addr": "1030:0094",
@@ -1335,7 +1399,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "options (INI)"
  },
  {
   "addr": "1038:0000",
@@ -1355,7 +1420,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "graphics and bitmaps"
  },
  {
   "addr": "1038:01a4",
@@ -1375,7 +1441,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "graphics and bitmaps"
  },
  {
   "addr": "1038:01e4",
@@ -1404,7 +1471,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "graphics and bitmaps"
  },
  {
   "addr": "1038:086e",
@@ -1453,7 +1521,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "graphics and bitmaps"
  },
  {
   "addr": "1038:1ade",
@@ -1488,7 +1557,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "graphics and bitmaps"
  },
  {
   "addr": "1040:0000",
@@ -1506,7 +1576,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "main window and input"
  },
  {
   "addr": "1040:011a",
@@ -1526,7 +1597,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "main window and input"
  },
  {
   "addr": "1048:0000",
@@ -1548,7 +1620,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "script and rooms"
  },
  {
   "addr": "1048:03c4",
@@ -1566,7 +1639,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "script and rooms"
  },
  {
   "addr": "1048:042c",
@@ -1591,7 +1665,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "script and rooms"
  },
  {
   "addr": "1048:093e",
@@ -1618,7 +1693,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "script and rooms"
  },
  {
   "addr": "1048:0b54",
@@ -1641,7 +1717,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "script and rooms"
  },
  {
   "addr": "1048:114a",
@@ -1667,7 +1744,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "script and rooms"
  },
  {
   "addr": "1048:156a",
@@ -1691,7 +1769,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "script and rooms"
  },
  {
   "addr": "1048:17ea",
@@ -1713,7 +1792,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "script and rooms"
  },
  {
   "addr": "1048:18fe",
@@ -1734,7 +1814,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "script and rooms"
  },
  {
   "addr": "1048:19fc",
@@ -1759,7 +1840,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "script and rooms"
  },
  {
   "addr": "1048:1f6e",
@@ -1790,7 +1872,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "script and rooms"
  },
  {
   "addr": "1048:21b0",
@@ -1816,7 +1899,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "script and rooms"
  },
  {
   "addr": "1048:24ee",
@@ -1846,7 +1930,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "script and rooms"
  },
  {
   "addr": "1048:2a50",
@@ -1871,7 +1956,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "script and rooms"
  },
  {
   "addr": "1048:2b8e",
@@ -1907,7 +1993,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "script and rooms"
  },
  {
   "addr": "1048:3236",
@@ -1930,7 +2017,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "script and rooms"
  },
  {
   "addr": "1050:0000",
@@ -1949,7 +2037,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "rooms and cursors"
  },
  {
   "addr": "1050:0062",
@@ -1968,7 +2057,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "rooms and cursors"
  },
  {
   "addr": "1050:011a",
@@ -1984,7 +2074,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "rooms and cursors"
  },
  {
   "addr": "1050:0142",
@@ -2001,7 +2092,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "rooms and cursors"
  },
  {
   "addr": "1050:02de",
@@ -2021,7 +2113,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "rooms and cursors"
  },
  {
   "addr": "1050:035a",
@@ -2045,7 +2138,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "rooms and cursors"
  },
  {
   "addr": "1058:0000",
@@ -2064,7 +2158,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "text and cursors"
  },
  {
   "addr": "1058:01e0",
@@ -2109,7 +2204,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "text and cursors"
  },
  {
   "addr": "1058:0922",
@@ -2134,7 +2230,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "text and cursors"
  },
  {
   "addr": "1058:0abc",
@@ -2153,7 +2250,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "text and cursors"
  },
  {
   "addr": "1058:0ae2",
@@ -2172,7 +2270,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "text and cursors"
  },
  {
   "addr": "1058:0b08",
@@ -2194,7 +2293,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "text and cursors"
  },
  {
   "addr": "1058:0be2",
@@ -2219,7 +2319,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "text and cursors"
  },
  {
   "addr": "1058:0ca4",
@@ -2238,7 +2339,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "text and cursors"
  },
  {
   "addr": "1060:0000",
@@ -2263,7 +2365,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "dialogs and options"
  },
  {
   "addr": "1060:0062",
@@ -2289,7 +2392,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "dialogs and options"
  },
  {
   "addr": "1060:00fc",
@@ -2307,7 +2411,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "dialogs and options"
  },
  {
   "addr": "1060:0188",
@@ -2328,7 +2433,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "dialogs and options"
  },
  {
   "addr": "1060:0222",
@@ -2346,7 +2452,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "dialogs and options"
  },
  {
   "addr": "1060:02bc",
@@ -2375,7 +2482,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "dialogs and options"
  },
  {
   "addr": "1060:0378",
@@ -2393,7 +2501,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "dialogs and options"
  },
  {
   "addr": "1060:048e",
@@ -2411,7 +2520,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "dialogs and options"
  },
  {
   "addr": "1060:0554",
@@ -2429,7 +2539,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "dialogs and options"
  },
  {
   "addr": "1060:0652",
@@ -2455,7 +2566,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "dialogs and options"
  },
  {
   "addr": "1060:07a8",
@@ -2478,7 +2590,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "dialogs and options"
  },
  {
   "addr": "1060:07f6",
@@ -2507,7 +2620,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "dialogs and options"
  },
  {
   "addr": "1060:0846",
@@ -2525,7 +2639,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "dialogs and options"
  },
  {
   "addr": "1060:092e",
@@ -2547,7 +2662,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "dialogs and options"
  },
  {
   "addr": "1060:0a0a",
@@ -2566,7 +2682,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "dialogs and options"
  },
  {
   "addr": "1060:0b00",
@@ -2600,7 +2717,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "dialogs and options"
  },
  {
   "addr": "1060:0b26",
@@ -2634,7 +2752,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "dialogs and options"
  },
  {
   "addr": "1060:0b62",
@@ -2652,7 +2771,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "dialogs and options"
  },
  {
   "addr": "1060:0c44",
@@ -2683,7 +2803,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "dialogs and options"
  },
  {
   "addr": "1060:0d2e",
@@ -2701,7 +2822,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "dialogs and options"
  },
  {
   "addr": "1060:0f1c",
@@ -2720,7 +2842,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "dialogs and options"
  },
  {
   "addr": "1060:1040",
@@ -2739,7 +2862,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "dialogs and options"
  },
  {
   "addr": "1060:10ba",
@@ -2762,7 +2886,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "dialogs and options"
  },
  {
   "addr": "1060:1182",
@@ -2780,7 +2905,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "dialogs and options"
  },
  {
   "addr": "1060:11e0",
@@ -2798,7 +2924,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "dialogs and options"
  },
  {
   "addr": "1060:128a",
@@ -2820,7 +2947,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "dialogs and options"
  },
  {
   "addr": "1068:0000",
@@ -2840,7 +2968,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "dialogs and script"
  },
  {
   "addr": "1068:006c",
@@ -2867,7 +2996,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "dialogs and script"
  },
  {
   "addr": "1068:0edc",
@@ -2889,7 +3019,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "dialogs and script"
  },
  {
   "addr": "1068:1030",
@@ -2908,7 +3039,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "dialogs and script"
  },
  {
   "addr": "1068:11da",
@@ -2930,7 +3062,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "dialogs and script"
  },
  {
   "addr": "1068:15b8",
@@ -2949,7 +3082,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "dialogs and script"
  },
  {
   "addr": "1068:1654",
@@ -2968,7 +3102,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "dialogs and script"
  },
  {
   "addr": "1068:1692",
@@ -2990,7 +3125,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "dialogs and script"
  },
  {
   "addr": "1068:19ea",
@@ -3006,7 +3142,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "dialogs and script"
  },
  {
   "addr": "1068:1a74",
@@ -3025,7 +3162,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "dialogs and script"
  },
  {
   "addr": "1068:1b6e",
@@ -3049,7 +3187,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "dialogs and script"
  },
  {
   "addr": "1068:1c6c",
@@ -3068,7 +3207,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "dialogs and script"
  },
  {
   "addr": "1068:1d60",
@@ -3086,7 +3226,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "dialogs and script"
  },
  {
   "addr": "1068:1dcc",
@@ -3106,7 +3247,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "dialogs and script"
  },
  {
   "addr": "1068:1e12",
@@ -3128,7 +3270,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "dialogs and script"
  },
  {
   "addr": "1068:1efe",
@@ -3152,7 +3295,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "dialogs and script"
  },
  {
   "addr": "1068:2074",
@@ -3171,7 +3315,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "dialogs and script"
  },
  {
   "addr": "1068:20dc",
@@ -3190,7 +3335,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "dialogs and script"
  },
  {
   "addr": "1068:2144",
@@ -3210,7 +3356,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "dialogs and script"
  },
  {
   "addr": "1068:237a",
@@ -3231,7 +3378,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "dialogs and script"
  },
  {
   "addr": "1068:2418",
@@ -3257,7 +3405,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "dialogs and script"
  },
  {
   "addr": "1068:27a8",
@@ -3282,7 +3431,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "dialogs and script"
  },
  {
   "addr": "1068:2a72",
@@ -3314,7 +3464,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "dialogs and script"
  },
  {
   "addr": "1068:2d64",
@@ -3335,7 +3486,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "dialogs and script"
  },
  {
   "addr": "1068:30a6",
@@ -3353,7 +3505,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "dialogs and script"
  },
  {
   "addr": "1068:312a",
@@ -3371,7 +3524,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "dialogs and script"
  },
  {
   "addr": "1068:31a6",
@@ -3390,7 +3544,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "dialogs and script"
  },
  {
   "addr": "1068:3280",
@@ -3406,7 +3561,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "dialogs and script"
  },
  {
   "addr": "1070:0000",
@@ -3427,7 +3583,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "script and talk"
  },
  {
   "addr": "1070:0136",
@@ -3446,7 +3603,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "script and talk"
  },
  {
   "addr": "1078:0000",
@@ -3470,7 +3628,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "graphics and sprites"
  },
  {
   "addr": "1078:00ca",
@@ -3488,7 +3647,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "graphics and sprites"
  },
  {
   "addr": "1078:0106",
@@ -3506,7 +3666,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "graphics and sprites"
  },
  {
   "addr": "1078:0172",
@@ -3534,7 +3695,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "graphics and sprites"
  },
  {
   "addr": "1078:03be",
@@ -3553,7 +3715,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "graphics and sprites"
  },
  {
   "addr": "1078:043e",
@@ -3569,7 +3732,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "graphics and sprites"
  },
  {
   "addr": "1078:0454",
@@ -3588,7 +3752,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "graphics and sprites"
  },
  {
   "addr": "1078:05be",
@@ -3606,7 +3771,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "graphics and sprites"
  },
  {
   "addr": "1078:06f4",
@@ -3631,7 +3797,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "graphics and sprites"
  },
  {
   "addr": "1078:0806",
@@ -3650,7 +3817,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "graphics and sprites"
  },
  {
   "addr": "1078:08c0",
@@ -3670,7 +3838,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "graphics and sprites"
  },
  {
   "addr": "1078:0a00",
@@ -3694,7 +3863,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "graphics and sprites"
  },
  {
   "addr": "1078:0b8e",
@@ -3718,7 +3888,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "graphics and sprites"
  },
  {
   "addr": "1078:0d60",
@@ -3742,7 +3913,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "graphics and sprites"
  },
  {
   "addr": "1078:1030",
@@ -3767,7 +3939,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "graphics and sprites"
  },
  {
   "addr": "1078:1238",
@@ -3795,7 +3968,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "graphics and sprites"
  },
  {
   "addr": "1078:1796",
@@ -3818,7 +3992,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "graphics and sprites"
  },
  {
   "addr": "1078:18d8",
@@ -3839,7 +4014,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "graphics and sprites"
  },
  {
   "addr": "1078:1aea",
@@ -3863,7 +4039,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "graphics and sprites"
  },
  {
   "addr": "1078:1b6c",
@@ -3882,7 +4059,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "graphics and sprites"
  },
  {
   "addr": "1080:0000",
@@ -3903,7 +4081,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "graphics and palette"
  },
  {
   "addr": "1080:0044",
@@ -3919,7 +4098,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "graphics and palette"
  },
  {
   "addr": "1080:00a0",
@@ -3935,7 +4115,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "graphics and palette"
  },
  {
   "addr": "1080:00c2",
@@ -3953,7 +4134,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "graphics and palette"
  },
  {
   "addr": "1080:00ee",
@@ -3972,7 +4154,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "graphics and palette"
  },
  {
   "addr": "1080:01de",
@@ -3991,7 +4174,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "graphics and palette"
  },
  {
   "addr": "1080:02f0",
@@ -4012,7 +4196,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "graphics and palette"
  },
  {
   "addr": "1080:038a",
@@ -4030,7 +4215,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "graphics and palette"
  },
  {
   "addr": "1080:041a",
@@ -4048,7 +4234,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "graphics and palette"
  },
  {
   "addr": "1080:049a",
@@ -4074,7 +4261,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "graphics and palette"
  },
  {
   "addr": "1080:062a",
@@ -4090,7 +4278,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "graphics and palette"
  },
  {
   "addr": "1080:0650",
@@ -4111,7 +4300,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "graphics and palette"
  },
  {
   "addr": "1080:06f8",
@@ -4128,7 +4318,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "graphics and palette"
  },
  {
   "addr": "1080:071a",
@@ -4147,7 +4338,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "graphics and palette"
  },
  {
   "addr": "1080:07a0",
@@ -4171,7 +4363,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "graphics and palette"
  },
  {
   "addr": "1080:0800",
@@ -4190,7 +4383,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "graphics and palette"
  },
  {
   "addr": "1080:0890",
@@ -4217,7 +4411,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "graphics and palette"
  },
  {
   "addr": "1080:0920",
@@ -4235,7 +4430,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "graphics and palette"
  },
  {
   "addr": "1080:098a",
@@ -4251,7 +4447,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "graphics and palette"
  },
  {
   "addr": "1080:09f8",
@@ -4268,7 +4465,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "graphics and palette"
  },
  {
   "addr": "1080:0ad6",
@@ -4290,7 +4488,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "graphics and palette"
  },
  {
   "addr": "1080:0b30",
@@ -4308,7 +4507,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "graphics and palette"
  },
  {
   "addr": "1080:0be0",
@@ -4328,7 +4528,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "graphics and palette"
  },
  {
   "addr": "1080:0cc8",
@@ -4347,7 +4548,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "graphics and palette"
  },
  {
   "addr": "1080:0d34",
@@ -4364,7 +4566,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "graphics and palette"
  },
  {
   "addr": "1080:0d56",
@@ -4388,7 +4591,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "graphics and palette"
  },
  {
   "addr": "1088:0000",
@@ -4404,11 +4608,12 @@
    "10d0:029e"
   ],
   "depth": 8,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_read_file_to",
+  "status": "decompiled",
   "engine": "",
-  "notes": "",
-  "cluster_name": ""
+  "notes": "wrapper for 1098:029e with error",
+  "cluster_name": "resource",
+  "cluster": "resource layer"
  },
  {
   "addr": "1088:003e",
@@ -4430,11 +4635,12 @@
    "10d0:055c"
   ],
   "depth": 10,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_load_glue_file",
+  "status": "decompiled",
   "engine": "",
-  "notes": "",
-  "cluster_name": ""
+  "notes": "loads and LZ-decodes a whole glue file; read at asm level only in part",
+  "cluster_name": "resource",
+  "cluster": "resource layer"
  },
  {
   "addr": "1088:02ac",
@@ -4455,7 +4661,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "resource layer"
  },
  {
   "addr": "1088:0350",
@@ -4473,7 +4680,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "resource layer"
  },
  {
   "addr": "1088:03a6",
@@ -4492,7 +4700,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "resource layer"
  },
  {
   "addr": "1088:04c8",
@@ -4511,7 +4720,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "resource layer"
  },
  {
   "addr": "1088:051c",
@@ -4531,7 +4741,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "resource layer"
  },
  {
   "addr": "1088:062c",
@@ -4550,7 +4761,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "resource layer"
  },
  {
   "addr": "1088:06b4",
@@ -4571,11 +4783,12 @@
    "10d0:029e"
   ],
   "depth": 14,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_load_file",
+  "status": "decompiled",
   "engine": "",
-  "notes": "",
-  "cluster_name": ""
+  "notes": "load resource by name; copies 22-byte entry record",
+  "cluster_name": "resource",
+  "cluster": "resource layer"
  },
  {
   "addr": "1088:0892",
@@ -4594,11 +4807,12 @@
    "10d0:029e"
   ],
   "depth": 8,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_get_file_size",
+  "status": "decompiled",
   "engine": "",
-  "notes": "",
-  "cluster_name": ""
+  "notes": "size of a resource by name",
+  "cluster_name": "resource",
+  "cluster": "resource layer"
  },
  {
   "addr": "1088:0966",
@@ -4614,7 +4828,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "resource layer"
  },
  {
   "addr": "1088:0986",
@@ -4630,7 +4845,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "resource layer"
  },
  {
   "addr": "1088:09a6",
@@ -4649,7 +4865,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "resource layer"
  },
  {
   "addr": "1090:0000",
@@ -4695,11 +4912,12 @@
    "10d0:029e"
   ],
   "depth": 7,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_mem_alloc",
+  "status": "understood",
   "engine": "",
-  "notes": "",
-  "cluster_name": ""
+  "notes": "GlobalAlloc+Lock wrapper",
+  "cluster_name": "resource",
+  "cluster": "resource layer"
  },
  {
   "addr": "1090:0068",
@@ -4748,11 +4966,12 @@
    "10d0:029e"
   ],
   "depth": 6,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_mem_free",
+  "status": "understood",
   "engine": "",
-  "notes": "",
-  "cluster_name": ""
+  "notes": "GlobalHandle/Unlock/Free wrapper",
+  "cluster_name": "resource",
+  "cluster": "resource layer"
  },
  {
   "addr": "1098:0000",
@@ -4783,7 +5002,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "resource layer and errors"
  },
  {
   "addr": "1098:007c",
@@ -4799,7 +5019,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "resource layer and errors"
  },
  {
   "addr": "1098:0108",
@@ -4815,7 +5036,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "resource layer and errors"
  },
  {
   "addr": "1098:0192",
@@ -4831,7 +5053,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "resource layer and errors"
  },
  {
   "addr": "1098:01c2",
@@ -4847,7 +5070,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "resource layer and errors"
  },
  {
   "addr": "1098:0248",
@@ -4885,7 +5109,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "resource layer and errors"
  },
  {
   "addr": "1098:0274",
@@ -4902,7 +5127,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "resource layer and errors"
  },
  {
   "addr": "1098:029e",
@@ -4920,7 +5146,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "resource layer and errors"
  },
  {
   "addr": "1098:0326",
@@ -4957,7 +5184,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "resource layer and errors"
  },
  {
   "addr": "10a0:0000",
@@ -4978,7 +5206,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "startup helpers"
  },
  {
   "addr": "10a0:005e",
@@ -4999,7 +5228,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "startup helpers"
  },
  {
   "addr": "10a0:0080",
@@ -5018,7 +5248,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "startup helpers"
  },
  {
   "addr": "10a0:00be",
@@ -5039,7 +5270,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "startup helpers"
  },
  {
   "addr": "10a0:01ae",
@@ -5058,7 +5290,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "startup helpers"
  },
  {
   "addr": "10a8:0000",
@@ -5083,7 +5316,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "audio and video (MCI, WaveMix)"
  },
  {
   "addr": "10a8:0042",
@@ -5107,7 +5341,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "audio and video (MCI, WaveMix)"
  },
  {
   "addr": "10a8:0092",
@@ -5128,7 +5363,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "audio and video (MCI, WaveMix)"
  },
  {
   "addr": "10a8:00e2",
@@ -5147,7 +5383,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "audio and video (MCI, WaveMix)"
  },
  {
   "addr": "10a8:015e",
@@ -5167,7 +5404,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "audio and video (MCI, WaveMix)"
  },
  {
   "addr": "10a8:01e8",
@@ -5186,7 +5424,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "audio and video (MCI, WaveMix)"
  },
  {
   "addr": "10a8:0246",
@@ -5204,7 +5443,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "audio and video (MCI, WaveMix)"
  },
  {
   "addr": "10a8:028e",
@@ -5222,7 +5462,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "audio and video (MCI, WaveMix)"
  },
  {
   "addr": "10a8:02e2",
@@ -5240,7 +5481,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "audio and video (MCI, WaveMix)"
  },
  {
   "addr": "10a8:0350",
@@ -5264,7 +5506,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "audio and video (MCI, WaveMix)"
  },
  {
   "addr": "10a8:03e2",
@@ -5285,7 +5528,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "audio and video (MCI, WaveMix)"
  },
  {
   "addr": "10a8:0446",
@@ -5308,7 +5552,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "audio and video (MCI, WaveMix)"
  },
  {
   "addr": "10a8:057a",
@@ -5328,7 +5573,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "audio and video (MCI, WaveMix)"
  },
  {
   "addr": "10a8:0638",
@@ -5350,7 +5596,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "audio and video (MCI, WaveMix)"
  },
  {
   "addr": "10a8:06fa",
@@ -5374,7 +5621,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "audio and video (MCI, WaveMix)"
  },
  {
   "addr": "10a8:07dc",
@@ -5401,7 +5649,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "audio and video (MCI, WaveMix)"
  },
  {
   "addr": "10a8:0980",
@@ -5421,7 +5670,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "audio and video (MCI, WaveMix)"
  },
  {
   "addr": "10a8:09f4",
@@ -5437,7 +5687,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "audio and video (MCI, WaveMix)"
  },
  {
   "addr": "10a8:0a1e",
@@ -5459,7 +5710,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "audio and video (MCI, WaveMix)"
  },
  {
   "addr": "10a8:0b7e",
@@ -5478,7 +5730,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "audio and video (MCI, WaveMix)"
  },
  {
   "addr": "10a8:0bbe",
@@ -5497,7 +5750,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "audio and video (MCI, WaveMix)"
  },
  {
   "addr": "10a8:0c72",
@@ -5517,7 +5771,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "audio and video (MCI, WaveMix)"
  },
  {
   "addr": "10a8:0d1a",
@@ -5535,7 +5790,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "audio and video (MCI, WaveMix)"
  },
  {
   "addr": "10b0:0000",
@@ -5559,7 +5815,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "startup helpers"
  },
  {
   "addr": "10b8:0024",
@@ -5575,7 +5832,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "32-bit bitmap helpers"
  },
  {
   "addr": "10b8:0104",
@@ -5591,7 +5849,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "32-bit bitmap helpers"
  },
  {
   "addr": "10b8:0254",
@@ -5607,7 +5866,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "32-bit bitmap helpers"
  },
  {
   "addr": "10b8:02b2",
@@ -5621,7 +5881,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "32-bit bitmap helpers"
  },
  {
   "addr": "10b8:0368",
@@ -5633,11 +5894,12 @@
   ],
   "callees": [],
   "depth": 0,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_lz_decompress_block",
+  "status": "understood",
   "engine": "",
-  "notes": "",
-  "cluster_name": ""
+  "notes": "contract 10b8_0368; Ghidra mis-decodes (USE32 segment)",
+  "cluster_name": "resource",
+  "cluster": "32-bit bitmap helpers"
  },
  {
   "addr": "10c0:0000",
@@ -5659,7 +5921,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "startup helpers"
  },
  {
   "addr": "10c8:0040",
@@ -5677,7 +5940,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "32-bit bitmap helpers"
  },
  {
   "addr": "10c8:0073",
@@ -5693,7 +5957,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "32-bit bitmap helpers"
  },
  {
   "addr": "10c8:00fe",
@@ -5709,7 +5974,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "32-bit bitmap helpers"
  },
  {
   "addr": "10c8:0100",
@@ -5725,7 +5991,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "32-bit bitmap helpers"
  },
  {
   "addr": "10c8:054e",
@@ -5741,7 +6008,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "32-bit bitmap helpers"
  },
  {
   "addr": "10c8:059a",
@@ -5757,7 +6025,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "32-bit bitmap helpers"
  },
  {
   "addr": "10d0:001a",
@@ -5780,7 +6049,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "startup and C runtime"
  },
  {
   "addr": "10d0:00c4",
@@ -5799,7 +6069,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "startup and C runtime"
  },
  {
   "addr": "10d0:01a3",
@@ -5819,7 +6090,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "startup and C runtime"
  },
  {
   "addr": "10d0:01b1",
@@ -5837,7 +6109,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "startup and C runtime"
  },
  {
   "addr": "10d0:01c0",
@@ -5853,7 +6126,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "startup and C runtime"
  },
  {
   "addr": "10d0:01d1",
@@ -5867,7 +6141,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "startup and C runtime"
  },
  {
   "addr": "10d0:01e0",
@@ -5889,7 +6164,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "startup and C runtime"
  },
  {
   "addr": "10d0:0241",
@@ -5905,7 +6181,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "startup and C runtime"
  },
  {
   "addr": "10d0:026a",
@@ -5922,7 +6199,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "startup and C runtime"
  },
  {
   "addr": "10d0:029e",
@@ -6201,7 +6479,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "startup and C runtime"
  },
  {
   "addr": "10d0:02d2",
@@ -6217,7 +6496,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "startup and C runtime"
  },
  {
   "addr": "10d0:02f2",
@@ -6237,7 +6517,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "startup and C runtime"
  },
  {
   "addr": "10d0:034f",
@@ -6251,7 +6532,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "startup and C runtime"
  },
  {
   "addr": "10d0:0368",
@@ -6271,7 +6553,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "startup and C runtime"
  },
  {
   "addr": "10d0:039b",
@@ -6285,7 +6568,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "startup and C runtime"
  },
  {
   "addr": "10d0:039c",
@@ -6305,7 +6589,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "startup and C runtime"
  },
  {
   "addr": "10d0:03e2",
@@ -6321,7 +6606,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "startup and C runtime"
  },
  {
   "addr": "10d0:03f4",
@@ -6342,7 +6628,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "startup and C runtime"
  },
  {
   "addr": "10d0:046e",
@@ -6360,7 +6647,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "startup and C runtime"
  },
  {
   "addr": "10d0:0490",
@@ -6382,7 +6670,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "startup and C runtime"
  },
  {
   "addr": "10d0:052a",
@@ -6407,7 +6696,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "startup and C runtime"
  },
  {
   "addr": "10d0:055c",
@@ -6423,7 +6713,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "startup and C runtime"
  },
  {
   "addr": "10d0:05bc",
@@ -6439,7 +6730,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "startup and C runtime"
  },
  {
   "addr": "10d0:0604",
@@ -6456,7 +6748,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "startup and C runtime"
  },
  {
   "addr": "10d0:065c",
@@ -6474,7 +6767,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "startup and C runtime"
  },
  {
   "addr": "10d0:0688",
@@ -6492,7 +6786,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "startup and C runtime"
  },
  {
   "addr": "10d0:06ac",
@@ -6511,7 +6806,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "startup and C runtime"
  },
  {
   "addr": "10d0:06b2",
@@ -6529,7 +6825,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "startup and C runtime"
  },
  {
   "addr": "10d0:0834",
@@ -6547,7 +6844,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "startup and C runtime"
  },
  {
   "addr": "10d0:08c9",
@@ -6572,7 +6870,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "startup and C runtime"
  },
  {
   "addr": "10d0:0919",
@@ -6591,7 +6890,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "startup and C runtime"
  },
  {
   "addr": "10d0:092b",
@@ -6612,7 +6912,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "startup and C runtime"
  },
  {
   "addr": "10d0:0943",
@@ -6629,7 +6930,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "startup and C runtime"
  },
  {
   "addr": "10d0:096a",
@@ -6650,7 +6952,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "startup and C runtime"
  },
  {
   "addr": "10d0:0a6c",
@@ -6676,7 +6979,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "startup and C runtime"
  },
  {
   "addr": "10d0:0e82",
@@ -6693,7 +6997,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "startup and C runtime"
  },
  {
   "addr": "10d0:0e8a",
@@ -6710,7 +7015,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "startup and C runtime"
  },
  {
   "addr": "10d0:0e96",
@@ -6729,7 +7035,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "startup and C runtime"
  },
  {
   "addr": "10d0:0eb3",
@@ -6748,7 +7055,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "startup and C runtime"
  },
  {
   "addr": "10d0:0edd",
@@ -6766,7 +7074,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "startup and C runtime"
  },
  {
   "addr": "10d0:0efb",
@@ -6784,7 +7093,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "startup and C runtime"
  },
  {
   "addr": "10d0:0f17",
@@ -6800,7 +7110,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "startup and C runtime"
  },
  {
   "addr": "10d0:0f48",
@@ -6816,7 +7127,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "startup and C runtime"
  },
  {
   "addr": "10d0:0f54",
@@ -6832,7 +7144,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "startup and C runtime"
  },
  {
   "addr": "10d0:0f76",
@@ -6849,7 +7162,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "startup and C runtime"
  },
  {
   "addr": "10d0:0f7b",
@@ -6870,7 +7184,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "startup and C runtime"
  },
  {
   "addr": "10d0:0f82",
@@ -6887,7 +7202,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "startup and C runtime"
  },
  {
   "addr": "10d0:0fb9",
@@ -6907,7 +7223,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "startup and C runtime"
  },
  {
   "addr": "10d0:0ff6",
@@ -6927,7 +7244,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "startup and C runtime"
  },
  {
   "addr": "10d0:1024",
@@ -6945,7 +7263,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "startup and C runtime"
  },
  {
   "addr": "10d0:1068",
@@ -6963,7 +7282,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "startup and C runtime"
  },
  {
   "addr": "10d0:113c",
@@ -6987,7 +7307,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "startup and C runtime"
  },
  {
   "addr": "10d0:1216",
@@ -7005,7 +7326,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "startup and C runtime"
  },
  {
   "addr": "10d0:127a",
@@ -7023,7 +7345,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "startup and C runtime"
  },
  {
   "addr": "10d0:1288",
@@ -7042,7 +7365,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "startup and C runtime"
  },
  {
   "addr": "10d0:12d6",
@@ -7059,7 +7383,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "startup and C runtime"
  },
  {
   "addr": "10d0:12ec",
@@ -7075,7 +7400,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "startup and C runtime"
  },
  {
   "addr": "10d0:1300",
@@ -7092,7 +7418,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "startup and C runtime"
  },
  {
   "addr": "10d0:138c",
@@ -7110,7 +7437,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "startup and C runtime"
  },
  {
   "addr": "10d0:13f2",
@@ -7126,7 +7454,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "startup and C runtime"
  },
  {
   "addr": "10d0:1412",
@@ -7146,7 +7475,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "startup and C runtime"
  },
  {
   "addr": "10d0:1468",
@@ -7165,7 +7495,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "startup and C runtime"
  },
  {
   "addr": "10d0:14df",
@@ -7179,7 +7510,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "startup and C runtime"
  },
  {
   "addr": "10d0:14e0",
@@ -7197,7 +7529,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "startup and C runtime"
  },
  {
   "addr": "10d0:14f4",
@@ -7216,7 +7549,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "startup and C runtime"
  },
  {
   "addr": "10d0:155d",
@@ -7230,7 +7564,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "startup and C runtime"
  },
  {
   "addr": "10d0:155e",
@@ -7248,7 +7583,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "startup and C runtime"
  },
  {
   "addr": "10d0:15b9",
@@ -7262,7 +7598,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "startup and C runtime"
  },
  {
   "addr": "10d0:15ba",
@@ -7279,7 +7616,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "startup and C runtime"
  },
  {
   "addr": "10d0:15d4",
@@ -7296,7 +7634,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "startup and C runtime"
  },
  {
   "addr": "10d0:1641",
@@ -7310,7 +7649,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "startup and C runtime"
  },
  {
   "addr": "10d0:1656",
@@ -7328,7 +7668,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "startup and C runtime"
  },
  {
   "addr": "10d0:1693",
@@ -7342,7 +7683,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "startup and C runtime"
  },
  {
   "addr": "10d0:1694",
@@ -7367,7 +7709,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "startup and C runtime"
  },
  {
   "addr": "10d0:1787",
@@ -7381,7 +7724,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "startup and C runtime"
  },
  {
   "addr": "10d0:1788",
@@ -7399,7 +7743,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "startup and C runtime"
  },
  {
   "addr": "10d0:17f8",
@@ -7417,7 +7762,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "startup and C runtime"
  },
  {
   "addr": "10d0:1824",
@@ -7434,7 +7780,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "startup and C runtime"
  },
  {
   "addr": "10d0:185c",
@@ -7450,7 +7797,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "startup and C runtime"
  },
  {
   "addr": "10d0:189c",
@@ -7466,7 +7814,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "startup and C runtime"
  },
  {
   "addr": "10d0:18ce",
@@ -7484,7 +7833,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "startup and C runtime"
  },
  {
   "addr": "10d0:18ea",
@@ -7500,7 +7850,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "startup and C runtime"
  },
  {
   "addr": "10d0:18ec",
@@ -7514,7 +7865,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "startup and C runtime"
  },
  {
   "addr": "10d0:190e",
@@ -7532,7 +7884,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "startup and C runtime"
  },
  {
   "addr": "10d0:193e",
@@ -7548,7 +7901,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "startup and C runtime"
  },
  {
   "addr": "10d8:0000",
@@ -7566,7 +7920,8 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "startup and C runtime"
  },
  {
   "addr": "10d8:0052",
@@ -7584,6 +7939,7 @@
   "status": "untouched",
   "engine": "",
   "notes": "",
-  "cluster_name": ""
+  "cluster_name": "",
+  "cluster": "startup and C runtime"
  }
 ]

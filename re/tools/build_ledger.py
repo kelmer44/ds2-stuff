@@ -13,6 +13,18 @@ ROOT = Path(__file__).resolve().parents[2]
 EXPORT = ROOT / "re" / "export"
 LEDGER = ROOT / "re" / "ledger.json"
 HAND = ("name", "status", "engine", "notes", "cluster_name")
+# First guess from imports and strings (see clusters.md); refine with mark.py --cluster.
+SEGMENT_CLUSTER = {
+    "1000": "main window and input", "1008": "main window and input", "1040": "main window and input",
+    "1010": "dialogs", "1018": "dialogs and saves", "1060": "dialogs and options",
+    "1068": "dialogs and script", "1030": "options (INI)", "1028": "resource layer",
+    "1038": "graphics and bitmaps", "1048": "script and rooms", "1050": "rooms and cursors",
+    "1058": "text and cursors", "1070": "script and talk", "1078": "graphics and sprites",
+    "1080": "graphics and palette", "1088": "resource layer", "1090": "resource layer",
+    "1098": "resource layer and errors", "10a0": "startup helpers", "10a8": "audio and video (MCI, WaveMix)",
+    "10b0": "startup helpers", "10b8": "32-bit bitmap helpers", "10c0": "startup helpers",
+    "10c8": "32-bit bitmap helpers", "10d0": "startup and C runtime", "10d8": "startup and C runtime",
+}
 
 
 def load_functions():
@@ -81,6 +93,7 @@ def main():
             "engine": "",
             "notes": "",
             "cluster_name": "",
+            "cluster": SEGMENT_CLUSTER.get(addr.split(":")[0], "unassigned"),
         }
         for k in HAND:
             if addr in old and old[addr].get(k):

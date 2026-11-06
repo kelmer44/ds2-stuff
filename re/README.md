@@ -87,8 +87,15 @@ as `MISSING`.
   plus `fn/decompile-status.tsv`. Regenerate with the Ghidra scripts below.
 - `ghidra/ExportOverview.java`, `ExportFunctions.java`: headless exporters with a SHA-256 guard. `SurveyGaps.java` lists indirect jumps and code gaps, `DumpBytes.java` dumps bytes, `FixBaseline.java` and `FixBaseline2.java` apply the baseline fixes (writable, see `DS2_WRITE=1` in `tools/ghidra_headless.sh`).
 - `tools/ghidra_headless.sh Script.java [args]`: read-only headless run with writable cache dirs.
-- `contracts/<seg>_<off>.md`: one note per function (to be created with the first cluster).
-- `STRUCTS.md`, `SUBSYSTEMS.md`, `CHECKLIST.md`: to be created with the first cluster.
+- `contracts/<seg>_<off>.md`: one note per function, from `CONTRACT_TEMPLATE.md`. Required before a
+  function can be marked `understood` or later.
+- `STRUCTS.md`: recovered layouts with confidence markers. `COMPARISON_2011.md`: verdicts on the 2011 code.
+- `SUBSYSTEMS.md`: plain-language map of how the parts work (trust markers, Mermaid diagram).
+- `CHECKLIST.md`: generated; `[x]` only for functions that are understood or later **and** documented.
+- `tools/mark.py`: the only way to change statuses; enforces the documentation gate (`tools/docs_gate.py`).
+  `tools/make_checklist.py` regenerates the checklist. `tools/ne_segments.py` dumps or disassembles
+  NE segments (use `--use32` for `10b8` and `10c8`). `tools/glue_probe.py`, `glue_verify.py` check the
+  glue-file decoder against the game data.
 
 ## Regenerate the exports
 
@@ -107,6 +114,14 @@ headless tools while the project is open in the GUI.
 `untouched`, `decompiled` (read, signature fixed), `understood` (contract written), `ported`,
 `emu-compared` (original machine code against the port), `original-compared` (observed in the running
 original). Pure Windows glue (WinG, MCI, WAVMIX, GDI, dialogs): `replaced`.
+
+## Done means documented
+
+1. Read the function, write its contract (all of: Purpose, Inputs, Outputs, Calls, Edge cases, Evidence).
+2. Explain it in `SUBSYSTEMS.md` in plain language and tick the contract's two boxes.
+3. `re/tools/mark.py ADDR understood --name inferred_name`. The gate refuses if anything is missing.
+4. Later stages need more: `ported` needs `--engine file::function` and the contract's Port field,
+   `emu-compared` and `original-compared` need the Validation field.
 
 ## Session protocol
 
