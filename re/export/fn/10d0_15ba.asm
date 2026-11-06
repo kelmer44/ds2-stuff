@@ -1,0 +1,13 @@
+10d0:15ba: INC BP
+10d0:15bb: PUSH BP
+10d0:15bc: MOV BP,SP
+10d0:15be: PUSH DS
+10d0:15bf: CMP word ptr [BP + 0x6],0x0
+10d0:15c3: JZ 0x10d0:15cd
+10d0:15c5: PUSH word ptr [BP + 0x6]
+10d0:15c8: CALLF 0x13a8:0010
+10d0:15cd: LEA SP,[BP + -0x2]
+10d0:15d0: POP DS
+10d0:15d1: POP BP
+10d0:15d2: DEC BP
+10d0:15d3: RETF

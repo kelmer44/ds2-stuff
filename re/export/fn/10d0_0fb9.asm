@@ -1,0 +1,31 @@
+10d0:0fb9: MOV AX,DS
+10d0:0fbb: NOP
+10d0:0fbc: INC BP
+10d0:0fbd: PUSH BP
+10d0:0fbe: MOV BP,SP
+10d0:0fc0: PUSH DS
+10d0:0fc1: MOV DS,AX
+10d0:0fc3: PUSH DI
+10d0:0fc4: CMP word ptr [0x2a30],0x0
+10d0:0fc9: JZ 0x10d0:0fea
+10d0:0fcb: PUSH word ptr [BP + 0x6]
+10d0:0fce: PUSH CS
+10d0:0fcf: CALL 0x10d0:0f82
+10d0:0fd2: OR AX,AX
+10d0:0fd4: JZ 0x10d0:0fea
+10d0:0fd6: XCHG AX,DX
+10d0:0fd7: MOV DI,DX
+10d0:0fd9: XOR AX,AX
+10d0:0fdb: MOV CX,0xffff
+10d0:0fde: SCASB.REPNE ES:DI
+10d0:0fe0: NOT CX
+10d0:0fe2: DEC CX
+10d0:0fe3: MOV BX,word ptr [0x293c]
+10d0:0fe7: CALL 0x10d0:0f7b
+10d0:0fea: POP DI
+10d0:0feb: SUB BP,0x2
+10d0:0fee: MOV SP,BP
+10d0:0ff0: POP DS
+10d0:0ff1: POP BP
+10d0:0ff2: DEC BP
+10d0:0ff3: RETF 0x2

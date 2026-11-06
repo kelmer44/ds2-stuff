@@ -1,0 +1,42 @@
+1080:0cc8: PUSH BP
+1080:0cc9: MOV BP,SP
+1080:0ccb: PUSH DS
+1080:0ccc: MOV AX,0x10e8
+1080:0ccf: MOV DS,AX
+1080:0cd1: MOV AX,0x2
+1080:0cd4: CALLF 0x10d0:029e
+1080:0cd9: PUSH DI
+1080:0cda: PUSH SI
+1080:0cdb: MOV DI,word ptr [BP + 0x6]
+1080:0cde: PUSH word ptr [BP + 0xa]
+1080:0ce1: CALLF 0x13a8:00e8
+1080:0ce6: MOV SI,AX
+1080:0ce8: PUSH AX
+1080:0ce9: MOV ES,word ptr [BP + 0x8]
+1080:0cec: PUSH word ptr ES:[DI]
+1080:0cef: CALLF 0x13a8:00e0
+1080:0cf4: MOV word ptr [BP + -0x4],AX
+1080:0cf7: PUSH word ptr [BP + 0xa]
+1080:0cfa: PUSH word ptr [BP + 0xc]
+1080:0cfd: PUSH word ptr [BP + 0xe]
+1080:0d00: MOV ES,word ptr [BP + 0x8]
+1080:0d03: PUSH word ptr ES:[DI + 0x8]
+1080:0d07: PUSH word ptr ES:[DI + 0xa]
+1080:0d0b: PUSH SI
+1080:0d0c: PUSH 0x0
+1080:0d0e: PUSH 0x0
+1080:0d10: PUSH 0xcc
+1080:0d13: PUSH 0x20
+1080:0d15: CALLF 0x13a8:00dc
+1080:0d1a: PUSH SI
+1080:0d1b: PUSH word ptr [BP + -0x4]
+1080:0d1e: CALLF 0x13a8:00e0
+1080:0d23: PUSH SI
+1080:0d24: CALLF 0x13a8:00f0
+1080:0d29: MOV AX,0x1
+1080:0d2c: POP SI
+1080:0d2d: POP DI
+1080:0d2e: LEA SP,[BP + -0x2]
+1080:0d31: POP DS
+1080:0d32: POP BP
+1080:0d33: RETF

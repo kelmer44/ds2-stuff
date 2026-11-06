@@ -1,0 +1,96 @@
+1068:1a74: PUSH BP
+1068:1a75: MOV BP,SP
+1068:1a77: PUSH DS
+1068:1a78: MOV AX,0x10e8
+1068:1a7b: MOV DS,AX
+1068:1a7d: MOV AX,0x20a
+1068:1a80: CALLF 0x10d0:029e
+1068:1a85: PUSH DI
+1068:1a86: PUSH SI
+1068:1a87: MOV SI,word ptr [BP + 0xa]
+1068:1a8a: MOV DI,word ptr [BP + 0x6]
+1068:1a8d: MOV AX,DI
+1068:1a8f: MOV DX,word ptr [BP + 0x8]
+1068:1a92: ADD AX,0x6
+1068:1a95: PUSH DX
+1068:1a96: PUSH AX
+1068:1a97: MOV AX,word ptr [BP + 0xc]
+1068:1a9a: PUSH AX
+1068:1a9b: PUSH SI
+1068:1a9c: MOV word ptr [BP + 0xfdf4],SI
+1068:1aa0: MOV word ptr [BP + 0xfdf6],AX
+1068:1aa4: CALLF 0x13a8:0068
+1068:1aa9: LEA AX,[BP + 0xfdfc]
+1068:1aad: PUSH SS
+1068:1aae: PUSH AX
+1068:1aaf: PUSH word ptr [BP + 0xfdf6]
+1068:1ab3: PUSH word ptr [BP + 0xfdf4]
+1068:1ab7: CALLF 0x13a8:0068
+1068:1abc: LEA AX,[BP + 0xfdfc]
+1068:1ac0: PUSH SS
+1068:1ac1: PUSH AX
+1068:1ac2: PUSH DS
+1068:1ac3: PUSH 0x1f43
+1068:1ac6: CALLF 0x13a8:006c
+1068:1acb: LEA AX,[BP + 0xfdfc]
+1068:1acf: PUSH AX
+1068:1ad0: PUSH 0x10e0
+1068:1ad3: PUSH 0x275e
+1068:1ad6: CALLF 0x1098:0326
+1068:1adb: ADD SP,0x6
+1068:1ade: MOV ES,word ptr [BP + 0x8]
+1068:1ae1: MOV word ptr ES:[DI],AX
+1068:1ae4: MOV word ptr ES:[DI + 0x2],DX
+1068:1ae8: MOV AX,word ptr [BP + 0xe]
+1068:1aeb: MOV word ptr ES:[DI + 0x4],AX
+1068:1aef: MOV word ptr [BP + -0x4],0x0
+1068:1af4: MOV AX,word ptr ES:[DI]
+1068:1af7: MOV DX,word ptr ES:[DI + 0x2]
+1068:1afb: MOV word ptr [BP + 0xfdf8],AX
+1068:1aff: MOV word ptr [BP + 0xfdfa],DX
+1068:1b03: MOV ES,DX
+1068:1b05: MOV BX,AX
+1068:1b07: CMP byte ptr ES:[BX],0xd
+1068:1b0b: JNZ 0x1068:1b12
+1068:1b0d: MOV SI,word ptr [BP + -0x4]
+1068:1b10: JMP 0x1068:1b4a
+1068:1b12: MOV SI,word ptr [BP + -0x4]
+1068:1b15: MOV DS,word ptr [BP + 0x8]
+1068:1b18: MOV AX,SI
+1068:1b1a: CWD
+1068:1b1b: ADD AX,word ptr [DI]
+1068:1b1d: ADC DX,0x0
+1068:1b20: MOV CX,0x7c
+1068:1b23: SHL DX,CL
+1068:1b25: ADD DX,word ptr [DI + 0x2]
+1068:1b28: MOV ES,DX
+1068:1b2a: MOV BX,AX
+1068:1b2c: CMP byte ptr ES:[BX],0x0
+1068:1b30: JZ 0x1068:1b4a
+1068:1b32: INC SI
+1068:1b33: MOV AX,SI
+1068:1b35: CWD
+1068:1b36: ADD AX,word ptr [DI]
+1068:1b38: ADC DX,0x0
+1068:1b3b: SHL DX,CL
+1068:1b3d: ADD DX,word ptr [DI + 0x2]
+1068:1b40: MOV ES,DX
+1068:1b42: MOV BX,AX
+1068:1b44: CMP byte ptr ES:[BX],0xd
+1068:1b48: JNZ 0x1068:1b18
+1068:1b4a: MOV AX,SI
+1068:1b4c: CWD
+1068:1b4d: ADD AX,word ptr [BP + 0xfdf8]
+1068:1b51: ADC DX,0x0
+1068:1b54: MOV CX,0x7c
+1068:1b57: SHL DX,CL
+1068:1b59: ADD DX,word ptr [BP + 0xfdfa]
+1068:1b5d: MOV BX,AX
+1068:1b5f: MOV ES,DX
+1068:1b61: MOV byte ptr ES:[BX],0x0
+1068:1b65: POP SI
+1068:1b66: POP DI
+1068:1b67: LEA SP,[BP + -0x2]
+1068:1b6a: POP DS
+1068:1b6b: POP BP
+1068:1b6c: RETF

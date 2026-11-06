@@ -1,0 +1,8 @@
+.DS_Store
+# Original game installs, media and Ghidra databases stay local
+DS2/
+analysis/ghidra-project/
+ghidra/
+local-media/
+re/.venv/
+re/captures/

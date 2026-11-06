@@ -1,0 +1,99 @@
+10c8:0100: MOVZX EAX,word ptr [EBP + 0x1a]
+10c8:0104: MOVZX EBX,word ptr [EBP + 0x18]
+10c8:0108: MOVZX ECX,word ptr [EBP + 0xa]
+10c8:010c: MOVZX EDX,word ptr [EBP + 0x8]
+10c8:0110: MOV dword ptr [EBP + -0x3c],EAX
+10c8:0113: MOV dword ptr [EBP + -0x40],EBX
+10c8:0116: MOV dword ptr [EBP + -0x44],ECX
+10c8:0119: MOV dword ptr [EBP + -0x48],EDX
+10c8:011c: OR EAX,EAX
+10c8:011e: JZ 0x10c8:00fe
+10c8:0120: OR EBX,EBX
+10c8:0122: JZ 0x10c8:00fe
+10c8:0124: OR ECX,ECX
+10c8:0126: JZ 0x10c8:00fe
+10c8:0128: OR EDX,EDX
+10c8:012a: JZ 0x10c8:00fe
+10c8:012c: XOR EDI,EDI
+10c8:012e: XOR ESI,ESI
+10c8:0130: XOR ECX,ECX
+10c8:0132: LDS SI,[EBP + 0x14]
+10c8:0136: LES DI,[EBP + 0x24]
+10c8:013a: MOV CX,word ptr [ESI + 0xe]
+10c8:013e: CMP CX,word ptr ES:[EDI + 0xe]
+10c8:0143: JNZ 0x10c8:00fe
+10c8:0145: CMP ECX,0x8
+10c8:0148: JZ 0x10c8:0159
+10c8:014a: CMP ECX,0x10
+10c8:014d: JZ 0x10c8:0159
+10c8:014f: CMP ECX,0x18
+10c8:0152: JZ 0x10c8:0159
+10c8:0154: CMP ECX,0x20
+10c8:0157: JNZ 0x10c8:00fe
+10c8:0159: MOV EAX,dword ptr [ESI + 0x4]
+10c8:015c: MUL ECX
+10c8:015e: ADD EAX,0x1f
+10c8:0161: AND EAX,0xffffffe0
+10c8:0164: SHR EAX,0x3
+10c8:0167: MOV dword ptr [EBP + -0x24],EAX
+10c8:016a: MOV EAX,dword ptr [EBP + -0x44]
+10c8:016d: MOV dword ptr [EBP + -0x24],EAX
+10c8:0170: MOV dword ptr [EBP + -0x34],EAX
+10c8:0173: LDS SI,[EBP + 0x10]
+10c8:0177: MOVZX EDX,word ptr [EBP + 0xc]
+10c8:017b: MUL EDX
+10c8:017d: ADD ESI,EAX
+10c8:017f: MOVZX EAX,word ptr [EBP + 0xe]
+10c8:0183: MUL ECX
+10c8:0185: SHR EAX,0x3
+10c8:0188: ADD ESI,EAX
+10c8:018a: MOV EAX,dword ptr [EBP + -0x44]
+10c8:018d: MUL ECX
+10c8:018f: SHR EAX,0x3
+10c8:0192: MOV dword ptr [EBP + -0x2c],EAX
+10c8:0195: SUB dword ptr [EBP + -0x34],EAX
+10c8:0198: MOV EAX,dword ptr ES:[EDI + 0x4]
+10c8:019c: MUL ECX
+10c8:019e: ADD EAX,0x1f
+10c8:01a1: AND EAX,0xffffffe0
+10c8:01a4: SHR EAX,0x3
+10c8:01a7: MOV dword ptr [EBP + -0x28],EAX
+10c8:01aa: MOV dword ptr [EBP + -0x38],EAX
+10c8:01ad: CMP dword ptr ES:[EDI + 0x8],0x0
+10c8:01b2: JGE 0x10c8:01c8
+10c8:01b4: MOVSX EBX,word ptr [EBP + 0x1c]
+10c8:01b8: ADD EBX,dword ptr ES:[EDI + 0x8]
+10c8:01bc: NOT EBX
+10c8:01be: MOV word ptr [EBP + 0x1c],BX
+10c8:01c2: NEG dword ptr [EBP + -0x28]
+10c8:01c5: NEG dword ptr [EBP + -0x38]
+10c8:01c8: LES DI,[EBP + 0x20]
+10c8:01cc: MOVSX EDX,word ptr [EBP + 0x1c]
+10c8:01d0: MUL EDX
+10c8:01d2: ADD EDI,EAX
+10c8:01d4: MOVSX EAX,word ptr [EBP + 0x1e]
+10c8:01d8: MUL ECX
+10c8:01da: SHR EAX,0x3
+10c8:01dd: ADD EDI,EAX
+10c8:01df: MOV EAX,dword ptr [EBP + -0x3c]
+10c8:01e2: MUL ECX
+10c8:01e4: SHR EAX,0x3
+10c8:01e7: MOV dword ptr [EBP + -0x30],EAX
+10c8:01ea: SUB dword ptr [EBP + -0x38],EAX
+10c8:01ed: SUB ECX,0x8
+10c8:01f0: SHL ECX,0x2
+10c8:01f3: MOV EAX,dword ptr [EBP + -0x48]
+10c8:01f6: MOV EDX,dword ptr [EBP + -0x40]
+10c8:01f9: CALL 0x10c8:0073
+10c8:01fe: MOV dword ptr [EBP + -0x14],EDX
+10c8:0201: MOV dword ptr [EBP + -0x18],EBX
+10c8:0204: MOV EBX,EAX
+10c8:0206: MOV EDX,dword ptr CS:[EBX]
+10c8:020d: MOV dword ptr [EBP + -0x8],EDX
+10c8:0210: MOV EAX,dword ptr [EBP + -0x44]
+10c8:0213: MOV EDX,dword ptr [EBP + -0x3c]
+10c8:0216: CALL 0x10c8:0073
+10c8:021b: MOV dword ptr [EBP + -0xc],EDX
+10c8:021e: MOV dword ptr [EBP + -0x10],EBX
+10c8:0221: CLC
+10c8:0222: RET

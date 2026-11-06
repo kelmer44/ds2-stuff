@@ -1,0 +1,447 @@
+1078:1238: PUSH BP
+1078:1239: MOV BP,SP
+1078:123b: PUSH DS
+1078:123c: MOV AX,0x10e8
+1078:123f: MOV DS,AX
+1078:1241: MOV AX,0xa
+1078:1244: CALLF 0x10d0:029e
+1078:1249: PUSH DI
+1078:124a: PUSH SI
+1078:124b: MOV SI,word ptr [BP + 0x6]
+1078:124e: PUSH word ptr [BP + 0xa]
+1078:1251: PUSH word ptr [0x200a]
+1078:1255: PUSH 0x0
+1078:1257: CALLF 0x13a8:01e8
+1078:125c: MOV word ptr [BP + -0x8],AX
+1078:125f: MOV AX,word ptr [BP + 0x14]
+1078:1262: MOV ES,word ptr [BP + 0x8]
+1078:1265: CMP word ptr ES:[SI + 0x34a],AX
+1078:126a: JLE 0x1078:12a4
+1078:126c: MOV AX,word ptr ES:[SI + 0x34a]
+1078:1271: SUB AX,word ptr [BP + 0x14]
+1078:1274: CWD
+1078:1275: LES BX,[0x1fce]
+1078:1279: MOV word ptr ES:[BX + 0x4],AX
+1078:127d: MOV word ptr ES:[BX + 0x6],DX
+1078:1281: LES BX,[0x1fce]
+1078:1285: ADD BX,0x8
+1078:1288: MOV word ptr [BP + -0xa],ES
+1078:128b: CMP word ptr ES:[BX + 0x2],0x0
+1078:1290: JL 0x1078:12aa
+1078:1292: JG 0x1078:129a
+1078:1294: CMP word ptr ES:[BX],0x0
+1078:1298: JZ 0x1078:12aa
+1078:129a: MOV DI,word ptr [BP + 0x1a]
+1078:129d: MOV AX,DI
+1078:129f: SUB AX,word ptr [BP + 0x16]
+1078:12a2: JMP 0x1078:12b2
+1078:12a4: MOV DI,word ptr [BP + 0x1a]
+1078:12a7: JMP 0x1078:136b
+1078:12aa: MOV DI,word ptr [BP + 0x1a]
+1078:12ad: MOV AX,word ptr [BP + 0x16]
+1078:12b0: SUB AX,DI
+1078:12b2: CWD
+1078:12b3: MOV ES,word ptr [BP + -0xa]
+1078:12b6: MOV word ptr ES:[BX],AX
+1078:12b9: MOV word ptr ES:[BX + 0x2],DX
+1078:12bd: MOV ES,word ptr [BP + 0x8]
+1078:12c0: PUSH word ptr ES:[SI + 0x8]
+1078:12c4: PUSH word ptr [0x1fd0]
+1078:12c8: PUSH word ptr [0x1fce]
+1078:12cc: PUSH DS
+1078:12cd: PUSH 0x343a
+1078:12d0: CALLF 0x13a8:0210
+1078:12d5: MOV ES,word ptr [BP + 0x8]
+1078:12d8: MOV word ptr ES:[SI + 0x2],AX
+1078:12dc: PUSH word ptr ES:[SI + 0x8]
+1078:12e0: PUSH AX
+1078:12e1: CALLF 0x13a8:00e0
+1078:12e6: MOV [0x76f6],AX
+1078:12e9: MOV AX,word ptr [BP + 0x16]
+1078:12ec: SUB AX,word ptr [BP + 0x12]
+1078:12ef: PUSH AX
+1078:12f0: MOV AX,word ptr [BP + 0x14]
+1078:12f3: SUB AX,word ptr [BP + 0x10]
+1078:12f6: PUSH AX
+1078:12f7: PUSH word ptr [BP + 0xe]
+1078:12fa: PUSH word ptr [BP + 0xc]
+1078:12fd: PUSH 0x0
+1078:12ff: PUSH 0x0
+1078:1301: PUSH word ptr [0x343c]
+1078:1305: PUSH word ptr [0x343a]
+1078:1309: PUSH word ptr [0x1fd0]
+1078:130d: PUSH word ptr [0x1fce]
+1078:1311: CALLF 0x1080:0d56
+1078:1316: ADD SP,0x14
+1078:1319: PUSH word ptr [BP + 0xa]
+1078:131c: PUSH word ptr [BP + 0x14]
+1078:131f: PUSH word ptr [BP + 0x16]
+1078:1322: LES BX,[0x1fce]
+1078:1326: PUSH word ptr ES:[BX + 0x4]
+1078:132a: MOV AX,word ptr ES:[BX + 0x8]
+1078:132e: CWD
+1078:132f: XOR AX,DX
+1078:1331: SUB AX,DX
+1078:1333: PUSH AX
+1078:1334: MOV ES,word ptr [BP + 0x8]
+1078:1337: PUSH word ptr ES:[SI + 0x8]
+1078:133b: PUSH 0x0
+1078:133d: PUSH 0x0
+1078:133f: CALLF 0x13a8:0218
+1078:1344: MOV ES,word ptr [BP + 0x8]
+1078:1347: PUSH word ptr ES:[SI + 0x8]
+1078:134b: PUSH word ptr [0x76f6]
+1078:134f: CALLF 0x13a8:00e0
+1078:1354: MOV ES,word ptr [BP + 0x8]
+1078:1357: PUSH word ptr ES:[SI + 0x2]
+1078:135b: CALLF 0x13a8:00f4
+1078:1360: MOV ES,word ptr [BP + 0x8]
+1078:1363: MOV AX,word ptr ES:[SI + 0x34a]
+1078:1368: MOV word ptr [BP + 0x14],AX
+1078:136b: MOV AX,word ptr [BP + 0x16]
+1078:136e: CMP word ptr ES:[SI + 0x34e],AX
+1078:1373: JG 0x1078:1378
+1078:1375: JMP 0x1078:1476
+1078:1378: MOV AX,word ptr [BP + 0x18]
+1078:137b: SUB AX,word ptr [BP + 0x14]
+1078:137e: CWD
+1078:137f: LES BX,[0x1fce]
+1078:1383: MOV word ptr ES:[BX + 0x4],AX
+1078:1387: MOV word ptr ES:[BX + 0x6],DX
+1078:138b: LES BX,[0x1fce]
+1078:138f: ADD BX,0x8
+1078:1392: MOV word ptr [BP + -0xa],ES
+1078:1395: CMP word ptr ES:[BX + 0x2],0x0
+1078:139a: JL 0x1078:13b2
+1078:139c: JG 0x1078:13a4
+1078:139e: CMP word ptr ES:[BX],0x0
+1078:13a2: JZ 0x1078:13b2
+1078:13a4: MOV ES,word ptr [BP + 0x8]
+1078:13a7: MOV AX,word ptr ES:[SI + 0x34e]
+1078:13ac: SUB AX,word ptr [BP + 0x16]
+1078:13af: JMP 0x1078:13bd
+1078:13b2: MOV AX,word ptr [BP + 0x16]
+1078:13b5: MOV ES,word ptr [BP + 0x8]
+1078:13b8: SUB AX,word ptr ES:[SI + 0x34e]
+1078:13bd: CWD
+1078:13be: MOV ES,word ptr [BP + -0xa]
+1078:13c1: MOV word ptr ES:[BX],AX
+1078:13c4: MOV word ptr ES:[BX + 0x2],DX
+1078:13c8: MOV ES,word ptr [BP + 0x8]
+1078:13cb: PUSH word ptr ES:[SI + 0x8]
+1078:13cf: PUSH word ptr [0x1fd0]
+1078:13d3: PUSH word ptr [0x1fce]
+1078:13d7: PUSH DS
+1078:13d8: PUSH 0x343a
+1078:13db: CALLF 0x13a8:0210
+1078:13e0: MOV ES,word ptr [BP + 0x8]
+1078:13e3: MOV word ptr ES:[SI + 0x2],AX
+1078:13e7: PUSH word ptr ES:[SI + 0x8]
+1078:13eb: PUSH AX
+1078:13ec: CALLF 0x13a8:00e0
+1078:13f1: MOV [0x76f6],AX
+1078:13f4: MOV AX,word ptr [BP + 0x16]
+1078:13f7: SUB AX,word ptr [BP + 0x12]
+1078:13fa: PUSH AX
+1078:13fb: MOV AX,word ptr [BP + 0x14]
+1078:13fe: SUB AX,word ptr [BP + 0x10]
+1078:1401: PUSH AX
+1078:1402: PUSH word ptr [BP + 0xe]
+1078:1405: PUSH word ptr [BP + 0xc]
+1078:1408: PUSH 0x0
+1078:140a: PUSH 0x0
+1078:140c: PUSH word ptr [0x343c]
+1078:1410: PUSH word ptr [0x343a]
+1078:1414: PUSH word ptr [0x1fd0]
+1078:1418: PUSH word ptr [0x1fce]
+1078:141c: CALLF 0x1080:0d56
+1078:1421: ADD SP,0x14
+1078:1424: PUSH word ptr [BP + 0xa]
+1078:1427: PUSH word ptr [BP + 0x14]
+1078:142a: PUSH word ptr [BP + 0x16]
+1078:142d: LES BX,[0x1fce]
+1078:1431: PUSH word ptr ES:[BX + 0x4]
+1078:1435: MOV AX,word ptr ES:[BX + 0x8]
+1078:1439: CWD
+1078:143a: XOR AX,DX
+1078:143c: SUB AX,DX
+1078:143e: PUSH AX
+1078:143f: MOV ES,word ptr [BP + 0x8]
+1078:1442: PUSH word ptr ES:[SI + 0x8]
+1078:1446: PUSH 0x0
+1078:1448: PUSH 0x0
+1078:144a: CALLF 0x13a8:0218
+1078:144f: MOV ES,word ptr [BP + 0x8]
+1078:1452: PUSH word ptr ES:[SI + 0x8]
+1078:1456: PUSH word ptr [0x76f6]
+1078:145a: CALLF 0x13a8:00e0
+1078:145f: MOV ES,word ptr [BP + 0x8]
+1078:1462: PUSH word ptr ES:[SI + 0x2]
+1078:1466: CALLF 0x13a8:00f4
+1078:146b: MOV ES,word ptr [BP + 0x8]
+1078:146e: MOV AX,word ptr ES:[SI + 0x34e]
+1078:1473: MOV word ptr [BP + 0x16],AX
+1078:1476: MOV AX,word ptr [BP + 0x18]
+1078:1479: CMP word ptr ES:[SI + 0x34c],AX
+1078:147e: JL 0x1078:1483
+1078:1480: JMP 0x1078:157e
+1078:1483: SUB AX,word ptr ES:[SI + 0x34c]
+1078:1488: CWD
+1078:1489: LES BX,[0x1fce]
+1078:148d: MOV word ptr ES:[BX + 0x4],AX
+1078:1491: MOV word ptr ES:[BX + 0x6],DX
+1078:1495: LES BX,[0x1fce]
+1078:1499: ADD BX,0x8
+1078:149c: MOV word ptr [BP + -0xa],ES
+1078:149f: CMP word ptr ES:[BX + 0x2],0x0
+1078:14a4: JL 0x1078:14b6
+1078:14a6: JG 0x1078:14ae
+1078:14a8: CMP word ptr ES:[BX],0x0
+1078:14ac: JZ 0x1078:14b6
+1078:14ae: MOV AX,DI
+1078:14b0: SUB AX,word ptr [BP + 0x16]
+1078:14b3: JMP 0x1078:14bb
+1078:14b6: MOV AX,word ptr [BP + 0x16]
+1078:14b9: SUB AX,DI
+1078:14bb: CWD
+1078:14bc: MOV ES,word ptr [BP + -0xa]
+1078:14bf: MOV word ptr ES:[BX],AX
+1078:14c2: MOV word ptr ES:[BX + 0x2],DX
+1078:14c6: MOV ES,word ptr [BP + 0x8]
+1078:14c9: PUSH word ptr ES:[SI + 0x8]
+1078:14cd: PUSH word ptr [0x1fd0]
+1078:14d1: PUSH word ptr [0x1fce]
+1078:14d5: PUSH DS
+1078:14d6: PUSH 0x343a
+1078:14d9: CALLF 0x13a8:0210
+1078:14de: MOV ES,word ptr [BP + 0x8]
+1078:14e1: MOV word ptr ES:[SI + 0x2],AX
+1078:14e5: PUSH word ptr ES:[SI + 0x8]
+1078:14e9: PUSH AX
+1078:14ea: CALLF 0x13a8:00e0
+1078:14ef: MOV [0x76f6],AX
+1078:14f2: MOV AX,word ptr [BP + 0x16]
+1078:14f5: SUB AX,word ptr [BP + 0x12]
+1078:14f8: PUSH AX
+1078:14f9: MOV ES,word ptr [BP + 0x8]
+1078:14fc: MOV AX,word ptr ES:[SI + 0x34c]
+1078:1501: SUB AX,word ptr [BP + 0x10]
+1078:1504: PUSH AX
+1078:1505: PUSH word ptr [BP + 0xe]
+1078:1508: PUSH word ptr [BP + 0xc]
+1078:150b: PUSH 0x0
+1078:150d: PUSH 0x0
+1078:150f: PUSH word ptr [0x343c]
+1078:1513: PUSH word ptr [0x343a]
+1078:1517: PUSH word ptr [0x1fd0]
+1078:151b: PUSH word ptr [0x1fce]
+1078:151f: CALLF 0x1080:0d56
+1078:1524: ADD SP,0x14
+1078:1527: PUSH word ptr [BP + 0xa]
+1078:152a: MOV ES,word ptr [BP + 0x8]
+1078:152d: PUSH word ptr ES:[SI + 0x34c]
+1078:1532: PUSH word ptr [BP + 0x16]
+1078:1535: LES BX,[0x1fce]
+1078:1539: PUSH word ptr ES:[BX + 0x4]
+1078:153d: MOV AX,word ptr ES:[BX + 0x8]
+1078:1541: CWD
+1078:1542: XOR AX,DX
+1078:1544: SUB AX,DX
+1078:1546: PUSH AX
+1078:1547: MOV ES,word ptr [BP + 0x8]
+1078:154a: PUSH word ptr ES:[SI + 0x8]
+1078:154e: PUSH 0x0
+1078:1550: PUSH 0x0
+1078:1552: CALLF 0x13a8:0218
+1078:1557: MOV ES,word ptr [BP + 0x8]
+1078:155a: PUSH word ptr ES:[SI + 0x8]
+1078:155e: PUSH word ptr [0x76f6]
+1078:1562: CALLF 0x13a8:00e0
+1078:1567: MOV ES,word ptr [BP + 0x8]
+1078:156a: PUSH word ptr ES:[SI + 0x2]
+1078:156e: CALLF 0x13a8:00f4
+1078:1573: MOV ES,word ptr [BP + 0x8]
+1078:1576: MOV AX,word ptr ES:[SI + 0x34c]
+1078:157b: MOV word ptr [BP + 0x18],AX
+1078:157e: CMP word ptr ES:[SI + 0x350],DI
+1078:1583: JL 0x1078:1588
+1078:1585: JMP 0x1078:1688
+1078:1588: SUB AX,word ptr [BP + 0x14]
+1078:158b: CWD
+1078:158c: LES BX,[0x1fce]
+1078:1590: MOV word ptr ES:[BX + 0x4],AX
+1078:1594: MOV word ptr ES:[BX + 0x6],DX
+1078:1598: LES BX,[0x1fce]
+1078:159c: ADD BX,0x8
+1078:159f: MOV word ptr [BP + -0xa],ES
+1078:15a2: CMP word ptr ES:[BX + 0x2],0x0
+1078:15a7: JL 0x1078:15be
+1078:15a9: JG 0x1078:15b1
+1078:15ab: CMP word ptr ES:[BX],0x0
+1078:15af: JZ 0x1078:15be
+1078:15b1: MOV AX,DI
+1078:15b3: MOV ES,word ptr [BP + 0x8]
+1078:15b6: SUB AX,word ptr ES:[SI + 0x350]
+1078:15bb: JMP 0x1078:15c8
+1078:15be: MOV ES,word ptr [BP + 0x8]
+1078:15c1: MOV AX,word ptr ES:[SI + 0x350]
+1078:15c6: SUB AX,DI
+1078:15c8: CWD
+1078:15c9: MOV ES,word ptr [BP + -0xa]
+1078:15cc: MOV word ptr ES:[BX],AX
+1078:15cf: MOV word ptr ES:[BX + 0x2],DX
+1078:15d3: MOV ES,word ptr [BP + 0x8]
+1078:15d6: PUSH word ptr ES:[SI + 0x8]
+1078:15da: PUSH word ptr [0x1fd0]
+1078:15de: PUSH word ptr [0x1fce]
+1078:15e2: PUSH DS
+1078:15e3: PUSH 0x343a
+1078:15e6: CALLF 0x13a8:0210
+1078:15eb: MOV ES,word ptr [BP + 0x8]
+1078:15ee: MOV word ptr ES:[SI + 0x2],AX
+1078:15f2: PUSH word ptr ES:[SI + 0x8]
+1078:15f6: PUSH AX
+1078:15f7: CALLF 0x13a8:00e0
+1078:15fc: MOV [0x76f6],AX
+1078:15ff: MOV ES,word ptr [BP + 0x8]
+1078:1602: MOV AX,word ptr ES:[SI + 0x350]
+1078:1607: SUB AX,word ptr [BP + 0x12]
+1078:160a: PUSH AX
+1078:160b: MOV AX,word ptr [BP + 0x14]
+1078:160e: SUB AX,word ptr [BP + 0x10]
+1078:1611: PUSH AX
+1078:1612: PUSH word ptr [BP + 0xe]
+1078:1615: PUSH word ptr [BP + 0xc]
+1078:1618: PUSH 0x0
+1078:161a: PUSH 0x0
+1078:161c: PUSH word ptr [0x343c]
+1078:1620: PUSH word ptr [0x343a]
+1078:1624: PUSH word ptr [0x1fd0]
+1078:1628: PUSH word ptr [0x1fce]
+1078:162c: CALLF 0x1080:0d56
+1078:1631: ADD SP,0x14
+1078:1634: PUSH word ptr [BP + 0xa]
+1078:1637: PUSH word ptr [BP + 0x14]
+1078:163a: MOV ES,word ptr [BP + 0x8]
+1078:163d: PUSH word ptr ES:[SI + 0x350]
+1078:1642: LES BX,[0x1fce]
+1078:1646: PUSH word ptr ES:[BX + 0x4]
+1078:164a: MOV AX,word ptr ES:[BX + 0x8]
+1078:164e: CWD
+1078:164f: XOR AX,DX
+1078:1651: SUB AX,DX
+1078:1653: PUSH AX
+1078:1654: MOV ES,word ptr [BP + 0x8]
+1078:1657: PUSH word ptr ES:[SI + 0x8]
+1078:165b: PUSH 0x0
+1078:165d: PUSH 0x0
+1078:165f: CALLF 0x13a8:0218
+1078:1664: MOV ES,word ptr [BP + 0x8]
+1078:1667: PUSH word ptr ES:[SI + 0x8]
+1078:166b: PUSH word ptr [0x76f6]
+1078:166f: CALLF 0x13a8:00e0
+1078:1674: MOV ES,word ptr [BP + 0x8]
+1078:1677: PUSH word ptr ES:[SI + 0x2]
+1078:167b: CALLF 0x13a8:00f4
+1078:1680: MOV ES,word ptr [BP + 0x8]
+1078:1683: MOV DI,word ptr ES:[SI + 0x350]
+1078:1688: MOV AX,word ptr [BP + 0x18]
+1078:168b: SUB AX,word ptr [BP + 0x14]
+1078:168e: MOV word ptr [BP + -0x6],AX
+1078:1691: SUB DI,word ptr [BP + 0x16]
+1078:1694: MOV word ptr [BP + -0x4],DI
+1078:1697: OR AX,AX
+1078:1699: JG 0x1078:169e
+1078:169b: JMP 0x1078:1780
+1078:169e: OR DI,DI
+1078:16a0: JG 0x1078:16a5
+1078:16a2: JMP 0x1078:1780
+1078:16a5: PUSH DI
+1078:16a6: PUSH AX
+1078:16a7: PUSH word ptr [BP + 0xa]
+1078:16aa: PUSH ES
+1078:16ab: PUSH SI
+1078:16ac: PUSH CS
+1078:16ad: CALL 0x1078:0172
+1078:16b0: ADD SP,0xa
+1078:16b3: MOV AX,word ptr [BP + 0xe]
+1078:16b6: OR AX,word ptr [BP + 0xc]
+1078:16b9: JZ 0x1078:16e6
+1078:16bb: PUSH 0x0
+1078:16bd: MOV AX,word ptr [BP + 0x16]
+1078:16c0: SUB AX,word ptr [BP + 0x12]
+1078:16c3: PUSH AX
+1078:16c4: MOV AX,word ptr [BP + 0x14]
+1078:16c7: SUB AX,word ptr [BP + 0x10]
+1078:16ca: PUSH AX
+1078:16cb: PUSH word ptr [BP + 0xe]
+1078:16ce: PUSH word ptr [BP + 0xc]
+1078:16d1: PUSH 0x0
+1078:16d3: PUSH 0x0
+1078:16d5: MOV ES,word ptr [BP + 0x8]
+1078:16d8: PUSH word ptr ES:[SI + 0x8]
+1078:16dc: NOP
+1078:16dd: PUSH CS
+1078:16de: CALL 0x1078:1aea
+1078:16e1: ADD SP,0x10
+1078:16e4: JMP 0x1078:1700
+1078:16e6: MOV ES,word ptr [BP + 0x8]
+1078:16e9: PUSH word ptr ES:[SI + 0x8]
+1078:16ed: PUSH 0x0
+1078:16ef: PUSH 0x0
+1078:16f1: PUSH word ptr [BP + -0x6]
+1078:16f4: PUSH word ptr [BP + -0x4]
+1078:16f7: PUSH 0x0
+1078:16f9: PUSH 0x42
+1078:16fb: CALLF 0x13a8:00d4
+1078:1700: PUSH 0x0
+1078:1702: PUSH word ptr [BP + -0x4]
+1078:1705: PUSH word ptr [BP + -0x6]
+1078:1708: PUSH word ptr [BP + 0x16]
+1078:170b: PUSH word ptr [BP + 0x14]
+1078:170e: PUSH word ptr [BP + 0x8]
+1078:1711: PUSH SI
+1078:1712: PUSH CS
+1078:1713: CALL 0x1078:06f4
+1078:1716: ADD SP,0xe
+1078:1719: CMP word ptr [0x8a],0x0
+1078:171e: JZ 0x1078:1734
+1078:1720: PUSH word ptr [BP + 0x16]
+1078:1723: PUSH word ptr [BP + 0x14]
+1078:1726: MOV ES,word ptr [BP + 0x8]
+1078:1729: PUSH word ptr ES:[SI + 0x8]
+1078:172d: PUSH CS
+1078:172e: CALL 0x1078:0000
+1078:1731: ADD SP,0x6
+1078:1734: PUSH word ptr [BP + 0xa]
+1078:1737: PUSH word ptr [BP + 0x14]
+1078:173a: PUSH word ptr [BP + 0x16]
+1078:173d: MOV ES,word ptr [BP + 0x8]
+1078:1740: PUSH word ptr ES:[SI + 0xa]
+1078:1744: PUSH word ptr ES:[SI + 0xc]
+1078:1748: PUSH word ptr ES:[SI + 0x8]
+1078:174c: PUSH 0x0
+1078:174e: PUSH 0x0
+1078:1750: CALLF 0x13a8:0218
+1078:1755: PUSH word ptr [BP + 0xa]
+1078:1758: PUSH word ptr [BP + -0x8]
+1078:175b: PUSH 0x0
+1078:175d: CALLF 0x13a8:01e8
+1078:1762: MOV ES,word ptr [BP + 0x8]
+1078:1765: PUSH word ptr ES:[SI + 0x8]
+1078:1769: PUSH word ptr [0x76f6]
+1078:176d: CALLF 0x13a8:00e0
+1078:1772: MOV ES,word ptr [BP + 0x8]
+1078:1775: PUSH word ptr ES:[SI + 0x2]
+1078:1779: CALLF 0x13a8:00f4
+1078:177e: JMP 0x1078:178d
+1078:1780: PUSH word ptr [BP + 0xa]
+1078:1783: PUSH word ptr [BP + -0x8]
+1078:1786: PUSH 0x0
+1078:1788: CALLF 0x13a8:01e8
+1078:178d: POP SI
+1078:178e: POP DI
+1078:178f: LEA SP,[BP + -0x2]
+1078:1792: POP DS
+1078:1793: POP BP
+1078:1794: RETF

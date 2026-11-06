@@ -1,0 +1,113 @@
+10a8:0446: PUSH BP
+10a8:0447: MOV BP,SP
+10a8:0449: PUSH DS
+10a8:044a: MOV AX,0x10e8
+10a8:044d: MOV DS,AX
+10a8:044f: MOV AX,0xc2
+10a8:0452: CALLF 0x10d0:029e
+10a8:0457: PUSH DI
+10a8:0458: PUSH SI
+10a8:0459: MOV SI,word ptr [BP + 0xa]
+10a8:045c: PUSH word ptr [BP + 0x10]
+10a8:045f: PUSH word ptr [BP + 0xe]
+10a8:0462: PUSH CS
+10a8:0463: CALL 0x10a8:0350
+10a8:0466: ADD SP,0x4
+10a8:0469: LEA AX,[BP + 0xff3c]
+10a8:046d: PUSH SS
+10a8:046e: PUSH AX
+10a8:046f: PUSH word ptr [BP + 0xc]
+10a8:0472: PUSH SI
+10a8:0473: CALLF 0x13a8:0068
+10a8:0478: LEA AX,[BP + 0xff3c]
+10a8:047c: PUSH SS
+10a8:047d: PUSH AX
+10a8:047e: PUSH DS
+10a8:047f: PUSH 0x2792
+10a8:0482: CALLF 0x13a8:006c
+10a8:0487: CMP word ptr [0x4c],0x3d6
+10a8:048d: JZ 0x10a8:04e8
+10a8:048f: CMP word ptr [0x5c],0x0
+10a8:0494: JZ 0x10a8:04e8
+10a8:0496: CMP word ptr [0x4a],0x0
+10a8:049b: JZ 0x10a8:04e8
+10a8:049d: PUSH word ptr [BP + 0xc]
+10a8:04a0: PUSH SI
+10a8:04a1: PUSH CS
+10a8:04a2: CALL 0x10a8:028e
+10a8:04a5: ADD SP,0x4
+10a8:04a8: LES BX,[BP + 0xe]
+10a8:04ab: MOV word ptr ES:[BX],AX
+10a8:04ae: MOV word ptr ES:[BX + 0x2],DX
+10a8:04b2: MOV AX,DX
+10a8:04b4: OR AX,word ptr ES:[BX]
+10a8:04b7: JNZ 0x10a8:04f4
+10a8:04b9: LEA AX,[BP + 0xff3c]
+10a8:04bd: PUSH AX
+10a8:04be: PUSH word ptr [BP + 0x8]
+10a8:04c1: PUSH word ptr [BP + 0x6]
+10a8:04c4: CALLF 0x1098:0326
+10a8:04c9: ADD SP,0x6
+10a8:04cc: LES BX,[BP + 0xe]
+10a8:04cf: MOV word ptr ES:[BX],AX
+10a8:04d2: MOV word ptr ES:[BX + 0x2],DX
+10a8:04d6: PUSH DX
+10a8:04d7: PUSH word ptr ES:[BX]
+10a8:04da: PUSH word ptr [BP + 0xc]
+10a8:04dd: PUSH SI
+10a8:04de: PUSH CS
+10a8:04df: CALL 0x10a8:02e2
+10a8:04e2: ADD SP,0x8
+10a8:04e5: JMP 0x10a8:04f4
+10a8:04e8: LES BX,[BP + 0xe]
+10a8:04eb: SUB AX,AX
+10a8:04ed: MOV word ptr ES:[BX + 0x2],AX
+10a8:04f1: MOV word ptr ES:[BX],AX
+10a8:04f4: LEA AX,[BP + 0xff3c]
+10a8:04f8: PUSH AX
+10a8:04f9: PUSH word ptr [BP + 0x8]
+10a8:04fc: PUSH word ptr [BP + 0x6]
+10a8:04ff: CALLF 0x1088:0892
+10a8:0504: ADD SP,0x6
+10a8:0507: LES BX,[BP + 0xe]
+10a8:050a: MOV word ptr ES:[BX + 0x4],AX
+10a8:050e: MOV word ptr ES:[BX + 0x6],DX
+10a8:0512: XOR AX,AX
+10a8:0514: MOV CX,0x21
+10a8:0517: PUSH ES
+10a8:0518: LEA DI,[BP + -0x44]
+10a8:051b: PUSH SS
+10a8:051c: POP ES
+10a8:051d: STOSW.REP ES:DI
+10a8:051f: POP ES
+10a8:0520: MOV AX,word ptr ES:[BX]
+10a8:0523: MOV DX,word ptr ES:[BX + 0x2]
+10a8:0527: MOV word ptr [BP + -0x30],AX
+10a8:052a: MOV word ptr [BP + -0x2e],DX
+10a8:052d: MOV AX,word ptr ES:[BX + 0x4]
+10a8:0531: MOV DX,word ptr ES:[BX + 0x6]
+10a8:0535: MOV word ptr [BP + -0x34],AX
+10a8:0538: MOV word ptr [BP + -0x32],DX
+10a8:053b: MOV word ptr [BP + -0x40],0x454d
+10a8:0540: MOV word ptr [BP + -0x3e],0x204d
+10a8:0545: SUB AX,AX
+10a8:0547: MOV word ptr [BP + -0x16],AX
+10a8:054a: MOV word ptr [BP + -0x18],AX
+10a8:054d: PUSH word ptr [0x4a]
+10a8:0551: LEA AX,[BP + -0x44]
+10a8:0554: PUSH SS
+10a8:0555: PUSH AX
+10a8:0556: PUSH word ptr [0x9556]
+10a8:055a: PUSH 0x0
+10a8:055c: PUSH 0x4
+10a8:055e: CALLF 0x13a8:0238
+10a8:0563: LES BX,[BP + 0xe]
+10a8:0566: MOV word ptr ES:[BX + 0x8],AX
+10a8:056a: MOV word ptr ES:[BX + 0xa],DX
+10a8:056e: MOV AX,0x1
+10a8:0571: POP SI
+10a8:0572: POP DI
+10a8:0573: LEA SP,[BP + -0x2]
+10a8:0576: POP DS
+10a8:0577: POP BP
+10a8:0578: RETF

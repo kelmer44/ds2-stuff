@@ -1,0 +1,66 @@
+10a8:0bbe: PUSH BP
+10a8:0bbf: MOV BP,SP
+10a8:0bc1: PUSH DS
+10a8:0bc2: MOV AX,0x10e8
+10a8:0bc5: MOV DS,AX
+10a8:0bc7: MOV AX,0x10
+10a8:0bca: CALLF 0x10d0:029e
+10a8:0bcf: PUSH SI
+10a8:0bd0: INC word ptr [0x2826]
+10a8:0bd4: CMP word ptr [0x5e],0x0
+10a8:0bd9: JNZ 0x10a8:0bde
+10a8:0bdb: JMP 0x10a8:0c68
+10a8:0bde: CMP word ptr [0x2826],0x1e
+10a8:0be3: JG 0x10a8:0be8
+10a8:0be5: JMP 0x10a8:0c68
+10a8:0be8: MOV word ptr [0x2826],0x0
+10a8:0bee: PUSH DS
+10a8:0bef: PUSH 0x2828
+10a8:0bf2: CALLF 0x13a8:0230
+10a8:0bf7: MOV SI,AX
+10a8:0bf9: MOV word ptr [BP + -0xa],0x4
+10a8:0bfe: MOV word ptr [BP + -0x8],0x0
+10a8:0c03: SUB AX,AX
+10a8:0c05: MOV word ptr [BP + -0x10],AX
+10a8:0c08: MOV word ptr [BP + -0x12],AX
+10a8:0c0b: PUSH SI
+10a8:0c0c: PUSH 0x814
+10a8:0c0f: PUSH AX
+10a8:0c10: PUSH 0x102
+10a8:0c13: LEA AX,[BP + -0x12]
+10a8:0c16: PUSH SS
+10a8:0c17: PUSH AX
+10a8:0c18: CALLF 0x13a8:0228
+10a8:0c1d: CMP word ptr [BP + -0xe],0x20d
+10a8:0c22: JNZ 0x10a8:0c68
+10a8:0c24: CMP word ptr [BP + -0xc],0x0
+10a8:0c28: JNZ 0x10a8:0c68
+10a8:0c2a: CMP word ptr [0x368],0x0
+10a8:0c2f: JNZ 0x10a8:0c3e
+10a8:0c31: PUSH 0x0
+10a8:0c33: PUSH word ptr [0x4a]
+10a8:0c37: PUSH CS
+10a8:0c38: CALL 0x10a8:0000
+10a8:0c3b: ADD SP,0x4
+10a8:0c3e: PUSH DS
+10a8:0c3f: PUSH 0x2831
+10a8:0c42: PUSH 0x0
+10a8:0c44: PUSH 0x0
+10a8:0c46: PUSH 0x0
+10a8:0c48: PUSH 0x0
+10a8:0c4a: CALLF 0x13a8:022c
+10a8:0c4f: CMP word ptr [0x368],0x0
+10a8:0c54: JNZ 0x10a8:0c63
+10a8:0c56: PUSH 0x1
+10a8:0c58: PUSH word ptr [0x4a]
+10a8:0c5c: PUSH CS
+10a8:0c5d: CALL 0x10a8:0000
+10a8:0c60: ADD SP,0x4
+10a8:0c63: MOV AX,0x1
+10a8:0c66: JMP 0x10a8:0c6a
+10a8:0c68: XOR AX,AX
+10a8:0c6a: POP SI
+10a8:0c6b: LEA SP,[BP + -0x2]
+10a8:0c6e: POP DS
+10a8:0c6f: POP BP
+10a8:0c70: RETF

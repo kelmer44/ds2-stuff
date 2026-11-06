@@ -1,0 +1,15 @@
+10d0:0e96: TEST byte ptr [BP + -0x6],0x20
+10d0:0e9a: JZ 0x10d0:0ea4
+10d0:0e9c: CALL 0x10d0:0e8a
+10d0:0e9f: MOV ES,DX
+10d0:0ea1: MOV DI,AX
+10d0:0ea3: RET
+10d0:0ea4: CALL 0x10d0:0e82
+10d0:0ea7: MOV DI,AX
+10d0:0ea9: OR AX,AX
+10d0:0eab: JNZ 0x10d0:0eb0
+10d0:0ead: MOV ES,AX
+10d0:0eaf: RET
+10d0:0eb0: PUSH DS
+10d0:0eb1: POP ES
+10d0:0eb2: RET

@@ -1,0 +1,50 @@
+10d0:1468: PUSH BP
+10d0:1469: MOV BP,SP
+10d0:146b: SUB SP,0x2
+10d0:146e: PUSH DI
+10d0:146f: PUSH SI
+10d0:1470: XOR DI,DI
+10d0:1472: MOV AX,word ptr [BP + 0x4]
+10d0:1475: MOV BX,AX
+10d0:1477: MOV SI,AX
+10d0:1479: MOV CL,byte ptr [BX + 0x6]
+10d0:147c: MOV DX,CX
+10d0:147e: AND CL,0x3
+10d0:1481: CMP CL,0x2
+10d0:1484: JNZ 0x10d0:14cd
+10d0:1486: TEST DL,0x8
+10d0:1489: JNZ 0x10d0:1496
+10d0:148b: SUB BX,0x2a76
+10d0:148f: TEST byte ptr [BX + 0x2b16],0x1
+10d0:1494: JZ 0x10d0:14cd
+10d0:1496: MOV AX,word ptr [SI]
+10d0:1498: SUB AX,word ptr [SI + 0x4]
+10d0:149b: MOV word ptr [BP + -0x2],AX
+10d0:149e: OR AX,AX
+10d0:14a0: JLE 0x10d0:14cd
+10d0:14a2: PUSH AX
+10d0:14a3: PUSH word ptr [SI + 0x4]
+10d0:14a6: MOV AL,byte ptr [SI + 0x7]
+10d0:14a9: SUB AH,AH
+10d0:14ab: PUSH AX
+10d0:14ac: NOP
+10d0:14ad: PUSH CS
+10d0:14ae: CALL 0x10d0:113c
+10d0:14b1: ADD SP,0x6
+10d0:14b4: CMP AX,word ptr [BP + -0x2]
+10d0:14b7: JNZ 0x10d0:14c6
+10d0:14b9: TEST byte ptr [SI + 0x6],0x80
+10d0:14bd: JZ 0x10d0:14cd
+10d0:14bf: AND byte ptr [SI + 0x6],0xfd
+10d0:14c3: JMP 0x10d0:14cd
+10d0:14c6: OR byte ptr [SI + 0x6],0x20
+10d0:14ca: MOV DI,0xffff
+10d0:14cd: MOV AX,word ptr [SI + 0x4]
+10d0:14d0: MOV word ptr [SI],AX
+10d0:14d2: MOV word ptr [SI + 0x2],0x0
+10d0:14d7: MOV AX,DI
+10d0:14d9: POP SI
+10d0:14da: POP DI
+10d0:14db: MOV SP,BP
+10d0:14dd: POP BP
+10d0:14de: RET

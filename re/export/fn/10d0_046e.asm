@@ -1,0 +1,17 @@
+10d0:046e: PUSH BP
+10d0:046f: MOV BP,SP
+10d0:0471: PUSH DS
+10d0:0472: PUSH BX
+10d0:0473: LDS BX,[BP + 0x6]
+10d0:0476: PUSH word ptr [BP + 0xc]
+10d0:0479: PUSH word ptr [BP + 0xa]
+10d0:047c: PUSH word ptr [BX + 0x2]
+10d0:047f: PUSH word ptr [BX]
+10d0:0481: PUSH CS
+10d0:0482: CALL 0x10d0:052a
+10d0:0485: MOV word ptr [BX],AX
+10d0:0487: MOV word ptr [BX + 0x2],DX
+10d0:048a: POP BX
+10d0:048b: POP DS
+10d0:048c: POP BP
+10d0:048d: RETF 0x8

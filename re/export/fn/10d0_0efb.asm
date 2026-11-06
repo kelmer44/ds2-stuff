@@ -1,0 +1,13 @@
+10d0:0efb: JCXZ 0x10d0:0f16
+10d0:0efd: ADD word ptr [BP + -0xa],CX
+10d0:0f00: PUSH DI
+10d0:0f01: XOR DI,DI
+10d0:0f03: MOV AL,DL
+10d0:0f05: CALL 0x10d0:0eb3
+10d0:0f08: OR DI,AX
+10d0:0f0a: LOOP 0x10d0:0f03
+10d0:0f0c: OR DI,DI
+10d0:0f0e: POP DI
+10d0:0f0f: JZ 0x10d0:0f16
+10d0:0f11: MOV word ptr [BP + -0xa],0xffff
+10d0:0f16: RET

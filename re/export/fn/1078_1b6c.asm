@@ -1,0 +1,47 @@
+1078:1b6c: PUSH BP
+1078:1b6d: MOV BP,SP
+1078:1b6f: PUSH DS
+1078:1b70: MOV AX,0x10e8
+1078:1b73: MOV DS,AX
+1078:1b75: XOR AX,AX
+1078:1b77: CALLF 0x10d0:029e
+1078:1b7c: PUSH SI
+1078:1b7d: MOV SI,word ptr [BP + 0xc]
+1078:1b80: PUSH 0x0
+1078:1b82: PUSH word ptr [BP + 0x18]
+1078:1b85: PUSH word ptr [BP + 0x16]
+1078:1b88: PUSH word ptr [BP + 0x14]
+1078:1b8b: PUSH word ptr [BP + 0x12]
+1078:1b8e: PUSH word ptr [BP + 0x10]
+1078:1b91: MOV ES,word ptr [BP + 0xe]
+1078:1b94: MOV AX,word ptr ES:[SI + 0x2]
+1078:1b98: MOV DX,word ptr ES:[SI + 0x4]
+1078:1b9c: MOV CX,AX
+1078:1b9e: MOV BX,DX
+1078:1ba0: ADD AX,0xe
+1078:1ba3: PUSH DX
+1078:1ba4: PUSH AX
+1078:1ba5: MOV SI,CX
+1078:1ba7: MOV ES,DX
+1078:1ba9: MOV AX,word ptr ES:[SI + 0xa]
+1078:1bad: MOV DX,word ptr ES:[SI + 0xc]
+1078:1bb1: ADD AX,CX
+1078:1bb3: ADC DX,0x0
+1078:1bb6: MOV CX,0x7c
+1078:1bb9: SHL DX,CL
+1078:1bbb: ADD DX,BX
+1078:1bbd: PUSH DX
+1078:1bbe: PUSH AX
+1078:1bbf: PUSH word ptr [BP + 0xa]
+1078:1bc2: PUSH word ptr [BP + 0x8]
+1078:1bc5: PUSH word ptr [0x343c]
+1078:1bc9: PUSH word ptr [0x343a]
+1078:1bcd: PUSH word ptr [0x1fd0]
+1078:1bd1: PUSH word ptr [0x1fce]
+1078:1bd5: CALLF 0x10b0:0000
+1078:1bda: ADD SP,0x20
+1078:1bdd: POP SI
+1078:1bde: LEA SP,[BP + -0x2]
+1078:1be1: POP DS
+1078:1be2: POP BP
+1078:1be3: RETF

@@ -1,0 +1,99 @@
+1068:1e12: PUSH BP
+1068:1e13: MOV BP,SP
+1068:1e15: PUSH DS
+1068:1e16: MOV AX,0x10e8
+1068:1e19: MOV DS,AX
+1068:1e1b: MOV AX,0x6
+1068:1e1e: CALLF 0x10d0:029e
+1068:1e23: PUSH DI
+1068:1e24: PUSH SI
+1068:1e25: MOV SI,word ptr [BP + 0x6]
+1068:1e28: PUSH DS
+1068:1e29: PUSH SI
+1068:1e2a: CALLF 0x13a8:0070
+1068:1e2f: DEC AX
+1068:1e30: MOV word ptr [BP + -0x6],AX
+1068:1e33: CMP byte ptr [SI],0x28
+1068:1e36: JNZ 0x1068:1e4c
+1068:1e38: MOV BX,word ptr [BP + -0x6]
+1068:1e3b: CMP byte ptr [BX + SI],0x29
+1068:1e3e: JNZ 0x1068:1e4c
+1068:1e40: MOV byte ptr [BX + SI],0x0
+1068:1e43: DEC word ptr [BP + -0x6]
+1068:1e46: INC SI
+1068:1e47: CMP byte ptr [SI],0x28
+1068:1e4a: JZ 0x1068:1e38
+1068:1e4c: LEA AX,[BP + -0x6]
+1068:1e4f: PUSH AX
+1068:1e50: LEA AX,[BP + -0x8]
+1068:1e53: PUSH AX
+1068:1e54: PUSH SI
+1068:1e55: PUSH CS
+1068:1e56: CALL 0x1068:1d60
+1068:1e59: ADD SP,0x6
+1068:1e5c: CMP word ptr [BP + -0x8],0x0
+1068:1e60: JNZ 0x1068:1e98
+1068:1e62: PUSH DS
+1068:1e63: PUSH SI
+1068:1e64: CALLF 0x13a8:0070
+1068:1e69: SUB AX,word ptr [BP + -0x6]
+1068:1e6c: DEC AX
+1068:1e6d: JNZ 0x1068:1e98
+1068:1e6f: MOV DI,word ptr [BP + 0xc]
+1068:1e72: MOV AX,word ptr [BP + -0x8]
+1068:1e75: ADD AX,SI
+1068:1e77: PUSH AX
+1068:1e78: PUSH CS
+1068:1e79: CALL 0x1068:1dcc
+1068:1e7c: ADD SP,0x2
+1068:1e7f: MOV ES,word ptr [BP + 0xe]
+1068:1e82: MOV BX,word ptr ES:[DI]
+1068:1e85: ADD BX,BX
+1068:1e87: MOV CX,DI
+1068:1e89: MOV DX,ES
+1068:1e8b: LES DI,[BP + 0x8]
+1068:1e8e: MOV word ptr ES:[BX + DI],AX
+1068:1e91: MOV ES,DX
+1068:1e93: MOV BX,CX
+1068:1e95: JMP 0x1068:1ef2
+1068:1e98: MOV BX,word ptr [BP + -0x6]
+1068:1e9b: MOV AL,byte ptr [BX + SI + 0x1]
+1068:1e9e: CBW
+1068:1e9f: OR AH,0x80
+1068:1ea2: MOV word ptr [BP + -0x4],AX
+1068:1ea5: MOV byte ptr [BX + SI + 0x1],0x0
+1068:1ea9: PUSH word ptr [BP + 0xe]
+1068:1eac: PUSH word ptr [BP + 0xc]
+1068:1eaf: PUSH word ptr [BP + 0xa]
+1068:1eb2: PUSH word ptr [BP + 0x8]
+1068:1eb5: MOV AX,word ptr [BP + -0x8]
+1068:1eb8: ADD AX,SI
+1068:1eba: PUSH AX
+1068:1ebb: PUSH CS
+1068:1ebc: CALL 0x1068:1e12
+1068:1ebf: ADD SP,0xa
+1068:1ec2: PUSH word ptr [BP + 0xe]
+1068:1ec5: PUSH word ptr [BP + 0xc]
+1068:1ec8: PUSH word ptr [BP + 0xa]
+1068:1ecb: PUSH word ptr [BP + 0x8]
+1068:1ece: MOV AX,word ptr [BP + -0x6]
+1068:1ed1: ADD AX,SI
+1068:1ed3: ADD AX,0x2
+1068:1ed6: PUSH AX
+1068:1ed7: PUSH CS
+1068:1ed8: CALL 0x1068:1e12
+1068:1edb: ADD SP,0xa
+1068:1ede: LES BX,[BP + 0xc]
+1068:1ee1: MOV BX,word ptr ES:[BX]
+1068:1ee4: ADD BX,BX
+1068:1ee6: LES SI,[BP + 0x8]
+1068:1ee9: MOV AX,word ptr [BP + -0x4]
+1068:1eec: MOV word ptr ES:[BX + SI],AX
+1068:1eef: LES BX,[BP + 0xc]
+1068:1ef2: INC word ptr ES:[BX]
+1068:1ef5: POP SI
+1068:1ef6: POP DI
+1068:1ef7: LEA SP,[BP + -0x2]
+1068:1efa: POP DS
+1068:1efb: POP BP
+1068:1efc: RETF

@@ -1,0 +1,21 @@
+1078:00ca: PUSH BP
+1078:00cb: MOV BP,SP
+1078:00cd: PUSH DS
+1078:00ce: MOV AX,0x10e8
+1078:00d1: MOV DS,AX
+1078:00d3: XOR AX,AX
+1078:00d5: CALLF 0x10d0:029e
+1078:00da: MOV BX,word ptr [BP + 0x6]
+1078:00dd: MOV AX,word ptr [BP + 0xa]
+1078:00e0: MOV ES,word ptr [BP + 0x8]
+1078:00e3: MOV word ptr ES:[BX + 0x34a],AX
+1078:00e8: MOV AX,word ptr [BP + 0xe]
+1078:00eb: MOV word ptr ES:[BX + 0x34c],AX
+1078:00f0: MOV AX,word ptr [BP + 0xc]
+1078:00f3: MOV word ptr ES:[BX + 0x34e],AX
+1078:00f8: MOV AX,word ptr [BP + 0x10]
+1078:00fb: MOV word ptr ES:[BX + 0x350],AX
+1078:0100: LEA SP,[BP + -0x2]
+1078:0103: POP DS
+1078:0104: POP BP
+1078:0105: RETF

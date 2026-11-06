@@ -1,0 +1,1 @@
+10d0:18ea: MOV AX,DS

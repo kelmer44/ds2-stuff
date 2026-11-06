@@ -1,0 +1,16 @@
+10d0:02d2: PUSH BP
+10d0:02d3: MOV BP,SP
+10d0:02d5: PUSH BX
+10d0:02d6: PUSH CX
+10d0:02d7: MOV AX,word ptr [BP + 0x6]
+10d0:02da: MOV DX,word ptr [BP + 0x8]
+10d0:02dd: MOV BX,word ptr [BP + 0xc]
+10d0:02e0: MOV CX,0x7c
+10d0:02e3: SHR DX,CL
+10d0:02e5: SHR BX,CL
+10d0:02e7: SUB AX,word ptr [BP + 0xa]
+10d0:02ea: SBB DX,BX
+10d0:02ec: POP CX
+10d0:02ed: POP BX
+10d0:02ee: POP BP
+10d0:02ef: RETF 0x8

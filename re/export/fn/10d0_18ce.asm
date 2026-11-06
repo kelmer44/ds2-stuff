@@ -1,0 +1,13 @@
+10d0:18ce: PUSH BP
+10d0:18cf: MOV BP,SP
+10d0:18d1: PUSH SI
+10d0:18d2: PUSH DI
+10d0:18d3: MOV BL,0x1
+10d0:18d5: MOV CX,word ptr [BP + 0xa]
+10d0:18d8: MOV AX,word ptr [BP + 0x6]
+10d0:18db: XOR DX,DX
+10d0:18dd: CMP CX,0xa
+10d0:18e0: JNZ 0x10d0:18e3
+10d0:18e2: CWD
+10d0:18e3: MOV DI,word ptr [BP + 0x8]
+10d0:18e6: JMP 0x10d0:193e

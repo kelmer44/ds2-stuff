@@ -1,0 +1,2 @@
+10d0:0f7b: MOV AX,0x14
+10d0:0f7e: JMP 0x10d0:08c9

@@ -1,0 +1,57 @@
+1080:0d56: PUSH BP
+1080:0d57: MOV BP,SP
+1080:0d59: PUSH DS
+1080:0d5a: MOV AX,0x10e8
+1080:0d5d: MOV DS,AX
+1080:0d5f: MOV AX,0x8
+1080:0d62: CALLF 0x10d0:029e
+1080:0d67: PUSH DI
+1080:0d68: PUSH SI
+1080:0d69: MOV SI,word ptr [BP + 0x12]
+1080:0d6c: MOV ES,word ptr [BP + 0x14]
+1080:0d6f: MOV AX,word ptr ES:[SI + 0x2]
+1080:0d73: MOV DX,word ptr ES:[SI + 0x4]
+1080:0d77: MOV CX,AX
+1080:0d79: MOV BX,DX
+1080:0d7b: ADD AX,0xe
+1080:0d7e: MOV DI,AX
+1080:0d80: MOV SI,CX
+1080:0d82: MOV ES,DX
+1080:0d84: MOV AX,word ptr ES:[SI + 0xa]
+1080:0d88: MOV DX,word ptr ES:[SI + 0xc]
+1080:0d8c: ADD AX,CX
+1080:0d8e: ADC DX,0x0
+1080:0d91: MOV CX,0x7c
+1080:0d94: SHL DX,CL
+1080:0d96: ADD DX,BX
+1080:0d98: CMP word ptr [BP + 0x10],0x0
+1080:0d9c: JGE 0x1080:0da3
+1080:0d9e: MOV word ptr [BP + 0x10],0x0
+1080:0da3: CMP word ptr [BP + 0x18],0x0
+1080:0da7: JGE 0x1080:0dae
+1080:0da9: MOV word ptr [BP + 0x18],0x0
+1080:0dae: PUSH 0x0
+1080:0db0: PUSH word ptr [BP + 0x1a]
+1080:0db3: PUSH word ptr ES:[DI + 0x8]
+1080:0db7: PUSH word ptr ES:[DI + 0x4]
+1080:0dbb: PUSH word ptr [BP + 0x18]
+1080:0dbe: PUSH word ptr [BP + 0x16]
+1080:0dc1: PUSH ES
+1080:0dc2: PUSH DI
+1080:0dc3: PUSH DX
+1080:0dc4: PUSH AX
+1080:0dc5: PUSH word ptr [BP + 0x10]
+1080:0dc8: PUSH word ptr [BP + 0xe]
+1080:0dcb: PUSH word ptr [BP + 0xc]
+1080:0dce: PUSH word ptr [BP + 0xa]
+1080:0dd1: PUSH word ptr [BP + 0x8]
+1080:0dd4: PUSH word ptr [BP + 0x6]
+1080:0dd7: CALLF 0x10b0:0000
+1080:0ddc: ADD SP,0x20
+1080:0ddf: MOV AX,0x1
+1080:0de2: POP SI
+1080:0de3: POP DI
+1080:0de4: LEA SP,[BP + -0x2]
+1080:0de7: POP DS
+1080:0de8: POP BP
+1080:0de9: RETF

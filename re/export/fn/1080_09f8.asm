@@ -1,0 +1,83 @@
+1080:09f8: PUSH BP
+1080:09f9: MOV BP,SP
+1080:09fb: PUSH DS
+1080:09fc: MOV AX,0x10e8
+1080:09ff: MOV DS,AX
+1080:0a01: MOV AX,0x8
+1080:0a04: CALLF 0x10d0:029e
+1080:0a09: PUSH DI
+1080:0a0a: PUSH SI
+1080:0a0b: MOV SI,word ptr [BP + 0x8]
+1080:0a0e: MOV DI,0x1
+1080:0a11: MOV ES,word ptr [BP + 0xa]
+1080:0a14: MOV AX,word ptr ES:[SI + 0x2]
+1080:0a18: MOV DX,word ptr ES:[SI + 0x4]
+1080:0a1c: MOV word ptr [BP + -0x6],AX
+1080:0a1f: MOV word ptr [BP + -0x4],DX
+1080:0a22: OR DX,AX
+1080:0a24: JNZ 0x1080:0a3c
+1080:0a26: PUSH 0x0
+1080:0a28: PUSH 0x217c
+1080:0a2b: PUSH 0x2194
+1080:0a2e: CALLF 0x1098:0000
+1080:0a33: ADD SP,0x6
+1080:0a36: XOR DI,DI
+1080:0a38: JMP 0x1080:0acb
+1080:0a3c: MOV CX,word ptr [BP + -0x4]
+1080:0a3f: MOV BX,AX
+1080:0a41: MOV ES,CX
+1080:0a43: MOV AX,word ptr ES:[BX + 0x12]
+1080:0a47: MOV ES,word ptr [BP + 0xa]
+1080:0a4a: MOV word ptr ES:[SI + 0x8],AX
+1080:0a4e: MOV ES,CX
+1080:0a50: MOV AX,word ptr ES:[BX + 0x16]
+1080:0a54: MOV ES,word ptr [BP + 0xa]
+1080:0a57: MOV word ptr ES:[SI + 0xa],AX
+1080:0a5b: MOV ES,CX
+1080:0a5d: MOV AX,word ptr ES:[BX + 0x26]
+1080:0a61: MOV ES,word ptr [BP + 0xa]
+1080:0a64: MOV word ptr ES:[SI + 0xc],AX
+1080:0a68: MOV ES,CX
+1080:0a6a: MOV AX,word ptr ES:[BX + 0x28]
+1080:0a6e: MOV ES,word ptr [BP + 0xa]
+1080:0a71: MOV word ptr ES:[SI + 0xe],AX
+1080:0a75: MOV ES,CX
+1080:0a77: XOR AX,AX
+1080:0a79: MOV word ptr ES:[BX + 0x28],AX
+1080:0a7d: MOV word ptr ES:[BX + 0x26],AX
+1080:0a81: PUSH word ptr [BP + 0x6]
+1080:0a84: LEA AX,[BX + 0xe]
+1080:0a87: PUSH CX
+1080:0a88: PUSH AX
+1080:0a89: PUSH 0x0
+1080:0a8b: PUSH 0x4
+1080:0a8d: MOV word ptr [BP + -0xa],AX
+1080:0a90: MOV AX,word ptr ES:[BX + 0xa]
+1080:0a94: MOV DX,word ptr ES:[BX + 0xc]
+1080:0a98: ADD AX,word ptr [BP + -0x6]
+1080:0a9b: ADC DX,0x0
+1080:0a9e: MOV CX,0x7c
+1080:0aa1: SHL DX,CL
+1080:0aa3: ADD DX,word ptr [BP + -0x4]
+1080:0aa6: PUSH DX
+1080:0aa7: PUSH AX
+1080:0aa8: PUSH ES
+1080:0aa9: PUSH word ptr [BP + -0xa]
+1080:0aac: PUSH DI
+1080:0aad: CALLF 0x13a8:0114
+1080:0ab2: MOV ES,word ptr [BP + 0xa]
+1080:0ab5: MOV word ptr ES:[SI],AX
+1080:0ab8: OR AX,AX
+1080:0aba: JNZ 0x1080:0acb
+1080:0abc: PUSH AX
+1080:0abd: PUSH 0x21a5
+1080:0ac0: PUSH 0x21bd
+1080:0ac3: CALLF 0x1098:0000
+1080:0ac8: ADD SP,0x6
+1080:0acb: MOV AX,DI
+1080:0acd: POP SI
+1080:0ace: POP DI
+1080:0acf: LEA SP,[BP + -0x2]
+1080:0ad2: POP DS
+1080:0ad3: POP BP
+1080:0ad4: RETF

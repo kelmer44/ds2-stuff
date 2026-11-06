@@ -1,0 +1,107 @@
+1000:1b0e: PUSH BP
+1000:1b0f: MOV BP,SP
+1000:1b11: PUSH DS
+1000:1b12: MOV AX,0x10e8
+1000:1b15: MOV DS,AX
+1000:1b17: MOV AX,0xc
+1000:1b1a: CALLF 0x10d0:029e
+1000:1b1f: PUSH DI
+1000:1b20: PUSH SI
+1000:1b21: MOV AX,word ptr [BP + 0x6]
+1000:1b24: MOV DX,word ptr [BP + 0x8]
+1000:1b27: MOV DI,AX
+1000:1b29: MOV word ptr [BP + -0x8],DX
+1000:1b2c: MOV SI,AX
+1000:1b2e: MOV word ptr [BP + -0x4],DX
+1000:1b31: MOV word ptr [BP + -0xc],0x0
+1000:1b36: JMP 0x1000:1c06
+1000:1b3a: MOV ES,DX
+1000:1b3c: CMP byte ptr ES:[SI],0x2f
+1000:1b40: JZ 0x1000:1b80
+1000:1b42: CMP byte ptr ES:[SI],0x2d
+1000:1b46: JZ 0x1000:1b80
+1000:1b48: MOV AX,word ptr [BP + -0x8]
+1000:1b4b: CMP word ptr [BP + 0x6],DI
+1000:1b4e: JNZ 0x1000:1b55
+1000:1b50: CMP word ptr [BP + 0x8],AX
+1000:1b53: JZ 0x1000:1b70
+1000:1b55: MOV ES,AX
+1000:1b57: MOV byte ptr ES:[DI],0x20
+1000:1b5b: INC DI
+1000:1b5c: JMP 0x1000:1b70
+1000:1b5e: MOV ES,word ptr [BP + -0x4]
+1000:1b61: MOV BX,SI
+1000:1b63: INC SI
+1000:1b64: MOV AL,byte ptr ES:[BX]
+1000:1b67: MOV ES,word ptr [BP + -0x8]
+1000:1b6a: MOV BX,DI
+1000:1b6c: INC DI
+1000:1b6d: MOV byte ptr ES:[BX],AL
+1000:1b70: MOV AX,word ptr [BP + -0xe]
+1000:1b73: DEC word ptr [BP + -0xe]
+1000:1b76: OR AX,AX
+1000:1b78: JNZ 0x1000:1b5e
+1000:1b7a: INC word ptr [BP + -0xc]
+1000:1b7d: JMP 0x1000:1c06
+1000:1b80: MOV AL,byte ptr ES:[SI + 0x1]
+1000:1b84: CBW
+1000:1b85: CMP AX,0x73
+1000:1b88: JZ 0x1000:1bda
+1000:1b8a: JA 0x1000:1c01
+1000:1b8c: SUB AL,0x64
+1000:1b8e: JZ 0x1000:1b98
+1000:1b90: SUB AL,0xc
+1000:1b92: JZ 0x1000:1bbe
+1000:1b94: JMP 0x1000:1c01
+1000:1b98: CMP byte ptr ES:[SI + 0x2],0x61
+1000:1b9d: JNZ 0x1000:1bae
+1000:1b9f: MOV AX,0x1
+1000:1ba2: MOV [0x3ca8],AX
+1000:1ba5: MOV [0x3ca6],AX
+1000:1ba8: MOV [0x3cac],AX
+1000:1bab: MOV [0x3caa],AX
+1000:1bae: CMP byte ptr ES:[SI + 0x2],0x6d
+1000:1bb3: JNZ 0x1000:1c01
+1000:1bb5: MOV word ptr [0x56],0x1
+1000:1bbb: JMP 0x1000:1c01
+1000:1bbe: CMP byte ptr ES:[SI + 0x2],0x30
+1000:1bc3: JL 0x1000:1c01
+1000:1bc5: CMP byte ptr ES:[SI + 0x2],0x39
+1000:1bca: JG 0x1000:1c01
+1000:1bcc: MOV AL,byte ptr ES:[SI + 0x2]
+1000:1bd0: CBW
+1000:1bd1: SUB AX,0x30
+1000:1bd4: MOV [0x62],AX
+1000:1bd7: JMP 0x1000:1c01
+1000:1bda: CMP byte ptr ES:[SI + 0x2],0x74
+1000:1bdf: JNZ 0x1000:1be7
+1000:1be1: MOV word ptr [0x50],0x1
+1000:1be7: CMP byte ptr ES:[SI + 0x2],0x63
+1000:1bec: JNZ 0x1000:1bf4
+1000:1bee: MOV word ptr [0x52],0x1
+1000:1bf4: CMP byte ptr ES:[SI + 0x2],0x77
+1000:1bf9: JNZ 0x1000:1c01
+1000:1bfb: MOV word ptr [0x54],0x1
+1000:1c01: MOV AX,word ptr [BP + -0xe]
+1000:1c04: ADD SI,AX
+1000:1c06: LEA AX,[BP + -0xe]
+1000:1c09: PUSH AX
+1000:1c0a: PUSH word ptr [BP + -0x4]
+1000:1c0d: PUSH SI
+1000:1c0e: PUSH CS
+1000:1c0f: CALL 0x1000:1a98
+1000:1c12: ADD SP,0x6
+1000:1c15: MOV SI,AX
+1000:1c17: MOV word ptr [BP + -0x4],DX
+1000:1c1a: CMP word ptr [BP + -0xe],0x0
+1000:1c1e: JZ 0x1000:1c23
+1000:1c20: JMP 0x1000:1b3a
+1000:1c23: MOV ES,word ptr [BP + -0x8]
+1000:1c26: MOV byte ptr ES:[DI],0x0
+1000:1c2a: MOV AX,word ptr [BP + -0xc]
+1000:1c2d: POP SI
+1000:1c2e: POP DI
+1000:1c2f: LEA SP,[BP + -0x2]
+1000:1c32: POP DS
+1000:1c33: POP BP
+1000:1c34: RETF

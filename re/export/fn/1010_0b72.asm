@@ -1,0 +1,32 @@
+1010:0b72: PUSH BP
+1010:0b73: MOV BP,SP
+1010:0b75: PUSH DS
+1010:0b76: MOV AX,0x10e8
+1010:0b79: MOV DS,AX
+1010:0b7b: XOR AX,AX
+1010:0b7d: CALLF 0x10d0:029e
+1010:0b82: MOV BX,word ptr [BP + 0x6]
+1010:0b85: MOV AX,word ptr [BP + 0x8]
+1010:0b88: CWD
+1010:0b89: ADD word ptr [BX],AX
+1010:0b8b: ADC word ptr [BX + 0x2],DX
+1010:0b8e: CMP word ptr [BX + 0x2],0x0
+1010:0b92: JGE 0x1010:0ba2
+1010:0b94: SUB AX,AX
+1010:0b96: MOV word ptr [BX + 0x2],AX
+1010:0b99: MOV word ptr [BX],AX
+1010:0b9b: LEA SP,[BP + -0x2]
+1010:0b9e: POP DS
+1010:0b9f: POP BP
+1010:0ba0: RETF
+1010:0ba2: CMP word ptr [BX + 0x2],0x0
+1010:0ba6: JL 0x1010:0bb9
+1010:0ba8: JG 0x1010:0bb0
+1010:0baa: CMP word ptr [BX],0xff
+1010:0bae: JBE 0x1010:0bb9
+1010:0bb0: MOV word ptr [BX],0xff
+1010:0bb4: MOV word ptr [BX + 0x2],0x0
+1010:0bb9: LEA SP,[BP + -0x2]
+1010:0bbc: POP DS
+1010:0bbd: POP BP
+1010:0bbe: RETF

@@ -1,0 +1,76 @@
+1020:0a40: PUSH BP
+1020:0a41: MOV BP,SP
+1020:0a43: PUSH DS
+1020:0a44: MOV AX,0x10e8
+1020:0a47: MOV DS,AX
+1020:0a49: XOR AX,AX
+1020:0a4b: CALLF 0x10d0:029e
+1020:0a50: PUSH DI
+1020:0a51: PUSH SI
+1020:0a52: CMP word ptr [0x1312],0x1
+1020:0a57: JNZ 0x1020:0ac3
+1020:0a59: LES BX,[BP + 0x6]
+1020:0a5c: MOV AX,word ptr ES:[BX + 0x8]
+1020:0a60: MUL word ptr ES:[BX + 0xa]
+1020:0a64: MOV [0x2f8a],AX
+1020:0a67: PUSH AX
+1020:0a68: PUSH CS
+1020:0a69: CALL 0x1020:0a14
+1020:0a6c: ADD SP,0x2
+1020:0a6f: MOV BX,AX
+1020:0a71: MOV SI,AX
+1020:0a73: MOV AX,word ptr [BX + SI + 0x12f0]
+1020:0a77: MOV [0x2f8e],AX
+1020:0a7a: MOV CX,SI
+1020:0a7c: MOV AX,0x1
+1020:0a7f: SHL AX,CL
+1020:0a81: SAR AX,0x5
+1020:0a84: MOV [0x2f8c],AX
+1020:0a87: LES BX,[BP + 0x6]
+1020:0a8a: LES BX,ES:[BX + 0x2]
+1020:0a8e: ADD BX,word ptr ES:[BX + 0xa]
+1020:0a92: MOV word ptr [0x2f92],BX
+1020:0a96: MOV word ptr [0x2f94],ES
+1020:0a9a: LES BX,[BP + 0xa]
+1020:0a9d: LES BX,ES:[BX + 0x2]
+1020:0aa1: ADD BX,word ptr ES:[BX + 0xa]
+1020:0aa5: MOV word ptr [0x2f96],BX
+1020:0aa9: MOV word ptr [0x2f98],ES
+1020:0aad: LES BX,[0x2f92]
+1020:0ab1: MOV byte ptr ES:[BX],0x0
+1020:0ab5: LES BX,[0x2f96]
+1020:0ab9: MOV byte ptr ES:[BX],0xff
+1020:0abd: MOV word ptr [0x2f90],0x0
+1020:0ac3: XOR SI,SI
+1020:0ac5: CMP word ptr [0x2f8c],SI
+1020:0ac9: JZ 0x1020:0b0d
+1020:0acb: MOV AX,[0x2f8a]
+1020:0ace: CMP word ptr [0x1312],AX
+1020:0ad2: JNC 0x1020:0aec
+1020:0ad4: LES BX,[0x2f92]
+1020:0ad8: MOV DI,word ptr [0x1312]
+1020:0adc: MOV byte ptr ES:[BX + DI],0x0
+1020:0ae0: LES BX,[0x2f96]
+1020:0ae4: MOV DI,word ptr [0x1312]
+1020:0ae8: MOV byte ptr ES:[BX + DI],0xff
+1020:0aec: TEST byte ptr [0x1312],0x1
+1020:0af1: JZ 0x1020:0b02
+1020:0af3: MOV AX,[0x1312]
+1020:0af6: SHR AX,0x1
+1020:0af8: XOR AX,word ptr [0x2f8e]
+1020:0afc: MOV [0x1312],AX
+1020:0aff: JMP 0x1020:0b06
+1020:0b02: SHR word ptr [0x1312],0x1
+1020:0b06: INC SI
+1020:0b07: CMP SI,word ptr [0x2f8c]
+1020:0b0b: JC 0x1020:0acb
+1020:0b0d: INC word ptr [0x2f90]
+1020:0b11: CMP word ptr [0x2f90],0x20
+1020:0b16: JNZ 0x1020:0b1e
+1020:0b18: MOV word ptr [0x1312],0x1
+1020:0b1e: POP SI
+1020:0b1f: POP DI
+1020:0b20: LEA SP,[BP + -0x2]
+1020:0b23: POP DS
+1020:0b24: POP BP
+1020:0b25: RETF
