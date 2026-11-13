@@ -2361,11 +2361,11 @@
    "10d0:029e"
   ],
   "depth": 6,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_uppercase",
+  "status": "understood",
   "engine": "",
   "notes": "",
-  "cluster_name": "",
+  "cluster_name": "game variables",
   "cluster": "dialogs and options"
  },
  {
@@ -2388,11 +2388,11 @@
    "10d0:029e"
   ],
   "depth": 6,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_next_identifier",
+  "status": "understood",
   "engine": "",
   "notes": "",
-  "cluster_name": "",
+  "cluster_name": "game variables",
   "cluster": "dialogs and options"
  },
  {
@@ -2448,11 +2448,11 @@
    "10d0:029e"
   ],
   "depth": 6,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_next_token",
+  "status": "understood",
   "engine": "",
   "notes": "",
-  "cluster_name": "",
+  "cluster_name": "game variables",
   "cluster": "dialogs and options"
  },
  {
@@ -2478,11 +2478,11 @@
    "10d8:0000"
   ],
   "depth": 7,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_find_var",
+  "status": "understood",
   "engine": "",
   "notes": "",
-  "cluster_name": "",
+  "cluster_name": "game variables",
   "cluster": "dialogs and options"
  },
  {
@@ -2562,11 +2562,11 @@
    "10d0:029e"
   ],
   "depth": 8,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_parse_terms",
+  "status": "understood",
   "engine": "",
   "notes": "",
-  "cluster_name": "",
+  "cluster_name": "game variables",
   "cluster": "dialogs and options"
  },
  {
@@ -2586,11 +2586,11 @@
    "10d0:029e"
   ],
   "depth": 7,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_free_term_list",
+  "status": "understood",
   "engine": "",
   "notes": "",
-  "cluster_name": "",
+  "cluster_name": "game variables",
   "cluster": "dialogs and options"
  },
  {
@@ -2616,11 +2616,11 @@
    "10d0:029e"
   ],
   "depth": 7,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_test_any",
+  "status": "understood",
   "engine": "",
   "notes": "",
-  "cluster_name": "",
+  "cluster_name": "game variables",
   "cluster": "dialogs and options"
  },
  {
@@ -2635,11 +2635,11 @@
    "10d0:029e"
   ],
   "depth": 6,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_test_terms",
+  "status": "understood",
   "engine": "",
   "notes": "",
-  "cluster_name": "",
+  "cluster_name": "game variables",
   "cluster": "dialogs and options"
  },
  {
@@ -2658,11 +2658,11 @@
    "10d0:029e"
   ],
   "depth": 6,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_apply_terms",
+  "status": "understood",
   "engine": "",
   "notes": "",
-  "cluster_name": "",
+  "cluster_name": "game variables",
   "cluster": "dialogs and options"
  },
  {
@@ -2678,11 +2678,11 @@
    "10d0:029e"
   ],
   "depth": 8,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_apply_terms_for_var",
+  "status": "understood",
   "engine": "",
   "notes": "",
-  "cluster_name": "",
+  "cluster_name": "game variables",
   "cluster": "dialogs and options"
  },
  {
@@ -2713,11 +2713,11 @@
    "10d0:029e"
   ],
   "depth": 8,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_get_var",
+  "status": "understood",
   "engine": "",
   "notes": "",
-  "cluster_name": "",
+  "cluster_name": "game variables",
   "cluster": "dialogs and options"
  },
  {
@@ -2748,11 +2748,11 @@
    "10d0:029e"
   ],
   "depth": 8,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_set_var",
+  "status": "understood",
   "engine": "",
   "notes": "",
-  "cluster_name": "",
+  "cluster_name": "game variables",
   "cluster": "dialogs and options"
  },
  {
@@ -2799,11 +2799,11 @@
    "10d0:029e"
   ],
   "depth": 6,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_parse_numbers",
+  "status": "understood",
   "engine": "",
   "notes": "",
-  "cluster_name": "",
+  "cluster_name": "game variables",
   "cluster": "dialogs and options"
  },
  {
@@ -2858,11 +2858,11 @@
    "10d0:029e"
   ],
   "depth": 7,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_read_idx_line",
+  "status": "understood",
   "engine": "",
   "notes": "",
-  "cluster_name": "",
+  "cluster_name": "game variables",
   "cluster": "dialogs and options"
  },
  {
@@ -2882,11 +2882,11 @@
    "10d0:029e"
   ],
   "depth": 16,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_load_game_vars",
+  "status": "understood",
   "engine": "",
   "notes": "",
-  "cluster_name": "",
+  "cluster_name": "game variables",
   "cluster": "dialogs and options"
  },
  {
@@ -7916,11 +7916,11 @@
    "10d0:029e"
   ],
   "depth": 6,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_stricmp",
+  "status": "replaced",
   "engine": "",
-  "notes": "",
-  "cluster_name": "",
+  "notes": "ScummVM: scumm_stricmp",
+  "cluster_name": "startup and C runtime",
   "cluster": "startup and C runtime"
  },
  {

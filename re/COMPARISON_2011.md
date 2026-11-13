@@ -76,3 +76,20 @@ The 2011 engine has no equivalent of the original's lookup path. Differences tha
 | Minimum size | 5 x 5 pixels | not found | differs (only matters for very small scales) |
 | Placement offsets scaled with the image | `offset * scale / 128`, mirrored case `-((w + offset) * scale / 128)` | `fracToInt(offset * _scale)` with a min of 1 or -1 (`mike.cpp:481`) | differs: the original truncates and has no 1/-1 minimum |
 | Pixel resampling | StretchDIB library (`10c8`), unread | not compared | unverified |
+
+## Game variables and conditions (compared 13 Nov, after contracts `1060_*`)
+
+2011 sources: `variables.cpp` (`evalConditionPart`, `evalChangePart`, `loadFromIDX`).
+
+| Item | Contract | 2011 | Verdict |
+|---|---|---|---|
+| Plain `NAME` as a condition | `== 1` | `get != 0` | **differs** for values above 1 (2011 says true for 2) |
+| `!NAME` | `== 0` | `== 0` | faithful |
+| `*NAME` | `== 2` (assign: set 2) | `== 23` (assign: set 23), marked "not yet understood" | **differs**; the 23 is a guess and wrong |
+| `+NAME` | `>= 1` (assign: add 1) | `== 24` (assign: set 24) | **differs** |
+| `@NAME` | `<= 2` (assign: subtract 2) | `== 25` (assign: set 25) | **differs** |
+| `-NAME`, `^NAME`, `/NAME` | `<= 1` / `>= 2` / toggle | not handled | missing |
+| `=NAME,n` | `== n` / set n, n cut to 0..31 | `== n` / set n (any int) | faithful for n up to 31; values above 31 wrap in the original |
+| Several lists: any list true; terms in a list: all true | `inferred_test_any`, `inferred_test_terms` | same logic (`evalCondition` over a list, then per part with `&&`) | faithful. One more rule: the original treats an empty list as false and cuts a list at 10 terms |
+| Sorted names, dummy at index 0 | `inferred_load_game_vars` | hash/map by name | differs in mechanism; same results except that the original sends unknown names to the dummy variable (index 0) instead of failing |
+| Variable width | signed 16-bit | `int32`-like | differs (wrap-around only) |

@@ -7,13 +7,13 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 
 | Stage | Count | Share |
 |---|---|---|
-| decompiled or later (status only) | 68 | 19% |
-| understood or later (status only) | 61 | 17% |
-| ported or later (status only) | 7 | 1% |
-| emu-compared or later (status only) | 7 | 1% |
-| original-compared or later (status only) | 7 | 1% |
-| replaced by a ScummVM service | 7 | |
-| **done (status understood or later and documented)** | **61** | **17%** |
+| decompiled or later (status only) | 84 | 23% |
+| understood or later (status only) | 77 | 21% |
+| ported or later (status only) | 8 | 2% |
+| emu-compared or later (status only) | 8 | 2% |
+| original-compared or later (status only) | 8 | 2% |
+| replaced by a ScummVM service | 8 | |
+| **done (status understood or later and documented)** | **77** | **21%** |
 | status ahead of its documentation | 0 | |
 
 ## By cluster
@@ -73,34 +73,19 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 - [ ] `1010:07c6` FUN_1010_07c6 · depth 10 · 220 bytes · **untouched**
 - [ ] `1010:011e` FUN_1010_011e · depth 20 · 272 bytes · **untouched**
 
-### dialogs and options (0/26 done)
+### dialogs and options (0/11 done)
 
-- [ ] `1060:0000` FUN_1060_0000 · depth 6 · 98 bytes · **untouched**
-- [ ] `1060:0062` FUN_1060_0062 · depth 6 · 152 bytes · **untouched**
 - [ ] `1060:00fc` FUN_1060_00fc · depth 6 · 138 bytes · **untouched**
 - [ ] `1060:0188` FUN_1060_0188 · depth 6 · 152 bytes · **untouched**
-- [ ] `1060:0222` FUN_1060_0222 · depth 6 · 152 bytes · **untouched**
 - [ ] `1060:0378` FUN_1060_0378 · depth 6 · 274 bytes · **untouched**
 - [ ] `1060:048e` FUN_1060_048e · depth 6 · 194 bytes · **untouched**
 - [ ] `1060:0554` FUN_1060_0554 · depth 6 · 251 bytes · **untouched**
-- [ ] `1060:0846` FUN_1060_0846 · depth 6 · 210 bytes · **untouched**
-- [ ] `1060:092e` FUN_1060_092e · depth 6 · 200 bytes · **untouched**
-- [ ] `1060:0c44` FUN_1060_0c44 · depth 6 · 232 bytes · **untouched**
 - [ ] `1060:0d2e` FUN_1060_0d2e · depth 6 · 490 bytes · **untouched**
 - [ ] `1060:0f1c` FUN_1060_0f1c · depth 6 · 290 bytes · **untouched**
 - [ ] `1060:1182` FUN_1060_1182 · depth 6 · 93 bytes · **untouched**
 - [ ] `1060:11e0` FUN_1060_11e0 · depth 6 · 170 bytes · **untouched**
-- [ ] `1060:02bc` FUN_1060_02bc · depth 7 · 184 bytes · **untouched**
-- [ ] `1060:07a8` FUN_1060_07a8 · depth 7 · 77 bytes · **untouched**
-- [ ] `1060:07f6` FUN_1060_07f6 · depth 7 · 78 bytes · **untouched**
-- [ ] `1060:1040` FUN_1060_1040 · depth 7 · 121 bytes · **untouched**
-- [ ] `1060:0652` FUN_1060_0652 · depth 8 · 337 bytes · **untouched**
-- [ ] `1060:0a0a` FUN_1060_0a0a · depth 8 · 226 bytes · **untouched**
-- [ ] `1060:0b00` FUN_1060_0b00 · depth 8 · 37 bytes · **untouched**
-- [ ] `1060:0b26` FUN_1060_0b26 · depth 8 · 58 bytes · **untouched**
 - [ ] `1060:0b62` FUN_1060_0b62 · depth 8 · 226 bytes · **untouched**
 - [ ] `1060:128a` VAR_CHECKER_PROC · depth 8 · 399 bytes · **untouched**
-- [ ] `1060:10ba` FUN_1060_10ba · depth 16 · 199 bytes · **untouched**
 
 ### dialogs and saves (0/7 done)
 
@@ -146,6 +131,24 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 ### game tick (0/1 done)
 
 - [ ] `1038:086e` inferred_game_tick · depth 21 · 4706 bytes · **decompiled** — WM_TIMER handler called from WINPROC every timer tick with the window message words; the main per-tick update (animation frames, SEQUENCE=, SPEECH=, CHANGEAT=, AVI control, GoingOut, SysReadyExit); not read
+
+### game variables (15/15 done)
+
+- [x] `1060:0000` inferred_uppercase · depth 6 · 98 bytes · **understood**
+- [x] `1060:0062` inferred_next_identifier · depth 6 · 152 bytes · **understood**
+- [x] `1060:0222` inferred_next_token · depth 6 · 152 bytes · **understood**
+- [x] `1060:0846` inferred_test_terms · depth 6 · 210 bytes · **understood**
+- [x] `1060:092e` inferred_apply_terms · depth 6 · 200 bytes · **understood**
+- [x] `1060:0c44` inferred_parse_numbers · depth 6 · 232 bytes · **understood**
+- [x] `1060:02bc` inferred_find_var · depth 7 · 184 bytes · **understood**
+- [x] `1060:07a8` inferred_free_term_list · depth 7 · 77 bytes · **understood**
+- [x] `1060:07f6` inferred_test_any · depth 7 · 78 bytes · **understood**
+- [x] `1060:1040` inferred_read_idx_line · depth 7 · 121 bytes · **understood**
+- [x] `1060:0652` inferred_parse_terms · depth 8 · 337 bytes · **understood**
+- [x] `1060:0a0a` inferred_apply_terms_for_var · depth 8 · 226 bytes · **understood**
+- [x] `1060:0b00` inferred_get_var · depth 8 · 37 bytes · **understood**
+- [x] `1060:0b26` inferred_set_var · depth 8 · 58 bytes · **understood**
+- [x] `1060:10ba` inferred_load_game_vars · depth 16 · 199 bytes · **understood**
 
 ### graphics and bitmaps (0/3 done)
 
@@ -324,7 +327,7 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 - [ ] `1028:03d0` inferred_init_game_session · depth 20 · 917 bytes · **decompiled** — loads GL00_WLK.000 and GL00_TXT.000 by name, GameVar.IDX, OBJ_9999.dat, fix.pal; sets up cursors and a timer; partly read
 - [ ] `1028:0766` inferred_app_init · depth 21 · 422 bytes · **decompiled** — reads [DIRECTORY] CD from DARKSEED.INI into the install-directory buffers, calls load_gfile_hdr, creates the window; partly read
 
-### startup and C runtime (0/85 done)
+### startup and C runtime (1/85 done)
 
 - [ ] `10d0:01d1` FUN_10d0_01d1 · depth 0 · 15 bytes · **untouched**
 - [ ] `10d0:0241` FUN_10d0_0241 · depth 0 · 41 bytes · **untouched**
@@ -394,7 +397,7 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 - [ ] `10d0:0834` FUN_10d0_0834 · depth 6 · 144 bytes · **untouched**
 - [ ] `10d0:113c` FUN_10d0_113c · depth 6 · 218 bytes · **untouched**
 - [ ] `10d0:1300` FUN_10d0_1300 · depth 6 · 140 bytes · **untouched**
-- [ ] `10d8:0000` FUN_10d8_0000 · depth 6 · 81 bytes · **untouched**
+- [x] `10d8:0000` inferred_stricmp · depth 6 · 81 bytes · **replaced** — ScummVM: scumm_stricmp
 - [ ] `10d0:096a` FUN_10d0_096a · depth 7 · 242 bytes · **untouched**
 - [ ] `10d0:1468` FUN_10d0_1468 · depth 7 · 118 bytes · **untouched**
 - [ ] `10d0:0eb3` FUN_10d0_0eb3 · depth 8 · 42 bytes · **untouched**

@@ -192,6 +192,31 @@ the "ignore the depth threshold" flag on a sprite means, and which sprites go to
 must match is the draw order (sort by anchor y, list 2 on top), the top-left = anchor + offsets rule, the
 transparent colour 0, and the play-area clipping.
 
+## Game variables and conditions 🟡
+
+**What it does.** The whole game state lives in about 330 named variables (little numbers, mostly 0, 1 or 2). They record
+whether you talked to someone, hold a door open or closed, say whether the player's character is shown, and so on. Scripts
+decide what to run by testing variables, and change them as they play.
+
+**How it works.**
+1. At start-up the game reads the list of names and starting values from a text file, `GameVar.IDX`. The names are kept in
+   alphabetical order (ignoring capitals) so a name can be found quickly by halving the list. The game checks the order and
+   reports an error if the file is not sorted. The first entry is a "dummy": any name the game cannot find ends up there.
+2. A condition in a script is a short list of tests, such as "this variable is 1" or "that variable is 0". It is turned
+   into compact numbers once, when the script is read. A prefix character on a name chooses the test: nothing means "is 1",
+   `!` "is 0", `*` "is 2", `+` "is 1 or more", `-` "is 1 or less", `^` "is 2 or more", `@` "is 2 or less", and `=NAME,n` "is n".
+3. A list of tests is true when every test is true. A script block can have several such lists and runs when any one of
+   them is true.
+4. A change in a script uses the same notation: nothing sets the variable to 1, `!` to 0, `*` to 2, `+` adds 1, `-` takes 1 away,
+   `^` adds 2, `@` takes 2 away, `/` flips between 0 and 1, and `=NAME,n` sets it to n (0 to 31).
+
+**Checked.** The file format, the name search, the test and change rules and the prefix characters were read in the code and
+checked against the real `GameVar.IDX`. 🟡 because the code that uses these tests in the script blocks (the game tick) is not
+read yet, and the per-room local variables are not known.
+
+**For ScummVM.** Variables are signed 16-bit values; do not clamp them to 0..2. The prefix rules above replace the guesses
+made in the 2011 engine.
+
 ## Sprite scaling and the player's sprites 🟡
 
 **What it does.** Characters and objects get smaller the further up the screen they stand, so the room looks deep. The

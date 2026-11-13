@@ -278,3 +278,40 @@ The temporary composing buffer (`DS:1fce/1fd0` header, `DS:343a/343c` pixels) is
 `scale128 = (anchorY - room[+0x33]) * K / room[+0x35]`, clamped to the range 10 to 180 (that is 7.8% to 140.6%), with
 the unit 128 = 100%. For room objects `K = 128`; for the player's sprites `K = 134` (0x86). A frame can carry its own scale at +0x57b (when set, the
 formula is skipped). The scaled image is made by `inferred_scale_image` and has at least 5 x 5 pixels.
+
+## Game variables [code + data]
+
+- Names: `DS:05f0`, one 25-byte slot per variable (24 characters and the terminator). Values: `DS:5e14`, one 16-bit word each. Count: `DS:5cda`.
+- Source: `GAMEVAR.IDX` (in `gl00_sys.000`, 5,482 bytes, CR LF text): one `NAME=value` line per variable, sorted case-insensitively.
+  The first line is `!Dummy=0` (index 0, used for any unknown name), then `AAAAAAAAAAA01` to `AAAAAAAAAAA20`, then the named variables
+  (`AlarmSet`, `AngryTwin`, ..., `True=1`, `UsingNothing=1`, ...), last line `zzzLast=0` (end marker).
+- 330 names in our copy. Values are signed 16-bit words. The game also keeps some per-room local variables elsewhere (not read).
+- Built-in names the program reads or writes itself (seen in strings): `SysCutScene`, `SysCall`, `SysCall2`, `LastAction`, `GoingOut`,
+  `ShowMike`, `EraseMike`, `SysReadyExit`, `SysRandom`, `SysRandom4`, `SysMapBlock`, `FromRoom`, `HaveBioGun`, `UsingNothing`, `SysTalking0..n`.
+
+## Term word (conditions and assignments) [code]
+
+A script condition or change is stored as up to 10 16-bit words followed by a 0 word. A line of text becomes these words in `inferred_parse_terms`.
+
+| Bits | Meaning |
+|---|---|
+| 0 to 9 | variable index |
+| 12 to 14 | operation (when bits 10, 11 and 15 are all 0) |
+| 15 | when set: compare or assign the constant in bits 10 to 14 (0 to 31) |
+
+| Text prefix | op | As a condition | As an assignment |
+|---|---|---|---|
+| none (`NAME`) | 0 | `== 1` | set to 1 |
+| `!` | 1 | `== 0` | set to 0 |
+| `*` | 2 | `== 2` | set to 2 |
+| `+` | 3 | `>= 1` | add 1 |
+| `-` | 4 | `<= 1` | subtract 1 |
+| `^` | 5 | `>= 2` | add 2 |
+| `@` | 6 | `<= 2` | subtract 2 |
+| `/` | 7 | always true | set to (value == 0), a toggle |
+| `=NAME,n` | (bit 15) | `== n` | set to n (n is cut to 0..31) |
+
+A condition word list is true when all its terms are true (an empty list is false). A script block's condition is a linked list of such
+lists (next pointer at +0x14 of each 0x18-byte node): true when any list is true (`inferred_test_any`).
+Character classes used by the tokenizer (`DS:5d0e`, set up in `1028:03d0`): lower case 1, upper case and `_` 2, digits and `!` 4,
+`+ - * / = & | ( )` 8, space, comma, tab and NUL 0x10; upper-case map at `DS:92b4`.
