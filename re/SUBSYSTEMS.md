@@ -192,6 +192,29 @@ the "ignore the depth threshold" flag on a sprite means, and which sprites go to
 must match is the draw order (sort by anchor y, list 2 on top), the top-left = anchor + offsets rule, the
 transparent colour 0, and the play-area clipping.
 
+## Room and object text files 🟡
+
+**What it does.** Everything that happens in a room is written in plain text files that the game reads when you enter: one file per
+room (`ROOMnnnn.DAT`: the backdrop, the walkable map, how big characters are, what plays when you enter, music, animated things, mirrors)
+and one file per room's objects (`OBJ_nnnn.DAT`: for each thing you can click, what happens when you walk to, look at, or use it). A
+separate file (`OBJ_9999.DAT`) describes the inventory items. There are 167 such files (84 object files, 83 room files).
+
+**How it works.**
+1. Each line is `Key=value` and a `;` starts a comment. The game reads a line, cuts the comment, finds the key in a fixed list of
+   keywords (not case sensitive) and hands the value to the part that knows what to do. A line with an unknown key, or no `=`, is
+   ignored without any message.
+2. Blocks start with a condition (`Cond=`, optionally more than one list; either list may be true). The lines that follow are the actions: move to
+   a place, show a text, play an effect, run a conversation, play music, start an animation, change variables, wait until something is true.
+3. A condition that has no action after it is reported ("No Info for this Condition!") when reading object files.
+4. The full list of keys, with how often the real files use them, is in `SCRIPT_LANGUAGE.md`.
+
+**Checked.** The line rules and both keyword tables were read in the code, and every key used in the 167 files was found in the tables
+(except one misspelling, `Chnage=`, which the game ignores). 🟡 because the code that gives each key its effect (the section readers and the
+script runner) is only partly read.
+
+**For ScummVM.** Treat an unknown key as "ignore the line" (do not abort), and do not accept misspelled keys: the one in `OBJ_0307.DAT` must stay
+without effect to match the original.
+
 ## Game variables and conditions 🟡
 
 **What it does.** The whole game state lives in about 330 named variables (little numbers, mostly 0, 1 or 2). They record

@@ -315,3 +315,12 @@ A condition word list is true when all its terms are true (an empty list is fals
 lists (next pointer at +0x14 of each 0x18-byte node): true when any list is true (`inferred_test_any`).
 Character classes used by the tokenizer (`DS:5d0e`, set up in `1028:03d0`): lower case 1, upper case and `_` 2, digits and `!` 4,
 `+ - * / = & | ( )` 8, space, comma, tab and NUL 0x10; upper-case map at `DS:92b4`.
+
+## Script text parsing state [code]
+
+- File buffer far pointer `DS:3416/3418`, size `DS:341a/341c`, read position `DS:16f4/16f6`, counter of lines since the last `COND=` at `DS:16f8`. The same buffer
+  is used by the variable list reader (`DS:341e/3420`, position `DS:60a8`).
+- The action record built by `1048:042c` is 150 bytes (0x4b words). Offsets seen: +0xc flag set by `DESTROY=`; +0x10/+0x12 far pointer to the loaded
+  text; +0x14 string from `ANIM=`; +0x2b cursor string; +0x38 midi string; +0x45 picture string; +0x52 effect string; +0x5f speech string (also the text name);
+  +0x6e dialog string; +0x8f/+0x91 pointer to a wait-until condition node; +0x93/+0x95 pointer to the next record. Condition and change lists are 0x18-byte nodes of
+  10 term words with the next-node far pointer at +0x14. [partly read; the first fields (position numbers) are not located yet]

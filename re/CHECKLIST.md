@@ -7,13 +7,13 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 
 | Stage | Count | Share |
 |---|---|---|
-| decompiled or later (status only) | 84 | 23% |
-| understood or later (status only) | 77 | 21% |
+| decompiled or later (status only) | 98 | 27% |
+| understood or later (status only) | 80 | 22% |
 | ported or later (status only) | 8 | 2% |
 | emu-compared or later (status only) | 8 | 2% |
 | original-compared or later (status only) | 8 | 2% |
 | replaced by a ScummVM service | 8 | |
-| **done (status understood or later and documented)** | **77** | **21%** |
+| **done (status understood or later and documented)** | **80** | **22%** |
 | status ahead of its documentation | 0 | |
 
 ## By cluster
@@ -303,24 +303,24 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 - [ ] `1050:0062` FUN_1050_0062 · depth 9 · 184 bytes · **untouched**
 - [ ] `1050:035a` FUN_1050_035a · depth 9 · 518 bytes · **untouched**
 
-### script and rooms (0/16 done)
+### script and rooms (3/16 done)
 
-- [ ] `1048:03c4` FUN_1048_03c4 · depth 6 · 104 bytes · **untouched**
-- [ ] `1048:0000` FUN_1048_0000 · depth 7 · 940 bytes · **untouched**
-- [ ] `1048:0b54` FUN_1048_0b54 · depth 7 · 1480 bytes · **untouched**
-- [ ] `1048:21b0` FUN_1048_21b0 · depth 8 · 830 bytes · **untouched**
-- [ ] `1048:114a` FUN_1048_114a · depth 9 · 985 bytes · **untouched**
-- [ ] `1048:156a` FUN_1048_156a · depth 9 · 640 bytes · **untouched**
-- [ ] `1048:17ea` FUN_1048_17ea · depth 9 · 275 bytes · **untouched**
-- [ ] `1048:18fe` FUN_1048_18fe · depth 9 · 253 bytes · **untouched**
-- [ ] `1048:24ee` FUN_1048_24ee · depth 11 · 1372 bytes · **untouched**
-- [ ] `1048:042c` FUN_1048_042c · depth 16 · 1237 bytes · **untouched**
-- [ ] `1048:19fc` FUN_1048_19fc · depth 16 · 1327 bytes · **untouched**
+- [x] `1048:03c4` inferred_skip_line · depth 6 · 104 bytes · **understood**
+- [x] `1048:0000` inferred_next_obj_token · depth 7 · 940 bytes · **understood**
+- [x] `1048:0b54` inferred_next_room_token · depth 7 · 1480 bytes · **understood**
+- [ ] `1048:21b0` FUN_1048_21b0 · depth 8 · 830 bytes · **decompiled** — room object helper, AAAAAAAAAAA%02d local variable names; unread
+- [ ] `1048:114a` FUN_1048_114a · depth 9 · 985 bytes · **decompiled** — room section parser (uses inferred_next_room_token); unread
+- [ ] `1048:156a` FUN_1048_156a · depth 9 · 640 bytes · **decompiled** — room section parser (uses inferred_next_room_token); unread
+- [ ] `1048:17ea` FUN_1048_17ea · depth 9 · 275 bytes · **decompiled** — room section parser, sprites (SEQUENCE=, SPEECH=, CHANGE=, ENDINDEX=); unread
+- [ ] `1048:18fe` FUN_1048_18fe · depth 9 · 253 bytes · **decompiled** — room section parser, music (MUSICEND=); unread
+- [ ] `1048:24ee` FUN_1048_24ee · depth 11 · 1372 bytes · **decompiled** — AVI video start (OPEN avivideo, play vfw ...); unread
+- [ ] `1048:042c` inferred_parse_action_block · depth 16 · 1237 bytes · **decompiled** — reads lines with inferred_next_obj_token until the end token given as argument; fills a 150-byte action record per COND (XYROOM 5 numbers, TEXT loads NAME.txt, EFFECT/SPEECH/PICTURE/MIDI/DIALOG/CURSOR strings, ANIM 5 numbers + name, CHANGE/SPEECHVAR/COND2/WAITUNTIL term lists, DESTROY sets +0xc); partly read
+- [ ] `1048:19fc` FUN_1048_19fc · depth 16 · 1327 bytes · **decompiled** — runs animations or talk entries (Speaker, SysTalking, LastAction, SysMapBlock, 'Too many frames in one animation!'); unread
 - [ ] `1048:093e` inferred_load_obj_file · depth 17 · 531 bytes · **decompiled** — builds OBJ_%04d.dat, loads and parses it; parser not read
-- [ ] `1048:1f6e` FUN_1048_1f6e · depth 17 · 572 bytes · **untouched**
+- [ ] `1048:1f6e` FUN_1048_1f6e · depth 17 · 572 bytes · **decompiled** — loads a room: builds ROOM%04d.DAT, loads mask and palette; unread
 - [ ] `1048:2b8e` inferred_enter_room · depth 18 · 1699 bytes · **decompiled** — builds GL00_%X%02d.000 from room/100 and room%100, loads that glue file, then OBJ file; partly read
-- [ ] `1048:3236` FUN_1048_3236 · depth 19 · 73 bytes · **untouched**
-- [ ] `1048:2a50` FUN_1048_2a50 · depth 20 · 315 bytes · **untouched**
+- [ ] `1048:3236` FUN_1048_3236 · depth 19 · 73 bytes · **decompiled** — SysMapBlock handling; unread
+- [ ] `1048:2a50` FUN_1048_2a50 · depth 20 · 315 bytes · **decompiled** — exit/room-change variables (FromRoom, LastAction); unread
 
 ### startup (0/2 done)
 

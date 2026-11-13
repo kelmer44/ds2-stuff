@@ -89,6 +89,7 @@ as `MISSING`.
 - `tools/ghidra_headless.sh Script.java [args]`: read-only headless run with writable cache dirs.
 - `contracts/<seg>_<off>.md`: one note per function, from `CONTRACT_TEMPLATE.md`. Required before a
   function can be marked `understood` or later.
+- `SCRIPT_LANGUAGE.md`: the text script language of the room and object files (keyword tables and use counts).
 - `STRUCTS.md`: recovered layouts with confidence markers. `COMPARISON_2011.md`: verdicts on the 2011 code.
 - `SUBSYSTEMS.md`: plain-language map of how the parts work (trust markers, Mermaid diagram).
 - `CHECKLIST.md`: generated; `[x]` only for functions that are understood or later **and** documented.

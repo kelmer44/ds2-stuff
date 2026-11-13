@@ -1616,11 +1616,11 @@
    "10d0:029e"
   ],
   "depth": 7,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_next_obj_token",
+  "status": "understood",
   "engine": "",
   "notes": "",
-  "cluster_name": "",
+  "cluster_name": "script and rooms",
   "cluster": "script and rooms"
  },
  {
@@ -1635,11 +1635,11 @@
    "10d0:029e"
   ],
   "depth": 6,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_skip_line",
+  "status": "understood",
   "engine": "",
   "notes": "",
-  "cluster_name": "",
+  "cluster_name": "script and rooms",
   "cluster": "script and rooms"
  },
  {
@@ -1661,11 +1661,11 @@
    "10d0:029e"
   ],
   "depth": 16,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_parse_action_block",
+  "status": "decompiled",
   "engine": "",
-  "notes": "",
-  "cluster_name": "",
+  "notes": "reads lines with inferred_next_obj_token until the end token given as argument; fills a 150-byte action record per COND (XYROOM 5 numbers, TEXT loads NAME.txt, EFFECT/SPEECH/PICTURE/MIDI/DIALOG/CURSOR strings, ANIM 5 numbers + name, CHANGE/SPEECHVAR/COND2/WAITUNTIL term lists, DESTROY sets +0xc); partly read",
+  "cluster_name": "script and rooms",
   "cluster": "script and rooms"
  },
  {
@@ -1713,11 +1713,11 @@
    "10d0:029e"
   ],
   "depth": 7,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_next_room_token",
+  "status": "understood",
   "engine": "",
   "notes": "",
-  "cluster_name": "",
+  "cluster_name": "script and rooms",
   "cluster": "script and rooms"
  },
  {
@@ -1741,10 +1741,10 @@
   ],
   "depth": 9,
   "name": "",
-  "status": "untouched",
+  "status": "decompiled",
   "engine": "",
-  "notes": "",
-  "cluster_name": "",
+  "notes": "room section parser (uses inferred_next_room_token); unread",
+  "cluster_name": "script and rooms",
   "cluster": "script and rooms"
  },
  {
@@ -1766,10 +1766,10 @@
   ],
   "depth": 9,
   "name": "",
-  "status": "untouched",
+  "status": "decompiled",
   "engine": "",
-  "notes": "",
-  "cluster_name": "",
+  "notes": "room section parser (uses inferred_next_room_token); unread",
+  "cluster_name": "script and rooms",
   "cluster": "script and rooms"
  },
  {
@@ -1789,10 +1789,10 @@
   ],
   "depth": 9,
   "name": "",
-  "status": "untouched",
+  "status": "decompiled",
   "engine": "",
-  "notes": "",
-  "cluster_name": "",
+  "notes": "room section parser, sprites (SEQUENCE=, SPEECH=, CHANGE=, ENDINDEX=); unread",
+  "cluster_name": "script and rooms",
   "cluster": "script and rooms"
  },
  {
@@ -1811,10 +1811,10 @@
   ],
   "depth": 9,
   "name": "",
-  "status": "untouched",
+  "status": "decompiled",
   "engine": "",
-  "notes": "",
-  "cluster_name": "",
+  "notes": "room section parser, music (MUSICEND=); unread",
+  "cluster_name": "script and rooms",
   "cluster": "script and rooms"
  },
  {
@@ -1837,10 +1837,10 @@
   ],
   "depth": 16,
   "name": "",
-  "status": "untouched",
+  "status": "decompiled",
   "engine": "",
-  "notes": "",
-  "cluster_name": "",
+  "notes": "runs animations or talk entries (Speaker, SysTalking, LastAction, SysMapBlock, 'Too many frames in one animation!'); unread",
+  "cluster_name": "script and rooms",
   "cluster": "script and rooms"
  },
  {
@@ -1869,10 +1869,10 @@
   ],
   "depth": 17,
   "name": "",
-  "status": "untouched",
+  "status": "decompiled",
   "engine": "",
-  "notes": "",
-  "cluster_name": "",
+  "notes": "loads a room: builds ROOM%04d.DAT, loads mask and palette; unread",
+  "cluster_name": "script and rooms",
   "cluster": "script and rooms"
  },
  {
@@ -1896,10 +1896,10 @@
   ],
   "depth": 8,
   "name": "",
-  "status": "untouched",
+  "status": "decompiled",
   "engine": "",
-  "notes": "",
-  "cluster_name": "",
+  "notes": "room object helper, AAAAAAAAAAA%02d local variable names; unread",
+  "cluster_name": "script and rooms",
   "cluster": "script and rooms"
  },
  {
@@ -1927,10 +1927,10 @@
   ],
   "depth": 11,
   "name": "",
-  "status": "untouched",
+  "status": "decompiled",
   "engine": "",
-  "notes": "",
-  "cluster_name": "",
+  "notes": "AVI video start (OPEN avivideo, play vfw ...); unread",
+  "cluster_name": "script and rooms",
   "cluster": "script and rooms"
  },
  {
@@ -1953,10 +1953,10 @@
   ],
   "depth": 20,
   "name": "",
-  "status": "untouched",
+  "status": "decompiled",
   "engine": "",
-  "notes": "",
-  "cluster_name": "",
+  "notes": "exit/room-change variables (FromRoom, LastAction); unread",
+  "cluster_name": "script and rooms",
   "cluster": "script and rooms"
  },
  {
@@ -2014,10 +2014,10 @@
   ],
   "depth": 19,
   "name": "",
-  "status": "untouched",
+  "status": "decompiled",
   "engine": "",
-  "notes": "",
-  "cluster_name": "",
+  "notes": "SysMapBlock handling; unread",
+  "cluster_name": "script and rooms",
   "cluster": "script and rooms"
  },
  {

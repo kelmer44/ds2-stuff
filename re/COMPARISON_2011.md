@@ -93,3 +93,18 @@ The 2011 engine has no equivalent of the original's lookup path. Differences tha
 | Several lists: any list true; terms in a list: all true | `inferred_test_any`, `inferred_test_terms` | same logic (`evalCondition` over a list, then per part with `&&`) | faithful. One more rule: the original treats an empty list as false and cuts a list at 10 terms |
 | Sorted names, dummy at index 0 | `inferred_load_game_vars` | hash/map by name | differs in mechanism; same results except that the original sends unknown names to the dummy variable (index 0) instead of failing |
 | Variable width | signed 16-bit | `int32`-like | differs (wrap-around only) |
+
+## Script text format (compared 13 Nov, after contracts `1048_0000`, `1048_0b54`, `1048_03c4`)
+
+2011 sources: `script.cpp` (`ScriptChunk::parse`, `ScriptAction` names), `datfile.cpp`, `roomconfig.cpp`.
+
+| Item | Contract | 2011 | Verdict |
+|---|---|---|---|
+| Unknown key | silently ignored (code 0) | warning and the whole parse fails | **differs**: ignore it |
+| `Chnage=!ShowMike` (`OBJ_0307.DAT` line 42) | no effect (unknown key) | "workaround for OBJ_0307.DAT" treats it as `Change=` and applies it | **differs**: the 2011 workaround hides the player where the original does not; remove it |
+| Case | keys are upper-cased | case-insensitive match | faithful |
+| Comments | cut at the first `;`, trailing spaces dropped | handled in `DATFile` | not compared in detail |
+| `COND=` followed by `COND=` with no action | message box "No Info for this Condition!" (object files) | treated as the start of the next chunk | differs in diagnostics only |
+| `Cond=` / `Cond2=` | `Cond2=` is a second list (any list may be true) | same idea (`_conditions` list, any true) | faithful |
+| Action keys known | 25 in object files, 51 in room files | 15 `ScriptAction` names (`XYRoom, Cursor, Change, Text, Midi, Anim, From, PaletteChange, ChangeAt, Dialog, Picture, Speech, SpeechVar, WaitUntil, Effect`) | the 15 are all real keys; the other keys are in the room parser (`roomconfig.cpp`) and were not compared |
+| `Destroy=` | code 0xe exists | listed in the 2011 TODO as unknown | the key never occurs in the 167 files; it can only come from conversation scripts |
