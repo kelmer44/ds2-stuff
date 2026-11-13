@@ -3624,11 +3624,11 @@
    "10d0:029e"
   ],
   "depth": 7,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_draw_debug_text",
+  "status": "understood",
   "engine": "",
   "notes": "",
-  "cluster_name": "",
+  "cluster_name": "graphics and sprites",
   "cluster": "graphics and sprites"
  },
  {
@@ -3691,11 +3691,11 @@
    "10d0:046e"
   ],
   "depth": 8,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_begin_rect_buffer",
+  "status": "understood",
   "engine": "",
   "notes": "",
-  "cluster_name": "",
+  "cluster_name": "graphics and sprites",
   "cluster": "graphics and sprites"
  },
  {
@@ -3748,11 +3748,11 @@
    "10d0:029e"
   ],
   "depth": 8,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_draw_sprite",
+  "status": "understood",
   "engine": "",
   "notes": "",
-  "cluster_name": "",
+  "cluster_name": "graphics and sprites",
   "cluster": "graphics and sprites"
  },
  {
@@ -3767,11 +3767,11 @@
    "10d0:029e"
   ],
   "depth": 6,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_sort_sprite_list",
+  "status": "understood",
   "engine": "",
   "notes": "",
-  "cluster_name": "",
+  "cluster_name": "graphics and sprites",
   "cluster": "graphics and sprites"
  },
  {
@@ -3793,11 +3793,11 @@
    "10d0:029e"
   ],
   "depth": 9,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_draw_sprite_lists",
+  "status": "understood",
   "engine": "",
   "notes": "",
-  "cluster_name": "",
+  "cluster_name": "graphics and sprites",
   "cluster": "graphics and sprites"
  },
  {
@@ -3813,11 +3813,11 @@
    "10d0:029e"
   ],
   "depth": 6,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_remove_sprite",
+  "status": "understood",
   "engine": "",
   "notes": "",
-  "cluster_name": "",
+  "cluster_name": "graphics and sprites",
   "cluster": "graphics and sprites"
  },
  {
@@ -3834,11 +3834,11 @@
    "10d0:029e"
   ],
   "depth": 7,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_add_sprite",
+  "status": "understood",
   "engine": "",
   "notes": "",
-  "cluster_name": "",
+  "cluster_name": "graphics and sprites",
   "cluster": "graphics and sprites"
  },
  {
@@ -3859,11 +3859,11 @@
    "10d0:029e"
   ],
   "depth": 10,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_erase_sprite_rect",
+  "status": "understood",
   "engine": "",
   "notes": "",
-  "cluster_name": "",
+  "cluster_name": "graphics and sprites",
   "cluster": "graphics and sprites"
  },
  {
@@ -3884,11 +3884,11 @@
    "10d0:029e"
   ],
   "depth": 10,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_first_draw_sprite_rect",
+  "status": "understood",
   "engine": "",
   "notes": "",
-  "cluster_name": "",
+  "cluster_name": "graphics and sprites",
   "cluster": "graphics and sprites"
  },
  {
@@ -3909,11 +3909,11 @@
    "10d0:029e"
   ],
   "depth": 11,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_update_sprite_now",
+  "status": "understood",
   "engine": "",
   "notes": "",
-  "cluster_name": "",
+  "cluster_name": "graphics and sprites",
   "cluster": "graphics and sprites"
  },
  {
@@ -3935,8 +3935,8 @@
    "10d0:029e"
   ],
   "depth": 11,
-  "name": "inferred_redraw_object_rect",
-  "status": "decompiled",
+  "name": "inferred_update_sprite_in_rect",
+  "status": "understood",
   "engine": "",
   "notes": "compositor: moves an object, redraws dirty rect (background, objects), StretchBlts to screen; sets object position = image offsets (a,b) + object anchor; partly read",
   "cluster_name": "graphics and sprites",
@@ -3964,11 +3964,11 @@
    "10d0:029e"
   ],
   "depth": 10,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_repaint_window_rect",
+  "status": "understood",
   "engine": "",
   "notes": "",
-  "cluster_name": "",
+  "cluster_name": "graphics and sprites",
   "cluster": "graphics and sprites"
  },
  {
@@ -3989,7 +3989,7 @@
   ],
   "depth": 10,
   "name": "inferred_redraw_rect",
-  "status": "decompiled",
+  "status": "understood",
   "engine": "",
   "notes": "compositor: redraws a dirty rect of the scene (background image, objects, StretchBlt); partly read",
   "cluster_name": "graphics and sprites",
@@ -4010,11 +4010,11 @@
    "10d0:029e"
   ],
   "depth": 8,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_update_sprite",
+  "status": "understood",
   "engine": "",
   "notes": "",
-  "cluster_name": "",
+  "cluster_name": "graphics and sprites",
   "cluster": "graphics and sprites"
  },
  {

@@ -7,13 +7,13 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 
 | Stage | Count | Share |
 |---|---|---|
-| decompiled or later (status only) | 52 | 14% |
-| understood or later (status only) | 46 | 12% |
+| decompiled or later (status only) | 64 | 17% |
+| understood or later (status only) | 60 | 16% |
 | ported or later (status only) | 7 | 1% |
 | emu-compared or later (status only) | 7 | 1% |
 | original-compared or later (status only) | 7 | 1% |
 | replaced by a ScummVM service | 7 | |
-| **done (status understood or later and documented)** | **46** | **12%** |
+| **done (status understood or later and documented)** | **60** | **16%** |
 | status ahead of its documentation | 0 | |
 
 ## By cluster
@@ -180,30 +180,30 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 - [x] `1080:0800` inferred_load_mask · depth 16 · 143 bytes · **understood**
 - [x] `1080:0890` inferred_load_image · depth 16 · 143 bytes · **understood**
 
-### graphics and sprites (5/23 done)
+### graphics and sprites (19/23 done)
 
 - [ ] `1078:00ca` FUN_1078_00ca · depth 6 · 60 bytes · **untouched**
 - [ ] `1078:0106` FUN_1078_0106 · depth 6 · 107 bytes · **untouched**
 - [ ] `1078:043e` FUN_1078_043e · depth 6 · 22 bytes · **untouched**
-- [ ] `1078:05be` FUN_1078_05be · depth 6 · 309 bytes · **untouched**
-- [ ] `1078:0806` FUN_1078_0806 · depth 6 · 184 bytes · **untouched**
+- [x] `1078:05be` inferred_sort_sprite_list · depth 6 · 309 bytes · **understood**
+- [x] `1078:0806` inferred_remove_sprite · depth 6 · 184 bytes · **understood**
 - [x] `10b0:0000` inferred_draw_bitmap_clipped · depth 6 · 764 bytes · **understood**
 - [x] `1070:0136` inferred_image_cache_release · depth 7 · 227 bytes · **understood**
-- [ ] `1078:0000` FUN_1078_0000 · depth 7 · 202 bytes · **untouched**
+- [x] `1078:0000` inferred_draw_debug_text · depth 7 · 202 bytes · **understood**
 - [ ] `1078:03be` FUN_1078_03be · depth 7 · 127 bytes · **untouched**
-- [ ] `1078:08c0` FUN_1078_08c0 · depth 7 · 315 bytes · **untouched**
+- [x] `1078:08c0` inferred_add_sprite · depth 7 · 315 bytes · **understood**
 - [x] `1078:1aea` inferred_draw_image_to_buffer · depth 7 · 130 bytes · **understood**
 - [x] `1078:1b6c` inferred_draw_image_rect · depth 7 · 120 bytes · **understood**
-- [ ] `1078:0172` FUN_1078_0172 · depth 8 · 585 bytes · **untouched**
-- [ ] `1078:0454` FUN_1078_0454 · depth 8 · 362 bytes · **untouched**
-- [ ] `1078:18d8` FUN_1078_18d8 · depth 8 · 528 bytes · **untouched**
-- [ ] `1078:06f4` FUN_1078_06f4 · depth 9 · 274 bytes · **untouched**
-- [ ] `1078:0a00` FUN_1078_0a00 · depth 10 · 398 bytes · **untouched**
-- [ ] `1078:0b8e` FUN_1078_0b8e · depth 10 · 465 bytes · **untouched**
-- [ ] `1078:1238` FUN_1078_1238 · depth 10 · 1370 bytes · **untouched**
-- [ ] `1078:1796` inferred_redraw_rect · depth 10 · 321 bytes · **decompiled** — compositor: redraws a dirty rect of the scene (background image, objects, StretchBlt); partly read
-- [ ] `1078:0d60` FUN_1078_0d60 · depth 11 · 718 bytes · **untouched**
-- [ ] `1078:1030` inferred_redraw_object_rect · depth 11 · 518 bytes · **decompiled** — compositor: moves an object, redraws dirty rect (background, objects), StretchBlts to screen; sets object position = image offsets (a,b) + object anchor; partly read
+- [x] `1078:0172` inferred_begin_rect_buffer · depth 8 · 585 bytes · **understood**
+- [x] `1078:0454` inferred_draw_sprite · depth 8 · 362 bytes · **understood**
+- [x] `1078:18d8` inferred_update_sprite · depth 8 · 528 bytes · **understood**
+- [x] `1078:06f4` inferred_draw_sprite_lists · depth 9 · 274 bytes · **understood**
+- [x] `1078:0a00` inferred_erase_sprite_rect · depth 10 · 398 bytes · **understood**
+- [x] `1078:0b8e` inferred_first_draw_sprite_rect · depth 10 · 465 bytes · **understood**
+- [x] `1078:1238` inferred_repaint_window_rect · depth 10 · 1370 bytes · **understood**
+- [x] `1078:1796` inferred_redraw_rect · depth 10 · 321 bytes · **understood** — compositor: redraws a dirty rect of the scene (background image, objects, StretchBlt); partly read
+- [x] `1078:0d60` inferred_update_sprite_now · depth 11 · 718 bytes · **understood**
+- [x] `1078:1030` inferred_update_sprite_in_rect · depth 11 · 518 bytes · **understood** — compositor: moves an object, redraws dirty rect (background, objects), StretchBlts to screen; sets object position = image offsets (a,b) + object anchor; partly read
 - [x] `1070:0000` inferred_image_cache_get · depth 17 · 307 bytes · **understood**
 
 ### main window and input (0/24 done)

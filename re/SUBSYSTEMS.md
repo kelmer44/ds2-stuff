@@ -32,7 +32,7 @@ flowchart TD
     Glue --> Pics["Pictures, palettes, sprites 🟡"]
     Glue --> Speech["Speech and sound ❓"]
     Scripts --> Game["Game loop ❓<br/>click, walk, talk, use things"]
-    Pics --> Screen["Drawing ❓<br/>WinG draws into a memory bitmap,<br/>then copies it to the window"]
+    Pics --> Screen["Drawing and compositor 🟡<br/>WinG draws into a memory bitmap,<br/>then copies it to the window"]
     Speech --> Audio["Audio ❓<br/>WaveMix for speech and effects,<br/>MIDI for music"]
     Game --> Video["Cut-scenes ❓<br/>Windows plays the AVI files"]
     Game --> Saves["Save and load ❓"]
@@ -158,6 +158,39 @@ use, and the picture from `DS2RUN.HDR` and the `.BMM` files are not understood.
 **For the ScummVM engine.** ScummVM draws straight into an 8-bit or true-colour surface, so none of the Windows
 palette or bitmap handling is needed. What must be reproduced is how the four numbers place a sprite, the
 see-through colour, and the exact brightening rule.
+
+## The scene compositor 🟡
+
+**What it does.** It keeps the picture you see up to date. The room is a backdrop picture with sprites (the
+characters and things you can see) drawn on top. The game does not redraw the whole window each frame. It
+repaints only the rectangles that changed.
+
+**How it works.**
+1. **Sprites.** Each sprite has a picture to show now, the picture it showed last time, and an "anchor" point
+   (where the thing stands). The sprite's top-left corner is the anchor plus the two offsets hidden in its
+   picture. A sprite with no picture is invisible.
+2. **Two lists.** The scene keeps two lists of sprites. Before drawing, each list is tidied (empty slots
+   dropped) and sorted by the anchor's vertical position, smallest first, so things further up the screen
+   (further away) are drawn first and nearer things cover them. The second list is drawn after the first, so it
+   always ends up on top. When two sprites have the same height their order is not guaranteed.
+3. **Changes.** When a sprite appears, disappears or moves, the game adds its old and new rectangles to one "dirty"
+   rectangle for the scene (the union of everything that changed).
+4. **Repainting.** For the dirty rectangle the game makes a small temporary picture of exactly that size, paints
+   the backdrop part (or black if there is no backdrop), draws every sprite that touches it (cut to the play-area
+   rectangle), and copies the result to the window in one step. Then it throws the temporary picture away.
+5. **Window repaints.** When Windows asks the game to repaint a rectangle, the parts outside the play area show only
+   the backdrop; the part inside gets the full composition.
+6. **Single-sprite shortcuts.** There are also versions that update one sprite at once (erase, first draw, or move),
+   repainting just the area it covered.
+7. A developer flag can draw a small text in each repainted rectangle. Normal play does not use it.
+
+**Checked.** The drawing order rule, the lists, the dirty rectangle and the repaint steps were read instruction by
+instruction (🟡 rather than ✅ because nothing has been compared with the original on screen). Unknown: what
+the "ignore the depth threshold" flag on a sprite means, and which sprites go to the second list.
+
+**For ScummVM.** ScummVM can draw into one surface and use dirty rectangles, or just redraw each frame. What
+must match is the draw order (sort by anchor y, list 2 on top), the top-left = anchor + offsets rule, the
+transparent colour 0, and the play-area clipping.
 
 ## Windows services the game relies on ❓
 

@@ -214,6 +214,46 @@ pointer at +0xd, use count at +0x11, next node far pointer at +0x13. A picture i
 (span draw, keyed copy, plain copy). Transparent colour index is **0** (callers always pass key 0). Finished rectangles are
 sent to the window with `WinGStretchBlt`.
 
-Dirty-rectangle fields of the scene structure used by the compositor (`1078:1796`): rectangle at +0x340 (left), +0x342 (top),
-+0x344 (right), +0x346 (bottom); +0x348 cleared after a redraw. Object fields seen in `1078:1030`: current image far pointer
-+0x1e, new image far pointer +0x2a, on-screen position +0x22/+0x24, anchor (x, y) +0x2e/+0x30, previous rectangle +0x3e/+0x40. [partly read]
+## Scene (the compositor's structure) [code]
+
+Addressed through a far pointer; every function of `1078` takes it first.
+
+| Offset | Size | Field | Evidence |
+|---|---|---|---|
+| +0x00 | u16 | capacity: list 1 holds at most `+0 - 1` sprites | `1078:08c0` |
+| +0x02 | u16 | Windows handle of the temporary rectangle bitmap (created and deleted per redraw) | `0172`, redraw paths |
+| +0x08 | u16 | WinG device context used for composing | `0172` |
+| +0x0a, +0x0c | u16 | width and height of the current temporary buffer | `0172` |
+| +0x1c | u16 | list 0 count | `06f4`, `0806` |
+| +0x1e | 100 x far ptr | list 0: sprites sorted by depth, drawn first | `0806`, `08c0` |
+| +0x1ae | u16 | list 1 count | same |
+| +0x1b0 | 100 x far ptr | list 1: drawn after list 0 (on top) | same |
+| +0x340 | i16 | dirty rectangle left | `18d8`, `1796` |
+| +0x342 | i16 | dirty rectangle top | same |
+| +0x344 | i16 | dirty rectangle right | same |
+| +0x346 | i16 | dirty rectangle bottom | same |
+| +0x348 | u16 | dirty rectangle valid (1) | `18d8` sets, `1796` clears |
+| +0x34a | i16 | clip rectangle left | `0454`, `1238` |
+| +0x34c | i16 | clip rectangle right | same |
+| +0x34e | i16 | clip rectangle top | same |
+| +0x350 | i16 | clip rectangle bottom | same |
+
+## Sprite record [code, partly]
+
+| Offset | Size | Field | Evidence |
+|---|---|---|---|
+| +0x12 | u16 | flag; sprites with 0 here ignore the depth threshold when lists are drawn | `06f4` (meaning unknown) |
+| +0x14 | u16 | clip rectangle initialised (0 or 1) | `0454` |
+| +0x16, +0x18, +0x1a, +0x1c | i16 | own clip rectangle: left, top, right, bottom, copied once from the scene | `0454` |
+| +0x1e | far ptr | image drawn last time (old image) | `18d8` |
+| +0x22, +0x24 | i16 | old top-left x and y | `18d8` |
+| +0x26, +0x28 | u16 | old width and height | `18d8` (image size) |
+| +0x2a | far ptr | image to draw now (new image); null hides the sprite | `18d8`, `0d60` |
+| +0x2e, +0x30 | i16 | **anchor x and y** (the point the object stands on). +0x30 is the depth key for sorting | `18d8`, `05be` |
+| +0x36 | far ptr | backdrop image behind the sprite (null: black) | `1796`, `0d60` |
+| +0x3a, +0x3c | i16 | backdrop offset | `1030` |
+| +0x3e, +0x40 | i16 | new top-left x and y = `(image +0xc + anchor x, image +0xe + anchor y)` | `18d8`, `0b8e` |
+
+Image-record flag [code]: the far pointer at image +0x14/+0x16 being non-zero means "draw with transparency".
+`inferred_image_cache_get` sets it (to point at the record itself) when called with flag bit 0; `inferred_draw_sprite` passes that as the keyed flag.
+The temporary composing buffer (`DS:1fce/1fd0` header, `DS:343a/343c` pixels) is a WinG DIB created per rectangle, bottom-up unless WinG recommends otherwise.

@@ -50,3 +50,17 @@ The 2011 engine has no equivalent of the original's lookup path. Differences tha
 | Images shared by name with a use count | `1070:0000` / `0136` | no equivalent found | differs in memory behaviour only |
 | Palette entries 0 and 255 forced to black and white, entries 1 to 254 animatable, optional brightening (`DS:0062`) | `1080:049a` | not present | not applicable to a true-colour or ScummVM palette surface, but the brightening rule needs a decision once the option is understood |
 | `.BMM` masks | not inspected | not compared | unverified |
+
+## The scene compositor (compared 13 Nov, after contracts `1078_*`)
+
+2011 sources: `graphics.cpp` (drawing order comment: "the vertical position of the feet dictates the layer"), `graphicalobject.cpp`.
+
+| Item | Contract | 2011 | Verdict |
+|---|---|---|---|
+| Sprites drawn back to front by anchor y (smallest first) | `1078:05be` | layer decided by the sprite's feet y (`graphics.cpp:305`) | faithful in principle. The original sorts by the **anchor y** (`+0x30`), which is `feet` only if the feet value is the signed anchor (see the sprite-placement row above). |
+| Tie order | selection sort, not stable | not checked | unverified |
+| Two lists, list 1 always on top | `1078:06f4` | no such split found | unverified; check what lives on list 1 before adding it |
+| Top-left = anchor + `(a, b)` | `1078:18d8` | `moveFeetTo` with clamped feet | differs (see placement row) |
+| Dirty-rectangle repaint | `1078:18d8`, `1796` | not checked | not needed; ScummVM can redraw per frame as long as the order and clipping match |
+| Clip rectangle of the play area | scene +0x34a..0x350 | not checked | unverified |
+| Transparent colour 0 | all callers key 0 | transparency map | faithful if index 0 (not checked) |
