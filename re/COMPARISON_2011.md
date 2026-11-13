@@ -64,3 +64,15 @@ The 2011 engine has no equivalent of the original's lookup path. Differences tha
 | Dirty-rectangle repaint | `1078:18d8`, `1796` | not checked | not needed; ScummVM can redraw per frame as long as the order and clipping match |
 | Clip rectangle of the play area | scene +0x34a..0x350 | not checked | unverified |
 | Transparent colour 0 | all callers key 0 | transparency map | faithful if index 0 (not checked) |
+
+## Sprite scaling (compared 13 Nov, after contract `1020_0656` and `STRUCTS.md` scale rule)
+
+2011 sources: `mike.cpp` (`calculateScale`, `_scaleMin`, `_scaleMax`), `sprite.cpp`.
+
+| Item | Contract | 2011 | Verdict |
+|---|---|---|---|
+| Scale formula | `(y - top) * K / range` in 1/128 units, K = 128 for objects and 134 for the player | `(y - factors[0]) / factors[1]` as a fraction | **differs by K for the player**: the original's player scale is 134/128 = 1.047 times larger at the same y; for objects K = 128, same as 2011 |
+| Clamp | 10/128 to 180/128 = 0.078 to 1.406 | `_scaleMin` 0.05, `_scaleMax` 1.05 | **differs**: the original allows scales up to 140.6% and never below 7.8%; this matches the 2011 TODO "scaling not completely correct" |
+| Minimum size | 5 x 5 pixels | not found | differs (only matters for very small scales) |
+| Placement offsets scaled with the image | `offset * scale / 128`, mirrored case `-((w + offset) * scale / 128)` | `fracToInt(offset * _scale)` with a min of 1 or -1 (`mike.cpp:481`) | differs: the original truncates and has no 1/-1 minimum |
+| Pixel resampling | StretchDIB library (`10c8`), unread | not compared | unverified |

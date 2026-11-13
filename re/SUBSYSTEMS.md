@@ -192,6 +192,37 @@ the "ignore the depth threshold" flag on a sprite means, and which sprites go to
 must match is the draw order (sort by anchor y, list 2 on top), the top-left = anchor + offsets rule, the
 transparent colour 0, and the play-area clipping.
 
+## Sprite scaling and the player's sprites 🟡
+
+**What it does.** Characters and objects get smaller the further up the screen they stand, so the room looks deep. The
+game does this by making a scaled copy of the picture each time it changes.
+
+**How it works.**
+1. Every room has two numbers: where the "far" line is (a screen height) and how many pixels deep the scaling range is.
+2. A thing standing at height `y` gets the scale `(y - far line) * 128 / depth`, as a number where 128 means normal size.
+   The player's character uses 134 instead of 128 (about 5% bigger at the front). The result is kept between 10 and 180
+   (about 8% to 140%).
+3. The scaled picture is a new copy: its width and height are the original's times the scale (never below 5 pixels), the
+   small placement offsets in the picture header are scaled the same way, and the pixels are resampled by a general
+   picture-stretching routine that the game includes (the WinG sample code).
+4. The scaled copy replaces the thing's picture. If its size or anchor changed, the compositor repaints the changed rectangle.
+5. Each tick, the game goes through every object in the room, picks its current animation frame, scales it if needed and hands
+   it to the compositor. Then the player's character. A variable says whether the player is shown or hidden.
+
+**Checked.** The scale rule and the size and offset rules were read from the code (the player's second sprite is only partly
+read). 🟡 because the stretch routine that does the actual pixel resampling and mirroring is unread, so the exact pixels of a scaled
+sprite are not known yet.
+
+**For ScummVM.** Use the same formula, clamp and 5-pixel minimum; scale the placement offsets too. Which source pixel each new pixel takes
+is still to be recovered.
+
+## The game tick 🟡
+
+The big routine that runs on each Windows timer tick is identified (`1038:086e`, 4,706 bytes, called from the window procedure for the
+timer message with the delay `1000 / frames per second`). From the texts it uses, it advances animations, runs the `SEQUENCE`, `SPEECH` and
+`CHANGEAT` script commands, controls the video playback and the "going out" and "ready to exit" variables. It is not read yet; it is the
+next big cluster.
+
 ## Windows services the game relies on ❓
 
 Seen from the list of Windows calls the game makes. None of this is read yet.

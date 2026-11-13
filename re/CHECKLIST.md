@@ -7,13 +7,13 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 
 | Stage | Count | Share |
 |---|---|---|
-| decompiled or later (status only) | 64 | 17% |
-| understood or later (status only) | 60 | 16% |
+| decompiled or later (status only) | 68 | 19% |
+| understood or later (status only) | 61 | 17% |
 | ported or later (status only) | 7 | 1% |
 | emu-compared or later (status only) | 7 | 1% |
 | original-compared or later (status only) | 7 | 1% |
 | replaced by a ScummVM service | 7 | |
-| **done (status understood or later and documented)** | **60** | **16%** |
+| **done (status understood or later and documented)** | **61** | **17%** |
 | status ahead of its documentation | 0 | |
 
 ## By cluster
@@ -143,13 +143,15 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 - [ ] `1068:2a72` FUN_1068_2a72 · depth 20 · 750 bytes · **untouched**
 - [ ] `1068:006c` DIALOGPROC · depth 21 · 3637 bytes · **untouched**
 
-### graphics and bitmaps (0/5 done)
+### game tick (0/1 done)
+
+- [ ] `1038:086e` inferred_game_tick · depth 21 · 4706 bytes · **decompiled** — WM_TIMER handler called from WINPROC every timer tick with the window message words; the main per-tick update (animation frames, SEQUENCE=, SPEECH=, CHANGEAT=, AVI control, GoingOut, SysReadyExit); not read
+
+### graphics and bitmaps (0/3 done)
 
 - [ ] `1038:01a4` FUN_1038_01a4 · depth 7 · 63 bytes · **untouched**
 - [ ] `1038:0000` FUN_1038_0000 · depth 9 · 419 bytes · **untouched**
-- [ ] `1038:01e4` FUN_1038_01e4 · depth 15 · 1671 bytes · **untouched**
 - [ ] `1038:1ade` FUN_1038_1ade · depth 20 · 2767 bytes · **untouched**
-- [ ] `1038:086e` FUN_1038_086e · depth 21 · 4706 bytes · **untouched**
 
 ### graphics and palette (20/26 done)
 
@@ -180,7 +182,7 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 - [x] `1080:0800` inferred_load_mask · depth 16 · 143 bytes · **understood**
 - [x] `1080:0890` inferred_load_image · depth 16 · 143 bytes · **understood**
 
-### graphics and sprites (19/23 done)
+### graphics and sprites (20/26 done)
 
 - [ ] `1078:00ca` FUN_1078_00ca · depth 6 · 60 bytes · **untouched**
 - [ ] `1078:0106` FUN_1078_0106 · depth 6 · 107 bytes · **untouched**
@@ -204,6 +206,9 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 - [x] `1078:1796` inferred_redraw_rect · depth 10 · 321 bytes · **understood** — compositor: redraws a dirty rect of the scene (background image, objects, StretchBlt); partly read
 - [x] `1078:0d60` inferred_update_sprite_now · depth 11 · 718 bytes · **understood**
 - [x] `1078:1030` inferred_update_sprite_in_rect · depth 11 · 518 bytes · **understood** — compositor: moves an object, redraws dirty rect (background, objects), StretchBlts to screen; sets object position = image offsets (a,b) + object anchor; partly read
+- [ ] `10c0:0000` inferred_stretch_dib · depth 13 · 600 bytes · **decompiled** — wrapper of the 'stretch.c' stretch library (asserts on null pointers and unequal bit depth, clips to the destination, calls 10c8:0040); the resampling in 10c8 is unread
+- [x] `1020:0656` inferred_scale_image · depth 14 · 953 bytes · **understood**
+- [ ] `1038:01e4` inferred_update_room_sprites · depth 15 · 1671 bytes · **decompiled** — updates every room object's sprite and Mike's two sprites (scales images with 1020:0656, registers changes with 1078:18d8), then repaints with 1078:1796; partly read
 - [x] `1070:0000` inferred_image_cache_get · depth 17 · 307 bytes · **understood**
 
 ### main window and input (0/24 done)
@@ -407,14 +412,13 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 - [ ] `10d0:065c` FUN_10d0_065c · depth 23 · 44 bytes · **untouched**
 - [ ] `10d0:001a` entry · depth 24 · 177 bytes · **untouched**
 
-### startup helpers (0/6 done)
+### startup helpers (0/5 done)
 
 - [ ] `10a0:0000` FUN_10a0_0000 · depth 6 · 93 bytes · **untouched**
 - [ ] `10a0:0080` FUN_10a0_0080 · depth 6 · 62 bytes · **untouched**
 - [ ] `10a0:00be` FUN_10a0_00be · depth 6 · 221 bytes · **untouched**
 - [ ] `10a0:005e` FUN_10a0_005e · depth 7 · 33 bytes · **untouched**
 - [ ] `10a0:01ae` FUN_10a0_01ae · depth 8 · 134 bytes · **untouched**
-- [ ] `10c0:0000` FUN_10c0_0000 · depth 13 · 600 bytes · **untouched**
 
 ### text and cursors (0/8 done)
 
@@ -427,7 +431,7 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 - [ ] `1058:0ae2` FUN_1058_0ae2 · depth 23 · 37 bytes · **untouched**
 - [ ] `1058:0b08` FUN_1058_0b08 · depth 23 · 217 bytes · **untouched**
 
-### unassigned (0/7 done)
+### unassigned (0/6 done)
 
 - [ ] `1020:0000` FUN_1020_0000 · depth 6 · 258 bytes · **untouched**
 - [ ] `1020:0102` FUN_1020_0102 · depth 6 · 321 bytes · **untouched**
@@ -435,5 +439,4 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 - [ ] `1020:0480` FUN_1020_0480 · depth 6 · 470 bytes · **untouched**
 - [ ] `1020:0a14` FUN_1020_0a14 · depth 6 · 44 bytes · **untouched**
 - [ ] `1020:0a40` FUN_1020_0a40 · depth 7 · 229 bytes · **untouched**
-- [ ] `1020:0656` FUN_1020_0656 · depth 14 · 953 bytes · **untouched**
 

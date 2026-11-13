@@ -1019,11 +1019,11 @@
    "10d0:05bc"
   ],
   "depth": 14,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_scale_image",
+  "status": "understood",
   "engine": "",
   "notes": "",
-  "cluster_name": "",
+  "cluster_name": "graphics and sprites",
   "cluster": "unassigned"
  },
  {
@@ -1467,11 +1467,11 @@
    "10d0:052a"
   ],
   "depth": 15,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_update_room_sprites",
+  "status": "decompiled",
   "engine": "",
-  "notes": "",
-  "cluster_name": "",
+  "notes": "updates every room object's sprite and Mike's two sprites (scales images with 1020:0656, registers changes with 1078:18d8), then repaints with 1078:1796; partly read",
+  "cluster_name": "graphics and sprites",
   "cluster": "graphics and bitmaps"
  },
  {
@@ -1517,11 +1517,11 @@
    "10d0:052a"
   ],
   "depth": 21,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_game_tick",
+  "status": "decompiled",
   "engine": "",
-  "notes": "",
-  "cluster_name": "",
+  "notes": "WM_TIMER handler called from WINPROC every timer tick with the window message words; the main per-tick update (animation frames, SEQUENCE=, SPEECH=, CHANGEAT=, AVI control, GoingOut, SysReadyExit); not read",
+  "cluster_name": "game tick",
   "cluster": "graphics and bitmaps"
  },
  {
@@ -5917,11 +5917,11 @@
    "10d0:039c"
   ],
   "depth": 13,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_stretch_dib",
+  "status": "decompiled",
   "engine": "",
-  "notes": "",
-  "cluster_name": "",
+  "notes": "wrapper of the 'stretch.c' stretch library (asserts on null pointers and unequal bit depth, clips to the destination, calls 10c8:0040); the resampling in 10c8 is unread",
+  "cluster_name": "graphics and sprites",
   "cluster": "startup helpers"
  },
  {

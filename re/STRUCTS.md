@@ -257,3 +257,24 @@ Addressed through a far pointer; every function of `1078` takes it first.
 Image-record flag [code]: the far pointer at image +0x14/+0x16 being non-zero means "draw with transparency".
 `inferred_image_cache_get` sets it (to point at the record itself) when called with flag bit 0; `inferred_draw_sprite` passes that as the keyed flag.
 The temporary composing buffer (`DS:1fce/1fd0` header, `DS:343a/343c` pixels) is a WinG DIB created per rectangle, bottom-up unless WinG recommends otherwise.
+
+## Globals around the compositor [code]
+
+- The scene structure is the global at `DS:653e`.
+- Current room record: far pointer at `DS:6892/6894`. Fields seen: +0x13 an image record embedded in the room record, used as the
+  backdrop for repaints (`inferred_redraw_rect` is called with `room + 0x13`); +0x33 and +0x35 (16-bit) the two numbers of the scale rule
+  below; +0x39/+0x3b far pointer to the first room object; the room's object nodes form a linked list (next far pointer at node
+  +0x681).
+- Two sprite records of 0x44 bytes are allocated when a room is entered (`1048:2b8e`); their far pointers are at `DS:0030` and `DS:0034`.
+  `inferred_update_room_sprites` fills the one at `DS:0030` with the image at `DS:870a` and anchor `(DS:3cae, DS:3cb0)` (the player's
+  position), and the one at `DS:0034` with the image at `DS:5cc2`; both are cleared when the variable `EraseMike` is set and drawn when
+  `ShowMike` is set.
+- Room object node (a large record, about 0x685 bytes): flags at +0x67 (bit 4: the image must be scaled, bit 3: skip), frame index +0x73,
+  array of frame image far pointers from +0x77, per-frame x at +0x37b, y at +0x47b, scale at +0x57b, scaled image record far pointer at +0x277,
+  state word at +0x67b (100 = hidden), its sprite record far pointer at +0x67d. [partly read, from `1038:01e4`]
+
+## Scale rule [code]
+
+`scale128 = (anchorY - room[+0x33]) * K / room[+0x35]`, clamped to the range 10 to 180 (that is 7.8% to 140.6%), with
+the unit 128 = 100%. For room objects `K = 128`; for the player's sprites `K = 134` (0x86). A frame can carry its own scale at +0x57b (when set, the
+formula is skipped). The scaled image is made by `inferred_scale_image` and has at least 5 x 5 pixels.
