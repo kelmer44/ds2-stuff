@@ -1740,10 +1740,10 @@
    "10d0:029e"
   ],
   "depth": 9,
-  "name": "",
+  "name": "inferred_parse_sprite_section",
   "status": "decompiled",
   "engine": "",
-  "notes": "room section parser (uses inferred_next_room_token); unread",
+  "notes": "room section parser (uses inferred_next_room_token); unread | SPRITESTART section: COND starts a 0x685-byte sprite node (linked from room +0x39, next at node +0x681, state +0x67b = 100, condition list at +0xd); ANIM name at +0; EFFECT number +0x45 name +0x47; SPEECH number +0x54 name +0x56; STATUS six numbers at +0x67..+0x71 (flags, ?, ?, list number (+0x6d), frame count (+0x6f), ?); SEQUENCE list into +0x27b (default 1..count); STARTINDEX/ENDINDEX (+0x63/+0x65, default 0..count-1); SPRITEIDX into +0x67b; error 'Too many frames in one animation!' above 128 frames; LOADCOND/LOOPCOND/LOOPPOINT/POSX/POSY/SCALEVAL partly read",
   "cluster_name": "script and rooms",
   "cluster": "script and rooms"
  },
@@ -1765,10 +1765,10 @@
    "10d0:029e"
   ],
   "depth": 9,
-  "name": "",
+  "name": "inferred_parse_mirror_section",
   "status": "decompiled",
   "engine": "",
-  "notes": "room section parser (uses inferred_next_room_token); unread",
+  "notes": "room section parser (uses inferred_next_room_token); unread | MIRRORSTART section; unread in detail",
   "cluster_name": "script and rooms",
   "cluster": "script and rooms"
  },
@@ -1788,10 +1788,10 @@
    "10d0:029e"
   ],
   "depth": 9,
-  "name": "",
+  "name": "inferred_parse_palette_section",
   "status": "decompiled",
   "engine": "",
-  "notes": "room section parser, sprites (SEQUENCE=, SPEECH=, CHANGE=, ENDINDEX=); unread",
+  "notes": "room section parser, sprites (SEQUENCE=, SPEECH=, CHANGE=, ENDINDEX=); unread | PALETTESTART section: COND/COND2 list nodes, STARTINDEX/ENDINDEX numbers; destination fields near room +0xfe2 not located",
   "cluster_name": "script and rooms",
   "cluster": "script and rooms"
  },
@@ -1810,10 +1810,10 @@
    "10d0:029e"
   ],
   "depth": 9,
-  "name": "",
+  "name": "inferred_parse_music_section",
   "status": "decompiled",
   "engine": "",
-  "notes": "room section parser, music (MUSICEND=); unread",
+  "notes": "room section parser, music (MUSICEND=); unread | MUSICSTART section: COND list node, MIDI name; destination array in the room record not located",
   "cluster_name": "script and rooms",
   "cluster": "script and rooms"
  },
@@ -1836,10 +1836,10 @@
    "10d0:029e"
   ],
   "depth": 16,
-  "name": "",
+  "name": "inferred_parse_entry_section",
   "status": "decompiled",
   "engine": "",
-  "notes": "runs animations or talk entries (Speaker, SysTalking, LastAction, SysMapBlock, 'Too many frames in one animation!'); unread",
+  "notes": "runs animations or talk entries (Speaker, SysTalking, LastAction, SysMapBlock, 'Too many frames in one animation!'); unread | ENTRYSTART section: uses the object lexer, handles From/XYRoom/Change/etc.; unread in detail",
   "cluster_name": "script and rooms",
   "cluster": "script and rooms"
  },
@@ -1868,8 +1868,8 @@
    "10d0:029e"
   ],
   "depth": 17,
-  "name": "",
-  "status": "decompiled",
+  "name": "inferred_load_room",
+  "status": "understood",
   "engine": "",
   "notes": "loads a room: builds ROOM%04d.DAT, loads mask and palette; unread",
   "cluster_name": "script and rooms",
@@ -1895,10 +1895,10 @@
    "10d0:029e"
   ],
   "depth": 8,
-  "name": "",
+  "name": "inferred_unload_room",
   "status": "decompiled",
   "engine": "",
-  "notes": "room object helper, AAAAAAAAAAA%02d local variable names; unread",
+  "notes": "room object helper, AAAAAAAAAAA%02d local variable names; unread | unloads the room: resets local variable slots 1..20 to placeholder names AAAAAAAAAAA%02d with value 0, frees entry list, sprite nodes (images through 1070:0136, scaled images, condition lists), mirror/palette arrays, the room record, the two Mike sprite records, then frees the room's glue file (1088:02ac) named GL00_%X%02d.000; details of each freed structure partly read",
   "cluster_name": "script and rooms",
   "cluster": "script and rooms"
  },
@@ -2516,11 +2516,11 @@
    "10d0:029e"
   ],
   "depth": 6,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_register_local_var",
+  "status": "understood",
   "engine": "",
   "notes": "",
-  "cluster_name": "",
+  "cluster_name": "game variables",
   "cluster": "dialogs and options"
  },
  {

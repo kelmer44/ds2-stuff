@@ -108,3 +108,17 @@ The 2011 engine has no equivalent of the original's lookup path. Differences tha
 | `Cond=` / `Cond2=` | `Cond2=` is a second list (any list may be true) | same idea (`_conditions` list, any true) | faithful |
 | Action keys known | 25 in object files, 51 in room files | 15 `ScriptAction` names (`XYRoom, Cursor, Change, Text, Midi, Anim, From, PaletteChange, ChangeAt, Dialog, Picture, Speech, SpeechVar, WaitUntil, Effect`) | the 15 are all real keys; the other keys are in the room parser (`roomconfig.cpp`) and were not compared |
 | `Destroy=` | code 0xe exists | listed in the 2011 TODO as unknown | the key never occurs in the 167 files; it can only come from conversation scripts |
+
+## Room files (compared 13 Nov, after contracts `1048_1f6e`, `1060_048e` and the sprite parser notes)
+
+2011 sources: `roomconfig.cpp` (`RoomConfigSprite`, `RoomConfigPalette`, `RoomConfigMusic`), `mike.cpp` (scale factors), `variables.cpp` (local variables).
+
+| Item | Contract | 2011 | Verdict |
+|---|---|---|---|
+| `ScaleFactor=a b c` | `a` and `b` stored, `c` ignored; scale `(y - a) * K / b` | three factors stored (`_scaleFactors[0..2]`), the formula uses the first two | faithful in which numbers are used; constants differ (see sprite scaling) |
+| Default frame sequence | `1, 2, ..., count` | `0, 1, ..., count - 1` (`roomconfig.cpp:307`) | **differs by 1**; resolve with the frame numbering of the animation bank (not read yet) |
+| `Status=` fourth number | selects draw list 0 or 1 | not used as a list selector (stored only) | unverified: check how 2011 orders sprites against the original's two lists |
+| `Status=` fifth number | frame count, max 128 | used to size the default sequence | faithful in use |
+| `StartIndex=`, `EndIndex=` | defaults 0 and count - 1 | palette sections only | unverified for sprites |
+| `LocalVar=` | up to 20, written into placeholder slots, reset on unload | `_localVariables` map | differs in mechanism; same visible behaviour if the room lifetime and 0 reset are kept |
+| `WalkMap=NAME [n m]` | optional two numbers, default 0 and 10 | not found | unverified: the two numbers are not used in 2011 |

@@ -324,3 +324,49 @@ Character classes used by the tokenizer (`DS:5d0e`, set up in `1028:03d0`): lowe
   text; +0x14 string from `ANIM=`; +0x2b cursor string; +0x38 midi string; +0x45 picture string; +0x52 effect string; +0x5f speech string (also the text name);
   +0x6e dialog string; +0x8f/+0x91 pointer to a wait-until condition node; +0x93/+0x95 pointer to the next record. Condition and change lists are 0x18-byte nodes of
   10 term words with the next-node far pointer at +0x14. [partly read; the first fields (position numbers) are not located yet]
+
+## Room record (built by `inferred_load_room`, far pointer at `DS:6892/6894`) [code]
+
+0x15d8 bytes, zeroed first. Offsets read from the code:
+
+| Offset | Size | Field |
+|---|---|---|
+| +0x02 | far ptr | head of the entry-section list (0x95-byte nodes, next pointer at node +0x91) |
+| +0x06 | 13 bytes | backdrop name (`BackDrop=`) |
+| +0x13 | 0x18 bytes | the backdrop's image record (passed to `inferred_redraw_rect`) |
+| +0x2b | 4 x i16 | `ObjXY=` rectangle: left, top, right, bottom (the room's clip) |
+| +0x33 | i16 | first `ScaleFactor=` number: the scale's far line (the `top` of the scale rule) |
+| +0x35 | i16 | second `ScaleFactor=` number: the scale range (the divisor of the scale rule) |
+| +0x39 | far ptr | head of the sprite node list (0x685-byte nodes, next pointer at node +0x681) |
+| +0x3d | string | walk-map name (`WalkMap=`) |
+| +0xf4a, +0xf4c | i16 | the two optional numbers of `WalkMap=` (default 0 and 10) |
+| +0xf4e... | arrays of 25 | mirror and music entries (three arrays of far pointers); partly read |
+
+The third `ScaleFactor=` number (always 999 in the data) is parsed by nobody: `ScaleFactor=` reads only two numbers.
+So the scale rule `(y - top) * K / range` uses `top = ScaleFactor 1` and `range = ScaleFactor 2`, for example `110` and `205` for room 101.
+
+## Sprite node (0x685 bytes, from `1048:114a`) [code, partly]
+
+| Offset | Field |
+|---|---|
+| +0x00 | animation name (`Anim=`, 13 bytes) |
+| +0x0d | far ptr to the condition list node (from `Cond=`) |
+| +0x11, +0x15 | far ptrs to the nodes of `LoadCond=` and `LoopCond=` |
+| +0x14 | far ptr to the `Cond2=` list |
+| +0x1b | assignment list (`Change=`) |
+| +0x45 / +0x47 | `Effect=` number / name |
+| +0x54 / +0x56 | `Speech=` number / name |
+| +0x63, +0x65 | `StartIndex=` and `EndIndex=` (default 0 and count - 1) |
+| +0x67 | `Status=` number 1: flags (bit 3: ..., bit 4: needs scaling, see `inferred_update_room_sprites`) |
+| +0x69, +0x6b | `Status=` numbers 2 and 3 (0 and 32767 in the data) |
+| +0x6d | `Status=` number 4: **which of the two draw lists the sprite goes to** (0 or 1) |
+| +0x6f | `Status=` number 5: frame count (error above 128: "Too many frames in one animation!") |
+| +0x71 | `Status=` number 6 (optional) |
+| +0x27b | frame sequence array (`Sequence=`; default 1, 2, ..., count) |
+| +0x277 | far ptr to the scaled image record (made by `inferred_scale_image`) |
+| +0x67b | `SpriteIDX=`: which shared sprite record (0 to 3) to draw with; 100 = none yet |
+| +0x67d | far ptr to the node's own sprite record |
+| +0x681 | far ptr to the next sprite node |
+
+Local variables: the 20 slots 1 to 20 of the variable table are placeholders `AAAAAAAAAAA01..20`. `LocalVar=` names (always starting with the room number)
+overwrite them in sorted order when a room is loaded, with value 0; unloading the room resets them (`inferred_register_local_var`, `inferred_unload_room`).

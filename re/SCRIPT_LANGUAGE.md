@@ -87,3 +87,14 @@ section, which is read with the object lexer (`1048:0000`), so both tables are u
 - `SpriteStart` to `SpriteEnd`: animated things: `Cond=`, `Anim=name`, `Status=`, `Sequence=`, `SpriteIDX=`, `Change=`.
 - `MirrorStart` to `MirrorEnd`: mirror regions (`ClipXY=`, `PosX=`, `PosY=`, `ScaleVal=`).
 - After the sprite section the object entries follow (`ObjDesc=`, `ObjXY=`, then `GoStart`, `LookStart` and `UseStart` blocks).
+
+## Fields found in the room section parsers [code]
+
+- `Status=a b c d e [f]`: `a` flags, `b` and `c` (0 and 32767 in the data), `d` the draw list (0 or 1; list 1 is drawn after list 0), `e` the number of frames
+  of the animation (at most 128), `f` optional.
+- `Sequence=` is a list of frame numbers; without it the sequence is 1, 2, ..., `e`. `StartIndex=` and `EndIndex=` default to 0 and `e - 1`.
+- `SpriteIDX=n` selects the shared sprite record: 0 and 1 are the player's two sprites, 2 and 3 are the others used by room objects; a sprite node without it stays unassigned (100).
+- `LocalVar=`: at most 20 per room; names start with the room number; they must be listed in ascending order (the lookup relies on it).
+- `ScaleFactor=a b c`: only `a` and `b` are used (see the scale rule); `c` is ignored.
+- `WalkMap=NAME [n m]`: optional two numbers (default 0 and 10); the shipped files use for example `200 5`.
+- `ObjXY=` in a room file is the clip rectangle of the room.

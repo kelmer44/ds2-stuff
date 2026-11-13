@@ -192,6 +192,28 @@ the "ignore the depth threshold" flag on a sprite means, and which sprites go to
 must match is the draw order (sort by anchor y, list 2 on top), the top-left = anchor + offsets rule, the
 transparent colour 0, and the play-area clipping.
 
+## Room loading and local variables 🟡
+
+**What it does.** Entering a room builds everything for it from its text file, and leaving a room throws it away again.
+
+**How it works.**
+1. The game loads the room's text file and creates one big "room record". It then reads the file line by line. Header lines fill the
+   record: the backdrop picture name, the walkable map name (and two optional numbers), how big characters should look at the far and near
+   ends (two numbers; a third is ignored), and the room's clip rectangle.
+2. Each section start hands the following lines to a section reader: entry, music, sprites, mirrors, palette.
+3. The sprite section creates one record per animated thing: its picture name, a few numbers (flags, which of the two draw lists it goes
+   to, how many frames), the frame order (frames 1 to N unless the file lists them), effects and speech to play, and the conditions that switch it on.
+4. **Room-local variables.** The game variable list reserves 20 spare slots. A room's own variables (named with the room number in front, such as
+   `101OpenDoor`) are written into those slots in alphabetical order with value 0 when the room is loaded, and the slots are reset when the room is
+   left. The room files must list their names in alphabetical order, with at most 20, or the name lookup would break (all shipped rooms comply).
+5. When the player leaves, the game frees the entry list, every sprite and its pictures, the room record and the room's whole package of data.
+
+**Checked.** The header keys, the section dispatch, the local-variable slots and the room limits were read in the code and checked against all 83
+room files. 🟡 because the section readers for entry, music, mirrors and palette are only partly read and the sprite section's last fields are open.
+
+**For ScummVM.** Keep room-local variables separate from the global list (or reproduce the 20-slot scheme); reset them to 0 on room load; draw
+list is chosen by the fourth `Status=` number; default frame sequence is 1..N.
+
 ## Room and object text files 🟡
 
 **What it does.** Everything that happens in a room is written in plain text files that the game reads when you enter: one file per

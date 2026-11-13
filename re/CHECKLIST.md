@@ -7,13 +7,13 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 
 | Stage | Count | Share |
 |---|---|---|
-| decompiled or later (status only) | 98 | 27% |
-| understood or later (status only) | 80 | 22% |
+| decompiled or later (status only) | 99 | 27% |
+| understood or later (status only) | 82 | 23% |
 | ported or later (status only) | 8 | 2% |
 | emu-compared or later (status only) | 8 | 2% |
 | original-compared or later (status only) | 8 | 2% |
 | replaced by a ScummVM service | 8 | |
-| **done (status understood or later and documented)** | **80** | **22%** |
+| **done (status understood or later and documented)** | **82** | **23%** |
 | status ahead of its documentation | 0 | |
 
 ## By cluster
@@ -73,12 +73,11 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 - [ ] `1010:07c6` FUN_1010_07c6 · depth 10 · 220 bytes · **untouched**
 - [ ] `1010:011e` FUN_1010_011e · depth 20 · 272 bytes · **untouched**
 
-### dialogs and options (0/11 done)
+### dialogs and options (0/10 done)
 
 - [ ] `1060:00fc` FUN_1060_00fc · depth 6 · 138 bytes · **untouched**
 - [ ] `1060:0188` FUN_1060_0188 · depth 6 · 152 bytes · **untouched**
 - [ ] `1060:0378` FUN_1060_0378 · depth 6 · 274 bytes · **untouched**
-- [ ] `1060:048e` FUN_1060_048e · depth 6 · 194 bytes · **untouched**
 - [ ] `1060:0554` FUN_1060_0554 · depth 6 · 251 bytes · **untouched**
 - [ ] `1060:0d2e` FUN_1060_0d2e · depth 6 · 490 bytes · **untouched**
 - [ ] `1060:0f1c` FUN_1060_0f1c · depth 6 · 290 bytes · **untouched**
@@ -132,11 +131,12 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 
 - [ ] `1038:086e` inferred_game_tick · depth 21 · 4706 bytes · **decompiled** — WM_TIMER handler called from WINPROC every timer tick with the window message words; the main per-tick update (animation frames, SEQUENCE=, SPEECH=, CHANGEAT=, AVI control, GoingOut, SysReadyExit); not read
 
-### game variables (15/15 done)
+### game variables (16/16 done)
 
 - [x] `1060:0000` inferred_uppercase · depth 6 · 98 bytes · **understood**
 - [x] `1060:0062` inferred_next_identifier · depth 6 · 152 bytes · **understood**
 - [x] `1060:0222` inferred_next_token · depth 6 · 152 bytes · **understood**
+- [x] `1060:048e` inferred_register_local_var · depth 6 · 194 bytes · **understood**
 - [x] `1060:0846` inferred_test_terms · depth 6 · 210 bytes · **understood**
 - [x] `1060:092e` inferred_apply_terms · depth 6 · 200 bytes · **understood**
 - [x] `1060:0c44` inferred_parse_numbers · depth 6 · 232 bytes · **understood**
@@ -303,21 +303,21 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 - [ ] `1050:0062` FUN_1050_0062 · depth 9 · 184 bytes · **untouched**
 - [ ] `1050:035a` FUN_1050_035a · depth 9 · 518 bytes · **untouched**
 
-### script and rooms (3/16 done)
+### script and rooms (4/16 done)
 
 - [x] `1048:03c4` inferred_skip_line · depth 6 · 104 bytes · **understood**
 - [x] `1048:0000` inferred_next_obj_token · depth 7 · 940 bytes · **understood**
 - [x] `1048:0b54` inferred_next_room_token · depth 7 · 1480 bytes · **understood**
-- [ ] `1048:21b0` FUN_1048_21b0 · depth 8 · 830 bytes · **decompiled** — room object helper, AAAAAAAAAAA%02d local variable names; unread
-- [ ] `1048:114a` FUN_1048_114a · depth 9 · 985 bytes · **decompiled** — room section parser (uses inferred_next_room_token); unread
-- [ ] `1048:156a` FUN_1048_156a · depth 9 · 640 bytes · **decompiled** — room section parser (uses inferred_next_room_token); unread
-- [ ] `1048:17ea` FUN_1048_17ea · depth 9 · 275 bytes · **decompiled** — room section parser, sprites (SEQUENCE=, SPEECH=, CHANGE=, ENDINDEX=); unread
-- [ ] `1048:18fe` FUN_1048_18fe · depth 9 · 253 bytes · **decompiled** — room section parser, music (MUSICEND=); unread
+- [ ] `1048:21b0` inferred_unload_room · depth 8 · 830 bytes · **decompiled** — room object helper, AAAAAAAAAAA%02d local variable names; unread | unloads the room: resets local variable slots 1..20 to placeholder names AAAAAAAAAAA%02d with value 0, frees entry list, sprite nodes (images through 1070:0136, scaled images, condition lists), mirror/palette arrays, the room record, the two Mike sprite records, then frees the room's glue file (1088:02ac) named GL00_%X%02d.000; details of each freed structure partly read
+- [ ] `1048:114a` inferred_parse_sprite_section · depth 9 · 985 bytes · **decompiled** — room section parser (uses inferred_next_room_token); unread | SPRITESTART section: COND starts a 0x685-byte sprite node (linked from room +0x39, next at node +0x681, state +0x67b = 100, condition list at +0xd); ANIM name at +0; EFFECT number +0x45 name +0x47; SPEECH number +0x54 name +0x56; STATUS six numbers at +0x67..+0x71 (flags, ?, ?, list number (+0x6d), frame count (+0x6f), ?); SEQUENCE list into +0x27b (default 1..count); STARTINDEX/ENDINDEX (+0x63/+0x65, default 0..count-1); SPRITEIDX into +0x67b; error 'Too many frames in one animation!' above 128 frames; LOADCOND/LOOPCOND/LOOPPOINT/POSX/POSY/SCALEVAL partly read
+- [ ] `1048:156a` inferred_parse_mirror_section · depth 9 · 640 bytes · **decompiled** — room section parser (uses inferred_next_room_token); unread | MIRRORSTART section; unread in detail
+- [ ] `1048:17ea` inferred_parse_palette_section · depth 9 · 275 bytes · **decompiled** — room section parser, sprites (SEQUENCE=, SPEECH=, CHANGE=, ENDINDEX=); unread | PALETTESTART section: COND/COND2 list nodes, STARTINDEX/ENDINDEX numbers; destination fields near room +0xfe2 not located
+- [ ] `1048:18fe` inferred_parse_music_section · depth 9 · 253 bytes · **decompiled** — room section parser, music (MUSICEND=); unread | MUSICSTART section: COND list node, MIDI name; destination array in the room record not located
 - [ ] `1048:24ee` FUN_1048_24ee · depth 11 · 1372 bytes · **decompiled** — AVI video start (OPEN avivideo, play vfw ...); unread
 - [ ] `1048:042c` inferred_parse_action_block · depth 16 · 1237 bytes · **decompiled** — reads lines with inferred_next_obj_token until the end token given as argument; fills a 150-byte action record per COND (XYROOM 5 numbers, TEXT loads NAME.txt, EFFECT/SPEECH/PICTURE/MIDI/DIALOG/CURSOR strings, ANIM 5 numbers + name, CHANGE/SPEECHVAR/COND2/WAITUNTIL term lists, DESTROY sets +0xc); partly read
-- [ ] `1048:19fc` FUN_1048_19fc · depth 16 · 1327 bytes · **decompiled** — runs animations or talk entries (Speaker, SysTalking, LastAction, SysMapBlock, 'Too many frames in one animation!'); unread
+- [ ] `1048:19fc` inferred_parse_entry_section · depth 16 · 1327 bytes · **decompiled** — runs animations or talk entries (Speaker, SysTalking, LastAction, SysMapBlock, 'Too many frames in one animation!'); unread | ENTRYSTART section: uses the object lexer, handles From/XYRoom/Change/etc.; unread in detail
 - [ ] `1048:093e` inferred_load_obj_file · depth 17 · 531 bytes · **decompiled** — builds OBJ_%04d.dat, loads and parses it; parser not read
-- [ ] `1048:1f6e` FUN_1048_1f6e · depth 17 · 572 bytes · **decompiled** — loads a room: builds ROOM%04d.DAT, loads mask and palette; unread
+- [x] `1048:1f6e` inferred_load_room · depth 17 · 572 bytes · **understood** — loads a room: builds ROOM%04d.DAT, loads mask and palette; unread
 - [ ] `1048:2b8e` inferred_enter_room · depth 18 · 1699 bytes · **decompiled** — builds GL00_%X%02d.000 from room/100 and room%100, loads that glue file, then OBJ file; partly read
 - [ ] `1048:3236` FUN_1048_3236 · depth 19 · 73 bytes · **decompiled** — SysMapBlock handling; unread
 - [ ] `1048:2a50` FUN_1048_2a50 · depth 20 · 315 bytes · **decompiled** — exit/room-change variables (FromRoom, LastAction); unread
