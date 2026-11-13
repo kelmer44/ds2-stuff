@@ -33,3 +33,17 @@ The 2011 engine has no equivalent of the original's lookup path. Differences tha
 | Per-glue directory (install folder or CD) | `Common::File` search path | differs (ScummVM handles paths), no gameplay effect |
 | Which glue files are loaded when: text and walk maps at start, one room package per room entered | 2011 indexes every glue file once and keeps files open, decompressing a compressed file on first use | differs in timing, same result. A port may decompress a room package when the room is entered and drop the previous one, as the original does; keeping all of them is only a memory choice. |
 | Install directory from `DARKSEED.INI` `[DIRECTORY] CD`, per-glue current-directory test | ScummVM game path | differs (platform), no gameplay effect |
+
+## Pictures and palettes (compared 13 Nov, after contracts `1080_*` and `10b8_*`)
+
+2011 sources: `sprite.cpp` (`Sprite::loadFromBMP`, `readBMPDataComp0/2`), `palette.cpp`.
+
+| Item | Contract | 2011 | Verdict |
+|---|---|---|---|
+| Compression 0 pictures: plain rows, 4-byte aligned, bottom-up | `STRUCTS.md` | `readBMPDataComp0` | faithful |
+| Compression 2: per row `skip, length, pixels` | `STRUCTS.md`, `10b8:0104` | `readBMPDataComp2` (skip and length words, error if `skip + length > width`) | faithful. The original also skips key-colour pixels inside the span; 2011 builds a transparency map from the key afterwards (`createTransparencyMap`), same result. |
+| `bfOffBits == 54` means no colour table | all 400 sampled files | same rule | faithful |
+| `.pal` = 256 x (B, G, R, unused) | `1080:00ee` | `loadFromPALRGBA` (reads B, G, R, skips 1) | faithful for the entry order; the original never loads fewer than 256 entries |
+| Header words at 0x26, 0x28 as **feet** position: `feet = min(abs(value), size - 1)` | the four words are signed offsets and positions (`(a, b, c, d)`); use not read yet | `loadFromBMP`: `_feetX/_feetY` from the first two words with `ABS` and clamping, `_defaultX/_defaultY` from the last two | **unverified, probably wrong in detail.** Real values like `(-45, -86)` for a 76 x 78 sprite do not fit "feet inside the sprite": the clamp hides that. This is the likely cause of the "strange feet values" and drawing-order bugs in the 2011 TODO. Decide after the sprite drawing code is read. |
+| Palette entries 0 and 255 forced to black and white, entries 1 to 254 animatable, optional brightening (`DS:0062`) | `1080:049a` | not present | not applicable to a true-colour or ScummVM palette surface, but the brightening rule needs a decision once the option is understood |
+| `.BMM` masks | not inspected | not compared | unverified |

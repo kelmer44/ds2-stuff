@@ -29,7 +29,7 @@ flowchart TD
     Start["Start-up ❓<br/>checks the CD, reads settings,<br/>makes the window"] --> Index["Resource index 🟡<br/>GFILE.HDR: where is every file?"]
     Index --> Glue["Glue files ✅<br/>108 big packages of game data"]
     Glue --> Scripts["Scripts and rooms ❓<br/>text files that say what happens"]
-    Glue --> Pics["Pictures, palettes, sprites ❓"]
+    Glue --> Pics["Pictures, palettes, sprites 🟡"]
     Glue --> Speech["Speech and sound ❓"]
     Scripts --> Game["Game loop ❓<br/>click, walk, talk, use things"]
     Pics --> Screen["Drawing ❓<br/>WinG draws into a memory bitmap,<br/>then copies it to the window"]
@@ -113,6 +113,42 @@ back. If Windows cannot give memory, the game shows an error and stops.
 
 **For ScummVM.** This becomes ordinary allocation; no behaviour to copy except the error on failure.
 Marked 🟡 only because the exact error and exit path has not been read.
+
+## Pictures and palettes 🟡
+
+**What it does.** Everything you see is drawn from small pictures (`.BMP`) kept in the glue files. They are
+ordinary Windows picture files with 256 colours. The game shares one set of 256 colours at a time (the
+"palette"), taken from a `.pal` file (for example `fix.pal` at start-up) or from the colour table inside a
+full-screen picture.
+
+**How it works.**
+1. A picture is looked up by name like any other resource and kept in memory exactly as stored. A small
+   record keeps track of it: the Windows bitmap made from it (if any), where its file data is, its width
+   and height, and four extra numbers.
+2. **The four extra numbers are a trick.** Each sprite picture hides four small numbers (they can be
+   negative) in header fields that Windows normally uses for printing size. The game copies them into the
+   record and wipes them from the picture, so Windows never sees them. They say where the sprite sits;
+   exactly how is not read yet.
+3. **Two kinds of picture.** Full pictures (backgrounds) are stored as normal rows of pixels. Characters and
+   objects are stored in the game's own compact form: for each row, "how many empty pixels, how many
+   drawn pixels, then those pixels". Empty space is not stored. Windows cannot draw that form, so the game
+   draws it with its own routine.
+4. **Drawing.** There are three small drawing routines: copy a block of pixels, copy a block while skipping one
+   "see-through" colour, and draw the compact row form (also skipping the see-through colour). They work on
+   the game's off-screen picture in memory, which is later shown on the window. They live in a part of the
+   program that switches itself into 32-bit mode the first time it runs.
+5. **Colours.** Setting a palette means building a Windows palette, making it current and telling Windows to
+   use it. For the start-up picture the first and last colours are fixed to black and white (like Windows
+   itself does) and the rest can be animated; an option can brighten all colours a little.
+
+**Checked against the real files.** The picture header layout, the compact row form and the palette entry
+order were checked on real files (✅ for those formats). 🟡 because the sprite drawing code that uses the
+four extra numbers, the clipping routine and the routines that choose between the three drawing methods are
+not read yet; the picture from `DS2RUN.HDR` and the `.BMM` files are not understood.
+
+**For the ScummVM engine.** ScummVM draws straight into an 8-bit or true-colour surface, so none of the Windows
+palette or bitmap handling is needed. What must be reproduced is how the four numbers place a sprite, the
+see-through colour, and the exact brightening rule.
 
 ## Windows services the game relies on ❓
 

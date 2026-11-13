@@ -125,3 +125,72 @@ Install-directory buffers (data segment), all set by `1028:0766` from the same I
 
 Working buffers used by the resource functions (data segment): `DS:3662` name key (`load_file`),
 `DS:3670` and `DS:34be` full paths, `DS:3770` name key (`get_file_size`), `DS:9e3a` error text.
+
+## Pictures (`.BMP` resources) [data, with the loader read from code]
+
+Almost every resource ending in `.BMP` (3826 in the index) is a Windows bitmap file kept as it is in the
+glue file and used in memory. All 400 sampled files were 8 bits per pixel with a 40-byte `BITMAPINFOHEADER`.
+
+| Offset | Size | Field | Notes |
+|---|---|---|---|
+| 0 | 2 | `BM` | checked in all 108 glue files |
+| 2 | u32 | file size | equals the GFILE.HDR entry size |
+| 10 | u32 | `bfOffBits` | 54 for sprites (no colour table), 1078 (54 + 1024) for pictures with a palette |
+| 18, 22 | i32 | width, height | the game reads only the low words |
+| 28 | u16 | bits per pixel | 8 |
+| 30 | u32 | `biCompression` | **0 = plain 8-bit rows; 2 = the game's own span format** (not Windows RLE8) |
+| 34 | u32 | `biSizeImage` | for compression 2 it holds the *unpacked* size (width x height), not the file's data size |
+| 38..45 | 4 x i16 | **sprite placement (a, b, c, d)**, stored in the pixels-per-metre fields | see below |
+| 46 | u32 | `biClrUsed` | 0 or 256 |
+
+**Sprite placement words (BMP offsets 0x26, 0x28, 0x2a, 0x2c)** [data]: four signed 16-bit values.
+`1080:0ad6` copies them into the image record and then zeroes them in the data. Typical values:
+`(a, b) = (-45, -86)` and `(c, d) = (314, 159)` for a 76 x 78 sprite; `(0, 0)` and `(325, 200)`;
+`(388, 265)` twice for some props; `(-3, -434)` and `(538, 5)`. In most sprites `a` and `b` are zero or negative
+and larger in size than half the width and the height, `c` and `d` are positive screen-sized numbers.
+How they are used is **not yet read** (the sprite drawing code is in segments `1078` and `10b0`).
+[guess: `(a, b)` is the offset from an anchor to the top-left corner and `(c, d)` the anchor position in the room.]
+
+**Span format (`biCompression` = 2)** [code for the drawing routine, data for the files]: the pixel data
+starts at `bfOffBits` and holds one record per row, in file order (bottom row first, as in any BMP):
+`u16 skip, u16 length, length pixel bytes`. Pixels before `skip` and after `skip + length` are transparent.
+Inside the span, pixels equal to the key colour (a parameter of the blit) are also skipped. A file of
+8 x 59 pixels is 54 + 59 x (4 + 8) = 762 bytes (checked on `204SMK20.BMP`).
+Plain pictures (compression 0) use the usual 4-byte aligned rows.
+
+## `.pal` and `.BMM` resources [code for `.pal`, guess for `.BMM`]
+
+- `.pal`: 256 entries of 4 bytes in the order blue, green, red, unused (1024 bytes); the loader turns each
+  into a Windows palette entry. `fix.pal` is loaded at start-up. A BMP's colour table has the same layout.
+- `.BMM`: loaded by the same code as a `.BMP` into the same kind of image record; its contents have not been
+  inspected [guess: a mask picture].
+
+## Image record (the structure the picture loaders fill) [code]
+
+Near-addressed records in the data segment; every picture function takes a near pointer to one.
+
+| Offset | Size | Field | Evidence |
+|---|---|---|---|
+| +0 | u16 | Windows bitmap handle (0 when not created) | `1080:07a0` deletes it |
+| +2 | far pointer | loaded file data (the BMP as in the glue file) | `1080:0890`, `0800` store it; `07a0` frees it |
+| +8 | u16 | width | `1080:0ad6`, `0be0` |
+| +10 | u16 | height | same |
+| +12 | 4 x i16 | the four placement words (+0xc, +0xe, +0x10, +0x12) | `1080:0ad6` |
+
+`1080:0be0` saves only two of the placement words, to +0xc and +0xe.
+
+## Palette handling [code]
+
+- Windows palette handle of the game palette: `DS:200a`. A copy of the 256 final colours of the main
+  palette is kept at `DS:6c9e`.
+- `1080:049a` (palette of the start-up bitmap): entry 0 black, entry 255 white, entries 1 to 254 flagged as
+  animatable; optional brightening when the word at `DS:0062` is 1.
+- `1080:00ee` (any `.pal`): all 256 entries as given, flags 0.
+
+## The start-up bitmap `DS2RUN.HDR` [data + code]
+
+`DS2RUN.HDR` in the game folder is a plain 8-bit BMP of 366 x 2320 pixels (854,840 bytes, palette included).
+`1038:0000` reads its first 0x436 bytes (header and colour table), creates a WinG bitmap of that size, builds
+the palette with `1080:049a`, reads the pixel data straight into the WinG bitmap in 32 KB pieces, and
+`1038:01a4` releases it when the first room is entered. What the picture contains is not known yet.
+`BOSSKEY.BMP` (613 x 399, 8 bit) is the boss-key picture.

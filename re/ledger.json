@@ -4077,11 +4077,11 @@
    "10d0:029e"
   ],
   "depth": 6,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_copy_string",
+  "status": "replaced",
   "engine": "",
-  "notes": "",
-  "cluster_name": "",
+  "notes": "ScummVM: Common::String",
+  "cluster_name": "graphics and palette",
   "cluster": "graphics and palette"
  },
  {
@@ -4094,11 +4094,11 @@
    "10d0:029e"
   ],
   "depth": 6,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_append_string",
+  "status": "replaced",
   "engine": "",
-  "notes": "",
-  "cluster_name": "",
+  "notes": "ScummVM: Common::String",
+  "cluster_name": "graphics and palette",
   "cluster": "graphics and palette"
  },
  {
@@ -4111,11 +4111,11 @@
    "10d0:029e"
   ],
   "depth": 6,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_vga6_to_8bit",
+  "status": "understood",
   "engine": "",
   "notes": "",
-  "cluster_name": "",
+  "cluster_name": "graphics and palette",
   "cluster": "graphics and palette"
  },
  {
@@ -4130,11 +4130,11 @@
    "10d0:029e"
   ],
   "depth": 6,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_delete_game_palette",
+  "status": "replaced",
   "engine": "",
-  "notes": "",
-  "cluster_name": "",
+  "notes": "Windows resource cleanup",
+  "cluster_name": "graphics and palette",
   "cluster": "graphics and palette"
  },
  {
@@ -4150,11 +4150,11 @@
    "10d0:029e"
   ],
   "depth": 8,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_set_windows_palette",
+  "status": "understood",
   "engine": "",
   "notes": "",
-  "cluster_name": "",
+  "cluster_name": "graphics and palette",
   "cluster": "graphics and palette"
  },
  {
@@ -4257,11 +4257,11 @@
    "10d0:029e"
   ],
   "depth": 8,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_make_bmp_palette",
+  "status": "understood",
   "engine": "",
   "notes": "",
-  "cluster_name": "",
+  "cluster_name": "graphics and palette",
   "cluster": "graphics and palette"
  },
  {
@@ -4274,11 +4274,11 @@
    "10d0:029e"
   ],
   "depth": 6,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_delete_object_20d0",
+  "status": "replaced",
   "engine": "",
-  "notes": "",
-  "cluster_name": "",
+  "notes": "Windows resource cleanup",
+  "cluster_name": "graphics and palette",
   "cluster": "graphics and palette"
  },
  {
@@ -4296,11 +4296,11 @@
    "10d0:029e"
   ],
   "depth": 16,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_load_palette_into_dc",
+  "status": "understood",
   "engine": "",
   "notes": "",
-  "cluster_name": "",
+  "cluster_name": "graphics and palette",
   "cluster": "graphics and palette"
  },
  {
@@ -4314,11 +4314,11 @@
    "10d0:029e"
   ],
   "depth": 7,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_free_block",
+  "status": "understood",
   "engine": "",
   "notes": "",
-  "cluster_name": "",
+  "cluster_name": "graphics and palette",
   "cluster": "graphics and palette"
  },
  {
@@ -4334,11 +4334,11 @@
    "10d0:029e"
   ],
   "depth": 16,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_load_palette_file",
+  "status": "understood",
   "engine": "",
   "notes": "",
-  "cluster_name": "",
+  "cluster_name": "graphics and palette",
   "cluster": "graphics and palette"
  },
  {
@@ -4359,11 +4359,11 @@
    "10d0:029e"
   ],
   "depth": 7,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_free_image",
+  "status": "understood",
   "engine": "",
   "notes": "",
-  "cluster_name": "",
+  "cluster_name": "graphics and palette",
   "cluster": "graphics and palette"
  },
  {
@@ -4379,11 +4379,11 @@
    "10d0:029e"
   ],
   "depth": 16,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_load_mask",
+  "status": "understood",
   "engine": "",
   "notes": "",
-  "cluster_name": "",
+  "cluster_name": "graphics and palette",
   "cluster": "graphics and palette"
  },
  {
@@ -4407,11 +4407,11 @@
    "10d0:029e"
   ],
   "depth": 16,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_load_image",
+  "status": "understood",
   "engine": "",
   "notes": "",
-  "cluster_name": "",
+  "cluster_name": "graphics and palette",
   "cluster": "graphics and palette"
  },
  {
@@ -4426,11 +4426,11 @@
    "10d0:029e"
   ],
   "depth": 6,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_unrealize_palette",
+  "status": "replaced",
   "engine": "",
-  "notes": "",
-  "cluster_name": "",
+  "notes": "ScummVM: palette set directly",
+  "cluster_name": "graphics and palette",
   "cluster": "graphics and palette"
  },
  {
@@ -4443,11 +4443,11 @@
    "10d0:029e"
   ],
   "depth": 6,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_realize_palette",
+  "status": "replaced",
   "engine": "",
-  "notes": "",
-  "cluster_name": "",
+  "notes": "ScummVM: palette set directly",
+  "cluster_name": "graphics and palette",
   "cluster": "graphics and palette"
  },
  {
@@ -4484,11 +4484,11 @@
    "10d0:029e"
   ],
   "depth": 6,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_read_image_header",
+  "status": "understood",
   "engine": "",
   "notes": "",
-  "cluster_name": "",
+  "cluster_name": "graphics and palette",
   "cluster": "graphics and palette"
  },
  {
@@ -4524,11 +4524,11 @@
    "10d0:029e"
   ],
   "depth": 8,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_make_bitmap_rgb",
+  "status": "understood",
   "engine": "",
   "notes": "",
-  "cluster_name": "",
+  "cluster_name": "graphics and palette",
   "cluster": "graphics and palette"
  },
  {
@@ -4544,11 +4544,11 @@
    "10d0:029e"
   ],
   "depth": 6,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_blit_bitmap_plain",
+  "status": "understood",
   "engine": "",
   "notes": "",
-  "cluster_name": "",
+  "cluster_name": "graphics and palette",
   "cluster": "graphics and palette"
  },
  {
@@ -4562,11 +4562,11 @@
    "10d0:0368"
   ],
   "depth": 6,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_random_below",
+  "status": "understood",
   "engine": "",
   "notes": "",
-  "cluster_name": "",
+  "cluster_name": "graphics and palette",
   "cluster": "graphics and palette"
  },
  {
@@ -5828,11 +5828,11 @@
   ],
   "callees": [],
   "depth": 0,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_blit_rows_keyed",
+  "status": "understood",
   "engine": "",
   "notes": "",
-  "cluster_name": "",
+  "cluster_name": "32-bit bitmap helpers",
   "cluster": "32-bit bitmap helpers"
  },
  {
@@ -5845,11 +5845,11 @@
   ],
   "callees": [],
   "depth": 0,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_blit_spans_keyed",
+  "status": "understood",
   "engine": "",
   "notes": "",
-  "cluster_name": "",
+  "cluster_name": "32-bit bitmap helpers",
   "cluster": "32-bit bitmap helpers"
  },
  {
@@ -5862,11 +5862,11 @@
   ],
   "callees": [],
   "depth": 0,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_blit_rows_copy",
+  "status": "understood",
   "engine": "",
   "notes": "",
-  "cluster_name": "",
+  "cluster_name": "32-bit bitmap helpers",
   "cluster": "32-bit bitmap helpers"
  },
  {

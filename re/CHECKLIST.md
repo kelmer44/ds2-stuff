@@ -7,22 +7,22 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 
 | Stage | Count | Share |
 |---|---|---|
-| decompiled or later (status only) | 22 | 6% |
-| understood or later (status only) | 18 | 5% |
-| ported or later (status only) | 1 | 0% |
-| emu-compared or later (status only) | 1 | 0% |
-| original-compared or later (status only) | 1 | 0% |
-| replaced by a ScummVM service | 1 | |
-| **done (status understood or later and documented)** | **18** | **5%** |
+| decompiled or later (status only) | 44 | 12% |
+| understood or later (status only) | 40 | 11% |
+| ported or later (status only) | 7 | 1% |
+| emu-compared or later (status only) | 7 | 1% |
+| original-compared or later (status only) | 7 | 1% |
+| replaced by a ScummVM service | 7 | |
+| **done (status understood or later and documented)** | **40** | **11%** |
 | status ahead of its documentation | 0 | |
 
 ## By cluster
 
-### 32-bit bitmap helpers (0/10 done)
+### 32-bit bitmap helpers (3/10 done)
 
-- [ ] `10b8:0024` FUN_10b8_0024 · depth 0 · 165 bytes · **untouched**
-- [ ] `10b8:0104` FUN_10b8_0104 · depth 0 · 242 bytes · **untouched**
-- [ ] `10b8:0254` FUN_10b8_0254 · depth 0 · 130 bytes · **untouched**
+- [x] `10b8:0024` inferred_blit_rows_keyed · depth 0 · 165 bytes · **understood**
+- [x] `10b8:0104` inferred_blit_spans_keyed · depth 0 · 242 bytes · **understood**
+- [x] `10b8:0254` inferred_blit_rows_copy · depth 0 · 130 bytes · **understood**
 - [ ] `10b8:02b2` FUN_10b8_02b2 · depth 0 · 146 bytes · **untouched**
 - [ ] `10c8:0073` FUN_10c8_0073 · depth 0 · 139 bytes · **untouched**
 - [ ] `10c8:00fe` FUN_10c8_00fe · depth 0 · 2 bytes · **untouched**
@@ -151,34 +151,34 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 - [ ] `1038:1ade` FUN_1038_1ade · depth 20 · 2767 bytes · **untouched**
 - [ ] `1038:086e` FUN_1038_086e · depth 21 · 4706 bytes · **untouched**
 
-### graphics and palette (0/26 done)
+### graphics and palette (19/26 done)
 
-- [ ] `1080:0000` FUN_1080_0000 · depth 6 · 67 bytes · **untouched**
-- [ ] `1080:0044` FUN_1080_0044 · depth 6 · 91 bytes · **untouched**
-- [ ] `1080:00a0` FUN_1080_00a0 · depth 6 · 34 bytes · **untouched**
-- [ ] `1080:00c2` FUN_1080_00c2 · depth 6 · 44 bytes · **untouched**
+- [x] `1080:0000` inferred_copy_string · depth 6 · 67 bytes · **replaced** — ScummVM: Common::String
+- [x] `1080:0044` inferred_append_string · depth 6 · 91 bytes · **replaced** — ScummVM: Common::String
+- [x] `1080:00a0` inferred_vga6_to_8bit · depth 6 · 34 bytes · **understood**
+- [x] `1080:00c2` inferred_delete_game_palette · depth 6 · 44 bytes · **replaced** — Windows resource cleanup
 - [ ] `1080:02f0` FUN_1080_02f0 · depth 6 · 154 bytes · **untouched**
 - [ ] `1080:038a` FUN_1080_038a · depth 6 · 143 bytes · **untouched**
 - [ ] `1080:041a` FUN_1080_041a · depth 6 · 128 bytes · **untouched**
-- [ ] `1080:062a` FUN_1080_062a · depth 6 · 38 bytes · **untouched**
-- [ ] `1080:0920` FUN_1080_0920 · depth 6 · 105 bytes · **untouched**
-- [ ] `1080:098a` FUN_1080_098a · depth 6 · 110 bytes · **untouched**
-- [ ] `1080:0ad6` FUN_1080_0ad6 · depth 6 · 90 bytes · **untouched**
-- [ ] `1080:0cc8` FUN_1080_0cc8 · depth 6 · 108 bytes · **untouched**
-- [ ] `1080:0d34` FUN_1080_0d34 · depth 6 · 34 bytes · **untouched**
-- [ ] `1080:06f8` FUN_1080_06f8 · depth 7 · 33 bytes · **untouched**
-- [ ] `1080:07a0` FUN_1080_07a0 · depth 7 · 95 bytes · **untouched**
+- [x] `1080:062a` inferred_delete_object_20d0 · depth 6 · 38 bytes · **replaced** — Windows resource cleanup
+- [x] `1080:0920` inferred_unrealize_palette · depth 6 · 105 bytes · **replaced** — ScummVM: palette set directly
+- [x] `1080:098a` inferred_realize_palette · depth 6 · 110 bytes · **replaced** — ScummVM: palette set directly
+- [x] `1080:0ad6` inferred_read_image_header · depth 6 · 90 bytes · **understood**
+- [x] `1080:0cc8` inferred_blit_bitmap_plain · depth 6 · 108 bytes · **understood**
+- [x] `1080:0d34` inferred_random_below · depth 6 · 34 bytes · **understood**
+- [x] `1080:06f8` inferred_free_block · depth 7 · 33 bytes · **understood**
+- [x] `1080:07a0` inferred_free_image · depth 7 · 95 bytes · **understood**
 - [ ] `1080:0d56` FUN_1080_0d56 · depth 7 · 148 bytes · **untouched**
-- [ ] `1080:00ee` FUN_1080_00ee · depth 8 · 239 bytes · **untouched**
+- [x] `1080:00ee` inferred_set_windows_palette · depth 8 · 239 bytes · **understood**
 - [ ] `1080:01de` FUN_1080_01de · depth 8 · 274 bytes · **untouched**
-- [ ] `1080:049a` FUN_1080_049a · depth 8 · 400 bytes · **untouched**
+- [x] `1080:049a` inferred_make_bmp_palette · depth 8 · 400 bytes · **understood**
 - [ ] `1080:09f8` FUN_1080_09f8 · depth 8 · 220 bytes · **untouched**
 - [ ] `1080:0b30` FUN_1080_0b30 · depth 8 · 175 bytes · **untouched**
-- [ ] `1080:0be0` FUN_1080_0be0 · depth 8 · 231 bytes · **untouched**
-- [ ] `1080:0650` FUN_1080_0650 · depth 16 · 168 bytes · **untouched**
-- [ ] `1080:071a` FUN_1080_071a · depth 16 · 133 bytes · **untouched**
-- [ ] `1080:0800` FUN_1080_0800 · depth 16 · 143 bytes · **untouched**
-- [ ] `1080:0890` FUN_1080_0890 · depth 16 · 143 bytes · **untouched**
+- [x] `1080:0be0` inferred_make_bitmap_rgb · depth 8 · 231 bytes · **understood**
+- [x] `1080:0650` inferred_load_palette_into_dc · depth 16 · 168 bytes · **understood**
+- [x] `1080:071a` inferred_load_palette_file · depth 16 · 133 bytes · **understood**
+- [x] `1080:0800` inferred_load_mask · depth 16 · 143 bytes · **understood**
+- [x] `1080:0890` inferred_load_image · depth 16 · 143 bytes · **understood**
 
 ### graphics and sprites (0/20 done)
 

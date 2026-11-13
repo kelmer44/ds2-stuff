@@ -85,7 +85,7 @@ as `MISSING`.
   `notes`, `cluster_name` survive `tools/build_ledger.py`.
 - `export/`: `segments.tsv`, `imports.tsv`, `functions.tsv`, and `fn/<seg>_<off>.{c,asm,xrefs}`
   plus `fn/decompile-status.tsv`. Regenerate with the Ghidra scripts below.
-- `ghidra/ExportOverview.java`, `ExportFunctions.java`: headless exporters with a SHA-256 guard. `SurveyGaps.java` lists indirect jumps and code gaps, `DumpBytes.java` dumps bytes, `FixBaseline.java` and `FixBaseline2.java` apply the baseline fixes (writable, see `DS2_WRITE=1` in `tools/ghidra_headless.sh`).
+- `ghidra/ExportOverview.java`, `ExportFunctions.java`: headless exporters with a SHA-256 guard. `ApplyNames.java` copies ledger names into the program (run writable). `SurveyGaps.java` lists indirect jumps and code gaps, `DumpBytes.java` dumps bytes, `FixBaseline.java` and `FixBaseline2.java` apply the baseline fixes (writable, see `DS2_WRITE=1` in `tools/ghidra_headless.sh`).
 - `tools/ghidra_headless.sh Script.java [args]`: read-only headless run with writable cache dirs.
 - `contracts/<seg>_<off>.md`: one note per function, from `CONTRACT_TEMPLATE.md`. Required before a
   function can be marked `understood` or later.
