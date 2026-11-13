@@ -87,3 +87,41 @@ files [data]. Whether the EXE tests it is not known [guess: it does not, because
 allocations in a 32-bit counter at `DS:0018`; on failure calls the error reporter and exits.
 `inferred_mem_free(ptr)` (`1090:0068`) = `GlobalHandle`, `GlobalUnlock`, `GlobalFree`, counts frees in
 `DS:001c`; falls back to `FreeSelector` if the pointer has no handle.
+
+## Glue table (the structure at `DS:275e`) [code]
+
+The loader `1028:09f6` fills it and every resource function takes a far pointer to it as first argument
+(`1088:003e`, `06b4`, `0892`, `051c`). Offsets from `DS:275e`:
+
+| Offset | Size | Field | Evidence |
+|---|---|---|---|
+| 0x0000 | u16 | glue file count (108) | `1028:09f6`; `1088:003e` loops while `i < count` |
+| 0x0002 | u16 | entry count (9291) | `1028:09f6`; `1088:051c` `count - 1` |
+| 0x0004 | u16 | "loaded" flag, set to 1 at the end of `1028:09f6` | `1088:0892` tests it |
+| 0x0006 | far pointer | entry table (22-byte records) | `1088:051c` |
+| 0x000a | 2 x 128 bytes | directory strings, indexed by a per-glue byte (index 0 is the empty string, set to 0 by the loader at `DS:2768`) | `1088:06b4`: `table + 0xa + dirId * 0x80` |
+| 0x028a | 108 x 32 | glue file names (`DS:29e8`) | `1088:06b4`, `003e` |
+| 0x128a | 108 bytes | directory index for each glue file (`DS:39e8`), result of a file-exists style test at load time | `1088:06b4`: `table[0x128a + glueIndex]` |
+| 0x130a | 108 x 4 | far pointer to the in-memory (decompressed) copy of each glue file, 0 when not loaded (`DS:3a68`) | `1088:06b4`, `003e` |
+
+The two directory strings [code]: string 0 (`DS:2768`) is empty, so the glue name is used relative to the
+current directory. String 1 (`DS:27e8`) is a copy of the install directory read by `1028:0766` from
+`DARKSEED.INI`, section `DIRECTORY`, key `CD`, default `.\` (copied at the end of `1028:09f6`). The per-glue
+byte at `0x128a + i` is 0 when a DOS find-first on the bare glue name succeeds (file in the current
+directory) and 1 otherwise, so a glue file is opened as `dirString[byte] + name`.
+
+Install-directory buffers (data segment), all set by `1028:0766` from the same INI value [code]:
+`DS:3c88`, `DS:273e`, `DS:3ca8`. Music folder `DS:3c68` = `sndtrack\`.
+
+## Names the game builds for loading [code]
+
+| Format string | Arguments | Use |
+|---|---|---|
+| `GL00_%X%02d.000` | room / 100 (hex), room % 100 | Glue file of a room: room 101 is `GL00_101.000`, room 592 is `GL00_592.000`. Passed to `1088:003e` when a room is entered (`1048:2b8e`). |
+| `GL00_WLK.000`, `GL00_TXT.000` | fixed | Loaded whole at start-up (`1028:03d0`). The text glue is the compressed one holding the conversations. |
+| `OBJ_%04d.dat` | number | Object/room data file; start-up uses 9999. Loaded and parsed by `1048:093e`. |
+| `ROOM%04d.DAT` | room number | Room file name, built elsewhere (unread). |
+| `GameVar.IDX`, `fix.pal` | fixed | Variable index and the fixed palette, loaded at start-up. |
+
+Working buffers used by the resource functions (data segment): `DS:3662` name key (`load_file`),
+`DS:3670` and `DS:34be` full paths, `DS:3770` name key (`get_file_size`), `DS:9e3a` error text.

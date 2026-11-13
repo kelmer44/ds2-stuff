@@ -7,13 +7,13 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 
 | Stage | Count | Share |
 |---|---|---|
-| decompiled or later (status only) | 8 | 2% |
-| understood or later (status only) | 4 | 1% |
-| ported or later (status only) | 0 | 0% |
-| emu-compared or later (status only) | 0 | 0% |
-| original-compared or later (status only) | 0 | 0% |
-| replaced by a ScummVM service | 0 | |
-| **done (status understood or later and documented)** | **4** | **1%** |
+| decompiled or later (status only) | 22 | 6% |
+| understood or later (status only) | 18 | 5% |
+| ported or later (status only) | 1 | 0% |
+| emu-compared or later (status only) | 1 | 0% |
+| original-compared or later (status only) | 1 | 0% |
+| replaced by a ScummVM service | 1 | |
+| **done (status understood or later and documented)** | **18** | **5%** |
 | status ahead of its documentation | 0 | |
 
 ## By cluster
@@ -230,26 +230,22 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 - [ ] `1000:0236` WINPROC · depth 24 · 3482 bytes · **untouched**
 - [ ] `1008:0428` DLG_INVENTORY · depth 24 · 1524 bytes · **untouched**
 
-### options (INI) (0/4 done)
+### options (INI) (0/3 done)
 
 - [ ] `1030:0000` FUN_1030_0000 · depth 6 · 62 bytes · **untouched**
 - [ ] `1030:003e` FUN_1030_003e · depth 6 · 43 bytes · **untouched**
 - [ ] `1030:006a` FUN_1030_006a · depth 6 · 42 bytes · **untouched**
-- [ ] `1030:0094` FUN_1030_0094 · depth 6 · 50 bytes · **untouched**
 
-### resource (4/8 done)
+### resource (4/4 done)
 
 - [x] `10b8:0368` inferred_lz_decompress_block · depth 0 · 129 bytes · **understood** — contract 10b8_0368; Ghidra mis-decodes (USE32 segment)
 - [x] `1090:0068` inferred_mem_free · depth 6 · 76 bytes · **understood** — GlobalHandle/Unlock/Free wrapper
 - [x] `1090:0000` inferred_mem_alloc · depth 7 · 102 bytes · **understood** — GlobalAlloc+Lock wrapper
 - [x] `1028:09f6` inferred_load_gfile_hdr · depth 8 · 336 bytes · **understood** — contract 1028_09f6
-- [ ] `1088:0000` inferred_read_file_to · depth 8 · 61 bytes · **decompiled** — wrapper for 1098:029e with error
-- [ ] `1088:0892` inferred_get_file_size · depth 8 · 210 bytes · **decompiled** — size of a resource by name
-- [ ] `1088:003e` inferred_load_glue_file · depth 10 · 620 bytes · **decompiled** — loads and LZ-decodes a whole glue file; read at asm level only in part
-- [ ] `1088:06b4` inferred_load_file · depth 14 · 474 bytes · **decompiled** — load resource by name; copies 22-byte entry record
 
-### resource layer (0/20 done)
+### resource layer (14/29 done)
 
+- [x] `10d0:03f4` inferred_dos_findfirst · depth 2 · 122 bytes · **replaced** — ScummVM: Common::File::exists
 - [ ] `1028:0000` FUN_1028_0000 · depth 6 · 124 bytes · **untouched**
 - [ ] `1028:007e` FUN_1028_007e · depth 6 · 56 bytes · **untouched**
 - [ ] `1028:00b6` FUN_1028_00b6 · depth 6 · 151 bytes · **untouched**
@@ -258,30 +254,34 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 - [ ] `1028:0964` FUN_1028_0964 · depth 6 · 81 bytes · **untouched**
 - [ ] `1028:09b6` FUN_1028_09b6 · depth 6 · 63 bytes · **untouched**
 - [ ] `1028:0b48` FUN_1028_0b48 · depth 6 · 92 bytes · **untouched**
+- [x] `1030:0094` inferred_read_ini_string · depth 6 · 50 bytes · **understood**
 - [ ] `1088:0350` FUN_1088_0350 · depth 6 · 85 bytes · **untouched**
-- [ ] `1088:04c8` FUN_1088_04c8 · depth 6 · 83 bytes · **untouched**
+- [x] `1088:04c8` inferred_normalize_name · depth 6 · 83 bytes · **understood**
 - [ ] `1088:0966` FUN_1088_0966 · depth 6 · 31 bytes · **untouched**
 - [ ] `1088:0986` FUN_1088_0986 · depth 6 · 31 bytes · **untouched**
+- [x] `1098:0248` inferred_message_box · depth 6 · 44 bytes · **understood**
+- [x] `1098:029e` inferred_read_huge · depth 6 · 134 bytes · **understood**
+- [x] `10d8:0052` inferred_compare_name12 · depth 6 · 97 bytes · **understood**
 - [ ] `1088:02ac` FUN_1088_02ac · depth 7 · 161 bytes · **untouched**
 - [ ] `1088:03a6` FUN_1088_03a6 · depth 7 · 290 bytes · **untouched**
-- [ ] `1088:051c` FUN_1088_051c · depth 7 · 267 bytes · **untouched**
+- [x] `1088:051c` inferred_find_entry · depth 7 · 267 bytes · **understood**
 - [ ] `1088:09a6` FUN_1088_09a6 · depth 7 · 52 bytes · **untouched**
+- [x] `1098:0000` inferred_report_error · depth 7 · 123 bytes · **understood**
 - [ ] `1028:01ea` FUN_1028_01ea · depth 8 · 485 bytes · **untouched**
-- [ ] `1088:062c` FUN_1088_062c · depth 13 · 135 bytes · **untouched**
-- [ ] `1028:03d0` FUN_1028_03d0 · depth 20 · 917 bytes · **untouched**
-- [ ] `1028:0766` FUN_1028_0766 · depth 21 · 422 bytes · **untouched**
+- [x] `1088:0000` inferred_read_file_to · depth 8 · 61 bytes · **understood** — wrapper for 1098:029e with error
+- [x] `1088:0892` inferred_get_file_size · depth 8 · 210 bytes · **understood** — size of a resource by name
+- [x] `1088:003e` inferred_load_glue_file · depth 10 · 620 bytes · **understood** — loads and LZ-decodes a whole glue file; read at asm level only in part
+- [x] `1088:062c` inferred_make_alias_selector · depth 13 · 135 bytes · **understood**
+- [x] `1088:06b4` inferred_load_file · depth 14 · 474 bytes · **understood** — load resource by name; copies 22-byte entry record
+- [x] `1098:0326` inferred_load_file_or_plain · depth 15 · 277 bytes · **understood**
 
-### resource layer and errors (0/9 done)
+### resource layer and errors (0/5 done)
 
 - [ ] `1098:007c` FUN_1098_007c · depth 6 · 139 bytes · **untouched**
 - [ ] `1098:0108` FUN_1098_0108 · depth 6 · 137 bytes · **untouched**
 - [ ] `1098:0192` FUN_1098_0192 · depth 6 · 48 bytes · **untouched**
 - [ ] `1098:01c2` FUN_1098_01c2 · depth 6 · 134 bytes · **untouched**
-- [ ] `1098:0248` FUN_1098_0248 · depth 6 · 44 bytes · **untouched**
 - [ ] `1098:0274` FUN_1098_0274 · depth 6 · 42 bytes · **untouched**
-- [ ] `1098:029e` FUN_1098_029e · depth 6 · 134 bytes · **untouched**
-- [ ] `1098:0000` FUN_1098_0000 · depth 7 · 123 bytes · **untouched**
-- [ ] `1098:0326` FUN_1098_0326 · depth 15 · 277 bytes · **untouched**
 
 ### rooms and cursors (0/6 done)
 
@@ -305,9 +305,9 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 - [ ] `1048:24ee` FUN_1048_24ee · depth 11 · 1372 bytes · **untouched**
 - [ ] `1048:042c` FUN_1048_042c · depth 16 · 1237 bytes · **untouched**
 - [ ] `1048:19fc` FUN_1048_19fc · depth 16 · 1327 bytes · **untouched**
-- [ ] `1048:093e` FUN_1048_093e · depth 17 · 531 bytes · **untouched**
+- [ ] `1048:093e` inferred_load_obj_file · depth 17 · 531 bytes · **decompiled** — builds OBJ_%04d.dat, loads and parses it; parser not read
 - [ ] `1048:1f6e` FUN_1048_1f6e · depth 17 · 572 bytes · **untouched**
-- [ ] `1048:2b8e` FUN_1048_2b8e · depth 18 · 1699 bytes · **untouched**
+- [ ] `1048:2b8e` inferred_enter_room · depth 18 · 1699 bytes · **decompiled** — builds GL00_%X%02d.000 from room/100 and room%100, loads that glue file, then OBJ file; partly read
 - [ ] `1048:3236` FUN_1048_3236 · depth 19 · 73 bytes · **untouched**
 - [ ] `1048:2a50` FUN_1048_2a50 · depth 20 · 315 bytes · **untouched**
 
@@ -316,7 +316,12 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 - [ ] `1070:0136` FUN_1070_0136 · depth 7 · 227 bytes · **untouched**
 - [ ] `1070:0000` FUN_1070_0000 · depth 17 · 307 bytes · **untouched**
 
-### startup and C runtime (0/87 done)
+### startup (0/2 done)
+
+- [ ] `1028:03d0` inferred_init_game_session · depth 20 · 917 bytes · **decompiled** — loads GL00_WLK.000 and GL00_TXT.000 by name, GameVar.IDX, OBJ_9999.dat, fix.pal; sets up cursors and a timer; partly read
+- [ ] `1028:0766` inferred_app_init · depth 21 · 422 bytes · **decompiled** — reads [DIRECTORY] CD from DARKSEED.INI into the install-directory buffers, calls load_gfile_hdr, creates the window; partly read
+
+### startup and C runtime (0/85 done)
 
 - [ ] `10d0:01d1` FUN_10d0_01d1 · depth 0 · 15 bytes · **untouched**
 - [ ] `10d0:0241` FUN_10d0_0241 · depth 0 · 41 bytes · **untouched**
@@ -368,7 +373,6 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 - [ ] `10d0:01a3` FUN_10d0_01a3 · depth 2 · 14 bytes · **untouched**
 - [ ] `10d0:01b1` FUN_10d0_01b1 · depth 2 · 15 bytes · **untouched**
 - [ ] `10d0:01c0` FUN_10d0_01c0 · depth 2 · 17 bytes · **untouched**
-- [ ] `10d0:03f4` FUN_10d0_03f4 · depth 2 · 122 bytes · **untouched**
 - [ ] `10d0:0fb9` FUN_10d0_0fb9 · depth 2 · 61 bytes · **untouched**
 - [ ] `10d0:1068` FUN_10d0_1068 · depth 2 · 212 bytes · **untouched**
 - [ ] `10d0:1216` FUN_10d0_1216 · depth 2 · 100 bytes · **untouched**
@@ -388,7 +392,6 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 - [ ] `10d0:113c` FUN_10d0_113c · depth 6 · 218 bytes · **untouched**
 - [ ] `10d0:1300` FUN_10d0_1300 · depth 6 · 140 bytes · **untouched**
 - [ ] `10d8:0000` FUN_10d8_0000 · depth 6 · 81 bytes · **untouched**
-- [ ] `10d8:0052` FUN_10d8_0052 · depth 6 · 97 bytes · **untouched**
 - [ ] `10d0:096a` FUN_10d0_096a · depth 7 · 242 bytes · **untouched**
 - [ ] `10d0:1468` FUN_10d0_1468 · depth 7 · 118 bytes · **untouched**
 - [ ] `10d0:0eb3` FUN_10d0_0eb3 · depth 8 · 42 bytes · **untouched**

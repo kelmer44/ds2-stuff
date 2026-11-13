@@ -58,22 +58,57 @@ and where it starts.
 4. A request for a resource looks it up in the phone book, then either copies it out of the unsqueezed
    memory copy or reads it from the file.
 
+**Asking for a resource by name.**
+1. The name is copied, turned into capitals and padded with zeros to 12 characters, so `room0001.dat`
+   and `ROOM0001.DAT` are the same request.
+2. The phone book is searched like a dictionary: look at the middle line, go up or down, repeat. If
+   the name is not there the game normally shows an error box (a few names are allowed to be missing
+   quietly) and gives back nothing.
+3. The phone-book line also says which glue file to use. Each glue file has a "where does it live" marker,
+   set when the index is loaded: if the file can be found in the folder the game was started from it
+   is used from there, otherwise from the folder named in the game's own settings file
+   (`DARKSEED.INI`, section `DIRECTORY`, entry `CD`, normally the CD drive).
+4. If that glue file is already unsqueezed in memory, the game does not copy anything. It creates a
+   new "window" onto the right spot inside the memory copy and hands that out. Handing it back
+   later removes only the window.
+5. If it is not in memory, the game opens the plain glue file, jumps to the right spot, reserves memory and
+   reads the bytes. Big reads happen in slices of about 64 KB, and between slices the game gives the
+   sound mixer a nudge so speech does not stutter during a long read.
+6. A squeezed file can only be used through its memory copy. The game loads and unsqueezes a whole
+   squeezed glue file in one go, block by block. The size of the memory copy is stored in the file's first
+   block, plus a little spare room. If the glue file is missing, the game writes a debug note and quits.
+
+**What is loaded when.**
+- At start-up, after the index: the walk-map package (`GL00_WLK`) and the text package (`GL00_TXT`,
+  all conversations) are unsqueezed whole, then the variable list (`GameVar.IDX`), the object file
+  `OBJ_9999.dat` and the fixed palette `fix.pal`.
+- Whenever a room is entered: the room number is split into hundreds and the rest, so room 101 uses
+  the package `GL00_101` and room 592 uses `GL00_592`; that package is unsqueezed whole (the previous
+  room's memory is released first), then the room's object file is loaded and read.
+
+**Errors.** Problems are shown in a Windows message box titled "Dark Seed II", in the form
+"where: what" (for example the name of the routine and "Unable to find file").
+
 **Checked against the real files.** The phone book, the table of contents inside each glue file and
 the unsqueezing were checked against all 108 files: every resource lands on valid data (for example,
-every picture starts with the picture marker). ✅ for the layout and the unsqueezing.
-🟡 because we have not yet read how the game decides which files to unsqueeze when, how it looks a
-name up in the list, or how it reads the plain files; the code for those is only partly read.
+every picture starts with the picture marker). ✅ for the layout, the lookup rules, the unsqueezing and
+the loading steps above (all read instruction by instruction).
+🟡 because the start-up and room-entry routines that call these loaders are only partly read (what they
+do besides loading), the parser of the object files is not read, and the two multiply/divide helpers of the
+C library used for the block sizes (`10d0:055c`, `10d0:052a`) are not read.
 
 **Our copy is Spanish.** The text and speech in these files are Spanish.
 
 **For the ScummVM engine.** The 2011 engine unsqueezes the same way, which matches. It builds its
 own index from the glue tables instead of reading `GFILE.HDR`; the result is the same, but the original
-way is faster to start.
+way is faster to start. The windows-onto-memory trick is not needed: ScummVM can hand out a slice of the
+memory copy instead.
 
 ## Memory 🟡
 
 **What it does.** The game asks Windows for blocks of memory through two tiny helpers: one to get a
-block of a given size, one to give it back. It keeps count of how many blocks it has taken and given
+block of a given size, one to give it back (the same helper also removes a "window" made by the
+resource loader). It keeps count of how many blocks it has taken and given
 back. If Windows cannot give memory, the game shows an error and stops.
 
 **For ScummVM.** This becomes ordinary allocation; no behaviour to copy except the error on failure.

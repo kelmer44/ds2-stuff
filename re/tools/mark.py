@@ -44,7 +44,7 @@ def main():
             print(f"{ad}: ported needs --engine file::function")
             bad = True
             continue
-        probs = problems(ad, status, r)
+        probs = problems(ad, status, dict(r, notes=(r['notes'] + ' ' + (a.note or '')).strip()))
         if probs and not a.force:
             print(f"{ad}: cannot mark {status}:")
             for x in probs:

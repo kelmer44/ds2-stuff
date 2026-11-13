@@ -19,3 +19,17 @@ Verdicts: **faithful** (matches the fresh contract on everything observable), **
 
 Still to do for this cluster: `PGFArchive`, `TNDArchive`, `SaturnGlueArchive` and the Mac archives are for other
 versions (out of scope). `resources.cpp` index/lookup code outside the classes above is unread.
+
+## Resource lookup and loading (compared 6 Nov, after contracts `1088_*` and `1098_*`)
+
+The 2011 engine has no equivalent of the original's lookup path. Differences that matter for fidelity:
+
+| Original | 2011 | Verdict |
+|---|---|---|
+| Names normalised to 12 upper-case characters padded with NUL, then compared byte by byte | `equalsIgnoreCase` on strings | faithful for all names in the data (all 9291 are upper case, 12 or fewer characters) |
+| Sorted-table lookup in `gfile.hdr`, a few names may be missing silently, others raise an error | map built from glue directories; a missing name returns null | differs in error behaviour (the original shows a message box); decide at port time |
+| Whole compressed glue file decoded into one buffer; resources are aliases into it | whole file decoded, resources are read streams | faithful in result |
+| Resources in raw glue files are read from the file at the entry offset | same | faithful |
+| Per-glue directory (install folder or CD) | `Common::File` search path | differs (ScummVM handles paths), no gameplay effect |
+| Which glue files are loaded when: text and walk maps at start, one room package per room entered | 2011 indexes every glue file once and keeps files open, decompressing a compressed file on first use | differs in timing, same result. A port may decompress a room package when the room is entered and drop the previous one, as the original does; keeping all of them is only a memory choice. |
+| Install directory from `DARKSEED.INI` `[DIRECTORY] CD`, per-glue current-directory test | ScummVM game path | differs (platform), no gameplay effect |

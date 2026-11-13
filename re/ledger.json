@@ -1188,11 +1188,11 @@
    "10d0:029e"
   ],
   "depth": 20,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_init_game_session",
+  "status": "decompiled",
   "engine": "",
-  "notes": "",
-  "cluster_name": "",
+  "notes": "loads GL00_WLK.000 and GL00_TXT.000 by name, GameVar.IDX, OBJ_9999.dat, fix.pal; sets up cursors and a timer; partly read",
+  "cluster_name": "startup",
   "cluster": "resource layer"
  },
  {
@@ -1214,11 +1214,11 @@
    "10d0:029e"
   ],
   "depth": 21,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_app_init",
+  "status": "decompiled",
   "engine": "",
-  "notes": "",
-  "cluster_name": "",
+  "notes": "reads [DIRECTORY] CD from DARKSEED.INI into the install-directory buffers, calls load_gfile_hdr, creates the window; partly read",
+  "cluster_name": "startup",
   "cluster": "resource layer"
  },
  {
@@ -1395,11 +1395,11 @@
    "10d0:029e"
   ],
   "depth": 6,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_read_ini_string",
+  "status": "understood",
   "engine": "",
   "notes": "",
-  "cluster_name": "",
+  "cluster_name": "resource layer",
   "cluster": "options (INI)"
  },
  {
@@ -1689,11 +1689,11 @@
    "10d0:029e"
   ],
   "depth": 17,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_load_obj_file",
+  "status": "decompiled",
   "engine": "",
-  "notes": "",
-  "cluster_name": "",
+  "notes": "builds OBJ_%04d.dat, loads and parses it; parser not read",
+  "cluster_name": "script and rooms",
   "cluster": "script and rooms"
  },
  {
@@ -1989,11 +1989,11 @@
    "10d0:029e"
   ],
   "depth": 18,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_enter_room",
+  "status": "decompiled",
   "engine": "",
-  "notes": "",
-  "cluster_name": "",
+  "notes": "builds GL00_%X%02d.000 from room/100 and room%100, loads that glue file, then OBJ file; partly read",
+  "cluster_name": "script and rooms",
   "cluster": "script and rooms"
  },
  {
@@ -4609,10 +4609,10 @@
   ],
   "depth": 8,
   "name": "inferred_read_file_to",
-  "status": "decompiled",
+  "status": "understood",
   "engine": "",
   "notes": "wrapper for 1098:029e with error",
-  "cluster_name": "resource",
+  "cluster_name": "resource layer",
   "cluster": "resource layer"
  },
  {
@@ -4636,10 +4636,10 @@
   ],
   "depth": 10,
   "name": "inferred_load_glue_file",
-  "status": "decompiled",
+  "status": "understood",
   "engine": "",
   "notes": "loads and LZ-decodes a whole glue file; read at asm level only in part",
-  "cluster_name": "resource",
+  "cluster_name": "resource layer",
   "cluster": "resource layer"
  },
  {
@@ -4716,11 +4716,11 @@
    "10d0:029e"
   ],
   "depth": 6,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_normalize_name",
+  "status": "understood",
   "engine": "",
   "notes": "",
-  "cluster_name": "",
+  "cluster_name": "resource layer",
   "cluster": "resource layer"
  },
  {
@@ -4737,11 +4737,11 @@
    "10d8:0052"
   ],
   "depth": 7,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_find_entry",
+  "status": "understood",
   "engine": "",
   "notes": "",
-  "cluster_name": "",
+  "cluster_name": "resource layer",
   "cluster": "resource layer"
  },
  {
@@ -4757,11 +4757,11 @@
    "10d0:039c"
   ],
   "depth": 13,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_make_alias_selector",
+  "status": "understood",
   "engine": "",
   "notes": "",
-  "cluster_name": "",
+  "cluster_name": "resource layer",
   "cluster": "resource layer"
  },
  {
@@ -4784,10 +4784,10 @@
   ],
   "depth": 14,
   "name": "inferred_load_file",
-  "status": "decompiled",
+  "status": "understood",
   "engine": "",
   "notes": "load resource by name; copies 22-byte entry record",
-  "cluster_name": "resource",
+  "cluster_name": "resource layer",
   "cluster": "resource layer"
  },
  {
@@ -4808,10 +4808,10 @@
   ],
   "depth": 8,
   "name": "inferred_get_file_size",
-  "status": "decompiled",
+  "status": "understood",
   "engine": "",
   "notes": "size of a resource by name",
-  "cluster_name": "resource",
+  "cluster_name": "resource layer",
   "cluster": "resource layer"
  },
  {
@@ -4998,11 +4998,11 @@
    "10d0:029e"
   ],
   "depth": 7,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_report_error",
+  "status": "understood",
   "engine": "",
   "notes": "",
-  "cluster_name": "",
+  "cluster_name": "resource layer",
   "cluster": "resource layer and errors"
  },
  {
@@ -5105,11 +5105,11 @@
    "10d0:029e"
   ],
   "depth": 6,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_message_box",
+  "status": "understood",
   "engine": "",
   "notes": "",
-  "cluster_name": "",
+  "cluster_name": "resource layer",
   "cluster": "resource layer and errors"
  },
  {
@@ -5142,11 +5142,11 @@
    "10d0:029e"
   ],
   "depth": 6,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_read_huge",
+  "status": "understood",
   "engine": "",
   "notes": "",
-  "cluster_name": "",
+  "cluster_name": "resource layer",
   "cluster": "resource layer and errors"
  },
  {
@@ -5180,11 +5180,11 @@
    "10d0:029e"
   ],
   "depth": 15,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_load_file_or_plain",
+  "status": "understood",
   "engine": "",
   "notes": "",
-  "cluster_name": "",
+  "cluster_name": "resource layer",
   "cluster": "resource layer and errors"
  },
  {
@@ -6624,11 +6624,11 @@
    "10d0:0919"
   ],
   "depth": 2,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_dos_findfirst",
+  "status": "replaced",
   "engine": "",
-  "notes": "",
-  "cluster_name": "",
+  "notes": "ScummVM: Common::File::exists",
+  "cluster_name": "resource layer",
   "cluster": "startup and C runtime"
  },
  {
@@ -7935,11 +7935,11 @@
    "10d0:029e"
   ],
   "depth": 6,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_compare_name12",
+  "status": "understood",
   "engine": "",
   "notes": "",
-  "cluster_name": "",
+  "cluster_name": "resource layer",
   "cluster": "startup and C runtime"
  }
 ]
