@@ -143,13 +143,16 @@ glue file and used in memory. All 400 sampled files were 8 bits per pixel with a
 | 38..45 | 4 x i16 | **sprite placement (a, b, c, d)**, stored in the pixels-per-metre fields | see below |
 | 46 | u32 | `biClrUsed` | 0 or 256 |
 
-**Sprite placement words (BMP offsets 0x26, 0x28, 0x2a, 0x2c)** [data]: four signed 16-bit values.
-`1080:0ad6` copies them into the image record and then zeroes them in the data. Typical values:
-`(a, b) = (-45, -86)` and `(c, d) = (314, 159)` for a 76 x 78 sprite; `(0, 0)` and `(325, 200)`;
-`(388, 265)` twice for some props; `(-3, -434)` and `(538, 5)`. In most sprites `a` and `b` are zero or negative
-and larger in size than half the width and the height, `c` and `d` are positive screen-sized numbers.
-How they are used is **not yet read** (the sprite drawing code is in segments `1078` and `10b0`).
-[guess: `(a, b)` is the offset from an anchor to the top-left corner and `(c, d)` the anchor position in the room.]
+**Sprite placement words (BMP offsets 0x26, 0x28, 0x2a, 0x2c)** [data + code]: four signed 16-bit values
+`(a, b, c, d)`. `1080:0ad6` copies them into the image record (+0xc, +0xe, +0x10, +0x12) and zeroes them in the data.
+- **`(a, b)` is the offset from the object's anchor point to the sprite's top-left corner.** The object update
+  code (`1078:1030`) sets the on-screen top-left to `(anchorX + a, anchorY + b)`: it adds image +0xc to the object's
+  x and image +0xe to its y. [code]
+- Typical values: `(-45, -86)` for a 76 x 78 sprite means the anchor is 45 pixels from the left edge and 86 below the top, which is
+  **8 pixels below the bottom edge**, so the anchor is not always inside the sprite. `(0, 0)` means the anchor is the
+  top-left corner. [data]
+- **`(c, d)`** (+0x10, +0x12) are positive, screen-sized numbers (`(314, 159)`, `(325, 200)`, `(388, 265)`). In some files they
+  equal `(a, b)`. No code that reads them was found so far. [unknown; guess: the sprite's default anchor in its room]
 
 **Span format (`biCompression` = 2)** [code for the drawing routine, data for the files]: the pixel data
 starts at `bfOffBits` and holds one record per row, in file order (bottom row first, as in any BMP):
@@ -176,6 +179,8 @@ Near-addressed records in the data segment; every picture function takes a near 
 | +8 | u16 | width | `1080:0ad6`, `0be0` |
 | +10 | u16 | height | same |
 | +12 | 4 x i16 | the four placement words (+0xc, +0xe, +0x10, +0x12) | `1080:0ad6` |
+| +0x14 | far pointer | set to the record itself when `inferred_image_cache_get` is called with flag bit 0 | `1070:0000` |
+| size | 0x18 bytes | allocated and zeroed by the image cache | `1070:0000` |
 
 `1080:0be0` saves only two of the placement words, to +0xc and +0xe.
 
@@ -194,3 +199,21 @@ Near-addressed records in the data segment; every picture function takes a near 
 the palette with `1080:049a`, reads the pixel data straight into the WinG bitmap in 32 KB pieces, and
 `1038:01a4` releases it when the first room is entered. What the picture contains is not known yet.
 `BOSSKEY.BMP` (613 x 399, 8 bit) is the boss-key picture.
+
+## Image cache node (`1070:0000`) [code]
+
+A singly linked list, head at `DS:1fc8/1fca`, of 0x17-byte nodes: name (13 bytes, string) at +0, image record far
+pointer at +0xd, use count at +0x11, next node far pointer at +0x13. A picture is loaded once and shared by name.
+
+## Drawing path (back to front) [code]
+
+`inferred_image_cache_get` gives an image record. The compositor draws it with `inferred_draw_image_to_buffer`
+(`1078:1aea`) or `inferred_draw_image_rect` (`1078:1b6c`) into the game's own 8-bit off-screen buffer
+(bitmap header far pointer `DS:1fce/1fd0`, pixels far pointer `DS:343a/343c`), which calls
+`inferred_draw_bitmap_clipped` (`10b0:0000`). That clips to the buffer and calls one of the three 32-bit routines
+(span draw, keyed copy, plain copy). Transparent colour index is **0** (callers always pass key 0). Finished rectangles are
+sent to the window with `WinGStretchBlt`.
+
+Dirty-rectangle fields of the scene structure used by the compositor (`1078:1796`): rectangle at +0x340 (left), +0x342 (top),
++0x344 (right), +0x346 (bottom); +0x348 cleared after a redraw. Object fields seen in `1078:1030`: current image far pointer
++0x1e, new image far pointer +0x2a, on-screen position +0x22/+0x24, anchor (x, y) +0x2e/+0x30, previous rectangle +0x3e/+0x40. [partly read]

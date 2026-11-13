@@ -7,13 +7,13 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 
 | Stage | Count | Share |
 |---|---|---|
-| decompiled or later (status only) | 44 | 12% |
-| understood or later (status only) | 40 | 11% |
+| decompiled or later (status only) | 52 | 14% |
+| understood or later (status only) | 46 | 12% |
 | ported or later (status only) | 7 | 1% |
 | emu-compared or later (status only) | 7 | 1% |
 | original-compared or later (status only) | 7 | 1% |
 | replaced by a ScummVM service | 7 | |
-| **done (status understood or later and documented)** | **40** | **11%** |
+| **done (status understood or later and documented)** | **46** | **12%** |
 | status ahead of its documentation | 0 | |
 
 ## By cluster
@@ -151,7 +151,7 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 - [ ] `1038:1ade` FUN_1038_1ade · depth 20 · 2767 bytes · **untouched**
 - [ ] `1038:086e` FUN_1038_086e · depth 21 · 4706 bytes · **untouched**
 
-### graphics and palette (19/26 done)
+### graphics and palette (20/26 done)
 
 - [x] `1080:0000` inferred_copy_string · depth 6 · 67 bytes · **replaced** — ScummVM: Common::String
 - [x] `1080:0044` inferred_append_string · depth 6 · 91 bytes · **replaced** — ScummVM: Common::String
@@ -168,7 +168,7 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 - [x] `1080:0d34` inferred_random_below · depth 6 · 34 bytes · **understood**
 - [x] `1080:06f8` inferred_free_block · depth 7 · 33 bytes · **understood**
 - [x] `1080:07a0` inferred_free_image · depth 7 · 95 bytes · **understood**
-- [ ] `1080:0d56` FUN_1080_0d56 · depth 7 · 148 bytes · **untouched**
+- [x] `1080:0d56` inferred_draw_image_record · depth 7 · 148 bytes · **understood**
 - [x] `1080:00ee` inferred_set_windows_palette · depth 8 · 239 bytes · **understood**
 - [ ] `1080:01de` FUN_1080_01de · depth 8 · 274 bytes · **untouched**
 - [x] `1080:049a` inferred_make_bmp_palette · depth 8 · 400 bytes · **understood**
@@ -180,18 +180,20 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 - [x] `1080:0800` inferred_load_mask · depth 16 · 143 bytes · **understood**
 - [x] `1080:0890` inferred_load_image · depth 16 · 143 bytes · **understood**
 
-### graphics and sprites (0/20 done)
+### graphics and sprites (5/23 done)
 
 - [ ] `1078:00ca` FUN_1078_00ca · depth 6 · 60 bytes · **untouched**
 - [ ] `1078:0106` FUN_1078_0106 · depth 6 · 107 bytes · **untouched**
 - [ ] `1078:043e` FUN_1078_043e · depth 6 · 22 bytes · **untouched**
 - [ ] `1078:05be` FUN_1078_05be · depth 6 · 309 bytes · **untouched**
 - [ ] `1078:0806` FUN_1078_0806 · depth 6 · 184 bytes · **untouched**
+- [x] `10b0:0000` inferred_draw_bitmap_clipped · depth 6 · 764 bytes · **understood**
+- [x] `1070:0136` inferred_image_cache_release · depth 7 · 227 bytes · **understood**
 - [ ] `1078:0000` FUN_1078_0000 · depth 7 · 202 bytes · **untouched**
 - [ ] `1078:03be` FUN_1078_03be · depth 7 · 127 bytes · **untouched**
 - [ ] `1078:08c0` FUN_1078_08c0 · depth 7 · 315 bytes · **untouched**
-- [ ] `1078:1aea` FUN_1078_1aea · depth 7 · 130 bytes · **untouched**
-- [ ] `1078:1b6c` FUN_1078_1b6c · depth 7 · 120 bytes · **untouched**
+- [x] `1078:1aea` inferred_draw_image_to_buffer · depth 7 · 130 bytes · **understood**
+- [x] `1078:1b6c` inferred_draw_image_rect · depth 7 · 120 bytes · **understood**
 - [ ] `1078:0172` FUN_1078_0172 · depth 8 · 585 bytes · **untouched**
 - [ ] `1078:0454` FUN_1078_0454 · depth 8 · 362 bytes · **untouched**
 - [ ] `1078:18d8` FUN_1078_18d8 · depth 8 · 528 bytes · **untouched**
@@ -199,9 +201,10 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 - [ ] `1078:0a00` FUN_1078_0a00 · depth 10 · 398 bytes · **untouched**
 - [ ] `1078:0b8e` FUN_1078_0b8e · depth 10 · 465 bytes · **untouched**
 - [ ] `1078:1238` FUN_1078_1238 · depth 10 · 1370 bytes · **untouched**
-- [ ] `1078:1796` FUN_1078_1796 · depth 10 · 321 bytes · **untouched**
+- [ ] `1078:1796` inferred_redraw_rect · depth 10 · 321 bytes · **decompiled** — compositor: redraws a dirty rect of the scene (background image, objects, StretchBlt); partly read
 - [ ] `1078:0d60` FUN_1078_0d60 · depth 11 · 718 bytes · **untouched**
-- [ ] `1078:1030` FUN_1078_1030 · depth 11 · 518 bytes · **untouched**
+- [ ] `1078:1030` inferred_redraw_object_rect · depth 11 · 518 bytes · **decompiled** — compositor: moves an object, redraws dirty rect (background, objects), StretchBlts to screen; sets object position = image offsets (a,b) + object anchor; partly read
+- [x] `1070:0000` inferred_image_cache_get · depth 17 · 307 bytes · **understood**
 
 ### main window and input (0/24 done)
 
@@ -311,11 +314,6 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 - [ ] `1048:3236` FUN_1048_3236 · depth 19 · 73 bytes · **untouched**
 - [ ] `1048:2a50` FUN_1048_2a50 · depth 20 · 315 bytes · **untouched**
 
-### script and talk (0/2 done)
-
-- [ ] `1070:0136` FUN_1070_0136 · depth 7 · 227 bytes · **untouched**
-- [ ] `1070:0000` FUN_1070_0000 · depth 17 · 307 bytes · **untouched**
-
 ### startup (0/2 done)
 
 - [ ] `1028:03d0` inferred_init_game_session · depth 20 · 917 bytes · **decompiled** — loads GL00_WLK.000 and GL00_TXT.000 by name, GameVar.IDX, OBJ_9999.dat, fix.pal; sets up cursors and a timer; partly read
@@ -409,12 +407,11 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 - [ ] `10d0:065c` FUN_10d0_065c · depth 23 · 44 bytes · **untouched**
 - [ ] `10d0:001a` entry · depth 24 · 177 bytes · **untouched**
 
-### startup helpers (0/7 done)
+### startup helpers (0/6 done)
 
 - [ ] `10a0:0000` FUN_10a0_0000 · depth 6 · 93 bytes · **untouched**
 - [ ] `10a0:0080` FUN_10a0_0080 · depth 6 · 62 bytes · **untouched**
 - [ ] `10a0:00be` FUN_10a0_00be · depth 6 · 221 bytes · **untouched**
-- [ ] `10b0:0000` FUN_10b0_0000 · depth 6 · 764 bytes · **untouched**
 - [ ] `10a0:005e` FUN_10a0_005e · depth 7 · 33 bytes · **untouched**
 - [ ] `10a0:01ae` FUN_10a0_01ae · depth 8 · 134 bytes · **untouched**
 - [ ] `10c0:0000` FUN_10c0_0000 · depth 13 · 600 bytes · **untouched**

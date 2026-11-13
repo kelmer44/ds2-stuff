@@ -3579,11 +3579,11 @@
    "10d0:029e"
   ],
   "depth": 17,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_image_cache_get",
+  "status": "understood",
   "engine": "",
   "notes": "",
-  "cluster_name": "",
+  "cluster_name": "graphics and sprites",
   "cluster": "script and talk"
  },
  {
@@ -3599,11 +3599,11 @@
    "10d0:029e"
   ],
   "depth": 7,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_image_cache_release",
+  "status": "understood",
   "engine": "",
   "notes": "",
-  "cluster_name": "",
+  "cluster_name": "graphics and sprites",
   "cluster": "script and talk"
  },
  {
@@ -3935,11 +3935,11 @@
    "10d0:029e"
   ],
   "depth": 11,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_redraw_object_rect",
+  "status": "decompiled",
   "engine": "",
-  "notes": "",
-  "cluster_name": "",
+  "notes": "compositor: moves an object, redraws dirty rect (background, objects), StretchBlts to screen; sets object position = image offsets (a,b) + object anchor; partly read",
+  "cluster_name": "graphics and sprites",
   "cluster": "graphics and sprites"
  },
  {
@@ -3988,11 +3988,11 @@
    "10d0:029e"
   ],
   "depth": 10,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_redraw_rect",
+  "status": "decompiled",
   "engine": "",
-  "notes": "",
-  "cluster_name": "",
+  "notes": "compositor: redraws a dirty rect of the scene (background image, objects, StretchBlt); partly read",
+  "cluster_name": "graphics and sprites",
   "cluster": "graphics and sprites"
  },
  {
@@ -4035,11 +4035,11 @@
    "10d0:029e"
   ],
   "depth": 7,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_draw_image_to_buffer",
+  "status": "understood",
   "engine": "",
   "notes": "",
-  "cluster_name": "",
+  "cluster_name": "graphics and sprites",
   "cluster": "graphics and sprites"
  },
  {
@@ -4055,11 +4055,11 @@
    "10d0:029e"
   ],
   "depth": 7,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_draw_image_rect",
+  "status": "understood",
   "engine": "",
   "notes": "",
-  "cluster_name": "",
+  "cluster_name": "graphics and sprites",
   "cluster": "graphics and sprites"
  },
  {
@@ -4587,11 +4587,11 @@
    "10d0:029e"
   ],
   "depth": 7,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_draw_image_record",
+  "status": "understood",
   "engine": "",
   "notes": "",
-  "cluster_name": "",
+  "cluster_name": "graphics and palette",
   "cluster": "graphics and palette"
  },
  {
@@ -5811,11 +5811,11 @@
    "10d0:052a"
   ],
   "depth": 6,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_draw_bitmap_clipped",
+  "status": "understood",
   "engine": "",
   "notes": "",
-  "cluster_name": "",
+  "cluster_name": "graphics and sprites",
   "cluster": "startup helpers"
  },
  {

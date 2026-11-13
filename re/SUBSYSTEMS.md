@@ -127,13 +127,21 @@ full-screen picture.
    and height, and four extra numbers.
 2. **The four extra numbers are a trick.** Each sprite picture hides four small numbers (they can be
    negative) in header fields that Windows normally uses for printing size. The game copies them into the
-   record and wipes them from the picture, so Windows never sees them. They say where the sprite sits;
-   exactly how is not read yet.
+   record and wipes them from the picture, so Windows never sees them. The first two say where the
+   sprite's top-left corner is **relative to the point the character or object stands on** (so a sprite
+   is drawn with its feet point at the object's position, even when that point lies outside the picture).
+   The last two are not used by any code read so far.
 3. **Two kinds of picture.** Full pictures (backgrounds) are stored as normal rows of pixels. Characters and
    objects are stored in the game's own compact form: for each row, "how many empty pixels, how many
    drawn pixels, then those pixels". Empty space is not stored. Windows cannot draw that form, so the game
    draws it with its own routine.
-4. **Drawing.** There are three small drawing routines: copy a block of pixels, copy a block while skipping one
+4. **Drawing.** Pictures are shared: asking for a name again returns the same loaded picture and counts one more
+   user; it is freed when the last user lets go. To draw, the game cuts the wanted rectangle down to the
+   off-screen picture it is painting (anything outside is dropped), works out where in the picture's rows
+   to start (pictures are stored bottom row first), and then uses one of three small drawing routines.
+   The colour with number 0 is see-through. The game repaints only the rectangles that changed: it draws
+   the background part, then the objects over it, then copies that rectangle to the window.
+   There are three small drawing routines: copy a block of pixels, copy a block while skipping one
    "see-through" colour, and draw the compact row form (also skipping the see-through colour). They work on
    the game's off-screen picture in memory, which is later shown on the window. They live in a part of the
    program that switches itself into 32-bit mode the first time it runs.
@@ -142,9 +150,10 @@ full-screen picture.
    itself does) and the rest can be animated; an option can brighten all colours a little.
 
 **Checked against the real files.** The picture header layout, the compact row form and the palette entry
-order were checked on real files (✅ for those formats). 🟡 because the sprite drawing code that uses the
-four extra numbers, the clipping routine and the routines that choose between the three drawing methods are
-not read yet; the picture from `DS2RUN.HDR` and the `.BMM` files are not understood.
+order were checked on real files (✅ for those formats). The clipping and the choice between the three
+drawing routines are read in full. 🟡 because the code that decides *which* objects are drawn in which order
+and moves them (the rest of segment `1078`) is only partly read, the last two placement numbers have no known
+use, and the picture from `DS2RUN.HDR` and the `.BMM` files are not understood.
 
 **For the ScummVM engine.** ScummVM draws straight into an 8-bit or true-colour surface, so none of the Windows
 palette or bitmap handling is needed. What must be reproduced is how the four numbers place a sprite, the
