@@ -1768,7 +1768,7 @@
   "name": "inferred_parse_mirror_section",
   "status": "decompiled",
   "engine": "",
-  "notes": "room section parser (uses inferred_next_room_token); unread | MIRRORSTART section; unread in detail",
+  "notes": "room section parser (uses inferred_next_room_token); unread | MIRRORSTART section; unread in detail | MIRRORSTART section: COND/COND2 nodes, CLIPXY (4 numbers), SCALEVAL via 1060:0c44/0d2e, POSX/POSY via 1060:0f1c into per-mirror arrays; mirror record layout not resolved",
   "cluster_name": "script and rooms",
   "cluster": "script and rooms"
  },
@@ -1837,7 +1837,7 @@
   ],
   "depth": 16,
   "name": "inferred_parse_entry_section",
-  "status": "decompiled",
+  "status": "understood",
   "engine": "",
   "notes": "runs animations or talk entries (Speaker, SysTalking, LastAction, SysMapBlock, 'Too many frames in one animation!'); unread | ENTRYSTART section: uses the object lexer, handles From/XYRoom/Change/etc.; unread in detail",
   "cluster_name": "script and rooms",
@@ -2429,11 +2429,11 @@
    "10d0:029e"
   ],
   "depth": 6,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_next_word",
+  "status": "understood",
   "engine": "",
   "notes": "",
-  "cluster_name": "",
+  "cluster_name": "game variables",
   "cluster": "dialogs and options"
  },
  {
@@ -2818,11 +2818,11 @@
    "10d0:029e"
   ],
   "depth": 6,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_parse_number_list",
+  "status": "understood",
   "engine": "",
   "notes": "",
-  "cluster_name": "",
+  "cluster_name": "game variables",
   "cluster": "dialogs and options"
  },
  {
@@ -2838,11 +2838,11 @@
    "10d0:052a"
   ],
   "depth": 6,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_parse_long_list",
+  "status": "decompiled",
   "engine": "",
-  "notes": "",
-  "cluster_name": "",
+  "notes": "parses numbers into 32-bit values for POSX/POSY; the multiply step is garbled in the decompile",
+  "cluster_name": "game variables",
   "cluster": "dialogs and options"
  },
  {

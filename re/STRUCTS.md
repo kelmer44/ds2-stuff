@@ -370,3 +370,27 @@ So the scale rule `(y - top) * K / range` uses `top = ScaleFactor 1` and `range 
 
 Local variables: the 20 slots 1 to 20 of the variable table are placeholders `AAAAAAAAAAA01..20`. `LocalVar=` names (always starting with the room number)
 overwrite them in sorted order when a room is loaded, with value 0; unloading the room resets them (`inferred_register_local_var`, `inferred_unload_room`).
+
+## Entry record (0x95 bytes, from `1048:19fc`) [code]
+
+| Offset | Field |
+|---|---|
+| +0x00 | far ptr: condition node list (0x18-byte nodes: 10 term words, next-node far ptr at +0x14) |
+| +0x04, +0x06 | `From=` x and y; +0x0e `From=` third number |
+| +0x08, +0x0a | `XYRoom=` first two numbers |
+| +0x0c | `XYRoom=` third number, then overwritten by the fourth (see contract); +0x12 fifth number |
+| +0x10 | `Destroy=` flag |
+| +0x14 | set to 1 by `Cond=`; replaced by the `PaletteChange=` number |
+| +0x16/+0x18 | far ptr to the loaded `NAME.txt` text (first line) |
+| +0x1a | `Anim=` file name; +0x27, +0x29, +0x2b, +0x2d four numbers; +0x2f fifth number |
+| +0x31, +0x3e, +0x4b, +0x58 | picture, effect, speech/text name, dialog names |
+| +0x65 | `ChangeAt=` assignment list; +0x79 `Change=` assignment list |
+| +0x8d | far ptr to the next record (new `Cond=` or `WaitUntil=` record) |
+
+The object-action record of `1048:042c` (same 0x95 size) puts them elsewhere: `XYRoom=` at +4, +6, +8, +0xa, +0xe (five distinct fields), `Anim=` numbers at +0x21, +0x23, +0x25, +0x27 with the name at +0x14 and a fifth at +0x29, picture +0x45, effect +0x52, speech/text name +0x5f, midi +0x38, cursor +0x2b, dialog +0x6e, flag +0xc, loaded text +0x10/+0x12. **The earlier note on this record (pointers at +0x8f/+0x91 and +0x93/+0x95) is superseded: those offsets are not confirmed.**
+
+`Anim=` with four numbers and a name (for example `Anim=160 120 320 240 cutlogos 1`) matches the video start string `put vfw destination at %d %d %d %d`: x, y, width and height of the video window, the name is the AVI file and the last number a flag. [data + guess]
+
+## Number list shorthand [code]
+
+Lines like `PosX=`, `PosY=` and `ScaleVal=` use `V(n)` (n copies) and `V(n d)` (n values from V stepping by d) read by `inferred_parse_number_list`.

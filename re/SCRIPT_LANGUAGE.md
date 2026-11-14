@@ -98,3 +98,9 @@ section, which is read with the object lexer (`1048:0000`), so both tables are u
 - `ScaleFactor=a b c`: only `a` and `b` are used (see the scale rule); `c` is ignored.
 - `WalkMap=NAME [n m]`: optional two numbers (default 0 and 10); the shipped files use for example `200 5`.
 - `ObjXY=` in a room file is the clip rectangle of the room.
+
+## Entry section keys and number shorthand [code]
+
+- `Entry` records use `From=x y [room]`, `XYRoom=x y [room] [dir] [flag]`, `Text=`, `Effect=`, `Speech=`, `Picture=`, `Dialog=`, `Destroy=`, `PaletteChange=n`, `Anim=x y w h name [flag]`
+  (a video: window rectangle and AVI name), `Change=` and `ChangeAt=` assignment lists, `WaitUntil=` (a new record).
+- In `PosX=`, `PosY=` and `ScaleVal=` (mirror and sprite number lists) `V(n)` repeats V n times and `V(n d)` makes n values starting at V with step d.

@@ -122,3 +122,11 @@ The 2011 engine has no equivalent of the original's lookup path. Differences tha
 | `StartIndex=`, `EndIndex=` | defaults 0 and count - 1 | palette sections only | unverified for sprites |
 | `LocalVar=` | up to 20, written into placeholder slots, reset on unload | `_localVariables` map | differs in mechanism; same visible behaviour if the room lifetime and 0 reset are kept |
 | `WalkMap=NAME [n m]` | optional two numbers, default 0 and 10 | not found | unverified: the two numbers are not used in 2011 |
+
+## Entry section and number lists (compared 14 Nov, after contracts `1048_19fc`, `1060_0188`, `1060_0d2e`)
+
+| Item | Contract | 2011 | Verdict |
+|---|---|---|---|
+| `XYRoom=` fourth number | overwrites the third in entry records (separate fields in object records) | `XYRoom` stored as one argument string, split later | unverified; check how the 2011 code splits the five numbers against the two record layouts |
+| `PosX=`/`PosY=`/`ScaleVal=` `V(n)` and `V(n d)` | repeat and ramp | `parsePackedIntLine` (exists) | not compared in detail; the 2011 helper name suggests the same idea |
+| `Anim=` with four numbers | video rectangle | `Anim` argument parsed as video (movie) with position | probably faithful, not compared |

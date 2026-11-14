@@ -208,6 +208,8 @@ transparent colour 0, and the play-area clipping.
    left. The room files must list their names in alphabetical order, with at most 20, or the name lookup would break (all shipped rooms comply).
 5. When the player leaves, the game frees the entry list, every sprite and its pictures, the room record and the room's whole package of data.
 
+**Entry section.** When the room is entered, the game reads a list of entry records. Each says under which condition it applies, where the player appears (`From=` and `XYRoom=`), what to show or play, and which variables to change. A `WaitUntil=` starts a new record. A video line (`Anim=` with a window rectangle and a file name) starts a video.
+
 **Checked.** The header keys, the section dispatch, the local-variable slots and the room limits were read in the code and checked against all 83
 room files. 🟡 because the section readers for entry, music, mirrors and palette are only partly read and the sprite section's last fields are open.
 
