@@ -678,11 +678,11 @@
    "10d0:029e"
   ],
   "depth": 10,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_start_walk",
+  "status": "understood",
   "engine": "",
   "notes": "",
-  "cluster_name": "",
+  "cluster_name": "walking",
   "cluster": "dialogs"
  },
  {
@@ -1572,11 +1572,11 @@
    "10d0:029e"
   ],
   "depth": 6,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_walk_line_clear",
+  "status": "understood",
   "engine": "",
   "notes": "",
-  "cluster_name": "",
+  "cluster_name": "walking",
   "cluster": "main window and input"
  },
  {
@@ -1593,11 +1593,11 @@
    "10d0:029e"
   ],
   "depth": 9,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_find_walk_path",
+  "status": "decompiled",
   "engine": "",
-  "notes": "",
-  "cluster_name": "",
+  "notes": "path search on the 80x48 grid: fills DS:3eba from the walk grid (cell > SysMapBlock = walkable), snaps blocked start/target cells to the nearest walkable cell with a 4-neighbour breadth-first search, then searches the path; path extraction into DS:3cb2 not read",
+  "cluster_name": "walking",
   "cluster": "main window and input"
  },
  {

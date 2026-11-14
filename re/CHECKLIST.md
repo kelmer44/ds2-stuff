@@ -7,13 +7,13 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 
 | Stage | Count | Share |
 |---|---|---|
-| decompiled or later (status only) | 108 | 30% |
-| understood or later (status only) | 91 | 25% |
+| decompiled or later (status only) | 111 | 31% |
+| understood or later (status only) | 93 | 26% |
 | ported or later (status only) | 8 | 2% |
 | emu-compared or later (status only) | 8 | 2% |
 | original-compared or later (status only) | 8 | 2% |
 | replaced by a ScummVM service | 8 | |
-| **done (status understood or later and documented)** | **91** | **25%** |
+| **done (status understood or later and documented)** | **93** | **26%** |
 | status ahead of its documentation | 0 | |
 
 ## By cluster
@@ -57,7 +57,7 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 - [ ] `10a8:0638` FUN_10a8_0638 · depth 19 · 193 bytes · **untouched**
 - [ ] `10a8:06fa` FUN_10a8_06fa · depth 19 · 224 bytes · **untouched**
 
-### dialogs (0/13 done)
+### dialogs (0/12 done)
 
 - [ ] `1010:0000` FUN_1010_0000 · depth 6 · 165 bytes · **untouched**
 - [ ] `1010:00a6` FUN_1010_00a6 · depth 6 · 120 bytes · **untouched**
@@ -70,7 +70,6 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 - [ ] `1010:0ae0` FUN_1010_0ae0 · depth 7 · 145 bytes · **untouched**
 - [ ] `1010:0230` FUN_1010_0230 · depth 9 · 260 bytes · **untouched**
 - [ ] `1010:0390` PLAYSET_DLG_PROC · depth 9 · 965 bytes · **untouched**
-- [ ] `1010:07c6` FUN_1010_07c6 · depth 10 · 220 bytes · **untouched**
 - [ ] `1010:011e` FUN_1010_011e · depth 20 · 272 bytes · **untouched**
 
 ### dialogs and options (0/7 done)
@@ -218,14 +217,13 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 - [ ] `1038:01e4` inferred_update_room_sprites · depth 15 · 1671 bytes · **decompiled** — updates every room object's sprite and Mike's two sprites (scales images with 1020:0656, registers changes with 1078:18d8), then repaints with 1078:1796; partly read
 - [x] `1070:0000` inferred_image_cache_get · depth 17 · 307 bytes · **understood**
 
-### main window and input (0/24 done)
+### main window and input (0/22 done)
 
 - [ ] `1000:0000` FUN_1000_0000 · depth 6 · 51 bytes · **untouched**
 - [ ] `1000:1016` POPUPPROC · depth 6 · 605 bytes · **untouched**
 - [ ] `1000:1a98` FUN_1000_1a98 · depth 6 · 115 bytes · **untouched**
 - [ ] `1008:00b6` FUN_1008_00b6 · depth 6 · 31 bytes · **untouched**
 - [ ] `1008:0f86` FUN_1008_0f86 · depth 6 · 309 bytes · **untouched**
-- [ ] `1040:0000` FUN_1040_0000 · depth 6 · 280 bytes · **untouched**
 - [ ] `1000:1b0e` FUN_1000_1b0e · depth 7 · 290 bytes · **untouched**
 - [ ] `1000:1d1a` FUN_1000_1d1a · depth 7 · 187 bytes · **untouched**
 - [ ] `1000:1c36` FUN_1000_1c36 · depth 8 · 226 bytes · **untouched**
@@ -237,7 +235,6 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 - [ ] `1008:004c` FUN_1008_004c · depth 9 · 104 bytes · **untouched**
 - [ ] `1008:0e16` FUN_1008_0e16 · depth 9 · 182 bytes · **untouched**
 - [ ] `1008:0ece` FUN_1008_0ece · depth 9 · 182 bytes · **untouched**
-- [ ] `1040:011a` FUN_1040_011a · depth 9 · 1860 bytes · **untouched**
 - [ ] `1000:19f2` FUN_1000_19f2 · depth 17 · 166 bytes · **untouched**
 - [ ] `1008:0af6` FUN_1008_0af6 · depth 17 · 800 bytes · **untouched**
 - [ ] `1000:0034` FUN_1000_0034 · depth 22 · 513 bytes · **untouched**
@@ -442,4 +439,10 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 - [ ] `1020:0480` FUN_1020_0480 · depth 6 · 470 bytes · **untouched**
 - [ ] `1020:0a14` FUN_1020_0a14 · depth 6 · 44 bytes · **untouched**
 - [ ] `1020:0a40` FUN_1020_0a40 · depth 7 · 229 bytes · **untouched**
+
+### walking (2/3 done)
+
+- [x] `1040:0000` inferred_walk_line_clear · depth 6 · 280 bytes · **understood**
+- [ ] `1040:011a` inferred_find_walk_path · depth 9 · 1860 bytes · **decompiled** — path search on the 80x48 grid: fills DS:3eba from the walk grid (cell > SysMapBlock = walkable), snaps blocked start/target cells to the nearest walkable cell with a 4-neighbour breadth-first search, then searches the path; path extraction into DS:3cb2 not read
+- [x] `1010:07c6` inferred_start_walk · depth 10 · 220 bytes · **understood**
 

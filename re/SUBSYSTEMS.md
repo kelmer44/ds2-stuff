@@ -305,6 +305,24 @@ is still to be recovered.
 
 **For ScummVM.** Do the entry list after the room is built and in the same order; use `FromRoom` to pick the entry; keep the 8-cell border.
 
+## Walking and the walk map 🟡
+
+**What it does.** Clicking on the floor makes the player walk there. The floor is described by a small grid picture per room.
+
+**How it works.**
+1. The room's walk map is a 64 by 48 picture; each pixel is a floor cell 10 pixels wide and a few pixels tall (the two numbers on the `WalkMap=` line
+   give the top of the grid and the cell height). The game copies it into a wider grid with 8 repeated cells on each side.
+2. A cell is **walkable when its number is bigger than the game variable `SysMapBlock`**. The variable is 0 when a room is entered, so
+   any number above 0 is floor and 0 is wall. Scripts can raise the variable to close off the areas whose cells have the number 1 (25 of the 84 rooms have such cells).
+3. When you click, the click is turned into a grid cell. If the cell is a wall, the game finds the nearest floor cell first. The path
+   search works on the grid in four directions and gives a list of cells; the player then follows it point by point (see the game tick).
+4. A straight-line test between two cells checks that every cell between them is floor.
+
+**Checked.** The grid layout, the walkable rule (read in the assembly and consistent with the real maps) and the click conversion are read. 🟡 because the
+code that builds the final path from the search is not read yet.
+
+**For ScummVM.** Use `cell > SysMapBlock` as the walkable test and re-evaluate it whenever the variable changes.
+
 ## The game tick 🟡
 
 **What it does.** About 12 times a second (the timer interval is `1000 / frames per second`; the setting comes from the options) Windows

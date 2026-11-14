@@ -146,3 +146,18 @@ The 2011 engine has no equivalent of the original's lookup path. Differences tha
 |---|---|---|---|
 | Entry choice | first record whose `From=` room is 0 or equals `FromRoom` and whose condition is true | `FromRoom` handled in `roomconfig.cpp` entries | not compared in detail |
 | Walk map | 64 by 48 8-bit BMP, cell 10 wide, with 8 border columns | `Pathfinder` reads a walk map (`pathfinder.cpp`, 441 lines) | unverified: the cell size and the border must be checked against `pathfinder.cpp` |
+
+## Walk map and path finder (compared 14 Nov, after contracts `1040_0000`, `1010_07c6`)
+
+2011 sources: `pathfinder.cpp`, `pathfinder.h` (`kXResolution = kYResolution = 10`), `room.cpp` (`WalkMap=` parsing), `mike.cpp`.
+
+| Item | Contract | 2011 | Verdict |
+|---|---|---|---|
+| Cell width 10 pixels, 64 map columns | yes | `kXResolution = 10`, map x scaled by `screenWidth / mapWidth / 10` | faithful |
+| `WalkMap=NAME top height`, defaults 0 and 10 | room +0xf4a, +0xf4c with defaults 0 and 10 | `_walkMapYTop`, `_walkMapYResolution`, defaults 0 and 10; map row = `(y - top) / res` | **faithful** (same defaults and rule). Note the original cell height is the second number (5 in the shipped files), but 2011's tile unit is 10 px vertically (`kYResolution`), so the grids differ in size, see below |
+| Vertical cell size | cell is H pixels tall (H = 5 in most rooms) | tile is 10 pixels tall and samples the map at `(y * 10 - top) / res` | **differs in resolution**: the original path grid has a cell per map pixel (10 x 5), 2011 samples a coarser 10 x 10 grid; paths can differ near narrow strips |
+| Border | 8 repeated edge cells on each side | none; cells outside the map are not walkable | **differs**: in the original the area up to 80 pixels outside the screen edge counts as walkable if the edge cell is |
+| Walkable test | `cell > SysMapBlock` (default 0) | `cell != 0` | **differs once `SysMapBlock` is raised**: 2011 has no `SysMapBlock` handling at all (the name never appears), so closable areas (value 1, in 25 of 84 maps) stay open |
+| Neighbours | 4 (left, right, up, down) | 8, straight ones first | **differs**: the original search moves in 4 directions (path shape and length differ; the later smoothing in the original is unread) |
+| Algorithm | breadth-first search with a nearest-floor snap | IDA* with an 8-direction heuristic | differs; a faithful port should use the original's 4-direction breadth-first search once the path extraction is read |
+| Blocked target | snap to the nearest walkable cell (BFS up to 400 rounds) | `findNearest` over the whole map (squared distance) | differs in which cell is chosen when several are equally near |
