@@ -207,3 +207,9 @@ Cluster the 356 functions by segment and call graph and start with the resource 
   as 32-bit; until then they are read with `re/tools/ne_segments.py dis ... --use32`.
 - Still to read in the resource layer: `1088:003e`, `06b4`, `0892`, `04c8`, `051c`, `062c`,
   `1098:029e`, `1098:0326`, and the callers `1028:03d0`, `1048:2b8e` (when each glue file is loaded).
+
+## Ledger complete (14 November 2026)
+
+All 356 functions of `DARK0001.EXE` now have a contract and a plain-language entry in `re/SUBSYSTEMS.md`: 264 understood, 92 replaced (84 of them the C runtime in `10d0`, identified by shape).
+Next: compare each cluster with the 2011 engine (`re/COMPARISON_2011.md`), then ports and emulator checks (`ported`, `emu-compared`, `original-compared`). Weak spots to check first:
+the large `1038` functions (decompiler mislabelled offsets), the video-skip rules of `1048:24ee`, the subtitle timing units of `10a8:0c72`, and the C-runtime names, which are inferred.

@@ -594,6 +594,13 @@ an object-removal routine and a few small helpers. Nothing reaches them from the
 
 **Hover cursor.** Over the room, the game asks which verbs the object under the pointer offers (go, use, look: a bit each) and picks the four-way, use or look cursor from that.
 
+## The C runtime ❓
+
+About a fifth of the program's functions (84) are the compiler's standard library: program start-up and exit, the formatter behind `sprintf`, a random number generator, 32-bit multiply and divide helpers,
+low-level file reads and writes through DOS, a small memory allocator, string helpers and fatal-error messages. They carry no game logic and are replaced by ScummVM's own services
+(string formatting, random numbers, file streams, `new` and `delete`, `error()`). Two details matter for a port: the random generator is the usual linear congruential one (so the original's random numbers
+cannot be reproduced and need not be), and the 32-bit helpers are ordinary arithmetic.
+
 ## Windows services the game relies on ❓
 
 Seen from the list of Windows calls the game makes. None of this is read yet.

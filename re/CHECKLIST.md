@@ -7,13 +7,13 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 
 | Stage | Count | Share |
 |---|---|---|
-| decompiled or later (status only) | 272 | 76% |
-| understood or later (status only) | 272 | 76% |
-| ported or later (status only) | 8 | 2% |
-| emu-compared or later (status only) | 8 | 2% |
-| original-compared or later (status only) | 8 | 2% |
-| replaced by a ScummVM service | 8 | |
-| **done (status understood or later and documented)** | **272** | **76%** |
+| decompiled or later (status only) | 356 | 100% |
+| understood or later (status only) | 356 | 100% |
+| ported or later (status only) | 92 | 25% |
+| emu-compared or later (status only) | 92 | 25% |
+| original-compared or later (status only) | 92 | 25% |
+| replaced by a ScummVM service | 92 | |
+| **done (status understood or later and documented)** | **356** | **100%** |
 | status ahead of its documentation | 0 | |
 
 ## By cluster
@@ -340,93 +340,93 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 - [x] `1028:03d0` inferred_init_game_session · depth 20 · 917 bytes · **understood** — loads GL00_WLK.000 and GL00_TXT.000 by name, GameVar.IDX, OBJ_9999.dat, fix.pal; sets up cursors and a timer; partly read
 - [x] `1028:0766` inferred_app_init · depth 21 · 422 bytes · **understood** — reads [DIRECTORY] CD from DARKSEED.INI into the install-directory buffers, calls load_gfile_hdr, creates the window; partly read
 
-### startup and C runtime (1/85 done)
+### startup and C runtime (85/85 done)
 
-- [ ] `10d0:01d1` FUN_10d0_01d1 · depth 0 · 15 bytes · **untouched**
-- [ ] `10d0:0241` FUN_10d0_0241 · depth 0 · 41 bytes · **untouched**
-- [ ] `10d0:026a` FUN_10d0_026a · depth 0 · 19 bytes · **untouched**
-- [ ] `10d0:02d2` FUN_10d0_02d2 · depth 0 · 32 bytes · **untouched**
-- [ ] `10d0:034f` FUN_10d0_034f · depth 0 · 25 bytes · **untouched**
-- [ ] `10d0:039b` FUN_10d0_039b · depth 0 · 1 bytes · **untouched**
-- [ ] `10d0:03e2` FUN_10d0_03e2 · depth 0 · 18 bytes · **untouched**
-- [ ] `10d0:0490` FUN_10d0_0490 · depth 0 · 154 bytes · **untouched**
-- [ ] `10d0:052a` FUN_10d0_052a · depth 0 · 50 bytes · **untouched**
-- [ ] `10d0:055c` FUN_10d0_055c · depth 0 · 95 bytes · **untouched**
-- [ ] `10d0:05bc` FUN_10d0_05bc · depth 0 · 72 bytes · **untouched**
-- [ ] `10d0:0604` FUN_10d0_0604 · depth 0 · 88 bytes · **untouched**
-- [ ] `10d0:0943` FUN_10d0_0943 · depth 0 · 38 bytes · **untouched**
-- [ ] `10d0:0e82` FUN_10d0_0e82 · depth 0 · 8 bytes · **untouched**
-- [ ] `10d0:0e8a` FUN_10d0_0e8a · depth 0 · 12 bytes · **untouched**
-- [ ] `10d0:0f17` FUN_10d0_0f17 · depth 0 · 49 bytes · **untouched**
-- [ ] `10d0:0f48` FUN_10d0_0f48 · depth 0 · 11 bytes · **untouched**
-- [ ] `10d0:0f54` FUN_10d0_0f54 · depth 0 · 33 bytes · **untouched**
-- [ ] `10d0:0f76` FUN_10d0_0f76 · depth 0 · 5 bytes · **untouched**
-- [ ] `10d0:0f82` FUN_10d0_0f82 · depth 0 · 55 bytes · **untouched**
-- [ ] `10d0:12ec` FUN_10d0_12ec · depth 0 · 20 bytes · **untouched**
-- [ ] `10d0:13f2` FUN_10d0_13f2 · depth 0 · 32 bytes · **untouched**
-- [ ] `10d0:14df` FUN_10d0_14df · depth 0 · 1 bytes · **untouched**
-- [ ] `10d0:155d` FUN_10d0_155d · depth 0 · 1 bytes · **untouched**
-- [ ] `10d0:155e` FUN_10d0_155e · depth 0 · 91 bytes · **untouched**
-- [ ] `10d0:15b9` FUN_10d0_15b9 · depth 0 · 1 bytes · **untouched**
-- [ ] `10d0:15ba` FUN_10d0_15ba · depth 0 · 26 bytes · **untouched**
-- [ ] `10d0:1641` FUN_10d0_1641 · depth 0 · 21 bytes · **untouched**
-- [ ] `10d0:1693` FUN_10d0_1693 · depth 0 · 1 bytes · **untouched**
-- [ ] `10d0:1787` FUN_10d0_1787 · depth 0 · 1 bytes · **untouched**
-- [ ] `10d0:1824` FUN_10d0_1824 · depth 0 · 55 bytes · **untouched**
-- [ ] `10d0:185c` FUN_10d0_185c · depth 0 · 63 bytes · **untouched**
-- [ ] `10d0:189c` FUN_10d0_189c · depth 0 · 50 bytes · **untouched**
-- [ ] `10d0:18ea` FUN_10d0_18ea · depth 0 · 2 bytes · **untouched**
-- [ ] `10d0:18ec` FUN_10d0_18ec · depth 0 · 34 bytes · **untouched**
-- [ ] `10d0:193e` FUN_10d0_193e · depth 0 · 83 bytes · **untouched**
-- [ ] `10d0:01e0` FUN_10d0_01e0 · depth 1 · 97 bytes · **untouched**
-- [ ] `10d0:0368` FUN_10d0_0368 · depth 1 · 51 bytes · **untouched**
-- [ ] `10d0:046e` FUN_10d0_046e · depth 1 · 34 bytes · **untouched**
-- [ ] `10d0:0919` FUN_10d0_0919 · depth 1 · 18 bytes · **untouched**
-- [ ] `10d0:092b` FUN_10d0_092b · depth 1 · 18 bytes · **untouched**
-- [ ] `10d0:0e96` FUN_10d0_0e96 · depth 1 · 29 bytes · **untouched**
-- [ ] `10d0:0f7b` FUN_10d0_0f7b · depth 1 · 6 bytes · **untouched**
-- [ ] `10d0:1024` FUN_10d0_1024 · depth 1 · 67 bytes · **untouched**
-- [ ] `10d0:15d4` FUN_10d0_15d4 · depth 1 · 106 bytes · **untouched**
-- [ ] `10d0:17f8` FUN_10d0_17f8 · depth 1 · 44 bytes · **untouched**
-- [ ] `10d0:18ce` FUN_10d0_18ce · depth 1 · 27 bytes · **untouched**
-- [ ] `10d0:01a3` FUN_10d0_01a3 · depth 2 · 14 bytes · **untouched**
-- [ ] `10d0:01b1` FUN_10d0_01b1 · depth 2 · 15 bytes · **untouched**
-- [ ] `10d0:01c0` FUN_10d0_01c0 · depth 2 · 17 bytes · **untouched**
-- [ ] `10d0:0fb9` FUN_10d0_0fb9 · depth 2 · 61 bytes · **untouched**
-- [ ] `10d0:1068` FUN_10d0_1068 · depth 2 · 212 bytes · **untouched**
-- [ ] `10d0:1216` FUN_10d0_1216 · depth 2 · 100 bytes · **untouched**
-- [ ] `10d0:127a` FUN_10d0_127a · depth 2 · 14 bytes · **untouched**
-- [ ] `10d0:1288` FUN_10d0_1288 · depth 2 · 78 bytes · **untouched**
-- [ ] `10d0:190e` FUN_10d0_190e · depth 2 · 36 bytes · **untouched**
-- [ ] `10d0:0688` FUN_10d0_0688 · depth 3 · 35 bytes · **untouched**
-- [ ] `10d0:1788` FUN_10d0_1788 · depth 3 · 111 bytes · **untouched**
-- [ ] `10d0:08c9` FUN_10d0_08c9 · depth 4 · 80 bytes · **untouched**
-- [ ] `10d0:029e` FUN_10d0_029e · depth 5 · 51 bytes · **untouched**
-- [ ] `10d0:06ac` FUN_10d0_06ac · depth 5 · 6 bytes · **untouched**
-- [ ] `10d0:0ff6` FUN_10d0_0ff6 · depth 5 · 45 bytes · **untouched**
-- [ ] `10d0:138c` FUN_10d0_138c · depth 5 · 102 bytes · **untouched**
-- [ ] `10d0:00c4` FUN_10d0_00c4 · depth 6 · 223 bytes · **untouched**
-- [ ] `10d0:06b2` FUN_10d0_06b2 · depth 6 · 385 bytes · **untouched**
-- [ ] `10d0:0834` FUN_10d0_0834 · depth 6 · 144 bytes · **untouched**
-- [ ] `10d0:113c` FUN_10d0_113c · depth 6 · 218 bytes · **untouched**
-- [ ] `10d0:1300` FUN_10d0_1300 · depth 6 · 140 bytes · **untouched**
+- [x] `10d0:01d1` _c_exit · depth 0 · 15 bytes · **replaced** — ScummVM: none
+- [x] `10d0:0241` _ctermsub · depth 0 · 41 bytes · **replaced** — ScummVM: none
+- [x] `10d0:026a` _initterm · depth 0 · 19 bytes · **replaced** — ScummVM: none
+- [x] `10d0:02d2` _aFahdiff · depth 0 · 32 bytes · **replaced** — ScummVM: pointer arithmetic
+- [x] `10d0:034f` srand · depth 0 · 25 bytes · **replaced** — ScummVM: Common::RandomSource
+- [x] `10d0:039b` _nop · depth 0 · 1 bytes · **replaced** — ScummVM: none
+- [x] `10d0:03e2` _dos_findnext · depth 0 · 18 bytes · **replaced** — ScummVM: Common::File / FSNode listing
+- [x] `10d0:0490` _aFldiv · depth 0 · 154 bytes · **replaced** — ScummVM: native 32-bit divide
+- [x] `10d0:052a` _aFlmul · depth 0 · 50 bytes · **replaced** — ScummVM: native 32-bit multiply
+- [x] `10d0:055c` _aFuldiv · depth 0 · 95 bytes · **replaced** — ScummVM: native 32-bit divide
+- [x] `10d0:05bc` _fmemset · depth 0 · 72 bytes · **replaced** — ScummVM: memset
+- [x] `10d0:0604` _fstrnicmp · depth 0 · 88 bytes · **replaced** — ScummVM: scumm_strnicmp
+- [x] `10d0:0943` _dosmaperr · depth 0 · 38 bytes · **replaced** — ScummVM: none
+- [x] `10d0:0e82` _va_int · depth 0 · 8 bytes · **replaced** — ScummVM: none
+- [x] `10d0:0e8a` _va_long · depth 0 · 12 bytes · **replaced** — ScummVM: none
+- [x] `10d0:0f17` _ultoa_core · depth 0 · 49 bytes · **replaced** — ScummVM: none
+- [x] `10d0:0f48` _output_tail · depth 0 · 11 bytes · **replaced** — ScummVM: none
+- [x] `10d0:0f54` abort · depth 0 · 33 bytes · **replaced** — ScummVM: error()
+- [x] `10d0:0f76` _stub_ret · depth 0 · 5 bytes · **replaced** — ScummVM: none
+- [x] `10d0:0f82` _NMSG_TEXT · depth 0 · 55 bytes · **replaced** — ScummVM: none
+- [x] `10d0:12ec` _stackavail · depth 0 · 20 bytes · **replaced** — ScummVM: none
+- [x] `10d0:13f2` _heap_last · depth 0 · 32 bytes · **replaced** — ScummVM: new / malloc
+- [x] `10d0:14df` _nop2 · depth 0 · 1 bytes · **replaced** — ScummVM: none
+- [x] `10d0:155d` _nop3 · depth 0 · 1 bytes · **replaced** — ScummVM: none
+- [x] `10d0:155e` _nmalloc · depth 0 · 91 bytes · **replaced** — ScummVM: new / malloc
+- [x] `10d0:15b9` _nop4 · depth 0 · 1 bytes · **replaced** — ScummVM: none
+- [x] `10d0:15ba` _nfree · depth 0 · 26 bytes · **replaced** — ScummVM: free
+- [x] `10d0:1641` _nmsize · depth 0 · 21 bytes · **replaced** — ScummVM: none
+- [x] `10d0:1693` _nop5 · depth 0 · 1 bytes · **replaced** — ScummVM: none
+- [x] `10d0:1787` _nop6 · depth 0 · 1 bytes · **replaced** — ScummVM: none
+- [x] `10d0:1824` _dos_close · depth 0 · 55 bytes · **replaced** — ScummVM: Common::File::close
+- [x] `10d0:185c` _strcat_far · depth 0 · 63 bytes · **replaced** — ScummVM: strcat / Common::String
+- [x] `10d0:189c` _strcpy_far · depth 0 · 50 bytes · **replaced** — ScummVM: strcpy / Common::String
+- [x] `10d0:18ea` _nop7 · depth 0 · 2 bytes · **replaced** — ScummVM: none
+- [x] `10d0:18ec` _remove · depth 0 · 34 bytes · **replaced** — ScummVM: none (the game never deletes files)
+- [x] `10d0:193e` _itoa_core · depth 0 · 83 bytes · **replaced** — ScummVM: Common::String::format
+- [x] `10d0:01e0` _doexit · depth 1 · 97 bytes · **replaced** — ScummVM: Engine::quit
+- [x] `10d0:0368` rand · depth 1 · 51 bytes · **replaced** — ScummVM: Common::RandomSource
+- [x] `10d0:046e` _aFlmulIP · depth 1 · 34 bytes · **replaced** — ScummVM: native 32-bit multiply
+- [x] `10d0:0919` _dosret0 · depth 1 · 18 bytes · **replaced** — ScummVM: none
+- [x] `10d0:092b` _dosretax · depth 1 · 18 bytes · **replaced** — ScummVM: none
+- [x] `10d0:0e96` _va_ptr · depth 1 · 29 bytes · **replaced** — ScummVM: none
+- [x] `10d0:0f7b` _fatal_exit_20 · depth 1 · 6 bytes · **replaced** — ScummVM: error()
+- [x] `10d0:1024` _getbuf · depth 1 · 67 bytes · **replaced** — ScummVM: none
+- [x] `10d0:15d4` _nrealloc · depth 1 · 106 bytes · **replaced** — ScummVM: realloc
+- [x] `10d0:17f8` _freebuf · depth 1 · 44 bytes · **replaced** — ScummVM: none
+- [x] `10d0:18ce` _itoa · depth 1 · 27 bytes · **replaced** — ScummVM: Common::String::format
+- [x] `10d0:01a3` exit · depth 2 · 14 bytes · **replaced** — ScummVM: Engine::quit / destructor
+- [x] `10d0:01b1` _exit · depth 2 · 15 bytes · **replaced** — ScummVM: Engine::quit
+- [x] `10d0:01c0` _cexit · depth 2 · 17 bytes · **replaced** — ScummVM: none
+- [x] `10d0:0fb9` _NMSG_WRITE · depth 2 · 61 bytes · **replaced** — ScummVM: none
+- [x] `10d0:1068` _lseek · depth 2 · 212 bytes · **replaced** — ScummVM: Common::SeekableReadStream::seek
+- [x] `10d0:1216` _write_block · depth 2 · 100 bytes · **replaced** — ScummVM: Common::WriteStream
+- [x] `10d0:127a` _write_done · depth 2 · 14 bytes · **replaced** — ScummVM: none
+- [x] `10d0:1288` _write_direct · depth 2 · 78 bytes · **replaced** — ScummVM: Common::WriteStream
+- [x] `10d0:190e` _dos_commit · depth 2 · 36 bytes · **replaced** — ScummVM: none
+- [x] `10d0:0688` _FF_MSGBANNER · depth 3 · 35 bytes · **replaced** — ScummVM: none
+- [x] `10d0:1788` _commit · depth 3 · 111 bytes · **replaced** — ScummVM: none
+- [x] `10d0:08c9` _amsg_exit · depth 4 · 80 bytes · **replaced** — ScummVM: error()
+- [x] `10d0:029e` _chkstk · depth 5 · 51 bytes · **replaced** — ScummVM: none (native stack)
+- [x] `10d0:06ac` _fatal_exit_2 · depth 5 · 6 bytes · **replaced** — ScummVM: error()
+- [x] `10d0:0ff6` _nmalloc_check · depth 5 · 45 bytes · **replaced** — ScummVM: new / malloc
+- [x] `10d0:138c` _heap_grow · depth 5 · 102 bytes · **replaced** — ScummVM: new / malloc
+- [x] `10d0:00c4` _cinit · depth 6 · 223 bytes · **replaced** — ScummVM: none (runtime start-up)
+- [x] `10d0:06b2` _setargv · depth 6 · 385 bytes · **replaced** — ScummVM: none
+- [x] `10d0:0834` _setenvp · depth 6 · 144 bytes · **replaced** — ScummVM: none
+- [x] `10d0:113c` _write · depth 6 · 218 bytes · **replaced** — ScummVM: Common::WriteStream
+- [x] `10d0:1300` _heap_search · depth 6 · 140 bytes · **replaced** — ScummVM: new / malloc
 - [x] `10d8:0000` inferred_stricmp · depth 6 · 81 bytes · **replaced** — ScummVM: scumm_stricmp
-- [ ] `10d0:096a` FUN_10d0_096a · depth 7 · 242 bytes · **untouched**
-- [ ] `10d0:1468` FUN_10d0_1468 · depth 7 · 118 bytes · **untouched**
-- [ ] `10d0:0eb3` FUN_10d0_0eb3 · depth 8 · 42 bytes · **untouched**
-- [ ] `10d0:1412` FUN_10d0_1412 · depth 8 · 85 bytes · **untouched**
-- [ ] `10d0:1694` FUN_10d0_1694 · depth 8 · 241 bytes · **untouched**
-- [ ] `10d0:0edd` FUN_10d0_0edd · depth 9 · 30 bytes · **untouched**
-- [ ] `10d0:0efb` FUN_10d0_0efb · depth 9 · 28 bytes · **untouched**
-- [ ] `10d0:14f4` FUN_10d0_14f4 · depth 9 · 104 bytes · **untouched**
-- [ ] `10d0:1656` FUN_10d0_1656 · depth 9 · 60 bytes · **untouched**
-- [ ] `10d0:0a6c` FUN_10d0_0a6c · depth 10 · 1046 bytes · **untouched**
-- [ ] `10d0:14e0` FUN_10d0_14e0 · depth 10 · 19 bytes · **untouched**
-- [ ] `10d0:02f2` FUN_10d0_02f2 · depth 11 · 92 bytes · **untouched**
-- [ ] `10d0:12d6` FUN_10d0_12d6 · depth 11 · 22 bytes · **untouched**
-- [ ] `10d0:039c` FUN_10d0_039c · depth 12 · 70 bytes · **untouched**
-- [ ] `10d0:065c` FUN_10d0_065c · depth 23 · 44 bytes · **untouched**
-- [ ] `10d0:001a` entry · depth 24 · 177 bytes · **untouched**
+- [x] `10d0:096a` _flsbuf · depth 7 · 242 bytes · **replaced** — ScummVM: Common::WriteStream
+- [x] `10d0:1468` _heap_release · depth 7 · 118 bytes · **replaced** — ScummVM: free
+- [x] `10d0:0eb3` _putc_stream · depth 8 · 42 bytes · **replaced** — ScummVM: none
+- [x] `10d0:1412` _heap_free_all · depth 8 · 85 bytes · **replaced** — ScummVM: free
+- [x] `10d0:1694` fclose_core · depth 8 · 241 bytes · **replaced** — ScummVM: Common::File::close
+- [x] `10d0:0edd` _write_chars · depth 9 · 30 bytes · **replaced** — ScummVM: none
+- [x] `10d0:0efb` _write_pad · depth 9 · 28 bytes · **replaced** — ScummVM: none
+- [x] `10d0:14f4` _flsall · depth 9 · 104 bytes · **replaced** — ScummVM: none
+- [x] `10d0:1656` _fcloseall · depth 9 · 60 bytes · **replaced** — ScummVM: none
+- [x] `10d0:0a6c` _output · depth 10 · 1046 bytes · **replaced** — ScummVM: Common::String::format
+- [x] `10d0:14e0` _flushall_stub · depth 10 · 19 bytes · **replaced** — ScummVM: none
+- [x] `10d0:02f2` _sprintf · depth 11 · 92 bytes · **replaced** — ScummVM: Common::String::format
+- [x] `10d0:12d6` _flushall · depth 11 · 22 bytes · **replaced** — ScummVM: none
+- [x] `10d0:039c` _assert · depth 12 · 70 bytes · **replaced** — ScummVM: error()
+- [x] `10d0:065c` _WinMain_stub · depth 23 · 44 bytes · **replaced** — ScummVM: none
+- [x] `10d0:001a` _astart · depth 24 · 177 bytes · **replaced** — ScummVM: the engine constructor and run loop
 
 ### text and cursors (6/6 done)
 
