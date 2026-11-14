@@ -448,3 +448,11 @@ Scrambled with `1018:05c0`: for each little-endian dword, `key += key >> 7` (32-
 | last | marker `0xFADA` |
 
 Slot titles and used flags are in the INI file, section `SAVEGAME`: `Title%02d`, `Saved%02d`.
+
+## Conversation layout, corrected from the loaders (`1068:2a72`, `27a8`, `2418`) [code]
+
+- **Conversation record** (0x242 bytes, `DS:5cba`): +0 name; +0x14 five speaker numbers (words); +0x1e five speaker names (20 bytes each); +0x212 global assign list (far); +0x216 first node (far).
+- **Node** (0x3e bytes): +0 first entry (far), **+4 goto list**, **+8 assign list**, +0xc name, +0x20 fallthrough name, +0x34 fallthrough count, +0x36 resolved fallthrough node, +0x3a next node. (This replaces the earlier offsets +8 and +0x10.)
+- **Entry** (0x42 bytes): +0 the player's text record, +0x11 first message node, +0x15 goto list, +0x19 hide, +0x1d unhide, +0x21 destroy, +0x25 assign, +0x29 flags (bit 0 initial, bit 1 persist, bit 2 hidden), +0x2b name, +0x3f next entry.
+- **Message node** (0x17 bytes): +0 text far pointer, +4 speaker number, +6 name, +0x13 next.
+- **Saved state:** one block per conversation number in the table at `DS:6116` (50 slots): a count word followed by the flag word of every entry in file order (`1068:31a6`). These are the 50 blocks in the save file.

@@ -326,8 +326,14 @@ If at most `n` choices are left, `fallthrough = n, Node` moves on to another nod
 your line and then the replies are spoken with subtitles, and the first `goto` whose condition holds gives the next node. A `goto` to a name that is not a node ends
 the conversation (that is what `goto = exit, ...` does).
 
-**Checked.** The line reader, the loading passes, the condition evaluator, the list building and the whole choice sequence were read in the code. 🟡 only for the window drawing
-(panel, hover colours, keyboard moves) and the sound arguments, which are unread.
+**Saved state.** When a conversation ends, the visible/hidden state of all its entries is saved in a small block kept for that conversation number, and put back when it is opened again.
+These blocks are exactly the 50 "per-room blocks" of a save file.
+
+**The window.** The conversation window is a strip at the bottom of the screen, like the inventory bar: a dimmed copy of the room behind a list of choices (480 by 50 pixels), with arrows to scroll when there are more.
+The list is an ordinary owner-drawn Windows list box. Pointing at a choice highlights it, a click or Enter chooses it, the up and down keys and the number pad move the highlight, and a right click
+or a click while a reply is playing skips the wait. When a reply has finished the list is refilled for the next node; with no node left the window closes.
+
+**Checked.** The line reader, the loading passes, the condition compiler and evaluator, the list building, the window messages and the whole choice sequence were read in the code. 🟡 only for the exact pixel layout of the arrows and the marker.
 
 **For ScummVM.** Parse the file with the same cleaning (spaces removed from values), skip unknown keys, and resolve `text` and `message` as resource names.
 

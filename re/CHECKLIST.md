@@ -7,13 +7,13 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 
 | Stage | Count | Share |
 |---|---|---|
-| decompiled or later (status only) | 235 | 66% |
-| understood or later (status only) | 228 | 64% |
+| decompiled or later (status only) | 248 | 69% |
+| understood or later (status only) | 247 | 69% |
 | ported or later (status only) | 8 | 2% |
 | emu-compared or later (status only) | 8 | 2% |
 | original-compared or later (status only) | 8 | 2% |
 | replaced by a ScummVM service | 8 | |
-| **done (status understood or later and documented)** | **228** | **64%** |
+| **done (status understood or later and documented)** | **247** | **69%** |
 | status ahead of its documentation | 0 | |
 
 ## By cluster
@@ -62,7 +62,7 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 - [x] `1058:01e0` inferred_run_object_action · depth 21 · 1853 bytes · **understood**
 - [x] `1058:0922` inferred_hit_test_click · depth 22 · 408 bytes · **understood**
 
-### conversations (10/16 done)
+### conversations (16/16 done)
 
 - [x] `1068:1654` inferred_unread_conv_line · depth 6 · 61 bytes · **understood**
 - [x] `1068:0edc` inferred_eval_rpn · depth 7 · 334 bytes · **understood**
@@ -71,15 +71,15 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 - [x] `1068:2074` inferred_find_entry_by_name · depth 7 · 103 bytes · **understood**
 - [x] `1068:20dc` inferred_find_node · depth 7 · 103 bytes · **understood**
 - [x] `1068:0000` inferred_free_conversation_ui · depth 8 · 108 bytes · **understood**
-- [ ] `1068:1030` inferred_fill_dialog_list · depth 8 · 422 bytes · **decompiled** — starting node and entry list: follows the first goto whose condition (eval_rpn) is true, fills the list box with the texts of entries whose flags & 5 == 1, follows the node's fallthrough while its visible-entry count is not above the fallthrough number (node +0x34); posts selection messages
-- [ ] `1068:2144` inferred_resolve_conversation_names · depth 8 · 566 bytes · **decompiled** — second pass: every goto/hide/unhide/destroy record's name (+0x2e) is looked up (20dc nodes, 2074 entries) and the pointer stored at +0x2a/+0x2c; node fallthrough name (+0x20) resolved into +0x36/+0x38
+- [x] `1068:1030` inferred_fill_dialog_list · depth 8 · 422 bytes · **understood** — starting node and entry list: follows the first goto whose condition (eval_rpn) is true, fills the list box with the texts of entries whose flags & 5 == 1, follows the node's fallthrough while its visible-entry count is not above the fallthrough number (node +0x34); posts selection messages
+- [x] `1068:2144` inferred_resolve_conversation_names · depth 8 · 566 bytes · **understood** — second pass: every goto/hide/unhide/destroy record's name (+0x2e) is looked up (20dc nodes, 2074 entries) and the pointer stored at +0x2a/+0x2c; node fallthrough name (+0x20) resolved into +0x36/+0x38
 - [x] `1068:1efe` inferred_parse_conv_condition · depth 10 · 357 bytes · **understood** — parses the (Variable) condition prefix of goto/destroy lines ('Expression without ,' error); unread
 - [x] `1068:1c6c` inferred_load_conv_text · depth 16 · 242 bytes · **understood**
-- [ ] `1068:2418` inferred_parse_entry · depth 18 · 885 bytes · **decompiled** — reads a CONV file into a node tree: NODE starts a node, ENTRY allocates a 0x42-byte entry (name +0x2b, flag bits at +0x29: INITIAL = 1, PERSIST = 2), TEXT/MESSAGE/HIDE/UNHIDE/ASSIGN/DESTROY/GOTO lists allocated per entry; speaker variable names with Speaker; record layout not resolved | entry body: lists at entry +0x15 (goto), +0x19 (hide), +0x1d (unhide), +0x21 (destroy), +0x25 (assign), message chain (0x17-byte nodes) via 1b6e, text via 1c6c; next entry at +0x3f/+0x41; partly read
-- [ ] `1068:27a8` inferred_parse_node · depth 19 · 709 bytes · **decompiled** — second loader variant (INITIAL, PERSIST keywords); unread | node body: ENTRY allocates a 0x42-byte entry (name +0x2b, flags +0x29: INITIAL bit 0, PERSIST bit 1) and parses its lines with 2418; FALLTHROUGH n, Node -> node +0x34 number and +0x20 name; GOTO -> 0x46-byte records chained at +0x42/+0x44 whose condition is compiled by 1efe/1e12; ASSIGN list; partly read
+- [x] `1068:2418` inferred_parse_entry · depth 18 · 885 bytes · **understood** — reads a CONV file into a node tree: NODE starts a node, ENTRY allocates a 0x42-byte entry (name +0x2b, flag bits at +0x29: INITIAL = 1, PERSIST = 2), TEXT/MESSAGE/HIDE/UNHIDE/ASSIGN/DESTROY/GOTO lists allocated per entry; speaker variable names with Speaker; record layout not resolved | entry body: lists at entry +0x15 (goto), +0x19 (hide), +0x1d (unhide), +0x21 (destroy), +0x25 (assign), message chain (0x17-byte nodes) via 1b6e, text via 1c6c; next entry at +0x3f/+0x41; partly read
+- [x] `1068:27a8` inferred_parse_node · depth 19 · 709 bytes · **understood** — second loader variant (INITIAL, PERSIST keywords); unread | node body: ENTRY allocates a 0x42-byte entry (name +0x2b, flags +0x29: INITIAL bit 0, PERSIST bit 1) and parses its lines with 2418; FALLTHROUGH n, Node -> node +0x34 number and +0x20 name; GOTO -> 0x46-byte records chained at +0x42/+0x44 whose condition is compiled by 1efe/1e12; ASSIGN list; partly read
 - [x] `1068:11da` inferred_entry_selected · depth 20 · 987 bytes · **understood**
-- [ ] `1068:2a72` inferred_load_conversation_file · depth 20 · 750 bytes · **decompiled** — loads conversation CONVnnnn (number from characters 4-7 of the name, DS:3438) as text, allocates the 0x242-byte conversation record at DS:5cba and fills it: SPEAKER -> 237a, CONVERSATION name, DECLARE -> variable slot, NODE -> 0x3e-byte node (name +0xc) via 27a8; then 2144 resolves names, and the compiled form is cached per conversation number (DS:6116) by 31a6/30a6; partly read
-- [ ] `1068:006c` DIALOGPROC · depth 21 · 3637 bytes · **decompiled** — the conversation window procedure (3.6 KB): list box of choices, speaker pictures, subtitles; entry selection (EntrySelected) unread | window procedure: WM_PAINT draws the 640x70 panel and the custom list (hover, up/down keys 0x26/0x28 and 0x68/0x62), WM_INITDIALOG builds the images, mouse/key select calls inferred_entry_selected then inferred_fill_dialog_list; ends the dialog (ENDDIALOG + free) when the next node is 0; drawing details unread
+- [x] `1068:2a72` inferred_load_conversation_file · depth 20 · 750 bytes · **understood** — loads conversation CONVnnnn (number from characters 4-7 of the name, DS:3438) as text, allocates the 0x242-byte conversation record at DS:5cba and fills it: SPEAKER -> 237a, CONVERSATION name, DECLARE -> variable slot, NODE -> 0x3e-byte node (name +0xc) via 27a8; then 2144 resolves names, and the compiled form is cached per conversation number (DS:6116) by 31a6/30a6; partly read
+- [x] `1068:006c` DIALOGPROC · depth 21 · 3637 bytes · **understood** — the conversation window procedure (3.6 KB): list box of choices, speaker pictures, subtitles; entry selection (EntrySelected) unread | window procedure: WM_PAINT draws the 640x70 panel and the custom list (hover, up/down keys 0x26/0x28 and 0x68/0x62), WM_INITDIALOG builds the images, mouse/key select calls inferred_entry_selected then inferred_fill_dialog_list; ends the dialog (ENDDIALOG + free) when the next node is 0; drawing details unread
 
 ### dialogs (12/12 done)
 
@@ -96,9 +96,9 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 - [x] `1010:0390` PLAYSET_DLG_PROC · depth 9 · 965 bytes · **understood**
 - [x] `1010:011e` inferred_new_game · depth 20 · 272 bytes · **understood**
 
-### dialogs and options (0/7 done)
+### dialogs and options (1/7 done)
 
-- [ ] `1060:00fc` FUN_1060_00fc · depth 6 · 138 bytes · **untouched**
+- [x] `1060:00fc` inferred_take_rest · depth 6 · 138 bytes · **understood**
 - [ ] `1060:0378` FUN_1060_0378 · depth 6 · 274 bytes · **untouched**
 - [ ] `1060:0554` FUN_1060_0554 · depth 6 · 251 bytes · **untouched**
 - [ ] `1060:1182` FUN_1060_1182 · depth 6 · 93 bytes · **untouched**
@@ -116,20 +116,20 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 - [x] `1018:0648` inferred_load_save_file · depth 21 · 900 bytes · **understood**
 - [x] `1018:01fa` inferred_open_load_dialog · depth 22 · 126 bytes · **understood**
 
-### dialogs and script (0/12 done)
+### dialogs and script (12/12 done)
 
-- [ ] `1068:19ea` FUN_1068_19ea · depth 6 · 138 bytes · **untouched**
-- [ ] `1068:1d60` FUN_1068_1d60 · depth 6 · 107 bytes · **untouched**
-- [ ] `1068:30a6` FUN_1068_30a6 · depth 6 · 132 bytes · **untouched**
-- [ ] `1068:312a` FUN_1068_312a · depth 6 · 124 bytes · **untouched**
-- [ ] `1068:3280` FUN_1068_3280 · depth 6 · 60 bytes · **untouched**
-- [ ] `1068:237a` FUN_1068_237a · depth 7 · 158 bytes · **untouched**
-- [ ] `1068:2d64` FUN_1068_2d64 · depth 7 · 833 bytes · **untouched**
-- [ ] `1068:1dcc` FUN_1068_1dcc · depth 8 · 69 bytes · **untouched**
-- [ ] `1068:31a6` FUN_1068_31a6 · depth 8 · 218 bytes · **untouched**
-- [ ] `1068:1e12` FUN_1068_1e12 · depth 9 · 234 bytes · **untouched**
-- [ ] `1068:1a74` FUN_1068_1a74 · depth 16 · 249 bytes · **untouched**
-- [ ] `1068:1b6e` FUN_1068_1b6e · depth 17 · 253 bytes · **untouched**
+- [x] `1068:19ea` inferred_append_trimmed · depth 6 · 138 bytes · **understood**
+- [x] `1068:1d60` inferred_operand_extent · depth 6 · 107 bytes · **understood**
+- [x] `1068:30a6` inferred_restore_entry_flags · depth 6 · 132 bytes · **understood**
+- [x] `1068:312a` inferred_save_entry_flags · depth 6 · 124 bytes · **understood**
+- [x] `1068:3280` inferred_fill_huge · depth 6 · 60 bytes · **understood**
+- [x] `1068:237a` inferred_parse_speaker · depth 7 · 158 bytes · **understood**
+- [x] `1068:2d64` inferred_free_conversation · depth 7 · 833 bytes · **understood**
+- [x] `1068:1dcc` inferred_compile_operand · depth 8 · 69 bytes · **understood**
+- [x] `1068:31a6` inferred_snapshot_entry_flags · depth 8 · 218 bytes · **understood**
+- [x] `1068:1e12` inferred_compile_condition · depth 9 · 234 bytes · **understood**
+- [x] `1068:1a74` inferred_load_message_text · depth 16 · 249 bytes · **understood**
+- [x] `1068:1b6e` inferred_parse_messages · depth 17 · 253 bytes · **understood**
 
 ### game tick (6/6 done)
 
