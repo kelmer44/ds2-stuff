@@ -7,29 +7,29 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 
 | Stage | Count | Share |
 |---|---|---|
-| decompiled or later (status only) | 213 | 59% |
-| understood or later (status only) | 192 | 53% |
+| decompiled or later (status only) | 235 | 66% |
+| understood or later (status only) | 216 | 60% |
 | ported or later (status only) | 8 | 2% |
 | emu-compared or later (status only) | 8 | 2% |
 | original-compared or later (status only) | 8 | 2% |
 | replaced by a ScummVM service | 8 | |
-| **done (status understood or later and documented)** | **192** | **53%** |
+| **done (status understood or later and documented)** | **216** | **60%** |
 | status ahead of its documentation | 0 | |
 
 ## By cluster
 
-### 32-bit bitmap helpers (3/10 done)
+### 32-bit bitmap helpers (10/10 done)
 
 - [x] `10b8:0024` inferred_blit_rows_keyed · depth 0 · 165 bytes · **understood**
 - [x] `10b8:0104` inferred_blit_spans_keyed · depth 0 · 242 bytes · **understood**
 - [x] `10b8:0254` inferred_blit_rows_copy · depth 0 · 130 bytes · **understood**
-- [ ] `10b8:02b2` FUN_10b8_02b2 · depth 0 · 146 bytes · **untouched**
-- [ ] `10c8:0073` FUN_10c8_0073 · depth 0 · 139 bytes · **untouched**
-- [ ] `10c8:00fe` FUN_10c8_00fe · depth 0 · 2 bytes · **untouched**
-- [ ] `10c8:054e` FUN_10c8_054e · depth 0 · 73 bytes · **untouched**
-- [ ] `10c8:059a` FUN_10c8_059a · depth 0 · 76 bytes · **untouched**
-- [ ] `10c8:0040` FUN_10c8_0040 · depth 1 · 87 bytes · **untouched**
-- [ ] `10c8:0100` FUN_10c8_0100 · depth 1 · 291 bytes · **untouched**
+- [x] `10b8:02b2` inferred_blit_rows_prefixed · depth 0 · 146 bytes · **understood**
+- [x] `10c8:0073` inferred_scale_ratio_class · depth 0 · 139 bytes · **understood**
+- [x] `10c8:00fe` inferred_stretch_fail · depth 0 · 2 bytes · **understood**
+- [x] `10c8:054e` inferred_fixed_mul · depth 0 · 73 bytes · **understood**
+- [x] `10c8:059a` inferred_fixed_div · depth 0 · 76 bytes · **understood**
+- [x] `10c8:0040` inferred_stretch_entry · depth 1 · 87 bytes · **understood**
+- [x] `10c8:0100` inferred_stretch_setup · depth 1 · 291 bytes · **understood**
 
 ### audio and video (MCI, WaveMix) (23/23 done)
 
@@ -162,20 +162,20 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 - [x] `1060:0b26` inferred_set_var · depth 8 · 58 bytes · **understood**
 - [x] `1060:10ba` inferred_load_game_vars · depth 16 · 199 bytes · **understood**
 
-### graphics and bitmaps (0/2 done)
+### graphics and bitmaps (2/2 done)
 
-- [ ] `1038:01a4` FUN_1038_01a4 · depth 7 · 63 bytes · **untouched**
-- [ ] `1038:0000` FUN_1038_0000 · depth 9 · 419 bytes · **untouched**
+- [x] `1038:01a4` inferred_free_scroll_picture · depth 7 · 63 bytes · **understood**
+- [x] `1038:0000` inferred_load_scroll_picture · depth 9 · 419 bytes · **understood**
 
-### graphics and palette (20/26 done)
+### graphics and palette (26/26 done)
 
 - [x] `1080:0000` inferred_copy_string · depth 6 · 67 bytes · **replaced** — ScummVM: Common::String
 - [x] `1080:0044` inferred_append_string · depth 6 · 91 bytes · **replaced** — ScummVM: Common::String
 - [x] `1080:00a0` inferred_vga6_to_8bit · depth 6 · 34 bytes · **understood**
 - [x] `1080:00c2` inferred_delete_game_palette · depth 6 · 44 bytes · **replaced** — Windows resource cleanup
-- [ ] `1080:02f0` FUN_1080_02f0 · depth 6 · 154 bytes · **untouched**
-- [ ] `1080:038a` FUN_1080_038a · depth 6 · 143 bytes · **untouched**
-- [ ] `1080:041a` FUN_1080_041a · depth 6 · 128 bytes · **untouched**
+- [x] `1080:02f0` inferred_fade_to_black · depth 6 · 154 bytes · **understood**
+- [x] `1080:038a` inferred_dim_palette · depth 6 · 143 bytes · **understood**
+- [x] `1080:041a` inferred_undim_palette · depth 6 · 128 bytes · **understood**
 - [x] `1080:062a` inferred_delete_object_20d0 · depth 6 · 38 bytes · **replaced** — Windows resource cleanup
 - [x] `1080:0920` inferred_unrealize_palette · depth 6 · 105 bytes · **replaced** — ScummVM: palette set directly
 - [x] `1080:098a` inferred_realize_palette · depth 6 · 110 bytes · **replaced** — ScummVM: palette set directly
@@ -186,27 +186,27 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 - [x] `1080:07a0` inferred_free_image · depth 7 · 95 bytes · **understood**
 - [x] `1080:0d56` inferred_draw_image_record · depth 7 · 148 bytes · **understood**
 - [x] `1080:00ee` inferred_set_windows_palette · depth 8 · 239 bytes · **understood**
-- [ ] `1080:01de` FUN_1080_01de · depth 8 · 274 bytes · **untouched**
+- [x] `1080:01de` inferred_cycle_palette · depth 8 · 274 bytes · **understood**
 - [x] `1080:049a` inferred_make_bmp_palette · depth 8 · 400 bytes · **understood**
-- [ ] `1080:09f8` FUN_1080_09f8 · depth 8 · 220 bytes · **untouched**
-- [ ] `1080:0b30` FUN_1080_0b30 · depth 8 · 175 bytes · **untouched**
+- [x] `1080:09f8` inferred_create_bitmap_from_image · depth 8 · 220 bytes · **understood**
+- [x] `1080:0b30` inferred_create_bitmap_with_palette · depth 8 · 175 bytes · **understood**
 - [x] `1080:0be0` inferred_make_bitmap_rgb · depth 8 · 231 bytes · **understood**
 - [x] `1080:0650` inferred_load_palette_into_dc · depth 16 · 168 bytes · **understood**
 - [x] `1080:071a` inferred_load_palette_file · depth 16 · 133 bytes · **understood**
 - [x] `1080:0800` inferred_load_mask · depth 16 · 143 bytes · **understood**
 - [x] `1080:0890` inferred_load_image · depth 16 · 143 bytes · **understood**
 
-### graphics and sprites (20/26 done)
+### graphics and sprites (25/26 done)
 
-- [ ] `1078:00ca` FUN_1078_00ca · depth 6 · 60 bytes · **untouched**
-- [ ] `1078:0106` FUN_1078_0106 · depth 6 · 107 bytes · **untouched**
-- [ ] `1078:043e` FUN_1078_043e · depth 6 · 22 bytes · **untouched**
+- [x] `1078:00ca` inferred_set_scene_clip · depth 6 · 60 bytes · **understood**
+- [x] `1078:0106` inferred_init_sprite · depth 6 · 107 bytes · **understood**
+- [x] `1078:043e` inferred_empty_function · depth 6 · 22 bytes · **understood**
 - [x] `1078:05be` inferred_sort_sprite_list · depth 6 · 309 bytes · **understood**
 - [x] `1078:0806` inferred_remove_sprite · depth 6 · 184 bytes · **understood**
 - [x] `10b0:0000` inferred_draw_bitmap_clipped · depth 6 · 764 bytes · **understood**
 - [x] `1070:0136` inferred_image_cache_release · depth 7 · 227 bytes · **understood**
 - [x] `1078:0000` inferred_draw_debug_text · depth 7 · 202 bytes · **understood**
-- [ ] `1078:03be` FUN_1078_03be · depth 7 · 127 bytes · **untouched**
+- [x] `1078:03be` inferred_init_scene_lists · depth 7 · 127 bytes · **understood**
 - [x] `1078:08c0` inferred_add_sprite · depth 7 · 315 bytes · **understood**
 - [x] `1078:1aea` inferred_draw_image_to_buffer · depth 7 · 130 bytes · **understood**
 - [x] `1078:1b6c` inferred_draw_image_rect · depth 7 · 120 bytes · **understood**
@@ -220,7 +220,7 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 - [x] `1078:1796` inferred_redraw_rect · depth 10 · 321 bytes · **understood** — compositor: redraws a dirty rect of the scene (background image, objects, StretchBlt); partly read
 - [x] `1078:0d60` inferred_update_sprite_now · depth 11 · 718 bytes · **understood**
 - [x] `1078:1030` inferred_update_sprite_in_rect · depth 11 · 518 bytes · **understood** — compositor: moves an object, redraws dirty rect (background, objects), StretchBlts to screen; sets object position = image offsets (a,b) + object anchor; partly read
-- [ ] `10c0:0000` inferred_stretch_dib · depth 13 · 600 bytes · **decompiled** — wrapper of the 'stretch.c' stretch library (asserts on null pointers and unequal bit depth, clips to the destination, calls 10c8:0040); the resampling in 10c8 is unread
+- [x] `10c0:0000` inferred_stretch_dib · depth 13 · 600 bytes · **understood** — wrapper of the 'stretch.c' stretch library (asserts on null pointers and unequal bit depth, clips to the destination, calls 10c8:0040); the resampling in 10c8 is unread
 - [x] `1020:0656` inferred_scale_image · depth 14 · 953 bytes · **understood**
 - [ ] `1038:01e4` inferred_update_room_sprites · depth 15 · 1671 bytes · **decompiled** — updates every room object's sprite and Mike's two sprites (scales images with 1020:0656, registers changes with 1078:18d8), then repaints with 1078:1796; partly read
 - [x] `1070:0000` inferred_image_cache_get · depth 17 · 307 bytes · **understood**
@@ -250,19 +250,19 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 - [x] `1000:0236` WINPROC · depth 24 · 3482 bytes · **understood**
 - [x] `1008:0428` DLG_INVENTORY · depth 24 · 1524 bytes · **understood**
 
-### math (4/5 done)
+### math (5/5 done)
 
 - [x] `10a0:0000` inferred_sin · depth 6 · 93 bytes · **understood**
 - [x] `10a0:0080` inferred_fixmul14 · depth 6 · 62 bytes · **understood**
 - [x] `10a0:00be` inferred_atan2 · depth 6 · 221 bytes · **understood**
 - [x] `10a0:005e` inferred_cos · depth 7 · 33 bytes · **understood**
-- [ ] `10a0:01ae` inferred_vector_length · depth 8 · 134 bytes · **decompiled** — length of (dx,dy) from the dominant component divided by cos/sin of the angle; the scale of the result is not settled (decompile drops a shift)
+- [x] `10a0:01ae` inferred_vector_length · depth 8 · 134 bytes · **understood** — length of (dx,dy) from the dominant component divided by cos/sin of the angle; the scale of the result is not settled (decompile drops a shift)
 
-### options (INI) (0/3 done)
+### options (INI) (3/3 done)
 
-- [ ] `1030:0000` FUN_1030_0000 · depth 6 · 62 bytes · **untouched**
-- [ ] `1030:003e` FUN_1030_003e · depth 6 · 43 bytes · **untouched**
-- [ ] `1030:006a` FUN_1030_006a · depth 6 · 42 bytes · **untouched**
+- [x] `1030:0000` inferred_ini_write_int · depth 6 · 62 bytes · **understood**
+- [x] `1030:003e` inferred_ini_write_string · depth 6 · 43 bytes · **understood**
+- [x] `1030:006a` inferred_ini_get_int · depth 6 · 42 bytes · **understood**
 
 ### resource (4/4 done)
 

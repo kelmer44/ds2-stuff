@@ -542,6 +542,23 @@ The load window is the same without editing, and refuses an empty slot. Loading 
 
 **What is not covered.** The mixer's exact settings, the units of the subtitle timing, and the helper that runs at the start of each speech line.
 
+## Stretching and the 32-bit helpers ❓
+
+**What it does.** Pictures can be copied to the screen scaled to another size by a small stretch library that was written separately (its source name is `stretch.c`) and
+runs as 32-bit code inside the 16-bit program. It only handles 8, 16, 24 and 32-bit pictures, checks that source and destination have the same depth, works out how
+much larger or smaller the picture becomes (exact halves and doubles get fast paths), and then runs one of two row routines. A helper does 16.16 fixed-point multiply and divide for it.
+The 32-bit segments also contain the pixel copy routines used by the compositor and a start-up stub that switches the segment to 32-bit mode.
+
+**What is not covered.** The two row routines themselves and the format of the compressed rows they read.
+
+## Palette effects and the scene lists 🟡
+
+**Palette effects.** The game never repaints to fade: it changes the palette. A fade to black lowers every colour by one step 256 times; the pause screen halves all colours and keeps the real palette
+so that resuming puts it back; and colour cycling rotates ranges of the palette when a room says so (water, lights). Colours 0 and 255 are kept as they are.
+
+**Scene lists.** The scene has two lists of up to 100 sprites (drawn in depth order, the second list on top), a clip rectangle and a "dirty" rectangle. Entering a room empties the lists and sets the clip rectangle,
+and each sprite is reset with its backdrop picture and offset. Pictures are turned into Windows bitmaps with `CreateDIBitmap`; a few helpers do this and report errors by name.
+
 ## Windows services the game relies on ❓
 
 Seen from the list of Windows calls the game makes. None of this is read yet.
