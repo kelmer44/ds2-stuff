@@ -7,13 +7,13 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 
 | Stage | Count | Share |
 |---|---|---|
-| decompiled or later (status only) | 170 | 47% |
-| understood or later (status only) | 147 | 41% |
+| decompiled or later (status only) | 190 | 53% |
+| understood or later (status only) | 169 | 47% |
 | ported or later (status only) | 8 | 2% |
 | emu-compared or later (status only) | 8 | 2% |
 | original-compared or later (status only) | 8 | 2% |
 | replaced by a ScummVM service | 8 | |
-| **done (status understood or later and documented)** | **147** | **41%** |
+| **done (status understood or later and documented)** | **169** | **47%** |
 | status ahead of its documentation | 0 | |
 
 ## By cluster
@@ -271,31 +271,31 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 - [x] `1090:0000` inferred_mem_alloc · depth 7 · 102 bytes · **understood** — GlobalAlloc+Lock wrapper
 - [x] `1028:09f6` inferred_load_gfile_hdr · depth 8 · 336 bytes · **understood** — contract 1028_09f6
 
-### resource layer (14/29 done)
+### resource layer (29/29 done)
 
 - [x] `10d0:03f4` inferred_dos_findfirst · depth 2 · 122 bytes · **replaced** — ScummVM: Common::File::exists
-- [ ] `1028:0000` FUN_1028_0000 · depth 6 · 124 bytes · **untouched**
-- [ ] `1028:007e` FUN_1028_007e · depth 6 · 56 bytes · **untouched**
-- [ ] `1028:00b6` FUN_1028_00b6 · depth 6 · 151 bytes · **untouched**
-- [ ] `1028:014e` FUN_1028_014e · depth 6 · 155 bytes · **untouched**
-- [ ] `1028:090e` FUN_1028_090e · depth 6 · 85 bytes · **untouched**
-- [ ] `1028:0964` FUN_1028_0964 · depth 6 · 81 bytes · **untouched**
-- [ ] `1028:09b6` FUN_1028_09b6 · depth 6 · 63 bytes · **untouched**
-- [ ] `1028:0b48` FUN_1028_0b48 · depth 6 · 92 bytes · **untouched**
+- [x] `1028:0000` inferred_set_system_palette_mode · depth 6 · 124 bytes · **understood**
+- [x] `1028:007e` inferred_set_black_system_colors · depth 6 · 56 bytes · **understood**
+- [x] `1028:00b6` inferred_fixed_palette_store · depth 6 · 151 bytes · **understood**
+- [x] `1028:014e` inferred_reset_system_palette · depth 6 · 155 bytes · **understood**
+- [x] `1028:090e` inferred_register_window_class · depth 6 · 85 bytes · **understood**
+- [x] `1028:0964` inferred_speed_up_system_timer · depth 6 · 81 bytes · **understood**
+- [x] `1028:09b6` inferred_restore_system_timer · depth 6 · 63 bytes · **understood**
+- [x] `1028:0b48` inferred_find_missing_avi · depth 6 · 92 bytes · **understood**
 - [x] `1030:0094` inferred_read_ini_string · depth 6 · 50 bytes · **understood**
-- [ ] `1088:0350` FUN_1088_0350 · depth 6 · 85 bytes · **untouched**
+- [x] `1088:0350` inferred_glue_name_listed · depth 6 · 85 bytes · **understood**
 - [x] `1088:04c8` inferred_normalize_name · depth 6 · 83 bytes · **understood**
-- [ ] `1088:0966` FUN_1088_0966 · depth 6 · 31 bytes · **untouched**
-- [ ] `1088:0986` FUN_1088_0986 · depth 6 · 31 bytes · **untouched**
+- [x] `1088:0966` inferred_set_glue_not_loaded · depth 6 · 31 bytes · **understood**
+- [x] `1088:0986` inferred_set_glue_loaded · depth 6 · 31 bytes · **understood**
 - [x] `1098:0248` inferred_message_box · depth 6 · 44 bytes · **understood**
 - [x] `1098:029e` inferred_read_huge · depth 6 · 134 bytes · **understood**
 - [x] `10d8:0052` inferred_compare_name12 · depth 6 · 97 bytes · **understood**
-- [ ] `1088:02ac` FUN_1088_02ac · depth 7 · 161 bytes · **untouched**
-- [ ] `1088:03a6` FUN_1088_03a6 · depth 7 · 290 bytes · **untouched**
+- [x] `1088:02ac` inferred_unload_glue_file · depth 7 · 161 bytes · **understood**
+- [x] `1088:03a6` inferred_scan_glue_files · depth 7 · 290 bytes · **understood**
 - [x] `1088:051c` inferred_find_entry · depth 7 · 267 bytes · **understood**
-- [ ] `1088:09a6` FUN_1088_09a6 · depth 7 · 52 bytes · **untouched**
+- [x] `1088:09a6` inferred_free_glue_table · depth 7 · 52 bytes · **understood**
 - [x] `1098:0000` inferred_report_error · depth 7 · 123 bytes · **understood**
-- [ ] `1028:01ea` FUN_1028_01ea · depth 8 · 485 bytes · **untouched**
+- [x] `1028:01ea` inferred_free_room_data · depth 8 · 485 bytes · **understood**
 - [x] `1088:0000` inferred_read_file_to · depth 8 · 61 bytes · **understood** — wrapper for 1098:029e with error
 - [x] `1088:0892` inferred_get_file_size · depth 8 · 210 bytes · **understood** — size of a resource by name
 - [x] `1088:003e` inferred_load_glue_file · depth 10 · 620 bytes · **understood** — loads and LZ-decodes a whole glue file; read at asm level only in part
@@ -303,13 +303,13 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 - [x] `1088:06b4` inferred_load_file · depth 14 · 474 bytes · **understood** — load resource by name; copies 22-byte entry record
 - [x] `1098:0326` inferred_load_file_or_plain · depth 15 · 277 bytes · **understood**
 
-### resource layer and errors (0/5 done)
+### resource layer and errors (5/5 done)
 
-- [ ] `1098:007c` FUN_1098_007c · depth 6 · 139 bytes · **untouched**
-- [ ] `1098:0108` FUN_1098_0108 · depth 6 · 137 bytes · **untouched**
-- [ ] `1098:0192` FUN_1098_0192 · depth 6 · 48 bytes · **untouched**
-- [ ] `1098:01c2` FUN_1098_01c2 · depth 6 · 134 bytes · **untouched**
-- [ ] `1098:0274` FUN_1098_0274 · depth 6 · 42 bytes · **untouched**
+- [x] `1098:007c` inferred_int_to_string · depth 6 · 139 bytes · **understood**
+- [x] `1098:0108` inferred_draw_text_outlined · depth 6 · 137 bytes · **understood**
+- [x] `1098:0192` inferred_set_text_colors · depth 6 · 48 bytes · **understood**
+- [x] `1098:01c2` inferred_draw_text_shadowed · depth 6 · 134 bytes · **understood**
+- [x] `1098:0274` inferred_file_exists · depth 6 · 42 bytes · **understood**
 
 ### rooms and cursors (0/6 done)
 
@@ -335,10 +335,10 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 - [ ] `1048:093e` inferred_load_obj_file · depth 17 · 531 bytes · **decompiled** — builds OBJ_%04d.dat, loads and parses it; parser not read
 - [x] `1048:1f6e` inferred_load_room · depth 17 · 572 bytes · **understood** — loads a room: builds ROOM%04d.DAT, loads mask and palette; unread
 
-### startup (0/2 done)
+### startup (2/2 done)
 
-- [ ] `1028:03d0` inferred_init_game_session · depth 20 · 917 bytes · **decompiled** — loads GL00_WLK.000 and GL00_TXT.000 by name, GameVar.IDX, OBJ_9999.dat, fix.pal; sets up cursors and a timer; partly read
-- [ ] `1028:0766` inferred_app_init · depth 21 · 422 bytes · **decompiled** — reads [DIRECTORY] CD from DARKSEED.INI into the install-directory buffers, calls load_gfile_hdr, creates the window; partly read
+- [x] `1028:03d0` inferred_init_game_session · depth 20 · 917 bytes · **understood** — loads GL00_WLK.000 and GL00_TXT.000 by name, GameVar.IDX, OBJ_9999.dat, fix.pal; sets up cursors and a timer; partly read
+- [x] `1028:0766` inferred_app_init · depth 21 · 422 bytes · **understood** — reads [DIRECTORY] CD from DARKSEED.INI into the install-directory buffers, calls load_gfile_hdr, creates the window; partly read
 
 ### startup and C runtime (1/85 done)
 

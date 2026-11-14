@@ -507,6 +507,26 @@ The load window is the same without editing, and refuses an empty slot. Loading 
 
 **What is not covered.** What the per-room blocks contain, and the four unused words in the header.
 
+## Start-up and the resource layer 🟡
+
+**What it does.** Before the first room can appear, the program prepares the machine, the data and the window.
+
+**How it works.**
+1. **Folders and settings.** It reads where the game's CD folder is from the settings file (default: the current folder), remembers the music folder `sndtrack`, loads the file index
+   (`gfile.hdr`) and the player's options, and starts the sound. If no sound driver is found it says so and plays without sound.
+2. **Windows settings.** The original changes the user's own Windows files: it tells the media player to play videos in a window, skip frames and not zoom, and it silences a MIDI driver warning.
+   A port must not copy this.
+3. **Window and palette.** It creates the 640 by 480 window, takes over the 256-colour palette from Windows (saving the system colours) and clears it to black.
+   Part of every room's palette is replaced by a fixed one from `fix.pal` (the first 100 colours and two more).
+4. **Data.** The walking-map and text glue files are loaded whole, then the variable list, the item list (`OBJ_9999`), the player's eight sprite sets
+   (three of them are mirrored copies of others) and the six mouse cursors. The first room is started.
+5. **Clock.** On Windows 3.x the original reprograms the PC's timer chip to tick twice as fast and asks for a 1 ms timer; on Windows 95 it asks for a timer every 83 ms.
+   The game's own speed is then kept by checking the clock on each tick.
+6. **Helpers for files.** Small routines tell whether a file exists, check whether a video file is present, forget one glue file, free the file index at the end,
+   write a number as text, and draw text with a one-pixel shadow.
+
+**What is not covered.** The picture names of the player's sprites and the exact meaning of the sound that starts at the beginning.
+
 ## Windows services the game relies on ❓
 
 Seen from the list of Windows calls the game makes. None of this is read yet.
