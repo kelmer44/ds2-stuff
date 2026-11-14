@@ -288,6 +288,23 @@ sprite are not known yet.
 **For ScummVM.** Use the same formula, clamp and 5-pixel minimum; scale the placement offsets too. Which source pixel each new pixel takes
 is still to be recovered.
 
+## Changing room 🟡
+
+**What it does.** Going through a door runs one fixed sequence.
+1. The game remembers where you came from (the variable `FromRoom`) and the room number to go to.
+2. It frees the old room, loads the new room's data package and the room and object text files, builds the sprite records and the walk grid.
+   **The walk map** is a tiny 64 by 48 picture named in the room file; each pixel is one cell of the grid the character walks on (cells 10 pixels
+   wide). The game copies it into a grid with 8 extra columns on each side so a path search can never run off the edge.
+3. It sets `SysMapBlock` to 0, applies the entry record that matches where you came from (palette and, if the entry names a video, starts it;
+   video names that start with `T` play full screen), and raises the "room changed" flag.
+4. On the next tick the game runs the entry list: the first record whose `From=` room matches (or is 0) and whose condition is true plays its
+   sound, shows the subtitle text, and changes variables. Then the mouse hover state is refreshed.
+
+**Checked.** The sequence and the walk-map format were read in the code and the map checked on two real files. 🟡 because the room loader
+`1048:2b8e` is only partly read (the sprite-image loading helpers) and the walk-map values 0 and 1 are not decoded.
+
+**For ScummVM.** Do the entry list after the room is built and in the same order; use `FromRoom` to pick the entry; keep the 8-cell border.
+
 ## The game tick 🟡
 
 **What it does.** About 12 times a second (the timer interval is `1000 / frames per second`; the setting comes from the options) Windows

@@ -8,12 +8,12 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 | Stage | Count | Share |
 |---|---|---|
 | decompiled or later (status only) | 108 | 30% |
-| understood or later (status only) | 89 | 25% |
+| understood or later (status only) | 91 | 25% |
 | ported or later (status only) | 8 | 2% |
 | emu-compared or later (status only) | 8 | 2% |
 | original-compared or later (status only) | 8 | 2% |
 | replaced by a ScummVM service | 8 | |
-| **done (status understood or later and documented)** | **89** | **25%** |
+| **done (status understood or later and documented)** | **91** | **25%** |
 | status ahead of its documentation | 0 | |
 
 ## By cluster
@@ -124,9 +124,13 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 - [ ] `1068:2a72` FUN_1068_2a72 · depth 20 · 750 bytes · **untouched**
 - [ ] `1068:006c` DIALOGPROC · depth 21 · 3637 bytes · **untouched**
 
-### game tick (0/2 done)
+### game tick (2/6 done)
 
+- [ ] `1048:24ee` inferred_start_room_media · depth 11 · 1372 bytes · **decompiled** — AVI video start (OPEN avivideo, play vfw ...); unread | finds the entry record matching FromRoom and true condition; fixes palette (flag +0x14 bit 0), starts the AVI named in Anim= (names beginning with T/t play full screen 0,0,320,240) via MCI; MCI part unread
+- [ ] `1048:2b8e` inferred_enter_room · depth 18 · 1699 bytes · **decompiled** — builds GL00_%X%02d.000 from room/100 and room%100, loads that glue file, then OBJ file; partly read | builds GL00_%X%02d.000 and loads it, loads ROOM file via 1048:1f6e and OBJ file via 1048:093e, loads WALKMAP bitmap into a 80x48 grid at room+0x52 (8 border columns each side), loads per-frame images through 1070:0000, creates the sprite records; helpers 1078:03be/0106/00ca unread
+- [x] `1048:3236` inferred_enter_room_and_start · depth 19 · 73 bytes · **understood** — SysMapBlock handling; unread
 - [ ] `1038:1ade` FUN_1038_1ade · depth 20 · 2767 bytes · **decompiled** — called from the tick when DS:610e (room-changed flag) is set; unread
+- [x] `1048:2a50` inferred_run_room_entry · depth 20 · 315 bytes · **understood** — exit/room-change variables (FromRoom, LastAction); unread
 - [ ] `1038:086e` inferred_game_tick · depth 21 · 4706 bytes · **decompiled** — WM_TIMER handler called from WINPROC every timer tick with the window message words; the main per-tick update (animation frames, SEQUENCE=, SPEECH=, CHANGEAT=, AVI control, GoingOut, SysReadyExit); not read | partly read: see SUBSYSTEMS 'The game tick'; script and AVI parts unread
 
 ### game variables (18/19 done)
@@ -311,7 +315,7 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 - [ ] `1050:0062` FUN_1050_0062 · depth 9 · 184 bytes · **untouched**
 - [ ] `1050:035a` FUN_1050_035a · depth 9 · 518 bytes · **untouched**
 
-### script and rooms (5/16 done)
+### script and rooms (5/12 done)
 
 - [x] `1048:03c4` inferred_skip_line · depth 6 · 104 bytes · **understood**
 - [x] `1048:0000` inferred_next_obj_token · depth 7 · 940 bytes · **understood**
@@ -321,14 +325,10 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 - [ ] `1048:156a` inferred_parse_mirror_section · depth 9 · 640 bytes · **decompiled** — room section parser (uses inferred_next_room_token); unread | MIRRORSTART section; unread in detail | MIRRORSTART section: COND/COND2 nodes, CLIPXY (4 numbers), SCALEVAL via 1060:0c44/0d2e, POSX/POSY via 1060:0f1c into per-mirror arrays; mirror record layout not resolved
 - [ ] `1048:17ea` inferred_parse_palette_section · depth 9 · 275 bytes · **decompiled** — room section parser, sprites (SEQUENCE=, SPEECH=, CHANGE=, ENDINDEX=); unread | PALETTESTART section: COND/COND2 list nodes, STARTINDEX/ENDINDEX numbers; destination fields near room +0xfe2 not located
 - [ ] `1048:18fe` inferred_parse_music_section · depth 9 · 253 bytes · **decompiled** — room section parser, music (MUSICEND=); unread | MUSICSTART section: COND list node, MIDI name; destination array in the room record not located
-- [ ] `1048:24ee` FUN_1048_24ee · depth 11 · 1372 bytes · **decompiled** — AVI video start (OPEN avivideo, play vfw ...); unread
 - [ ] `1048:042c` inferred_parse_action_block · depth 16 · 1237 bytes · **decompiled** — reads lines with inferred_next_obj_token until the end token given as argument; fills a 150-byte action record per COND (XYROOM 5 numbers, TEXT loads NAME.txt, EFFECT/SPEECH/PICTURE/MIDI/DIALOG/CURSOR strings, ANIM 5 numbers + name, CHANGE/SPEECHVAR/COND2/WAITUNTIL term lists, DESTROY sets +0xc); partly read
 - [x] `1048:19fc` inferred_parse_entry_section · depth 16 · 1327 bytes · **understood** — runs animations or talk entries (Speaker, SysTalking, LastAction, SysMapBlock, 'Too many frames in one animation!'); unread | ENTRYSTART section: uses the object lexer, handles From/XYRoom/Change/etc.; unread in detail
 - [ ] `1048:093e` inferred_load_obj_file · depth 17 · 531 bytes · **decompiled** — builds OBJ_%04d.dat, loads and parses it; parser not read
 - [x] `1048:1f6e` inferred_load_room · depth 17 · 572 bytes · **understood** — loads a room: builds ROOM%04d.DAT, loads mask and palette; unread
-- [ ] `1048:2b8e` inferred_enter_room · depth 18 · 1699 bytes · **decompiled** — builds GL00_%X%02d.000 from room/100 and room%100, loads that glue file, then OBJ file; partly read
-- [ ] `1048:3236` FUN_1048_3236 · depth 19 · 73 bytes · **decompiled** — SysMapBlock handling; unread
-- [ ] `1048:2a50` FUN_1048_2a50 · depth 20 · 315 bytes · **decompiled** — exit/room-change variables (FromRoom, LastAction); unread
 
 ### startup (0/2 done)
 

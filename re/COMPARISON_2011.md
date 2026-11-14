@@ -139,3 +139,10 @@ The 2011 engine has no equivalent of the original's lookup path. Differences tha
 | Step length | 6 to 14 pixels depending on y | not compared | unverified |
 | Facing | 8 directions by sign and ratio of dx, dy | not compared | unverified |
 | Animation hold and loop | hold = sixth `Status=` number, loop flag, `ChangeAt` frame | `RoomConfigSprite::updateStatus` | not compared in detail |
+
+## Room change and walk map (compared 14 Nov)
+
+| Item | Contract | 2011 | Verdict |
+|---|---|---|---|
+| Entry choice | first record whose `From=` room is 0 or equals `FromRoom` and whose condition is true | `FromRoom` handled in `roomconfig.cpp` entries | not compared in detail |
+| Walk map | 64 by 48 8-bit BMP, cell 10 wide, with 8 border columns | `Pathfinder` reads a walk map (`pathfinder.cpp`, 441 lines) | unverified: the cell size and the border must be checked against `pathfinder.cpp` |

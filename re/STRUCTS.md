@@ -402,3 +402,9 @@ Lines like `PosX=`, `PosY=` and `ScaleVal=` use `V(n)` (n copies) and `V(n d)` (
 ## Globals of the walk [code]
 
 Player position `DS:3cae` (x) and `DS:3cb0` (y); next path point `DS:9b9a`, `DS:9b98`; path list `DS:3cb2...` of grid cell numbers with the index in `DS:097c` (-1 = none); grid columns `DS:16e4`; facing `DS:8e3c` (0..7); walk frame counter `DS:156a` (1..8); step angles: sin table `DS:246a` (257 words, 16384 = 1), arctangent table `DS:266c` (257 bytes), circle of 1024 units. The current room number is `DS:007c`; `DS:0368` is non-zero while a video plays; `DS:610e` is set when a room has just been entered.
+
+## Correction and walk map [code + data]
+
+- **Entry list links (supersedes earlier notes):** records of the entry list are chained at **+0x91/+0x93** (`inferred_run_room_entry` and `1048:24ee` follow them); the `WaitUntil=` record hangs off a record at +0x8d/+0x8f. Fields confirmed by `1048:2a50`: +0x00 condition list, +0x0e `From=` room, +0x16/+0x18 text, +0x3e effect, +0x4b speech, +0x79 change list.
+- **Walk map:** `WalkMap=NAME` loads `NAME.BMP`: **64 by 48 pixels, 8 bits, uncompressed** (4,086 bytes, values 0, 1 and 239 seen). `inferred_enter_room` copies it, bottom row first, into a grid in the room record at **+0x52** with a row stride of **80** (`DS:16e4` = 80, `DS:16e6` = 48): 8 extra border columns on each side are filled with the edge value (a border of 8 cells so a path search never leaves the array). Map column k (0..63) is grid column k + 8; a grid cell centre is at x = (col * 10 - 75), i.e. map column k at **x = 10k + 5**, and row r at y = Y0 + r * H + H/2 (`WalkMap=` numbers Y0 and H). The meaning of value 0 against 1 (blocked or walkable) is not read yet; room 101's map shows a narrow strip and room 106's a large area.
+- **Video names:** an entry `Anim=` whose file name starts with `T` or `t` is played full screen (0, 0, 320, 240) (`1048:24ee`).

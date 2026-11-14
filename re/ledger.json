@@ -1926,11 +1926,11 @@
    "10d0:0604"
   ],
   "depth": 11,
-  "name": "",
+  "name": "inferred_start_room_media",
   "status": "decompiled",
   "engine": "",
-  "notes": "AVI video start (OPEN avivideo, play vfw ...); unread",
-  "cluster_name": "script and rooms",
+  "notes": "AVI video start (OPEN avivideo, play vfw ...); unread | finds the entry record matching FromRoom and true condition; fixes palette (flag +0x14 bit 0), starts the AVI named in Anim= (names beginning with T/t play full screen 0,0,320,240) via MCI; MCI part unread",
+  "cluster_name": "game tick",
   "cluster": "script and rooms"
  },
  {
@@ -1952,11 +1952,11 @@
    "10d0:029e"
   ],
   "depth": 20,
-  "name": "",
-  "status": "decompiled",
+  "name": "inferred_run_room_entry",
+  "status": "understood",
   "engine": "",
   "notes": "exit/room-change variables (FromRoom, LastAction); unread",
-  "cluster_name": "script and rooms",
+  "cluster_name": "game tick",
   "cluster": "script and rooms"
  },
  {
@@ -1992,8 +1992,8 @@
   "name": "inferred_enter_room",
   "status": "decompiled",
   "engine": "",
-  "notes": "builds GL00_%X%02d.000 from room/100 and room%100, loads that glue file, then OBJ file; partly read",
-  "cluster_name": "script and rooms",
+  "notes": "builds GL00_%X%02d.000 from room/100 and room%100, loads that glue file, then OBJ file; partly read | builds GL00_%X%02d.000 and loads it, loads ROOM file via 1048:1f6e and OBJ file via 1048:093e, loads WALKMAP bitmap into a 80x48 grid at room+0x52 (8 border columns each side), loads per-frame images through 1070:0000, creates the sprite records; helpers 1078:03be/0106/00ca unread",
+  "cluster_name": "game tick",
   "cluster": "script and rooms"
  },
  {
@@ -2013,11 +2013,11 @@
    "10d0:029e"
   ],
   "depth": 19,
-  "name": "",
-  "status": "decompiled",
+  "name": "inferred_enter_room_and_start",
+  "status": "understood",
   "engine": "",
   "notes": "SysMapBlock handling; unread",
-  "cluster_name": "script and rooms",
+  "cluster_name": "game tick",
   "cluster": "script and rooms"
  },
  {
