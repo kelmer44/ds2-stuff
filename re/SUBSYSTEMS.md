@@ -449,7 +449,11 @@ the scroll position on. A pressed arrow has its own picture.
 items themselves are game variables whose names start "Have" (the first is the bio gun); two helpers move their value from 2 to 1 or from 0 to 1 when the game is idle,
 and set the "using nothing" variable. Opening the bar loads the frame and arrow pictures, darkens the picture behind it with the colour table, and collects the items the player has from the item list. A separate helper clears the screen and shows one picture centred on black.
 
-**What is not covered.** The dialog that uses these parts (item clicks, scrolling, holding an item) is not read yet.
+**Using the bar.** The bar is a small window of its own. Pressing an arrow lights it, releasing it moves the row by one item. Releasing on an item runs
+that item's actions for the current verb (the right mouse button or Space cycles the three verbs): the first action whose conditions hold is carried out, and when nothing fits
+the held item goes back. The bar also takes the keyboard pointer keys, and Enter acts as a click. Closing it frees everything it loaded.
+
+**What is not covered.** Which of the item's two action lists is "look" and which is "use", and how the main window opens the bar.
 
 ## Start-up and keyboard shortcuts 🟡
 
@@ -460,6 +464,20 @@ blacks out the screen, sets the digital-sound buffer size in a small settings fi
 **Keyboard.** The game is made for a mouse but every key has a use: the pointer can be driven from the keyboard (arrows, number pad, I/K/J/L, with a step that grows while the key
 is held), Space cycles through the three verbs (cursor modes), M and D switch music and digital sound, P pauses, A shows the about box, F1 opens the help file, and the other
 function keys open the options, save and load windows (not read yet).
+
+## The main window 🟡
+
+**What it does.** One window procedure receives everything: the timer, the mouse, the keyboard, the menu commands and the shutdown.
+
+**How it works.**
+1. A timer fires many times a second. Each time the game checks the pointer, closes the pop-up strip or the inventory bar if the pointer has left them,
+   and, when the next tick is due (5, 15 or 24 times a second, F11 changes it), runs one step of the game.
+2. When the pointer reaches the top edge, the button strip opens; when it reaches the bottom edge, the inventory bar opens. Both only when the game is idle (no video, no cut-scene, no walk waiting to finish).
+3. A left click runs the action for the current verb (the cursor mode); a right click cycles the verb. During a video, a click skips the wait; during a cut-scene wait it ends it and repaints the screen.
+4. The strip's seven buttons send command numbers: four open the options-type windows, one the help file and one the about box. In the title menu the same windows are opened by clicking four coloured bands.
+5. When the window is closed the game frees all its sound, picture, cursor and room data, then quits.
+
+**What is not covered.** The exact rules of the three click handlers and what the options, save and load windows do.
 
 ## Windows services the game relies on ❓
 

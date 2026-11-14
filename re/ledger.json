@@ -85,8 +85,8 @@
    "10d0:029e"
   ],
   "depth": 24,
-  "name": "",
-  "status": "untouched",
+  "name": "WINPROC",
+  "status": "understood",
   "engine": "",
   "notes": "",
   "cluster_name": "",
@@ -398,8 +398,8 @@
    "10d0:029e"
   ],
   "depth": 24,
-  "name": "",
-  "status": "untouched",
+  "name": "DLG_INVENTORY",
+  "status": "understood",
   "engine": "",
   "notes": "",
   "cluster_name": "",

@@ -7,13 +7,13 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 
 | Stage | Count | Share |
 |---|---|---|
-| decompiled or later (status only) | 149 | 41% |
-| understood or later (status only) | 126 | 35% |
+| decompiled or later (status only) | 151 | 42% |
+| understood or later (status only) | 128 | 35% |
 | ported or later (status only) | 8 | 2% |
 | emu-compared or later (status only) | 8 | 2% |
 | original-compared or later (status only) | 8 | 2% |
 | replaced by a ScummVM service | 8 | |
-| **done (status understood or later and documented)** | **126** | **35%** |
+| **done (status understood or later and documented)** | **128** | **35%** |
 | status ahead of its documentation | 0 | |
 
 ## By cluster
@@ -225,7 +225,7 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 - [ ] `1038:01e4` inferred_update_room_sprites · depth 15 · 1671 bytes · **decompiled** — updates every room object's sprite and Mike's two sprites (scales images with 1020:0656, registers changes with 1078:18d8), then repaints with 1078:1796; partly read
 - [x] `1070:0000` inferred_image_cache_get · depth 17 · 307 bytes · **understood**
 
-### main window and input (20/22 done)
+### main window and input (22/22 done)
 
 - [x] `1000:0000` inferred_set_rect · depth 6 · 51 bytes · **understood**
 - [x] `1000:1016` POPUPPROC · depth 6 · 605 bytes · **understood**
@@ -247,8 +247,8 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 - [x] `1008:0af6` inferred_open_inventory_bar · depth 17 · 800 bytes · **understood**
 - [x] `1000:0034` inferred_win_main · depth 22 · 513 bytes · **understood**
 - [x] `1000:12be` inferred_handle_key · depth 23 · 1829 bytes · **understood**
-- [ ] `1000:0236` WINPROC · depth 24 · 3482 bytes · **untouched**
-- [ ] `1008:0428` DLG_INVENTORY · depth 24 · 1524 bytes · **untouched**
+- [x] `1000:0236` WINPROC · depth 24 · 3482 bytes · **understood**
+- [x] `1008:0428` DLG_INVENTORY · depth 24 · 1524 bytes · **understood**
 
 ### math (4/5 done)
 
