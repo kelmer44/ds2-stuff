@@ -231,3 +231,72 @@ Update after reading `EntrySelected` (14 Nov):
 | Save/load | not read yet | syncs flags, current and start node | **unverified** |
 
 Reuse decision: the node graph, goto and fallthrough code is adoptable as it is. Entry state (`visible`, `destroyed`, `persist`) is replaced by the original's flag byte with the bit rules above. Condition and assign code waits for the variable and expression layer to be settled.
+
+## Walking, facing and step length (compared 14 Nov, `mike.cpp` against contracts `1038_1ade`, `1038_086e` and `STRUCTS.md`)
+
+Settles the three "unverified" rows of "Game tick and walking".
+
+| Item | Contract | 2011 | Verdict |
+|---|---|---|---|
+| Facing pictures | 8 facings (0 up, 1 up-right, 2 right, 3 down-right, 4 down, 5 down-left, 6 left, 7 up-left); facings 1 to 3 are the mirrored pictures of 7 to 5; standing uses the first picture, walking pictures 1 to 8 | `n`, `nw`, `w`, `sw`, `s` loaded, NE, E and SE flipped horizontally | **faithful** (same set and the same mirroring) |
+| Facing choice | horizontal when `|dx| > 5 |dy|`; otherwise vertical, or diagonal when `2 |dy| < 5 |dx|`; a pending target facing is applied on arrival | `getDirection()` compares coordinates for exact equality (N, S, E, W only when x or y match, else the diagonal) | **differs**: replace with the ratio rule |
+| Step length | `|y - far| * 14 / range`, clamped to 6 to 14 pixels, along the true angle (sine and cosine tables) | fixed offsets 12 (E, W) and 7 (diagonals) scaled by the sprite scale, minimum 1 | **differs**: use the contract's formula (the tables are in `STRUCTS.md`) |
+| Step rate | tick of 1000 / `DS:0046` ms (5, 15 or 24 per second; 12 by default) | one frame every 100 ms | **differs** (10 against 12 per second): use the tick rate |
+| Player scale | `(y - far) * 134 / range`, clamped 10 to 180 (in 1/128), minimum picture 5 by 5 | `(y - top) / range`, clamped 0.05 to 1.05 | **differs**: use 134 / 128 and the clamp 10/128 to 180/128 |
+| Path | grid of 10 by H cells, corner cells only, consumed goal-last (see "Walk map and path finder") | `Pathfinder` | see that section |
+
+## Animation, mirror and palette entries (compared 14 Nov, `roomconfig.cpp`, `sprite.cpp` against contracts `1048_114a`, `156a`, `17ea`, `18fe`)
+
+| Item | Contract | 2011 | Verdict |
+|---|---|---|---|
+| Sprite `Status=`, `Sequence=`, `PosX/PosY/ScaleVal` lists, hold and loop | see contract `1048:114a` and `STRUCTS.md` | `RoomConfigSprite` | **faithful with changes**: re-check the hold count and the `LoopPoint=` meaning (the start frame) against the contract |
+| `Effect=`, `Speech=` with a frame number | sound plays when the frame number is reached | parsed in `RoomConfigSprite` | **unverified** |
+| Mirror section | affine reflection of the player's position (`PosX=`, `PosY=` three coefficients each, divided by 256), facing from `ScaleVal=`, clip rectangle `ClipXY=`, condition `Cond=` | parsed, never applied (`updateStatus()` returns false); `Cond=` is rejected as an unknown key | **differs** (not implemented): implement from `1038:01e4` |
+| Palette section | `StartIndex`/`EndIndex` give the range rotated every tick while the entry's condition holds | parsed, never applied | **differs** (not implemented): implement from `1080:01de` |
+| Music section | first entry whose conditions hold plays | `RoomConfigMusic` | **faithful** in outline (checked with `music.cpp`) |
+| Entry video and `T`/`cut`/`abh` rules | transitions are named `T...`, cut-scenes `cut...` or `abh...`; options skip them; sizes 320 by 240 at the top left, centred, or doubled | `Movie::play(file, x, y)` with a fixed doubling switch | **differs**: add the skip rules and the three sizes |
+
+## Palette effects and the pause screen (compared 14 Nov, against contracts `1080_02f0`, `038a`, `041a`, `01de`)
+
+| Item | Contract | 2011 | Verdict |
+|---|---|---|---|
+| Fade to black | 256 steps lowering every colour by 1, colours 1 to 254 | no fade | **differs** (missing): a ScummVM fade is enough |
+| Pause (P) | halve the palette, restore on resume; "Pausa Juego" text | `pauseEngineIntern` pauses the mixer only | **differs** (missing): add the dimming and the text, optional |
+| Colour cycling | rotate the range per tick | not implemented | **differs** (missing) |
+
+## Audio: speech, effects and music (compared 14 Nov, `sound.cpp`, `talk.cpp`, `music.cpp` against contracts `10a8_*`)
+
+| Item | Contract | 2011 | Verdict |
+|---|---|---|---|
+| Music files | `sndtrack/` + name + `gm` or `fm` + `.mid`; same name twice does nothing; loops when finished; volume from the settings | `Music::playMID()` does exactly this (`MidiMode` GM or FM, name check, `play(true)` loops) | **faithful** |
+| Speech queue | up to 20 lines in a ring; each starts when the last has finished (and the wait is over), with its subtitle and a tracking variable set to 1 while talking and 2 when done | one `TalkManager` line at a time, `SpeechVar` handled as a variable named in the script | **faithful with changes**: queue the lines; check the variable semantics with the data |
+| Subtitle hold | from the sound's size and the read-speed option, at least 1 s after the speech | `(255 - speed) * 20` ms from the ScummVM talk speed | **differs** by design; keep ScummVM's setting but never below the speech length |
+| Sound effects | effects named `SE...` cached (up to 20); plain effects use 3 rotating channels; in rooms above 600 a random `SE%03d` plays every 12 to 14 s | no cache, no random ambient effects | **differs** (missing ambient effects): add the random effects |
+| Dialog option and sound switches | speech / text options and the M and D keys | ScummVM options (subtitles, volumes, mute) | **differs** by design: map to ScummVM settings |
+
+## Inventory bar (compared 14 Nov, `inventorybox.cpp` against contracts `1008_*`)
+
+| Item | Contract | 2011 | Verdict |
+|---|---|---|---|
+| Pictures | `invntry1`, `arwlft1/2`, `arwrght1/2` | the same names (`INVNTRY1`, `ARWLFT1`, ...) | **faithful** |
+| Size and items | 640 by 70; up to 10 items 50 apart from x = 70; scroll by one; left arrow shown when scrolled, right arrow when more than 10 remain | 640 by 70; item pitch 50; 9 visible items (95 to 545) and small arrow hit zones | **faithful with changes**: 10 items, arrows over the whole 80-pixel ends |
+| Verbs on items | cursor mode 1 runs the item's second list, mode 2 the first; no match puts items back and shows the use cursor | `Inventory` evaluates look and use conditions | **unverified** in detail |
+| Dim backdrop | colours remapped through a nearest-colour table | not read | **unverified** |
+
+## Saves, options and keys (compared 14 Nov)
+
+| Item | Contract | 2011 | Verdict |
+|---|---|---|---|
+| Save file | scrambled `DS2SGnn.SAV` (key `0x4E16A83F`), room, position, facing, cursor mode, speed, 330 variables, 50 conversation-state blocks (`STRUCTS.md`) | ScummVM's own save format (`SVMDARKSEED2` header, thumbnail, every object serialised) | **differs** by design; importing an original `.SAV` is possible from the contract, optional |
+| Titles and slots | ten slots in `DARKSEED.INI`, titles up to 32 characters | ScummVM save slots and names | **differs** by design |
+| Options (`PlayWave`, `PlayMidi`, `SkipTrans`, `AVImode`, `ReadSpeed`, `MidiType`, `DialogOpt`) | seven INI values | ScummVM volumes, subtitles, talk speed, GM/FM mode | **differs** by design; `SkipTrans` has no counterpart |
+| Keys | arrows / number pad / I K J L move the pointer; Space cycles the cursor mode; Esc quits; M, D switch sound; P pauses; F1 help; F2, F6, F7, F8 dialogs | F5 opens the ScummVM menu; Esc ends a talk; Space cycles the cursor | **faithful** for Space; the rest **differs** by design |
+| Credits (room 999) | scroll `DS2RUN.HDR` two pixels a tick, then quit | not implemented | **differs** (missing): implement when needed |
+| Cursors | `cHand`, `cUseIt`, `cLook`, `cLookAt`, `c4Ways`; script `Cursor=` replaces the use cursor | `oCursor` is unimplemented | **differs**: implement `Cursor=` |
+
+## Summary (14 November 2026)
+
+Reusable as they are: resource lookup, the script and room text readers, the sprite data model, the conversation parser and runtime, the music player, the inventory picture set.
+Reusable after changes: scaling, sprite animation, speech, inventory box, movies, object actions (`Cursor=`, `SpeechVar=`).
+To rewrite from the contracts: walking (step, facing, rate), the mirror, palette cycling, fades, ambient effects, the credits, the original save import.
+Chosen by design: saves, options and keys use ScummVM's services.
