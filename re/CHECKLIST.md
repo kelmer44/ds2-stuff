@@ -8,12 +8,12 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 | Stage | Count | Share |
 |---|---|---|
 | decompiled or later (status only) | 235 | 66% |
-| understood or later (status only) | 216 | 60% |
+| understood or later (status only) | 219 | 61% |
 | ported or later (status only) | 8 | 2% |
 | emu-compared or later (status only) | 8 | 2% |
 | original-compared or later (status only) | 8 | 2% |
 | replaced by a ScummVM service | 8 | |
-| **done (status understood or later and documented)** | **216** | **60%** |
+| **done (status understood or later and documented)** | **219** | **61%** |
 | status ahead of its documentation | 0 | |
 
 ## By cluster
@@ -131,14 +131,14 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 - [ ] `1068:1a74` FUN_1068_1a74 · depth 16 · 249 bytes · **untouched**
 - [ ] `1068:1b6e` FUN_1068_1b6e · depth 17 · 253 bytes · **untouched**
 
-### game tick (2/6 done)
+### game tick (4/6 done)
 
 - [ ] `1048:24ee` inferred_start_room_media · depth 11 · 1372 bytes · **decompiled** — AVI video start (OPEN avivideo, play vfw ...); unread | finds the entry record matching FromRoom and true condition; fixes palette (flag +0x14 bit 0), starts the AVI named in Anim= (names beginning with T/t play full screen 0,0,320,240) via MCI; MCI part unread
 - [ ] `1048:2b8e` inferred_enter_room · depth 18 · 1699 bytes · **decompiled** — builds GL00_%X%02d.000 from room/100 and room%100, loads that glue file, then OBJ file; partly read | builds GL00_%X%02d.000 and loads it, loads ROOM file via 1048:1f6e and OBJ file via 1048:093e, loads WALKMAP bitmap into a 80x48 grid at room+0x52 (8 border columns each side), loads per-frame images through 1070:0000, creates the sprite records; helpers 1078:03be/0106/00ca unread
 - [x] `1048:3236` inferred_enter_room_and_start · depth 19 · 73 bytes · **understood** — SysMapBlock handling; unread
-- [ ] `1038:1ade` FUN_1038_1ade · depth 20 · 2767 bytes · **decompiled** — called from the tick when DS:610e (room-changed flag) is set; unread
+- [x] `1038:1ade` inferred_world_step · depth 20 · 2767 bytes · **understood** — called from the tick when DS:610e (room-changed flag) is set; unread
 - [x] `1048:2a50` inferred_run_room_entry · depth 20 · 315 bytes · **understood** — exit/room-change variables (FromRoom, LastAction); unread
-- [ ] `1038:086e` inferred_game_tick · depth 21 · 4706 bytes · **decompiled** — WM_TIMER handler called from WINPROC every timer tick with the window message words; the main per-tick update (animation frames, SEQUENCE=, SPEECH=, CHANGEAT=, AVI control, GoingOut, SysReadyExit); not read | partly read: see SUBSYSTEMS 'The game tick'; script and AVI parts unread
+- [x] `1038:086e` inferred_game_tick · depth 21 · 4706 bytes · **understood** — WM_TIMER handler called from WINPROC every timer tick with the window message words; the main per-tick update (animation frames, SEQUENCE=, SPEECH=, CHANGEAT=, AVI control, GoingOut, SysReadyExit); not read | partly read: see SUBSYSTEMS 'The game tick'; script and AVI parts unread
 
 ### game variables (18/19 done)
 
@@ -196,7 +196,7 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 - [x] `1080:0800` inferred_load_mask · depth 16 · 143 bytes · **understood**
 - [x] `1080:0890` inferred_load_image · depth 16 · 143 bytes · **understood**
 
-### graphics and sprites (25/26 done)
+### graphics and sprites (26/26 done)
 
 - [x] `1078:00ca` inferred_set_scene_clip · depth 6 · 60 bytes · **understood**
 - [x] `1078:0106` inferred_init_sprite · depth 6 · 107 bytes · **understood**
@@ -222,7 +222,7 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 - [x] `1078:1030` inferred_update_sprite_in_rect · depth 11 · 518 bytes · **understood** — compositor: moves an object, redraws dirty rect (background, objects), StretchBlts to screen; sets object position = image offsets (a,b) + object anchor; partly read
 - [x] `10c0:0000` inferred_stretch_dib · depth 13 · 600 bytes · **understood** — wrapper of the 'stretch.c' stretch library (asserts on null pointers and unequal bit depth, clips to the destination, calls 10c8:0040); the resampling in 10c8 is unread
 - [x] `1020:0656` inferred_scale_image · depth 14 · 953 bytes · **understood**
-- [ ] `1038:01e4` inferred_update_room_sprites · depth 15 · 1671 bytes · **decompiled** — updates every room object's sprite and Mike's two sprites (scales images with 1020:0656, registers changes with 1078:18d8), then repaints with 1078:1796; partly read
+- [x] `1038:01e4` inferred_update_room_sprites · depth 15 · 1671 bytes · **understood** — updates every room object's sprite and Mike's two sprites (scales images with 1020:0656, registers changes with 1078:18d8), then repaints with 1078:1796; partly read
 - [x] `1070:0000` inferred_image_cache_get · depth 17 · 307 bytes · **understood**
 
 ### main window and input (22/22 done)

@@ -400,9 +400,12 @@ calls one big routine that moves the whole game forward one step. Nothing else r
 8. **Room 999** is special: the game loads `DS2RUN.HDR` (a 366 by 2320 picture, read once) and scrolls it up two pixels a step. When it
    has scrolled all the way, the game exits. That is almost certainly the end credits.
 
-**Checked.** The animation counting, the walk-grid mapping, the trig tables and the credit scroll were read in the code. 🟡 because the whole
-tick is only skimmed: the script and video control, the room-changed handling (`1038:1ade`, `1048:2a50`), the exact step-length formula and the
-exact use of each variable are not confirmed.
+**The player and the mirror.** The player is drawn from a set of pictures for each of the 8 facings (0 up, 1 up-right, 2 right, 3 down-right, 4 down, 5 down-left, 6 left, 7 up-left); a facing of 1 to 3 is the left-facing set mirrored. Standing uses the first picture of the facing,
+walking uses 1 to 8. Some rooms have a mirror: a second sprite shows the player's reflection at a position worked out from the player's with a small linear formula given by the room, facing the opposite way, and clipped to the mirror's rectangle.
+A room change, loading a game or the end of a cut-scene wait redraws everything at once. The step length is `|y - far line| * 14 / depth` clamped to 6..14 pixels.
+
+**Checked.** The animation counting, the walk-grid mapping, the trig tables, the facing choice, the step length, the mirror and the credit scroll were read in the code (disassembly, not only the decompiler).
+🟡 because some variable checks lost their names in the decompiler, and a few conditions (which room uses which random sound, what two flags mean) are unconfirmed.
 
 **For ScummVM.** Keep one fixed step rate; step the player along grid cells of 10 by H pixels with the scale-dependent step length; hold each
 animation frame for its sixth `Status=` number of steps.
