@@ -2964,11 +2964,11 @@
    "10d0:029e"
   ],
   "depth": 8,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_free_conversation_ui",
+  "status": "understood",
   "engine": "",
   "notes": "",
-  "cluster_name": "",
+  "cluster_name": "conversations",
   "cluster": "dialogs and script"
  },
  {
@@ -2995,7 +2995,7 @@
   "name": "DIALOGPROC",
   "status": "decompiled",
   "engine": "",
-  "notes": "the conversation window procedure (3.6 KB): list box of choices, speaker pictures, subtitles; entry selection (EntrySelected) unread",
+  "notes": "the conversation window procedure (3.6 KB): list box of choices, speaker pictures, subtitles; entry selection (EntrySelected) unread | window procedure: WM_PAINT draws the 640x70 panel and the custom list (hover, up/down keys 0x26/0x28 and 0x68/0x62), WM_INITDIALOG builds the images, mouse/key select calls inferred_entry_selected then inferred_fill_dialog_list; ends the dialog (ENDDIALOG + free) when the next node is 0; drawing details unread",
   "cluster_name": "conversations",
   "cluster": "dialogs and script"
  },
@@ -3058,11 +3058,11 @@
    "10d0:029e"
   ],
   "depth": 20,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_entry_selected",
+  "status": "understood",
   "engine": "",
   "notes": "",
-  "cluster_name": "",
+  "cluster_name": "conversations",
   "cluster": "dialogs and script"
  },
  {
@@ -3291,8 +3291,8 @@
    "10d0:029e"
   ],
   "depth": 10,
-  "name": "inferred_get_cond_info",
-  "status": "decompiled",
+  "name": "inferred_parse_conv_condition",
+  "status": "understood",
   "engine": "",
   "notes": "parses the (Variable) condition prefix of goto/destroy lines ('Expression without ,' error); unread",
   "cluster_name": "conversations",
@@ -3311,11 +3311,11 @@
    "10d0:029e"
   ],
   "depth": 7,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_find_entry_by_name",
+  "status": "understood",
   "engine": "",
   "notes": "",
-  "cluster_name": "",
+  "cluster_name": "conversations",
   "cluster": "dialogs and script"
  },
  {
@@ -3331,11 +3331,11 @@
    "10d0:029e"
   ],
   "depth": 7,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_find_node",
+  "status": "understood",
   "engine": "",
   "notes": "",
-  "cluster_name": "",
+  "cluster_name": "conversations",
   "cluster": "dialogs and script"
  },
  {

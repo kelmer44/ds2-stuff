@@ -42,3 +42,15 @@ Every `text` and `message` name is a resource of its own: `DMN056.TXT` (the play
 - **Fallthrough.** `fallthrough = n, Node`: after building the list, if the number of listed choices is not above `n` the conversation continues in `Node`
   (so `fallthrough = 0, NeedDrugs` means "when no choice is left, go to NeedDrugs").
 - `hide`, `unhide`, `destroy` act on entries by name (resolved once after loading); `persist` keeps an entry after it was chosen.
+
+## Choosing an entry [code: `inferred_entry_selected`]
+
+When the player picks an entry, in this order:
+1. A non-`persist` entry loses its flags (it disappears) at once.
+2. `assign = (cond) Var, expression` lines whose condition is true set the variable; `assign = speaker, n` lines before a `message` choose who speaks it (`1068:1b6e`).
+3. `hide` lists clear the target entries' flags; `unhide` sets their visible bit; `destroy` sets bit 2, which keeps them out for good.
+4. The player's line is shown ("Mike :" then the text) with its sound, then each reply message (speaker name from the speaker table, `AUNQUE` if unnamed)
+   with its speech.
+5. The `goto` lines are tried in order; the first whose condition is true gives the next node. **A target that is not a node name ends the conversation**:
+   `goto = exit, Greeting` keeps the whole text `exit,Greeting` as the name (the comma stays), which matches no node, so the dialog ends. The `Greeting` after the comma
+   is never used. When the new node's list is empty after its fallthrough, the dialog also ends.

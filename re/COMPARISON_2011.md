@@ -199,3 +199,13 @@ Update after reading the conversation loader and list code (14 Nov):
 | Fallthrough | continue in the named node when the number of choices is not above `n` | `fallthrough` handled | not compared |
 | Condition expressions | postfix with `+ - * / & | ^ < = >` over variables and numbers, comparisons give 0/1, division by zero is an error | the 2011 code has the strings "Internal error: compute list" only in the original; check `conversation.cpp` for the expression evaluator | unverified |
 | Choice text | first line of `NAME.txt` (cut at CR) | text resources read whole | unverified |
+
+Update after reading `EntrySelected` (14 Nov):
+
+| Item | Contract | 2011 | Verdict |
+|---|---|---|---|
+| `goto = exit, Greeting` (2011 TODO) | the target is the string `exit,Greeting`, which is no node name, so the conversation ends; `Greeting` is ignored | open | **resolved**: treat an unknown or `exit...` target as "end conversation" |
+| `destroy` (2011 TODO) | sets bit 2 of the target entry, so it never appears again (even after `unhide`) | open | **resolved** |
+| `hide` / `unhide` | hide clears all flags; unhide sets bit 0 only | not compared | unverified: hiding a `persist` entry also clears its persist bit in the original |
+| Entry after use | non-persist entries are hidden when chosen | not compared | unverified |
+| Order of effects | assign, hide, unhide, destroy, then speech, then goto | not compared | unverified |

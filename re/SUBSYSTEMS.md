@@ -322,8 +322,12 @@ is still to be recovered.
 formulas (variables, numbers, `+ - * / & | ^ < = >`) turned into a stack form once and evaluated when needed. The choices shown are the entries that are visible and not hidden.
 If at most `n` choices are left, `fallthrough = n, Node` moves on to another node.
 
-**Checked.** The line reader, the keyword list, the loading passes, the condition evaluator and the list building were read in the code. 🟡 because the window procedure
-that reacts to a chosen entry (playing the reply, applying hide/unhide/assign/destroy/goto) is not read yet.
+**Choosing.** When you pick a choice: it disappears (unless marked `persist`), variables are assigned, other choices are hidden, shown or removed for good (`destroy`),
+your line and then the replies are spoken with subtitles, and the first `goto` whose condition holds gives the next node. A `goto` to a name that is not a node ends
+the conversation (that is what `goto = exit, ...` does).
+
+**Checked.** The line reader, the loading passes, the condition evaluator, the list building and the whole choice sequence were read in the code. 🟡 only for the window drawing
+(panel, hover colours, keyboard moves) and the sound arguments, which are unread.
 
 **For ScummVM.** Parse the file with the same cleaning (spaces removed from values), skip unknown keys, and resolve `text` and `message` as resource names.
 
