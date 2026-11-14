@@ -7,13 +7,13 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 
 | Stage | Count | Share |
 |---|---|---|
-| decompiled or later (status only) | 248 | 69% |
-| understood or later (status only) | 247 | 69% |
+| decompiled or later (status only) | 272 | 76% |
+| understood or later (status only) | 272 | 76% |
 | ported or later (status only) | 8 | 2% |
 | emu-compared or later (status only) | 8 | 2% |
 | original-compared or later (status only) | 8 | 2% |
 | replaced by a ScummVM service | 8 | |
-| **done (status understood or later and documented)** | **247** | **69%** |
+| **done (status understood or later and documented)** | **272** | **76%** |
 | status ahead of its documentation | 0 | |
 
 ## By cluster
@@ -96,15 +96,15 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 - [x] `1010:0390` PLAYSET_DLG_PROC · depth 9 · 965 bytes · **understood**
 - [x] `1010:011e` inferred_new_game · depth 20 · 272 bytes · **understood**
 
-### dialogs and options (1/7 done)
+### dialogs and options (7/7 done)
 
 - [x] `1060:00fc` inferred_take_rest · depth 6 · 138 bytes · **understood**
-- [ ] `1060:0378` FUN_1060_0378 · depth 6 · 274 bytes · **untouched**
-- [ ] `1060:0554` FUN_1060_0554 · depth 6 · 251 bytes · **untouched**
-- [ ] `1060:1182` FUN_1060_1182 · depth 6 · 93 bytes · **untouched**
-- [ ] `1060:11e0` FUN_1060_11e0 · depth 6 · 170 bytes · **untouched**
-- [ ] `1060:0b62` FUN_1060_0b62 · depth 8 · 226 bytes · **untouched**
-- [ ] `1060:128a` VAR_CHECKER_PROC · depth 8 · 399 bytes · **untouched**
+- [x] `1060:0378` inferred_add_variable · depth 6 · 274 bytes · **understood**
+- [x] `1060:0554` inferred_remove_variable · depth 6 · 251 bytes · **understood**
+- [x] `1060:1182` inferred_fill_variable_combo · depth 6 · 93 bytes · **understood**
+- [x] `1060:11e0` inferred_show_variable_values · depth 6 · 170 bytes · **understood**
+- [x] `1060:0b62` inferred_dump_variables · depth 8 · 226 bytes · **understood**
+- [x] `1060:128a` VAR_CHECKER_PROC · depth 8 · 399 bytes · **understood**
 
 ### dialogs and saves (7/7 done)
 
@@ -140,7 +140,7 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 - [x] `1048:2a50` inferred_run_room_entry · depth 20 · 315 bytes · **understood** — exit/room-change variables (FromRoom, LastAction); unread
 - [x] `1038:086e` inferred_game_tick · depth 21 · 4706 bytes · **understood** — WM_TIMER handler called from WINPROC every timer tick with the window message words; the main per-tick update (animation frames, SEQUENCE=, SPEECH=, CHANGEAT=, AVI control, GoingOut, SysReadyExit); not read | partly read: see SUBSYSTEMS 'The game tick'; script and AVI parts unread
 
-### game variables (18/19 done)
+### game variables (19/19 done)
 
 - [x] `1060:0000` inferred_uppercase · depth 6 · 98 bytes · **understood**
 - [x] `1060:0062` inferred_next_identifier · depth 6 · 152 bytes · **understood**
@@ -151,7 +151,7 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 - [x] `1060:092e` inferred_apply_terms · depth 6 · 200 bytes · **understood**
 - [x] `1060:0c44` inferred_parse_numbers · depth 6 · 232 bytes · **understood**
 - [x] `1060:0d2e` inferred_parse_number_list · depth 6 · 490 bytes · **understood**
-- [ ] `1060:0f1c` inferred_parse_long_list · depth 6 · 290 bytes · **decompiled** — parses numbers into 32-bit values for POSX/POSY; the multiply step is garbled in the decompile
+- [x] `1060:0f1c` inferred_parse_long_list · depth 6 · 290 bytes · **understood** — parses numbers into 32-bit values for POSX/POSY; the multiply step is garbled in the decompile
 - [x] `1060:02bc` inferred_find_var · depth 7 · 184 bytes · **understood**
 - [x] `1060:07a8` inferred_free_term_list · depth 7 · 77 bytes · **understood**
 - [x] `1060:07f6` inferred_test_any · depth 7 · 78 bytes · **understood**
@@ -311,14 +311,14 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 - [x] `1098:01c2` inferred_draw_text_shadowed · depth 6 · 134 bytes · **understood**
 - [x] `1098:0274` inferred_file_exists · depth 6 · 42 bytes · **understood**
 
-### rooms and cursors (0/6 done)
+### rooms and cursors (6/6 done)
 
-- [ ] `1050:011a` FUN_1050_011a · depth 6 · 39 bytes · **untouched**
-- [ ] `1050:0142` FUN_1050_0142 · depth 7 · 410 bytes · **untouched**
-- [ ] `1050:0000` FUN_1050_0000 · depth 8 · 97 bytes · **untouched**
-- [ ] `1050:02de` FUN_1050_02de · depth 8 · 123 bytes · **untouched**
-- [ ] `1050:0062` FUN_1050_0062 · depth 9 · 184 bytes · **untouched**
-- [ ] `1050:035a` FUN_1050_035a · depth 9 · 518 bytes · **untouched**
+- [x] `1050:011a` inferred_set_object_next · depth 6 · 39 bytes · **understood**
+- [x] `1050:0142` inferred_remove_object · depth 7 · 410 bytes · **understood**
+- [x] `1050:0000` inferred_has_true_action · depth 8 · 97 bytes · **understood**
+- [x] `1050:02de` inferred_free_wait_chain · depth 8 · 123 bytes · **understood**
+- [x] `1050:0062` inferred_hover_flags · depth 9 · 184 bytes · **understood**
+- [x] `1050:035a` inferred_free_object_list · depth 9 · 518 bytes · **understood**
 
 ### script and rooms (12/12 done)
 
@@ -428,23 +428,23 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 - [ ] `10d0:065c` FUN_10d0_065c · depth 23 · 44 bytes · **untouched**
 - [ ] `10d0:001a` entry · depth 24 · 177 bytes · **untouched**
 
-### text and cursors (0/6 done)
+### text and cursors (6/6 done)
 
-- [ ] `1058:0ca4` FUN_1058_0ca4 · depth 6 · 102 bytes · **untouched**
-- [ ] `1058:0000` FUN_1058_0000 · depth 11 · 479 bytes · **untouched**
-- [ ] `1058:0be2` FUN_1058_0be2 · depth 20 · 193 bytes · **untouched**
-- [ ] `1058:0abc` FUN_1058_0abc · depth 23 · 37 bytes · **untouched**
-- [ ] `1058:0ae2` FUN_1058_0ae2 · depth 23 · 37 bytes · **untouched**
-- [ ] `1058:0b08` FUN_1058_0b08 · depth 23 · 217 bytes · **untouched**
+- [x] `1058:0ca4` inferred_video_destination_text · depth 6 · 102 bytes · **understood**
+- [x] `1058:0000` inferred_show_subtitle · depth 11 · 479 bytes · **understood**
+- [x] `1058:0be2` inferred_change_room · depth 20 · 193 bytes · **understood**
+- [x] `1058:0abc` inferred_click_look · depth 23 · 37 bytes · **understood**
+- [x] `1058:0ae2` inferred_click_use · depth 23 · 37 bytes · **understood**
+- [x] `1058:0b08` inferred_click_go · depth 23 · 217 bytes · **understood**
 
-### unassigned (0/6 done)
+### unassigned (6/6 done)
 
-- [ ] `1020:0000` FUN_1020_0000 · depth 6 · 258 bytes · **untouched**
-- [ ] `1020:0102` FUN_1020_0102 · depth 6 · 321 bytes · **untouched**
-- [ ] `1020:0244` FUN_1020_0244 · depth 6 · 570 bytes · **untouched**
-- [ ] `1020:0480` FUN_1020_0480 · depth 6 · 470 bytes · **untouched**
-- [ ] `1020:0a14` FUN_1020_0a14 · depth 6 · 44 bytes · **untouched**
-- [ ] `1020:0a40` FUN_1020_0a40 · depth 7 · 229 bytes · **untouched**
+- [x] `1020:0000` inferred_resample_rows · depth 6 · 258 bytes · **understood**
+- [x] `1020:0102` inferred_resample_rows_mirrored · depth 6 · 321 bytes · **understood**
+- [x] `1020:0244` inferred_resample_rows_sheared · depth 6 · 570 bytes · **understood**
+- [x] `1020:0480` inferred_resample_rows_sheared_mirrored · depth 6 · 470 bytes · **understood**
+- [x] `1020:0a14` inferred_bit_length · depth 6 · 44 bytes · **understood**
+- [x] `1020:0a40` inferred_dissolve_step · depth 7 · 229 bytes · **understood**
 
 ### walking (3/3 done)
 

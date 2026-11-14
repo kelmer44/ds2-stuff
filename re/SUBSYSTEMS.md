@@ -586,6 +586,14 @@ Every list of conditions can have alternatives (`Cond2=`).
 
 **What is not covered.** The exact palette flags of an entry, and what the end of the object file looks like to the loader.
 
+## Leftovers and debugging tools ❓
+
+The program still contains code the shipped game never calls: a "variable checker" window (a list of every game variable with its value, where a developer could change, add or remove them),
+a function that dumps the variable table in message boxes and checks it is sorted, an older and simpler picture-resampling routine (with mirrored and sheared variants), a pixel-dissolve effect driven by a shift register,
+an object-removal routine and a few small helpers. Nothing reaches them from the game, so a port does not need them.
+
+**Hover cursor.** Over the room, the game asks which verbs the object under the pointer offers (go, use, look: a bit each) and picks the four-way, use or look cursor from that.
+
 ## Windows services the game relies on ❓
 
 Seen from the list of Windows calls the game makes. None of this is read yet.
