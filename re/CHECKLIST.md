@@ -7,13 +7,13 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 
 | Stage | Count | Share |
 |---|---|---|
-| decompiled or later (status only) | 134 | 37% |
-| understood or later (status only) | 111 | 31% |
+| decompiled or later (status only) | 141 | 39% |
+| understood or later (status only) | 118 | 33% |
 | ported or later (status only) | 8 | 2% |
 | emu-compared or later (status only) | 8 | 2% |
 | original-compared or later (status only) | 8 | 2% |
 | replaced by a ScummVM service | 8 | |
-| **done (status understood or later and documented)** | **111** | **31%** |
+| **done (status understood or later and documented)** | **118** | **33%** |
 | status ahead of its documentation | 0 | |
 
 ## By cluster
@@ -225,20 +225,20 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 - [ ] `1038:01e4` inferred_update_room_sprites · depth 15 · 1671 bytes · **decompiled** — updates every room object's sprite and Mike's two sprites (scales images with 1020:0656, registers changes with 1078:18d8), then repaints with 1078:1796; partly read
 - [x] `1070:0000` inferred_image_cache_get · depth 17 · 307 bytes · **understood**
 
-### main window and input (5/22 done)
+### main window and input (12/22 done)
 
 - [x] `1000:0000` inferred_set_rect · depth 6 · 51 bytes · **understood**
 - [x] `1000:1016` POPUPPROC · depth 6 · 605 bytes · **understood**
 - [x] `1000:1a98` inferred_next_word · depth 6 · 115 bytes · **understood**
 - [x] `1008:00b6` inferred_restore_cursor · depth 6 · 31 bytes · **understood**
 - [x] `1008:0f86` inferred_build_dim_remap · depth 6 · 309 bytes · **understood**
-- [ ] `1000:1b0e` FUN_1000_1b0e · depth 7 · 290 bytes · **untouched**
-- [ ] `1000:1d1a` FUN_1000_1d1a · depth 7 · 187 bytes · **untouched**
-- [ ] `1000:1c36` FUN_1000_1c36 · depth 8 · 226 bytes · **untouched**
-- [ ] `1008:00d6` FUN_1008_00d6 · depth 8 · 224 bytes · **untouched**
-- [ ] `1008:01b8` FUN_1008_01b8 · depth 8 · 232 bytes · **untouched**
-- [ ] `1008:02a2` FUN_1008_02a2 · depth 8 · 389 bytes · **untouched**
-- [ ] `1008:0a58` FUN_1008_0a58 · depth 8 · 158 bytes · **untouched**
+- [x] `1000:1b0e` inferred_parse_command_line · depth 7 · 290 bytes · **understood**
+- [x] `1000:1d1a` inferred_toggle_music · depth 7 · 187 bytes · **understood**
+- [x] `1000:1c36` inferred_toggle_digital_sound · depth 8 · 226 bytes · **understood**
+- [x] `1008:00d6` inferred_draw_inventory_left_arrow · depth 8 · 224 bytes · **understood**
+- [x] `1008:01b8` inferred_draw_inventory_right_arrow · depth 8 · 232 bytes · **understood**
+- [x] `1008:02a2` inferred_draw_inventory_bar · depth 8 · 389 bytes · **understood**
+- [x] `1008:0a58` inferred_free_inventory_images · depth 8 · 158 bytes · **understood**
 - [ ] `1008:0000` FUN_1008_0000 · depth 9 · 75 bytes · **untouched**
 - [ ] `1008:004c` FUN_1008_004c · depth 9 · 104 bytes · **untouched**
 - [ ] `1008:0e16` FUN_1008_0e16 · depth 9 · 182 bytes · **untouched**

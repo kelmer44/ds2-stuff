@@ -427,6 +427,26 @@ picture behind the window through the table. Our reading of the purpose comes fr
 
 **What is not covered.** Which button does what, what the three colour bytes are in the palette, and what the other keys do.
 
+## Start-up options and sound switches 🟡
+
+**What it does.** The command line may carry short options (`/st`, `/sc`, `/sw`, `/da`, `/dm`, `/p` plus a digit). The program reads them once at start-up,
+sets a flag for each and passes the remaining words on. What the flags change later is not read yet.
+Two helpers switch the music or the digital sound off and on (from the options dialog or a key): they stop or resume the MIDI player, or flush the sound channels and
+set the volume, and can show a short message such as "Sin Música" or "Con Sonido Digital" (this build is Spanish).
+
+## The inventory bar 🟡
+
+**What it does.** The inventory is a strip 640 by 70 pixels. It shows up to 10 items side by side, 50 pixels apart, starting from the item the player scrolled to,
+with a frame on top and an arrow at each end. The left arrow shows when the player has scrolled past the first item, the right one when more than 10 items remain from
+the scroll position on. A pressed arrow has its own picture.
+
+**How it works.**
+1. The strip is drawn in a private bitmap: first the saved background, then the item pictures, then the frame and arrows. The finished strip is copied to the window.
+2. When only an arrow changes, only the 80 by 70 pixels at that end are redrawn and copied.
+3. When the inventory closes, the item pictures, the frame and arrow pictures and the strip's memory are all released.
+
+**What is not covered.** The dialog that uses these parts (item clicks, scrolling, holding an item) is not read yet.
+
 ## Windows services the game relies on ❓
 
 Seen from the list of Windows calls the game makes. None of this is read yet.
