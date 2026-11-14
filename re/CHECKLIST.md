@@ -7,13 +7,13 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 
 | Stage | Count | Share |
 |---|---|---|
-| decompiled or later (status only) | 141 | 39% |
-| understood or later (status only) | 118 | 33% |
+| decompiled or later (status only) | 149 | 41% |
+| understood or later (status only) | 126 | 35% |
 | ported or later (status only) | 8 | 2% |
 | emu-compared or later (status only) | 8 | 2% |
 | original-compared or later (status only) | 8 | 2% |
 | replaced by a ScummVM service | 8 | |
-| **done (status understood or later and documented)** | **118** | **33%** |
+| **done (status understood or later and documented)** | **126** | **35%** |
 | status ahead of its documentation | 0 | |
 
 ## By cluster
@@ -225,7 +225,7 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 - [ ] `1038:01e4` inferred_update_room_sprites · depth 15 · 1671 bytes · **decompiled** — updates every room object's sprite and Mike's two sprites (scales images with 1020:0656, registers changes with 1078:18d8), then repaints with 1078:1796; partly read
 - [x] `1070:0000` inferred_image_cache_get · depth 17 · 307 bytes · **understood**
 
-### main window and input (12/22 done)
+### main window and input (20/22 done)
 
 - [x] `1000:0000` inferred_set_rect · depth 6 · 51 bytes · **understood**
 - [x] `1000:1016` POPUPPROC · depth 6 · 605 bytes · **understood**
@@ -239,14 +239,14 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 - [x] `1008:01b8` inferred_draw_inventory_right_arrow · depth 8 · 232 bytes · **understood**
 - [x] `1008:02a2` inferred_draw_inventory_bar · depth 8 · 389 bytes · **understood**
 - [x] `1008:0a58` inferred_free_inventory_images · depth 8 · 158 bytes · **understood**
-- [ ] `1008:0000` FUN_1008_0000 · depth 9 · 75 bytes · **untouched**
-- [ ] `1008:004c` FUN_1008_004c · depth 9 · 104 bytes · **untouched**
-- [ ] `1008:0e16` FUN_1008_0e16 · depth 9 · 182 bytes · **untouched**
-- [ ] `1008:0ece` FUN_1008_0ece · depth 9 · 182 bytes · **untouched**
-- [ ] `1000:19f2` FUN_1000_19f2 · depth 17 · 166 bytes · **untouched**
-- [ ] `1008:0af6` FUN_1008_0af6 · depth 17 · 800 bytes · **untouched**
-- [ ] `1000:0034` FUN_1000_0034 · depth 22 · 513 bytes · **untouched**
-- [ ] `1000:12be` FUN_1000_12be · depth 23 · 1829 bytes · **untouched**
+- [x] `1008:0000` inferred_set_inventory_cursor_arrow · depth 9 · 75 bytes · **understood**
+- [x] `1008:004c` inferred_set_inventory_cursor_item · depth 9 · 104 bytes · **understood**
+- [x] `1008:0e16` inferred_demote_have_items · depth 9 · 182 bytes · **understood**
+- [x] `1008:0ece` inferred_promote_have_items · depth 9 · 182 bytes · **understood**
+- [x] `1000:19f2` inferred_show_centered_picture · depth 17 · 166 bytes · **understood**
+- [x] `1008:0af6` inferred_open_inventory_bar · depth 17 · 800 bytes · **understood**
+- [x] `1000:0034` inferred_win_main · depth 22 · 513 bytes · **understood**
+- [x] `1000:12be` inferred_handle_key · depth 23 · 1829 bytes · **understood**
 - [ ] `1000:0236` WINPROC · depth 24 · 3482 bytes · **untouched**
 - [ ] `1008:0428` DLG_INVENTORY · depth 24 · 1524 bytes · **untouched**
 

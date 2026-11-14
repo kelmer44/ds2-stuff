@@ -445,7 +445,21 @@ the scroll position on. A pressed arrow has its own picture.
 2. When only an arrow changes, only the 80 by 70 pixels at that end are redrawn and copied.
 3. When the inventory closes, the item pictures, the frame and arrow pictures and the strip's memory are all released.
 
+**Cursor and items.** While the pointer is over the bar the cursor depends on the last action and on whether the pointer is on an item or an arrow. The
+items themselves are game variables whose names start "Have" (the first is the bio gun); two helpers move their value from 2 to 1 or from 0 to 1 when the game is idle,
+and set the "using nothing" variable. Opening the bar loads the frame and arrow pictures, darkens the picture behind it with the colour table, and collects the items the player has from the item list. A separate helper clears the screen and shows one picture centred on black.
+
 **What is not covered.** The dialog that uses these parts (item clicks, scrolling, holding an item) is not read yet.
+
+## Start-up and keyboard shortcuts 🟡
+
+**Start-up.** The program first reads its command-line options and settings, then checks that the game's own program file can be opened from the CD folder (it asks the
+player to restart with the CD in the drive if not). If the screen is not 640 by 480 with 256 colours it warns that problems may appear and asks whether to go on. It then
+blacks out the screen, sets the digital-sound buffer size in a small settings file, runs the main set-up and starts the usual Windows message loop.
+
+**Keyboard.** The game is made for a mouse but every key has a use: the pointer can be driven from the keyboard (arrows, number pad, I/K/J/L, with a step that grows while the key
+is held), Space cycles through the three verbs (cursor modes), M and D switch music and digital sound, P pauses, A shows the about box, F1 opens the help file, and the other
+function keys open the options, save and load windows (not read yet).
 
 ## Windows services the game relies on ❓
 
