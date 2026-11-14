@@ -407,6 +407,26 @@ exact use of each variable are not confirmed.
 **For ScummVM.** Keep one fixed step rate; step the player along grid cells of 10 by H pixels with the scale-dependent step length; hold each
 animation frame for its sixth `Status=` number of steps.
 
+## The pop-up strip and keyboard pointer 🟡
+
+**What it does.** When the mouse reaches the very top of the screen and nothing else is going on (no video, no cut-scene, no walk
+waiting to finish, and the game's "last action" variable has the right value), the game opens a strip of buttons, 640 by 40 pixels,
+across the top. It is a Windows dialog; pressing one of its buttons closes it and the game reads which button it was.
+
+**How it works.**
+1. The strip is created from a dialog template called `ds2POPUP`. When it opens it takes no focus, and the system warning beep is switched off.
+2. A click on one of its seven buttons closes the dialog and returns the button's number. Cancel and a private "close" message return 0.
+3. The mouse can be driven from the keyboard, both inside the strip and in the main window: the cursor keys, the number pad (8, 2, 4, 6)
+   and the letters I, K, J, L move the pointer, and each repeated press makes the step bigger, from 2 up to 10 pixels. The pointer stays inside the 640 by 480 screen.
+4. The letters F, H and O act as shortcut keys for the strip. A key pressed just before the strip opens is remembered and replayed into it once it is up.
+5. After the strip closes, the game marks the top strip (or the bottom one, 380 to 480) of the screen as needing a redraw using a shared rectangle.
+
+**Dimmed backdrop (used by the inventory and conversation windows).** Before these windows open, the game builds a small lookup table
+that says, for each of the 256 colours of the picture, which colour of the same palette is the closest darker and shifted one, and then copies the
+picture behind the window through the table. Our reading of the purpose comes from how the table is used; it has not been seen running.
+
+**What is not covered.** Which button does what, what the three colour bytes are in the palette, and what the other keys do.
+
 ## Windows services the game relies on ❓
 
 Seen from the list of Windows calls the game makes. None of this is read yet.
