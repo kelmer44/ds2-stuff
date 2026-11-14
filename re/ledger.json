@@ -2992,11 +2992,11 @@
    "10d0:029e"
   ],
   "depth": 21,
-  "name": "",
-  "status": "untouched",
+  "name": "DIALOGPROC",
+  "status": "decompiled",
   "engine": "",
-  "notes": "",
-  "cluster_name": "",
+  "notes": "the conversation window procedure (3.6 KB): list box of choices, speaker pictures, subtitles; entry selection (EntrySelected) unread",
+  "cluster_name": "conversations",
   "cluster": "dialogs and script"
  },
  {
@@ -3015,11 +3015,11 @@
    "10d0:029e"
   ],
   "depth": 7,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_eval_rpn",
+  "status": "understood",
   "engine": "",
   "notes": "",
-  "cluster_name": "",
+  "cluster_name": "conversations",
   "cluster": "dialogs and script"
  },
  {
@@ -3035,11 +3035,11 @@
    "10d0:029e"
   ],
   "depth": 8,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_fill_dialog_list",
+  "status": "decompiled",
   "engine": "",
-  "notes": "",
-  "cluster_name": "",
+  "notes": "starting node and entry list: follows the first goto whose condition (eval_rpn) is true, fills the list box with the texts of entries whose flags & 5 == 1, follows the node's fallthrough while its visible-entry count is not above the fallthrough number (node +0x34); posts selection messages",
+  "cluster_name": "conversations",
   "cluster": "dialogs and script"
  },
  {
@@ -3078,8 +3078,8 @@
    "10d0:029e"
   ],
   "depth": 7,
-  "name": "inferred_start_dialog_sound",
-  "status": "decompiled",
+  "name": "inferred_run_conversation_dialog",
+  "status": "understood",
   "engine": "",
   "notes": "unread",
   "cluster_name": "conversations",
@@ -3098,11 +3098,11 @@
    "10d0:029e"
   ],
   "depth": 6,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_unread_conv_line",
+  "status": "understood",
   "engine": "",
   "notes": "",
-  "cluster_name": "",
+  "cluster_name": "conversations",
   "cluster": "dialogs and script"
  },
  {
@@ -3203,11 +3203,11 @@
    "10d0:029e"
   ],
   "depth": 16,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_load_conv_text",
+  "status": "understood",
   "engine": "",
   "notes": "",
-  "cluster_name": "",
+  "cluster_name": "conversations",
   "cluster": "dialogs and script"
  },
  {
@@ -3352,11 +3352,11 @@
    "10d0:029e"
   ],
   "depth": 8,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_resolve_conversation_names",
+  "status": "decompiled",
   "engine": "",
-  "notes": "",
-  "cluster_name": "",
+  "notes": "second pass: every goto/hide/unhide/destroy record's name (+0x2e) is looked up (20dc nodes, 2074 entries) and the pointer stored at +0x2a/+0x2c; node fallthrough name (+0x20) resolved into +0x36/+0x38",
+  "cluster_name": "conversations",
   "cluster": "dialogs and script"
  },
  {
@@ -3401,10 +3401,10 @@
    "10d0:029e"
   ],
   "depth": 18,
-  "name": "inferred_load_conversation",
+  "name": "inferred_parse_entry",
   "status": "decompiled",
   "engine": "",
-  "notes": "reads a CONV file into a node tree: NODE starts a node, ENTRY allocates a 0x42-byte entry (name +0x2b, flag bits at +0x29: INITIAL = 1, PERSIST = 2), TEXT/MESSAGE/HIDE/UNHIDE/ASSIGN/DESTROY/GOTO lists allocated per entry; speaker variable names with Speaker; record layout not resolved",
+  "notes": "reads a CONV file into a node tree: NODE starts a node, ENTRY allocates a 0x42-byte entry (name +0x2b, flag bits at +0x29: INITIAL = 1, PERSIST = 2), TEXT/MESSAGE/HIDE/UNHIDE/ASSIGN/DESTROY/GOTO lists allocated per entry; speaker variable names with Speaker; record layout not resolved | entry body: lists at entry +0x15 (goto), +0x19 (hide), +0x1d (unhide), +0x21 (destroy), +0x25 (assign), message chain (0x17-byte nodes) via 1b6e, text via 1c6c; next entry at +0x3f/+0x41; partly read",
   "cluster_name": "conversations",
   "cluster": "dialogs and script"
  },
@@ -3427,10 +3427,10 @@
    "10d0:029e"
   ],
   "depth": 19,
-  "name": "inferred_load_conversation_2",
+  "name": "inferred_parse_node",
   "status": "decompiled",
   "engine": "",
-  "notes": "second loader variant (INITIAL, PERSIST keywords); unread",
+  "notes": "second loader variant (INITIAL, PERSIST keywords); unread | node body: ENTRY allocates a 0x42-byte entry (name +0x2b, flags +0x29: INITIAL bit 0, PERSIST bit 1) and parses its lines with 2418; FALLTHROUGH n, Node -> node +0x34 number and +0x20 name; GOTO -> 0x46-byte records chained at +0x42/+0x44 whose condition is compiled by 1efe/1e12; ASSIGN list; partly read",
   "cluster_name": "conversations",
   "cluster": "dialogs and script"
  },
@@ -3460,11 +3460,11 @@
    "10d0:029e"
   ],
   "depth": 20,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_load_conversation_file",
+  "status": "decompiled",
   "engine": "",
-  "notes": "",
-  "cluster_name": "",
+  "notes": "loads conversation CONVnnnn (number from characters 4-7 of the name, DS:3438) as text, allocates the 0x242-byte conversation record at DS:5cba and fills it: SPEAKER -> 237a, CONVERSATION name, DECLARE -> variable slot, NODE -> 0x3e-byte node (name +0xc) via 27a8; then 2144 resolves names, and the compiled form is cached per conversation number (DS:6116) by 31a6/30a6; partly read",
+  "cluster_name": "conversations",
   "cluster": "dialogs and script"
  },
  {

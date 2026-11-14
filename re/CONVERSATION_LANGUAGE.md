@@ -32,3 +32,13 @@ Value cleaning is done by the lexer: spaces and non-ASCII characters are removed
 
 Every `text` and `message` name is a resource of its own: `DMN056.TXT` (the player's words) and `DSB004.TXT` (the reply), with the speech as
 `DSB004.WAV` in a `gl00__d?` speech package [data, names match]. The text glue holds 2,601 `.TXT` resources.
+
+## Runtime (read from `1068:1030`, `1068:0edc`, `1068:15b8`; the selection handler in `DIALOGPROC` is unread)
+
+- **The conversation is a modal Windows dialog** (`ds2dialog`, procedure `DIALOGPROC`) with a list box of choices; the game loop is suspended while it is open.
+- **Starting node.** The first node's `goto = (expression) Node` lines are tried in order; the first whose expression is true gives the node shown. Expressions are
+  compiled to postfix and evaluated by `inferred_eval_rpn`: variables and numbers with `+ - * / & | ^ < = >` (comparisons give 1 or 0).
+- **The list of choices** is the node's entries whose flags satisfy `flags & 5 == 1` (shown, not hidden), each with its text.
+- **Fallthrough.** `fallthrough = n, Node`: after building the list, if the number of listed choices is not above `n` the conversation continues in `Node`
+  (so `fallthrough = 0, NeedDrugs` means "when no choice is left, go to NeedDrugs").
+- `hide`, `unhide`, `destroy` act on entries by name (resolved once after loading); `persist` keeps an entry after it was chosen.

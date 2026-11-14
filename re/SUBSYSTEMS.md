@@ -318,8 +318,12 @@ is still to be recovered.
    `destroy` removes an entry for good when a variable condition holds. `assign` changes game variables.
 5. The words are not in the script: each line is a named text resource (and a named speech clip), looked up like any other resource.
 
-**Checked.** The line reader and the keyword list were read in the code, and every file only uses those keywords. 🟡 because the code that builds the node
-tree and runs a conversation (`1068:2418` and the helpers) is only skimmed.
+**How it runs.** The conversation opens as a modal window with a list of choices. The first node picks its start by testing the `goto` conditions in order; conditions are small
+formulas (variables, numbers, `+ - * / & | ^ < = >`) turned into a stack form once and evaluated when needed. The choices shown are the entries that are visible and not hidden.
+If at most `n` choices are left, `fallthrough = n, Node` moves on to another node.
+
+**Checked.** The line reader, the keyword list, the loading passes, the condition evaluator and the list building were read in the code. 🟡 because the window procedure
+that reacts to a chosen entry (playing the reply, applying hide/unhide/assign/destroy/goto) is not read yet.
 
 **For ScummVM.** Parse the file with the same cleaning (spaces removed from values), skip unknown keys, and resolve `text` and `message` as resource names.
 

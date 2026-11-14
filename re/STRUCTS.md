@@ -420,3 +420,11 @@ Player position `DS:3cae` (x) and `DS:3cb0` (y); next path point `DS:9b9a`, `DS:
 
 Object list: head `DS:5cbe/5cc0`, built by `inferred_load_obj_file`. Node: +0/+2/+4/+6 hot-spot rectangle (left, top, right, bottom; from `ObjXY=`); +8 disabled flag (non-zero hides it); +0x10/+0x12 head of the **look** records (`LookStart`), +0x14/+0x16 **use** (`UseStart`), +0x18/+0x1a **go** (`GoStart`); next node far pointer at +0xc/+0xe. Verb numbers: 0 go, 1 use, 2 look. Records inside a list are chained at +0x93/+0x95; the first with a true condition wins.
 Pending click continuation: record `DS:008c/008e`, verb `DS:0094`, pointer data `DS:0090/0092`, target position `DS:0086/0088`; the window procedure re-calls the runner when the player has arrived.
+
+## Conversation records [code, from the loader and the second pass; partly read]
+
+- **Conversation record** (0x242 bytes, far pointer `DS:5cba`): +0 conversation name; speaker table: 5 speakers of 0x14 bytes at +0x1e (name) with their numbers at +0x14..; first node far pointer at +0x216/+0x218. Conversation number (4 digits of the file name) in `DS:3438`; compiled forms are cached per number in `DS:6116` (far pointers).
+- **Node** (0x3e bytes): +0 first entry far ptr; +8 goto list head; +0x10 assign list; +0xc node name (so the name is stored at +0xc in a record whose list heads sit before it); +0x20 fallthrough node name, +0x34 the fallthrough number, +0x36/+0x38 resolved fallthrough node; +0x3a/+0x3c next node.
+- **Entry** (0x42 bytes): +0x15 goto list, +0x19 hide list, +0x1d unhide list, +0x21 destroy list, +0x25 assign list, +0x29 flags (bit 0 initial = shown, bit 1 persist, bit 2 hidden: an entry is listed when `flags & 5 == 1`), +0x2b entry name (for hide/unhide/destroy lookup), +0x3f/+0x41 next entry; the player's text record and the message chain (0x17-byte nodes, next at +0x13/+0x15) hang off the first words.
+- **Goto / hide / unhide / destroy record** (0x46 bytes): condition part first (a compiled expression, see below), +0x2a/+0x2c resolved pointer (node or entry), +0x2e target name, next record +0x42/+0x44.
+- **Expression cells** (postfix, 16 bits): operand = variable (bit 14 set, index in the low bits) or literal; operator = character | 0x8000 (`+ - * / & | ^ < = >`).

@@ -7,13 +7,13 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 
 | Stage | Count | Share |
 |---|---|---|
-| decompiled or later (status only) | 118 | 33% |
-| understood or later (status only) | 97 | 27% |
+| decompiled or later (status only) | 125 | 35% |
+| understood or later (status only) | 101 | 28% |
 | ported or later (status only) | 8 | 2% |
 | emu-compared or later (status only) | 8 | 2% |
 | original-compared or later (status only) | 8 | 2% |
 | replaced by a ScummVM service | 8 | |
-| **done (status understood or later and documented)** | **97** | **27%** |
+| **done (status understood or later and documented)** | **101** | **28%** |
 | status ahead of its documentation | 0 | |
 
 ## By cluster
@@ -62,13 +62,20 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 - [x] `1058:01e0` inferred_run_object_action · depth 21 · 1853 bytes · **understood**
 - [x] `1058:0922` inferred_hit_test_click · depth 22 · 408 bytes · **understood**
 
-### conversations (1/5 done)
+### conversations (5/12 done)
 
-- [ ] `1068:15b8` inferred_start_dialog_sound · depth 7 · 154 bytes · **decompiled** — unread
+- [x] `1068:1654` inferred_unread_conv_line · depth 6 · 61 bytes · **understood**
+- [x] `1068:0edc` inferred_eval_rpn · depth 7 · 334 bytes · **understood**
+- [x] `1068:15b8` inferred_run_conversation_dialog · depth 7 · 154 bytes · **understood** — unread
 - [x] `1068:1692` inferred_next_conv_token · depth 7 · 839 bytes · **understood**
+- [ ] `1068:1030` inferred_fill_dialog_list · depth 8 · 422 bytes · **decompiled** — starting node and entry list: follows the first goto whose condition (eval_rpn) is true, fills the list box with the texts of entries whose flags & 5 == 1, follows the node's fallthrough while its visible-entry count is not above the fallthrough number (node +0x34); posts selection messages
+- [ ] `1068:2144` inferred_resolve_conversation_names · depth 8 · 566 bytes · **decompiled** — second pass: every goto/hide/unhide/destroy record's name (+0x2e) is looked up (20dc nodes, 2074 entries) and the pointer stored at +0x2a/+0x2c; node fallthrough name (+0x20) resolved into +0x36/+0x38
 - [ ] `1068:1efe` inferred_get_cond_info · depth 10 · 357 bytes · **decompiled** — parses the (Variable) condition prefix of goto/destroy lines ('Expression without ,' error); unread
-- [ ] `1068:2418` inferred_load_conversation · depth 18 · 885 bytes · **decompiled** — reads a CONV file into a node tree: NODE starts a node, ENTRY allocates a 0x42-byte entry (name +0x2b, flag bits at +0x29: INITIAL = 1, PERSIST = 2), TEXT/MESSAGE/HIDE/UNHIDE/ASSIGN/DESTROY/GOTO lists allocated per entry; speaker variable names with Speaker; record layout not resolved
-- [ ] `1068:27a8` inferred_load_conversation_2 · depth 19 · 709 bytes · **decompiled** — second loader variant (INITIAL, PERSIST keywords); unread
+- [x] `1068:1c6c` inferred_load_conv_text · depth 16 · 242 bytes · **understood**
+- [ ] `1068:2418` inferred_parse_entry · depth 18 · 885 bytes · **decompiled** — reads a CONV file into a node tree: NODE starts a node, ENTRY allocates a 0x42-byte entry (name +0x2b, flag bits at +0x29: INITIAL = 1, PERSIST = 2), TEXT/MESSAGE/HIDE/UNHIDE/ASSIGN/DESTROY/GOTO lists allocated per entry; speaker variable names with Speaker; record layout not resolved | entry body: lists at entry +0x15 (goto), +0x19 (hide), +0x1d (unhide), +0x21 (destroy), +0x25 (assign), message chain (0x17-byte nodes) via 1b6e, text via 1c6c; next entry at +0x3f/+0x41; partly read
+- [ ] `1068:27a8` inferred_parse_node · depth 19 · 709 bytes · **decompiled** — second loader variant (INITIAL, PERSIST keywords); unread | node body: ENTRY allocates a 0x42-byte entry (name +0x2b, flags +0x29: INITIAL bit 0, PERSIST bit 1) and parses its lines with 2418; FALLTHROUGH n, Node -> node +0x34 number and +0x20 name; GOTO -> 0x46-byte records chained at +0x42/+0x44 whose condition is compiled by 1efe/1e12; ASSIGN list; partly read
+- [ ] `1068:2a72` inferred_load_conversation_file · depth 20 · 750 bytes · **decompiled** — loads conversation CONVnnnn (number from characters 4-7 of the name, DS:3438) as text, allocates the 0x242-byte conversation record at DS:5cba and fills it: SPEAKER -> 237a, CONVERSATION name, DECLARE -> variable slot, NODE -> 0x3e-byte node (name +0xc) via 27a8; then 2144 resolves names, and the compiled form is cached per conversation number (DS:6116) by 31a6/30a6; partly read
+- [ ] `1068:006c` DIALOGPROC · depth 21 · 3637 bytes · **decompiled** — the conversation window procedure (3.6 KB): list box of choices, speaker pictures, subtitles; entry selection (EntrySelected) unread
 
 ### dialogs (0/12 done)
 
@@ -105,31 +112,24 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 - [ ] `1018:0648` FUN_1018_0648 · depth 21 · 900 bytes · **untouched**
 - [ ] `1018:01fa` FUN_1018_01fa · depth 22 · 126 bytes · **untouched**
 
-### dialogs and script (0/23 done)
+### dialogs and script (0/16 done)
 
-- [ ] `1068:1654` FUN_1068_1654 · depth 6 · 61 bytes · **untouched**
 - [ ] `1068:19ea` FUN_1068_19ea · depth 6 · 138 bytes · **untouched**
 - [ ] `1068:1d60` FUN_1068_1d60 · depth 6 · 107 bytes · **untouched**
 - [ ] `1068:30a6` FUN_1068_30a6 · depth 6 · 132 bytes · **untouched**
 - [ ] `1068:312a` FUN_1068_312a · depth 6 · 124 bytes · **untouched**
 - [ ] `1068:3280` FUN_1068_3280 · depth 6 · 60 bytes · **untouched**
-- [ ] `1068:0edc` FUN_1068_0edc · depth 7 · 334 bytes · **untouched**
 - [ ] `1068:2074` FUN_1068_2074 · depth 7 · 103 bytes · **untouched**
 - [ ] `1068:20dc` FUN_1068_20dc · depth 7 · 103 bytes · **untouched**
 - [ ] `1068:237a` FUN_1068_237a · depth 7 · 158 bytes · **untouched**
 - [ ] `1068:2d64` FUN_1068_2d64 · depth 7 · 833 bytes · **untouched**
 - [ ] `1068:0000` FUN_1068_0000 · depth 8 · 108 bytes · **untouched**
-- [ ] `1068:1030` FUN_1068_1030 · depth 8 · 422 bytes · **untouched**
 - [ ] `1068:1dcc` FUN_1068_1dcc · depth 8 · 69 bytes · **untouched**
-- [ ] `1068:2144` FUN_1068_2144 · depth 8 · 566 bytes · **untouched**
 - [ ] `1068:31a6` FUN_1068_31a6 · depth 8 · 218 bytes · **untouched**
 - [ ] `1068:1e12` FUN_1068_1e12 · depth 9 · 234 bytes · **untouched**
 - [ ] `1068:1a74` FUN_1068_1a74 · depth 16 · 249 bytes · **untouched**
-- [ ] `1068:1c6c` FUN_1068_1c6c · depth 16 · 242 bytes · **untouched**
 - [ ] `1068:1b6e` FUN_1068_1b6e · depth 17 · 253 bytes · **untouched**
 - [ ] `1068:11da` FUN_1068_11da · depth 20 · 987 bytes · **untouched**
-- [ ] `1068:2a72` FUN_1068_2a72 · depth 20 · 750 bytes · **untouched**
-- [ ] `1068:006c` DIALOGPROC · depth 21 · 3637 bytes · **untouched**
 
 ### game tick (2/6 done)
 

@@ -190,3 +190,12 @@ Update after reading `1040:011a` in full (14 Nov):
 | `goto = exit, Node` | 6 uses, all `exit, Greeting` in `CONV0024.TXT`: leave and set the next start node [data] | listed as not understood | **open item explained**: the form is `exit` followed by a node name; the runtime effect is not read in the EXE yet |
 | `destroy = (Var) entry` | 65 uses; removes an entry when the variable holds [data] | listed as not understood | **open item explained** by the file syntax; runtime to be confirmed |
 | Value cleaning | spaces and non-ASCII characters removed (except after the comma in `speaker`) | not compared | unverified: names with spaces would differ |
+
+Update after reading the conversation loader and list code (14 Nov):
+
+| Item | Contract | 2011 | Verdict |
+|---|---|---|---|
+| Entry visible | `flags & 5 == 1` (initial and not hidden) | `conversation.cpp` entry states | not compared line by line |
+| Fallthrough | continue in the named node when the number of choices is not above `n` | `fallthrough` handled | not compared |
+| Condition expressions | postfix with `+ - * / & | ^ < = >` over variables and numbers, comparisons give 0/1, division by zero is an error | the 2011 code has the strings "Internal error: compute list" only in the original; check `conversation.cpp` for the expression evaluator | unverified |
+| Choice text | first line of `NAME.txt` (cut at CR) | text resources read whole | unverified |
