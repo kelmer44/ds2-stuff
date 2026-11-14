@@ -130,3 +130,12 @@ The 2011 engine has no equivalent of the original's lookup path. Differences tha
 | `XYRoom=` fourth number | overwrites the third in entry records (separate fields in object records) | `XYRoom` stored as one argument string, split later | unverified; check how the 2011 code splits the five numbers against the two record layouts |
 | `PosX=`/`PosY=`/`ScaleVal=` `V(n)` and `V(n d)` | repeat and ramp | `parsePackedIntLine` (exists) | not compared in detail; the 2011 helper name suggests the same idea |
 | `Anim=` with four numbers | video rectangle | `Anim` argument parsed as video (movie) with position | probably faithful, not compared |
+
+## Game tick and walking (compared 14 Nov, partial)
+
+| Item | Contract | 2011 | Verdict |
+|---|---|---|---|
+| Walk grid | cells 10 wide, H tall (`WalkMap=` second number), origin Y0 (first number), x offset -75, N columns from the map | `pathfinder.cpp`, `mike.cpp` with a hotspot scale | unverified; compare the cell geometry with the walk-map resource when it is read |
+| Step length | 6 to 14 pixels depending on y | not compared | unverified |
+| Facing | 8 directions by sign and ratio of dx, dy | not compared | unverified |
+| Animation hold and loop | hold = sixth `Status=` number, loop flag, `ChangeAt` frame | `RoomConfigSprite::updateStatus` | not compared in detail |

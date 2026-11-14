@@ -1520,7 +1520,7 @@
   "name": "inferred_game_tick",
   "status": "decompiled",
   "engine": "",
-  "notes": "WM_TIMER handler called from WINPROC every timer tick with the window message words; the main per-tick update (animation frames, SEQUENCE=, SPEECH=, CHANGEAT=, AVI control, GoingOut, SysReadyExit); not read",
+  "notes": "WM_TIMER handler called from WINPROC every timer tick with the window message words; the main per-tick update (animation frames, SEQUENCE=, SPEECH=, CHANGEAT=, AVI control, GoingOut, SysReadyExit); not read | partly read: see SUBSYSTEMS 'The game tick'; script and AVI parts unread",
   "cluster_name": "game tick",
   "cluster": "graphics and bitmaps"
  },
@@ -1554,10 +1554,10 @@
   ],
   "depth": 20,
   "name": "",
-  "status": "untouched",
+  "status": "decompiled",
   "engine": "",
-  "notes": "",
-  "cluster_name": "",
+  "notes": "called from the tick when DS:610e (room-changed flag) is set; unread",
+  "cluster_name": "game tick",
   "cluster": "graphics and bitmaps"
  },
  {
@@ -5202,11 +5202,11 @@
    "10d0:029e"
   ],
   "depth": 6,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_sin",
+  "status": "understood",
   "engine": "",
   "notes": "",
-  "cluster_name": "",
+  "cluster_name": "math",
   "cluster": "startup helpers"
  },
  {
@@ -5224,11 +5224,11 @@
    "10d0:029e"
   ],
   "depth": 7,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_cos",
+  "status": "understood",
   "engine": "",
   "notes": "",
-  "cluster_name": "",
+  "cluster_name": "math",
   "cluster": "startup helpers"
  },
  {
@@ -5244,11 +5244,11 @@
    "10d0:029e"
   ],
   "depth": 6,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_fixmul14",
+  "status": "understood",
   "engine": "",
   "notes": "",
-  "cluster_name": "",
+  "cluster_name": "math",
   "cluster": "startup helpers"
  },
  {
@@ -5266,11 +5266,11 @@
    "10d0:0490"
   ],
   "depth": 6,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_atan2",
+  "status": "understood",
   "engine": "",
   "notes": "",
-  "cluster_name": "",
+  "cluster_name": "math",
   "cluster": "startup helpers"
  },
  {
@@ -5286,11 +5286,11 @@
    "10d0:029e"
   ],
   "depth": 8,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_vector_length",
+  "status": "decompiled",
   "engine": "",
-  "notes": "",
-  "cluster_name": "",
+  "notes": "length of (dx,dy) from the dominant component divided by cos/sin of the angle; the scale of the result is not settled (decompile drops a shift)",
+  "cluster_name": "math",
   "cluster": "startup helpers"
  },
  {

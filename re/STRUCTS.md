@@ -394,3 +394,11 @@ The object-action record of `1048:042c` (same 0x95 size) puts them elsewhere: `X
 ## Number list shorthand [code]
 
 Lines like `PosX=`, `PosY=` and `ScaleVal=` use `V(n)` (n copies) and `V(n d)` (n values from V stepping by d) read by `inferred_parse_number_list`.
+
+## Sprite node fields used by the tick [code, partly]
+
++0x43 `ChangeAt=` frame number and +0x2f its assignment list; +0x45/+0x54 frame numbers for the effect and speech sounds (names at +0x47/+0x56); +0x63 start frame, +0x65 end frame; +0x67 flags (bit 2: loop, bit 3: follow the player, bit 4: needs scaling); +0x69/+0x6b random window (min, max); +0x6d draw list; +0x6f frame count; +0x71 frames held (hold count); +0x73 current frame; +0x75 steps spent on the current frame; +0x77 array of frame image far pointers (4 bytes each); +0x37b/+0x47b per-frame x and y; +0x57b per-frame scale (0 = from the room rule); +0x1b `Change=` list. The status numbers map: 1 flags, 2 and 3 window, 4 list, 5 frame count, 6 hold.
+
+## Globals of the walk [code]
+
+Player position `DS:3cae` (x) and `DS:3cb0` (y); next path point `DS:9b9a`, `DS:9b98`; path list `DS:3cb2...` of grid cell numbers with the index in `DS:097c` (-1 = none); grid columns `DS:16e4`; facing `DS:8e3c` (0..7); walk frame counter `DS:156a` (1..8); step angles: sin table `DS:246a` (257 words, 16384 = 1), arctangent table `DS:266c` (257 bytes), circle of 1024 units. The current room number is `DS:007c`; `DS:0368` is non-zero while a video plays; `DS:610e` is set when a room has just been entered.

@@ -290,10 +290,38 @@ is still to be recovered.
 
 ## The game tick 🟡
 
-The big routine that runs on each Windows timer tick is identified (`1038:086e`, 4,706 bytes, called from the window procedure for the
-timer message with the delay `1000 / frames per second`). From the texts it uses, it advances animations, runs the `SEQUENCE`, `SPEECH` and
-`CHANGEAT` script commands, controls the video playback and the "going out" and "ready to exit" variables. It is not read yet; it is the
-next big cluster.
+**What it does.** About 12 times a second (the timer interval is `1000 / frames per second`; the setting comes from the options) Windows
+calls one big routine that moves the whole game forward one step. Nothing else runs between steps.
+
+**What one step does, in order** (read from the code; ✅ for the parts marked, the rest is only skimmed):
+1. Ignore the call unless it comes from the game's own timer. A flag stops it running twice at once.
+2. Keep the sound going (the audio helpers are called every step).
+3. While a video plays, only watch it: when Windows says it finished, the game closes the video, sets a flag (room 0x5dd marks a
+   special case) and goes on. Nothing else moves during a video.
+4. In rooms above 600, when a timer runs out, it plays a random sound effect named `SEnnn` and picks the next delay 12 to 14 seconds away.
+5. **Animated things.** For every sprite of the room (the 0x685-byte nodes): if its condition is true and a random number falls
+   inside its `Status=` window (second and third numbers, `0 32767` means always), it shows the current frame, plays the effect or speech sound
+   when that frame number is reached, then counts: each frame is held for the sixth `Status=` number of steps, then the frame number goes up.
+   Reaching the `ChangeAt=` frame applies that list of variable changes. Reaching the last frame applies the `Change=` list and either
+   starts again from the start index (flag bit 2) or stays on the last frame. If the picture or position changed, the compositor repaints that
+   sprite (`inferred_update_sprite_now`). Sprites flagged for scaling get a fresh scaled copy first.
+6. **The player's movement.** The character moves toward the next point of its path, a few pixels per step: the step length depends on how
+   far down the screen it stands (clamped to 6..14 pixels) and the direction comes from a small table of angles (a sine table and an
+   arctangent table, both read and checked). The facing (0 to 7, in `DS:8e3c`) is chosen from the sign and size of the x and y difference.
+   The path is a list of grid cells: cell `c` of a row of N columns is at x = (c mod N) * 10 - 75 and y = (c div N) * H + H/2 + Y0, where
+   Y0 and H are the two optional numbers of the room's `WalkMap=` line (the shipped files use for example 200 and 5, so cells are 10 by 5 pixels).
+   Every few steps the walking picture advances one frame (a counter from 1 to 8).
+7. When the player has arrived and nothing else is going on, the game checks `GoingOut` and `SysReadyExit` to leave the room (calls the room
+   change routine) and keeps the standing picture otherwise.
+8. **Room 999** is special: the game loads `DS2RUN.HDR` (a 366 by 2320 picture, read once) and scrolls it up two pixels a step. When it
+   has scrolled all the way, the game exits. That is almost certainly the end credits.
+
+**Checked.** The animation counting, the walk-grid mapping, the trig tables and the credit scroll were read in the code. 🟡 because the whole
+tick is only skimmed: the script and video control, the room-changed handling (`1038:1ade`, `1048:2a50`), the exact step-length formula and the
+exact use of each variable are not confirmed.
+
+**For ScummVM.** Keep one fixed step rate; step the player along grid cells of 10 by H pixels with the scale-dependent step length; hold each
+animation frame for its sixth `Status=` number of steps.
 
 ## Windows services the game relies on ❓
 

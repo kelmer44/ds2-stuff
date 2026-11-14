@@ -7,13 +7,13 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 
 | Stage | Count | Share |
 |---|---|---|
-| decompiled or later (status only) | 102 | 28% |
-| understood or later (status only) | 85 | 23% |
+| decompiled or later (status only) | 108 | 30% |
+| understood or later (status only) | 89 | 25% |
 | ported or later (status only) | 8 | 2% |
 | emu-compared or later (status only) | 8 | 2% |
 | original-compared or later (status only) | 8 | 2% |
 | replaced by a ScummVM service | 8 | |
-| **done (status understood or later and documented)** | **85** | **23%** |
+| **done (status understood or later and documented)** | **89** | **25%** |
 | status ahead of its documentation | 0 | |
 
 ## By cluster
@@ -124,9 +124,10 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 - [ ] `1068:2a72` FUN_1068_2a72 · depth 20 · 750 bytes · **untouched**
 - [ ] `1068:006c` DIALOGPROC · depth 21 · 3637 bytes · **untouched**
 
-### game tick (0/1 done)
+### game tick (0/2 done)
 
-- [ ] `1038:086e` inferred_game_tick · depth 21 · 4706 bytes · **decompiled** — WM_TIMER handler called from WINPROC every timer tick with the window message words; the main per-tick update (animation frames, SEQUENCE=, SPEECH=, CHANGEAT=, AVI control, GoingOut, SysReadyExit); not read
+- [ ] `1038:1ade` FUN_1038_1ade · depth 20 · 2767 bytes · **decompiled** — called from the tick when DS:610e (room-changed flag) is set; unread
+- [ ] `1038:086e` inferred_game_tick · depth 21 · 4706 bytes · **decompiled** — WM_TIMER handler called from WINPROC every timer tick with the window message words; the main per-tick update (animation frames, SEQUENCE=, SPEECH=, CHANGEAT=, AVI control, GoingOut, SysReadyExit); not read | partly read: see SUBSYSTEMS 'The game tick'; script and AVI parts unread
 
 ### game variables (18/19 done)
 
@@ -150,11 +151,10 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 - [x] `1060:0b26` inferred_set_var · depth 8 · 58 bytes · **understood**
 - [x] `1060:10ba` inferred_load_game_vars · depth 16 · 199 bytes · **understood**
 
-### graphics and bitmaps (0/3 done)
+### graphics and bitmaps (0/2 done)
 
 - [ ] `1038:01a4` FUN_1038_01a4 · depth 7 · 63 bytes · **untouched**
 - [ ] `1038:0000` FUN_1038_0000 · depth 9 · 419 bytes · **untouched**
-- [ ] `1038:1ade` FUN_1038_1ade · depth 20 · 2767 bytes · **untouched**
 
 ### graphics and palette (20/26 done)
 
@@ -240,6 +240,14 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 - [ ] `1000:12be` FUN_1000_12be · depth 23 · 1829 bytes · **untouched**
 - [ ] `1000:0236` WINPROC · depth 24 · 3482 bytes · **untouched**
 - [ ] `1008:0428` DLG_INVENTORY · depth 24 · 1524 bytes · **untouched**
+
+### math (4/5 done)
+
+- [x] `10a0:0000` inferred_sin · depth 6 · 93 bytes · **understood**
+- [x] `10a0:0080` inferred_fixmul14 · depth 6 · 62 bytes · **understood**
+- [x] `10a0:00be` inferred_atan2 · depth 6 · 221 bytes · **understood**
+- [x] `10a0:005e` inferred_cos · depth 7 · 33 bytes · **understood**
+- [ ] `10a0:01ae` inferred_vector_length · depth 8 · 134 bytes · **decompiled** — length of (dx,dy) from the dominant component divided by cos/sin of the angle; the scale of the result is not settled (decompile drops a shift)
 
 ### options (INI) (0/3 done)
 
@@ -414,14 +422,6 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 - [ ] `10d0:039c` FUN_10d0_039c · depth 12 · 70 bytes · **untouched**
 - [ ] `10d0:065c` FUN_10d0_065c · depth 23 · 44 bytes · **untouched**
 - [ ] `10d0:001a` entry · depth 24 · 177 bytes · **untouched**
-
-### startup helpers (0/5 done)
-
-- [ ] `10a0:0000` FUN_10a0_0000 · depth 6 · 93 bytes · **untouched**
-- [ ] `10a0:0080` FUN_10a0_0080 · depth 6 · 62 bytes · **untouched**
-- [ ] `10a0:00be` FUN_10a0_00be · depth 6 · 221 bytes · **untouched**
-- [ ] `10a0:005e` FUN_10a0_005e · depth 7 · 33 bytes · **untouched**
-- [ ] `10a0:01ae` FUN_10a0_01ae · depth 8 · 134 bytes · **untouched**
 
 ### text and cursors (0/8 done)
 
