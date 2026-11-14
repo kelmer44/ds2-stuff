@@ -527,6 +527,21 @@ The load window is the same without editing, and refuses an empty slot. Loading 
 
 **What is not covered.** The picture names of the player's sprites and the exact meaning of the sound that starts at the beginning.
 
+## Sound, speech and music 🟡
+
+**What it does.** Digital sound (speech and effects) goes through the WaveMix mixer, music goes through the Windows MIDI player. Videos are played by the Windows media player (see "Clicking things").
+
+**Speech and subtitles.**
+1. A line of speech is put on a queue of up to 20 entries: the sound name, the subtitle text, where to show it, and which game variable tracks the line.
+2. When nothing is playing the next entry starts: its sound plays on the speech channel, its text is shown, the tracking variable goes to 1, and a deadline for the subtitle is worked out from the sound's size and the player's reading-speed choice.
+3. When the mixer says the sound has finished, the variable goes to 2, the subtitle stays at least a second, and the next entry starts. If the queue runs dry while a script waits for the speech, the main window is told to carry on.
+4. Sound effects skip the queue and use three effect channels in turn. Effects whose names start with `SE` are kept in a cache of up to 20 so they are not read again.
+5. If digital sound is off, or the dialog option is text only, no sound is loaded and only the text shows.
+
+**Music.** A music name picks a MIDI file in the `sndtrack` folder, in a general-MIDI or an FM version according to the player's choice. The same name twice in a row changes nothing; when the piece ends the game restarts it, so music loops.
+
+**What is not covered.** The mixer's exact settings, the units of the subtitle timing, and the helper that runs at the start of each speech line.
+
 ## Windows services the game relies on ❓
 
 Seen from the list of Windows calls the game makes. None of this is read yet.

@@ -7,13 +7,13 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 
 | Stage | Count | Share |
 |---|---|---|
-| decompiled or later (status only) | 190 | 53% |
-| understood or later (status only) | 169 | 47% |
+| decompiled or later (status only) | 213 | 59% |
+| understood or later (status only) | 192 | 53% |
 | ported or later (status only) | 8 | 2% |
 | emu-compared or later (status only) | 8 | 2% |
 | original-compared or later (status only) | 8 | 2% |
 | replaced by a ScummVM service | 8 | |
-| **done (status understood or later and documented)** | **169** | **47%** |
+| **done (status understood or later and documented)** | **192** | **53%** |
 | status ahead of its documentation | 0 | |
 
 ## By cluster
@@ -31,31 +31,31 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 - [ ] `10c8:0040` FUN_10c8_0040 · depth 1 · 87 bytes · **untouched**
 - [ ] `10c8:0100` FUN_10c8_0100 · depth 1 · 291 bytes · **untouched**
 
-### audio and video (MCI, WaveMix) (0/23 done)
+### audio and video (MCI, WaveMix) (23/23 done)
 
-- [ ] `10a8:0246` FUN_10a8_0246 · depth 6 · 69 bytes · **untouched**
-- [ ] `10a8:028e` FUN_10a8_028e · depth 6 · 82 bytes · **untouched**
-- [ ] `10a8:02e2` FUN_10a8_02e2 · depth 6 · 110 bytes · **untouched**
-- [ ] `10a8:09f4` FUN_10a8_09f4 · depth 6 · 42 bytes · **untouched**
-- [ ] `10a8:0c72` FUN_10a8_0c72 · depth 6 · 165 bytes · **untouched**
-- [ ] `10a8:0d1a` FUN_10a8_0d1a · depth 6 · 67 bytes · **untouched**
-- [ ] `10a8:0000` FUN_10a8_0000 · depth 7 · 66 bytes · **untouched**
-- [ ] `10a8:01e8` FUN_10a8_01e8 · depth 7 · 93 bytes · **untouched**
-- [ ] `10a8:0350` FUN_10a8_0350 · depth 7 · 146 bytes · **untouched**
-- [ ] `10a8:0980` FUN_10a8_0980 · depth 7 · 116 bytes · **untouched**
-- [ ] `10a8:00e2` FUN_10a8_00e2 · depth 8 · 122 bytes · **untouched**
-- [ ] `10a8:03e2` FUN_10a8_03e2 · depth 8 · 100 bytes · **untouched**
-- [ ] `10a8:0a1e` FUN_10a8_0a1e · depth 8 · 352 bytes · **untouched**
-- [ ] `10a8:0b7e` FUN_10a8_0b7e · depth 8 · 63 bytes · **untouched**
-- [ ] `10a8:0bbe` FUN_10a8_0bbe · depth 8 · 179 bytes · **untouched**
-- [ ] `10a8:0446` FUN_10a8_0446 · depth 16 · 306 bytes · **untouched**
-- [ ] `10a8:015e` FUN_10a8_015e · depth 17 · 138 bytes · **untouched**
-- [ ] `10a8:07dc` FUN_10a8_07dc · depth 18 · 419 bytes · **untouched**
-- [ ] `10a8:0042` FUN_10a8_0042 · depth 19 · 79 bytes · **untouched**
-- [ ] `10a8:0092` FUN_10a8_0092 · depth 19 · 79 bytes · **untouched**
-- [ ] `10a8:057a` FUN_10a8_057a · depth 19 · 190 bytes · **untouched**
-- [ ] `10a8:0638` FUN_10a8_0638 · depth 19 · 193 bytes · **untouched**
-- [ ] `10a8:06fa` FUN_10a8_06fa · depth 19 · 224 bytes · **untouched**
+- [x] `10a8:0246` inferred_is_cached_sound · depth 6 · 69 bytes · **understood**
+- [x] `10a8:028e` inferred_find_cached_sound · depth 6 · 82 bytes · **understood**
+- [x] `10a8:02e2` inferred_cache_sound · depth 6 · 110 bytes · **understood**
+- [x] `10a8:09f4` inferred_speech_queue_busy · depth 6 · 42 bytes · **understood**
+- [x] `10a8:0c72` inferred_speech_deadline · depth 6 · 165 bytes · **understood**
+- [x] `10a8:0d1a` inferred_string_copy · depth 6 · 67 bytes · **understood**
+- [x] `10a8:0000` inferred_mixer_activate · depth 7 · 66 bytes · **understood**
+- [x] `10a8:01e8` inferred_clear_sound_cache · depth 7 · 93 bytes · **understood**
+- [x] `10a8:0350` inferred_free_sound_slot · depth 7 · 146 bytes · **understood**
+- [x] `10a8:0980` inferred_clear_speech_queue · depth 7 · 116 bytes · **understood**
+- [x] `10a8:00e2` inferred_init_mixer · depth 8 · 122 bytes · **understood**
+- [x] `10a8:03e2` inferred_free_all_sounds · depth 8 · 100 bytes · **understood**
+- [x] `10a8:0a1e` inferred_play_music · depth 8 · 352 bytes · **understood**
+- [x] `10a8:0b7e` inferred_stop_all_audio · depth 8 · 63 bytes · **understood**
+- [x] `10a8:0bbe` inferred_loop_music · depth 8 · 179 bytes · **understood**
+- [x] `10a8:0446` inferred_load_sound · depth 16 · 306 bytes · **understood**
+- [x] `10a8:015e` inferred_play_sound · depth 17 · 138 bytes · **understood**
+- [x] `10a8:07dc` inferred_pump_speech_queue · depth 18 · 419 bytes · **understood**
+- [x] `10a8:0042` inferred_stop_speech_and_continue · depth 19 · 79 bytes · **understood**
+- [x] `10a8:0092` inferred_stop_speech_and_continue_2 · depth 19 · 79 bytes · **understood**
+- [x] `10a8:057a` inferred_on_wave_done · depth 19 · 190 bytes · **understood**
+- [x] `10a8:0638` inferred_queue_speech · depth 19 · 193 bytes · **understood**
+- [x] `10a8:06fa` inferred_queue_sound · depth 19 · 224 bytes · **understood**
 
 ### clicking (2/2 done)
 
