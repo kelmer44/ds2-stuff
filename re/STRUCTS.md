@@ -428,3 +428,23 @@ Pending click continuation: record `DS:008c/008e`, verb `DS:0094`, pointer data 
 - **Entry** (0x42 bytes): +0x15 goto list, +0x19 hide list, +0x1d unhide list, +0x21 destroy list, +0x25 assign list, +0x29 flags (bit 0 initial = shown, bit 1 persist, bit 2 hidden: an entry is listed when `flags & 5 == 1`), +0x2b entry name (for hide/unhide/destroy lookup), +0x3f/+0x41 next entry; the player's text record and the message chain (0x17-byte nodes, next at +0x13/+0x15) hang off the first words.
 - **Goto / hide / unhide / destroy record** (0x46 bytes): condition part first (a compiled expression, see below), +0x2a/+0x2c resolved pointer (node or entry), +0x2e target name, next record +0x42/+0x44.
 - **Expression cells** (postfix, 16 bits): operand = variable (bit 14 set, index in the low bits) or literal; operator = character | 0x8000 (`+ - * / & | ^ < = >`).
+
+## Save file `DS2SGnn.SAV` ✅ (checked against `DS2SG00.SAV`, 832 bytes)
+
+Scrambled with `1018:05c0`: for each little-endian dword, `key += key >> 7` (32-bit), `dword ^= key`; start key `0x4E16A83F`; trailing bytes
+(length mod 4) are left alone. Unscrambled, little-endian 16-bit words:
+
+| Word | Content |
+|---|---|
+| 0 | `DS:007c` game mode / room number (101 in the sample; 2 is the title menu) |
+| 1, 2 | player x, y (`DS:3cae`, `DS:3cb0`) |
+| 3 | facing (`DS:8e3c`) |
+| 4 to 7 | not written by the saver (stale memory); the loader skips them |
+| 8, 9 | cursor mode `DS:770e`, game speed `DS:0046` |
+| 10 | marker `0xFADA` |
+| 11 to 10+N | game variable values (`DS:5e14`), N = `DS:5cda` = 330 in our copy |
+| next 50 | 0 or 1: whether per-room block *i* exists (table `DS:6116`) |
+| then | for each existing block: a word count n, then n words |
+| last | marker `0xFADA` |
+
+Slot titles and used flags are in the INI file, section `SAVEGAME`: `Title%02d`, `Saved%02d`.

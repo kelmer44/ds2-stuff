@@ -7,13 +7,13 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 
 | Stage | Count | Share |
 |---|---|---|
-| decompiled or later (status only) | 151 | 42% |
-| understood or later (status only) | 128 | 35% |
+| decompiled or later (status only) | 170 | 47% |
+| understood or later (status only) | 147 | 41% |
 | ported or later (status only) | 8 | 2% |
 | emu-compared or later (status only) | 8 | 2% |
 | original-compared or later (status only) | 8 | 2% |
 | replaced by a ScummVM service | 8 | |
-| **done (status understood or later and documented)** | **128** | **35%** |
+| **done (status understood or later and documented)** | **147** | **41%** |
 | status ahead of its documentation | 0 | |
 
 ## By cluster
@@ -81,20 +81,20 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 - [ ] `1068:2a72` inferred_load_conversation_file · depth 20 · 750 bytes · **decompiled** — loads conversation CONVnnnn (number from characters 4-7 of the name, DS:3438) as text, allocates the 0x242-byte conversation record at DS:5cba and fills it: SPEAKER -> 237a, CONVERSATION name, DECLARE -> variable slot, NODE -> 0x3e-byte node (name +0xc) via 27a8; then 2144 resolves names, and the compiled form is cached per conversation number (DS:6116) by 31a6/30a6; partly read
 - [ ] `1068:006c` DIALOGPROC · depth 21 · 3637 bytes · **decompiled** — the conversation window procedure (3.6 KB): list box of choices, speaker pictures, subtitles; entry selection (EntrySelected) unread | window procedure: WM_PAINT draws the 640x70 panel and the custom list (hover, up/down keys 0x26/0x28 and 0x68/0x62), WM_INITDIALOG builds the images, mouse/key select calls inferred_entry_selected then inferred_fill_dialog_list; ends the dialog (ENDDIALOG + free) when the next node is 0; drawing details unread
 
-### dialogs (0/12 done)
+### dialogs (12/12 done)
 
-- [ ] `1010:0000` FUN_1010_0000 · depth 6 · 165 bytes · **untouched**
-- [ ] `1010:00a6` FUN_1010_00a6 · depth 6 · 120 bytes · **untouched**
-- [ ] `1010:0336` FUN_1010_0336 · depth 6 · 89 bytes · **untouched**
-- [ ] `1010:08a2` ABOUT_DLG_PROC · depth 6 · 105 bytes · **untouched**
-- [ ] `1010:0938` FUN_1010_0938 · depth 6 · 223 bytes · **untouched**
-- [ ] `1010:0b72` FUN_1010_0b72 · depth 6 · 76 bytes · **untouched**
-- [ ] `1010:0794` FUN_1010_0794 · depth 7 · 50 bytes · **untouched**
-- [ ] `1010:0a44` FUN_1010_0a44 · depth 7 · 156 bytes · **untouched**
-- [ ] `1010:0ae0` FUN_1010_0ae0 · depth 7 · 145 bytes · **untouched**
-- [ ] `1010:0230` FUN_1010_0230 · depth 9 · 260 bytes · **untouched**
-- [ ] `1010:0390` PLAYSET_DLG_PROC · depth 9 · 965 bytes · **untouched**
-- [ ] `1010:011e` FUN_1010_011e · depth 20 · 272 bytes · **untouched**
+- [x] `1010:0000` inferred_init_file_dialog · depth 6 · 165 bytes · **understood**
+- [x] `1010:00a6` inferred_dir_of_path · depth 6 · 120 bytes · **understood**
+- [x] `1010:0336` inferred_open_play_settings · depth 6 · 89 bytes · **understood**
+- [x] `1010:08a2` ABOUT_DLG_PROC · depth 6 · 105 bytes · **understood**
+- [x] `1010:0938` inferred_testing_dialog_proc · depth 6 · 223 bytes · **understood**
+- [x] `1010:0b72` inferred_add_clamped_byte · depth 6 · 76 bytes · **understood**
+- [x] `1010:0794` inferred_show_buffer_message · depth 7 · 50 bytes · **understood**
+- [x] `1010:0a44` inferred_read_options · depth 7 · 156 bytes · **understood**
+- [x] `1010:0ae0` inferred_write_options · depth 7 · 145 bytes · **understood**
+- [x] `1010:0230` inferred_confirm_quit · depth 9 · 260 bytes · **understood**
+- [x] `1010:0390` PLAYSET_DLG_PROC · depth 9 · 965 bytes · **understood**
+- [x] `1010:011e` inferred_new_game · depth 20 · 272 bytes · **understood**
 
 ### dialogs and options (0/7 done)
 
@@ -106,15 +106,15 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 - [ ] `1060:0b62` FUN_1060_0b62 · depth 8 · 226 bytes · **untouched**
 - [ ] `1060:128a` VAR_CHECKER_PROC · depth 8 · 399 bytes · **untouched**
 
-### dialogs and saves (0/7 done)
+### dialogs and saves (7/7 done)
 
-- [ ] `1018:0566` FUN_1018_0566 · depth 6 · 89 bytes · **untouched**
-- [ ] `1018:05c0` FUN_1018_05c0 · depth 6 · 136 bytes · **untouched**
-- [ ] `1018:0000` LOADGAMEPROC · depth 7 · 459 bytes · **untouched**
-- [ ] `1018:09ce` FUN_1018_09ce · depth 8 · 630 bytes · **untouched**
-- [ ] `1018:0278` SAVEGAMEPROC · depth 9 · 702 bytes · **untouched**
-- [ ] `1018:0648` FUN_1018_0648 · depth 21 · 900 bytes · **untouched**
-- [ ] `1018:01fa` FUN_1018_01fa · depth 22 · 126 bytes · **untouched**
+- [x] `1018:0566` inferred_open_save_dialog · depth 6 · 89 bytes · **understood**
+- [x] `1018:05c0` inferred_xor_scramble · depth 6 · 136 bytes · **understood**
+- [x] `1018:0000` LOADGAMEPROC · depth 7 · 459 bytes · **understood**
+- [x] `1018:09ce` inferred_write_save_file · depth 8 · 630 bytes · **understood**
+- [x] `1018:0278` SAVEGAMEPROC · depth 9 · 702 bytes · **understood**
+- [x] `1018:0648` inferred_load_save_file · depth 21 · 900 bytes · **understood**
+- [x] `1018:01fa` inferred_open_load_dialog · depth 22 · 126 bytes · **understood**
 
 ### dialogs and script (0/12 done)
 

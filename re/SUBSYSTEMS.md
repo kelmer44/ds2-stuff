@@ -479,6 +479,34 @@ function keys open the options, save and load windows (not read yet).
 
 **What is not covered.** The exact rules of the three click handlers and what the options, save and load windows do.
 
+## Options, settings and the About window 🟡
+
+**What it does.** Seven choices live in a small settings file next to the game (`DARKSEED.INI`, section "Options"): sound on, music on, skip transitions, video size,
+read speed, MIDI type and the dialog option (speech and subtitles). They are read at start-up and written back when the window closes.
+
+**How it works.**
+1. The play-settings window shows the seven choices as check boxes and radio buttons, plus two sliders for the digital-sound volume and the music volume (0 to 255).
+   Moving a slider changes the volume at once; Cancel puts back the volumes the window opened with, OK keeps all changes.
+2. Switching music or sound off through the window uses the same switch as the M and D keys. If digital sound is off, the dialog option that needs speech is changed to the text-only one.
+3. "New game" asks for confirmation (not from the title menu), forgets the saved room data, reads the variable file again and starts the first room.
+4. "Quit" asks "are you sure" when the game is busy, or offers to save first when it is idle, then closes the window. The About box only has an OK button.
+
+**What is not covered.** What each radio option changes in play, and a few leftover test dialogs that nothing seems to open.
+
+## Save and load files 🟡 (file format ✅ checked against a real save)
+
+**What it does.** There are ten save slots. Each has a title kept in the settings file (section "SAVEGAME": `TitleNN` and `SavedNN`) and a file `DS2SGnn.SAV`.
+
+**The save file.** The whole file is scrambled by a running XOR (each group of four bytes is XORed with a key that changes after every group; the key starts at a fixed number),
+so the same routine scrambles and unscrambles. Unscrambled it is a list of 16-bit words: which part of the game is running (room number, or 2 for the title menu), where Mike stands
+and which way he faces, the cursor mode, the game speed, a marker (hex FADA), the value of every game variable (330 in our copy), 50 yes/no words saying whether each of 50 stored
+per-room blocks exists, the blocks themselves (a length and that many words), and the marker again. A save without the marker triggers a "saved game from another version" message.
+
+**How it works.** The save window lists the ten slots with their titles ("--- vacio ---" when empty); the player picks a slot, may edit the title, and confirms an overwrite.
+The load window is the same without editing, and refuses an empty slot. Loading switches the game off, unloads the room, sets all the values back, enters the saved room, rebuilds the per-room blocks and switches the game on.
+
+**What is not covered.** What the per-room blocks contain, and the four unused words in the header.
+
 ## Windows services the game relies on ❓
 
 Seen from the list of Windows calls the game makes. None of this is read yet.
