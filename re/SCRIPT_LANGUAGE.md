@@ -104,3 +104,13 @@ section, which is read with the object lexer (`1048:0000`), so both tables are u
 - `Entry` records use `From=x y [room]`, `XYRoom=x y [room] [dir] [flag]`, `Text=`, `Effect=`, `Speech=`, `Picture=`, `Dialog=`, `Destroy=`, `PaletteChange=n`, `Anim=x y w h name [flag]`
   (a video: window rectangle and AVI name), `Change=` and `ChangeAt=` assignment lists, `WaitUntil=` (a new record).
 - In `PosX=`, `PosY=` and `ScaleVal=` (mirror and sprite number lists) `V(n)` repeats V n times and `V(n d)` makes n values starting at V with step d.
+
+## Section parser results (7 August: read from `1048:114a`, `156a`, `17ea`, `18fe`, `042c`) [code]
+
+- **Sprite section** (`SpriteStart=`..`SpriteEnd=`): `Cond=` starts a node; `Cond2=`, `LoadCond=` (+0x11), `LoopCond=` (+0x15) add condition lists; `Anim=` the name; `Effect=`/`Speech=` an optional frame number then a sound
+  name; `Change=` terms; `ChangeAt=` a frame number then terms; `Status=` six numbers (flags, window low, window high, draw list, frame count, hold); `Sequence=`, `PosX=`, `PosY=`, `ScaleVal=` per-frame number lists;
+  `SpriteIdx=` one number; `LoopPoint=` one number (the start frame). `StartIndex=`/`EndIndex=` are **not** read in this section.
+- **Mirror section**: `Cond=` starts an entry (up to 25); `PosX=` and `PosY=` are three numbers each: the coefficients of the reflected position, x' = (x * A + y * B + C) / 256 and y' likewise; `ScaleVal=` three numbers, the first the mirror's facing; `ClipXY=` the clip rectangle.
+- **Palette section**: `Cond=` starts an entry; `StartIndex=` and `EndIndex=` (one number each) give the range that cycles.
+- **Music section**: `Cond=` starts an entry; `Midi=` gives the music name.
+- **Object-action records**: `SpeechVar=` is one number (not an assignment list); `WaitUntil=` starts a new record that the following lines fill; a second `Cond=` starts the next record in the chain.

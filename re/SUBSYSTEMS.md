@@ -562,6 +562,24 @@ so that resuming puts it back; and colour cycling rotates ranges of the palette 
 **Scene lists.** The scene has two lists of up to 100 sprites (drawn in depth order, the second list on top), a clip rectangle and a "dirty" rectangle. Entering a room empties the lists and sets the clip rectangle,
 and each sprite is reset with its backdrop picture and offset. Pictures are turned into Windows bitmaps with `CreateDIBitmap`; a few helpers do this and report errors by name.
 
+## Room files: how they are read 🟡
+
+**What it does.** A room is described by a text file and an object file. The program reads each line as `Key=value`, picks the section the key belongs to, and builds lists in memory. The same lists are what the game later walks.
+
+**Sections of a room file.**
+1. **Sprites** (up to many per room): each starts with `Cond=` (when it exists), then name, frame list, positions, scales, the sound to play at a given frame, variable changes at a given frame and at the end, and a status line (flags, a random window, which draw list, number of frames, how long to hold each).
+2. **Mirror** (6 rooms): where the player's reflection is drawn, as a small linear map of the player's position, which way it faces and where it is clipped.
+3. **Palette** (1 room): which range of palette colours cycles.
+4. **Music**: which piece plays under which condition.
+5. **Entry**: what happens when the player arrives (the video, the starting position, variable changes).
+Every list of conditions can have alternatives (`Cond2=`).
+
+**Object files.** Each object has a hot-spot rectangle and up to three sections (go, look, use). A section is a chain of records, each with a condition, an optional position to walk to, text, effect, speech, picture, animation or video, dialog, cursor and variable changes; a `WaitUntil=` record continues after a condition becomes true.
+
+**Entering a room.** The glue file and the room's text are loaded, music starts, the backdrop and palette are made, the sprites are created (those whose load condition fails are dropped), and the walk map is copied into a grid with a border. The entry section then runs, playing its video if any.
+
+**What is not covered.** The exact palette flags of an entry, and what the end of the object file looks like to the loader.
+
 ## Windows services the game relies on ❓
 
 Seen from the list of Windows calls the game makes. None of this is read yet.

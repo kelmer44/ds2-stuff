@@ -8,12 +8,12 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 | Stage | Count | Share |
 |---|---|---|
 | decompiled or later (status only) | 235 | 66% |
-| understood or later (status only) | 219 | 61% |
+| understood or later (status only) | 228 | 64% |
 | ported or later (status only) | 8 | 2% |
 | emu-compared or later (status only) | 8 | 2% |
 | original-compared or later (status only) | 8 | 2% |
 | replaced by a ScummVM service | 8 | |
-| **done (status understood or later and documented)** | **219** | **61%** |
+| **done (status understood or later and documented)** | **228** | **64%** |
 | status ahead of its documentation | 0 | |
 
 ## By cluster
@@ -131,10 +131,10 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 - [ ] `1068:1a74` FUN_1068_1a74 · depth 16 · 249 bytes · **untouched**
 - [ ] `1068:1b6e` FUN_1068_1b6e · depth 17 · 253 bytes · **untouched**
 
-### game tick (4/6 done)
+### game tick (6/6 done)
 
-- [ ] `1048:24ee` inferred_start_room_media · depth 11 · 1372 bytes · **decompiled** — AVI video start (OPEN avivideo, play vfw ...); unread | finds the entry record matching FromRoom and true condition; fixes palette (flag +0x14 bit 0), starts the AVI named in Anim= (names beginning with T/t play full screen 0,0,320,240) via MCI; MCI part unread
-- [ ] `1048:2b8e` inferred_enter_room · depth 18 · 1699 bytes · **decompiled** — builds GL00_%X%02d.000 from room/100 and room%100, loads that glue file, then OBJ file; partly read | builds GL00_%X%02d.000 and loads it, loads ROOM file via 1048:1f6e and OBJ file via 1048:093e, loads WALKMAP bitmap into a 80x48 grid at room+0x52 (8 border columns each side), loads per-frame images through 1070:0000, creates the sprite records; helpers 1078:03be/0106/00ca unread
+- [x] `1048:24ee` inferred_start_room_media · depth 11 · 1372 bytes · **understood** — AVI video start (OPEN avivideo, play vfw ...); unread | finds the entry record matching FromRoom and true condition; fixes palette (flag +0x14 bit 0), starts the AVI named in Anim= (names beginning with T/t play full screen 0,0,320,240) via MCI; MCI part unread
+- [x] `1048:2b8e` inferred_enter_room · depth 18 · 1699 bytes · **understood** — builds GL00_%X%02d.000 from room/100 and room%100, loads that glue file, then OBJ file; partly read | builds GL00_%X%02d.000 and loads it, loads ROOM file via 1048:1f6e and OBJ file via 1048:093e, loads WALKMAP bitmap into a 80x48 grid at room+0x52 (8 border columns each side), loads per-frame images through 1070:0000, creates the sprite records; helpers 1078:03be/0106/00ca unread
 - [x] `1048:3236` inferred_enter_room_and_start · depth 19 · 73 bytes · **understood** — SysMapBlock handling; unread
 - [x] `1038:1ade` inferred_world_step · depth 20 · 2767 bytes · **understood** — called from the tick when DS:610e (room-changed flag) is set; unread
 - [x] `1048:2a50` inferred_run_room_entry · depth 20 · 315 bytes · **understood** — exit/room-change variables (FromRoom, LastAction); unread
@@ -320,19 +320,19 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 - [ ] `1050:0062` FUN_1050_0062 · depth 9 · 184 bytes · **untouched**
 - [ ] `1050:035a` FUN_1050_035a · depth 9 · 518 bytes · **untouched**
 
-### script and rooms (5/12 done)
+### script and rooms (12/12 done)
 
 - [x] `1048:03c4` inferred_skip_line · depth 6 · 104 bytes · **understood**
 - [x] `1048:0000` inferred_next_obj_token · depth 7 · 940 bytes · **understood**
 - [x] `1048:0b54` inferred_next_room_token · depth 7 · 1480 bytes · **understood**
-- [ ] `1048:21b0` inferred_unload_room · depth 8 · 830 bytes · **decompiled** — room object helper, AAAAAAAAAAA%02d local variable names; unread | unloads the room: resets local variable slots 1..20 to placeholder names AAAAAAAAAAA%02d with value 0, frees entry list, sprite nodes (images through 1070:0136, scaled images, condition lists), mirror/palette arrays, the room record, the two Mike sprite records, then frees the room's glue file (1088:02ac) named GL00_%X%02d.000; details of each freed structure partly read
-- [ ] `1048:114a` inferred_parse_sprite_section · depth 9 · 985 bytes · **decompiled** — room section parser (uses inferred_next_room_token); unread | SPRITESTART section: COND starts a 0x685-byte sprite node (linked from room +0x39, next at node +0x681, state +0x67b = 100, condition list at +0xd); ANIM name at +0; EFFECT number +0x45 name +0x47; SPEECH number +0x54 name +0x56; STATUS six numbers at +0x67..+0x71 (flags, ?, ?, list number (+0x6d), frame count (+0x6f), ?); SEQUENCE list into +0x27b (default 1..count); STARTINDEX/ENDINDEX (+0x63/+0x65, default 0..count-1); SPRITEIDX into +0x67b; error 'Too many frames in one animation!' above 128 frames; LOADCOND/LOOPCOND/LOOPPOINT/POSX/POSY/SCALEVAL partly read
-- [ ] `1048:156a` inferred_parse_mirror_section · depth 9 · 640 bytes · **decompiled** — room section parser (uses inferred_next_room_token); unread | MIRRORSTART section; unread in detail | MIRRORSTART section: COND/COND2 nodes, CLIPXY (4 numbers), SCALEVAL via 1060:0c44/0d2e, POSX/POSY via 1060:0f1c into per-mirror arrays; mirror record layout not resolved
-- [ ] `1048:17ea` inferred_parse_palette_section · depth 9 · 275 bytes · **decompiled** — room section parser, sprites (SEQUENCE=, SPEECH=, CHANGE=, ENDINDEX=); unread | PALETTESTART section: COND/COND2 list nodes, STARTINDEX/ENDINDEX numbers; destination fields near room +0xfe2 not located
-- [ ] `1048:18fe` inferred_parse_music_section · depth 9 · 253 bytes · **decompiled** — room section parser, music (MUSICEND=); unread | MUSICSTART section: COND list node, MIDI name; destination array in the room record not located
-- [ ] `1048:042c` inferred_parse_action_block · depth 16 · 1237 bytes · **decompiled** — reads lines with inferred_next_obj_token until the end token given as argument; fills a 150-byte action record per COND (XYROOM 5 numbers, TEXT loads NAME.txt, EFFECT/SPEECH/PICTURE/MIDI/DIALOG/CURSOR strings, ANIM 5 numbers + name, CHANGE/SPEECHVAR/COND2/WAITUNTIL term lists, DESTROY sets +0xc); partly read
+- [x] `1048:21b0` inferred_unload_room · depth 8 · 830 bytes · **understood** — room object helper, AAAAAAAAAAA%02d local variable names; unread | unloads the room: resets local variable slots 1..20 to placeholder names AAAAAAAAAAA%02d with value 0, frees entry list, sprite nodes (images through 1070:0136, scaled images, condition lists), mirror/palette arrays, the room record, the two Mike sprite records, then frees the room's glue file (1088:02ac) named GL00_%X%02d.000; details of each freed structure partly read
+- [x] `1048:114a` inferred_parse_sprite_section · depth 9 · 985 bytes · **understood** — room section parser (uses inferred_next_room_token); unread | SPRITESTART section: COND starts a 0x685-byte sprite node (linked from room +0x39, next at node +0x681, state +0x67b = 100, condition list at +0xd); ANIM name at +0; EFFECT number +0x45 name +0x47; SPEECH number +0x54 name +0x56; STATUS six numbers at +0x67..+0x71 (flags, ?, ?, list number (+0x6d), frame count (+0x6f), ?); SEQUENCE list into +0x27b (default 1..count); STARTINDEX/ENDINDEX (+0x63/+0x65, default 0..count-1); SPRITEIDX into +0x67b; error 'Too many frames in one animation!' above 128 frames; LOADCOND/LOOPCOND/LOOPPOINT/POSX/POSY/SCALEVAL partly read
+- [x] `1048:156a` inferred_parse_mirror_section · depth 9 · 640 bytes · **understood** — room section parser (uses inferred_next_room_token); unread | MIRRORSTART section; unread in detail | MIRRORSTART section: COND/COND2 nodes, CLIPXY (4 numbers), SCALEVAL via 1060:0c44/0d2e, POSX/POSY via 1060:0f1c into per-mirror arrays; mirror record layout not resolved
+- [x] `1048:17ea` inferred_parse_palette_section · depth 9 · 275 bytes · **understood** — room section parser, sprites (SEQUENCE=, SPEECH=, CHANGE=, ENDINDEX=); unread | PALETTESTART section: COND/COND2 list nodes, STARTINDEX/ENDINDEX numbers; destination fields near room +0xfe2 not located
+- [x] `1048:18fe` inferred_parse_music_section · depth 9 · 253 bytes · **understood** — room section parser, music (MUSICEND=); unread | MUSICSTART section: COND list node, MIDI name; destination array in the room record not located
+- [x] `1048:042c` inferred_parse_action_block · depth 16 · 1237 bytes · **understood** — reads lines with inferred_next_obj_token until the end token given as argument; fills a 150-byte action record per COND (XYROOM 5 numbers, TEXT loads NAME.txt, EFFECT/SPEECH/PICTURE/MIDI/DIALOG/CURSOR strings, ANIM 5 numbers + name, CHANGE/SPEECHVAR/COND2/WAITUNTIL term lists, DESTROY sets +0xc); partly read
 - [x] `1048:19fc` inferred_parse_entry_section · depth 16 · 1327 bytes · **understood** — runs animations or talk entries (Speaker, SysTalking, LastAction, SysMapBlock, 'Too many frames in one animation!'); unread | ENTRYSTART section: uses the object lexer, handles From/XYRoom/Change/etc.; unread in detail
-- [ ] `1048:093e` inferred_load_obj_file · depth 17 · 531 bytes · **decompiled** — builds OBJ_%04d.dat, loads and parses it; parser not read
+- [x] `1048:093e` inferred_load_obj_file · depth 17 · 531 bytes · **understood** — builds OBJ_%04d.dat, loads and parses it; parser not read
 - [x] `1048:1f6e` inferred_load_room · depth 17 · 572 bytes · **understood** — loads a room: builds ROOM%04d.DAT, loads mask and palette; unread
 
 ### startup (2/2 done)
