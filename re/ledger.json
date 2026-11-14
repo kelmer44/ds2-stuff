@@ -3078,11 +3078,11 @@
    "10d0:029e"
   ],
   "depth": 7,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_start_dialog_sound",
+  "status": "decompiled",
   "engine": "",
-  "notes": "",
-  "cluster_name": "",
+  "notes": "unread",
+  "cluster_name": "conversations",
   "cluster": "dialogs and script"
  },
  {
@@ -3121,11 +3121,11 @@
    "10d0:029e"
   ],
   "depth": 7,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_next_conv_token",
+  "status": "understood",
   "engine": "",
   "notes": "",
-  "cluster_name": "",
+  "cluster_name": "conversations",
   "cluster": "dialogs and script"
  },
  {
@@ -3291,11 +3291,11 @@
    "10d0:029e"
   ],
   "depth": 10,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_get_cond_info",
+  "status": "decompiled",
   "engine": "",
-  "notes": "",
-  "cluster_name": "",
+  "notes": "parses the (Variable) condition prefix of goto/destroy lines ('Expression without ,' error); unread",
+  "cluster_name": "conversations",
   "cluster": "dialogs and script"
  },
  {
@@ -3401,11 +3401,11 @@
    "10d0:029e"
   ],
   "depth": 18,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_load_conversation",
+  "status": "decompiled",
   "engine": "",
-  "notes": "",
-  "cluster_name": "",
+  "notes": "reads a CONV file into a node tree: NODE starts a node, ENTRY allocates a 0x42-byte entry (name +0x2b, flag bits at +0x29: INITIAL = 1, PERSIST = 2), TEXT/MESSAGE/HIDE/UNHIDE/ASSIGN/DESTROY/GOTO lists allocated per entry; speaker variable names with Speaker; record layout not resolved",
+  "cluster_name": "conversations",
   "cluster": "dialogs and script"
  },
  {
@@ -3427,11 +3427,11 @@
    "10d0:029e"
   ],
   "depth": 19,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_load_conversation_2",
+  "status": "decompiled",
   "engine": "",
-  "notes": "",
-  "cluster_name": "",
+  "notes": "second loader variant (INITIAL, PERSIST keywords); unread",
+  "cluster_name": "conversations",
   "cluster": "dialogs and script"
  },
  {

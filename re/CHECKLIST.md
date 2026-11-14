@@ -7,13 +7,13 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 
 | Stage | Count | Share |
 |---|---|---|
-| decompiled or later (status only) | 113 | 31% |
-| understood or later (status only) | 96 | 26% |
+| decompiled or later (status only) | 118 | 33% |
+| understood or later (status only) | 97 | 27% |
 | ported or later (status only) | 8 | 2% |
 | emu-compared or later (status only) | 8 | 2% |
 | original-compared or later (status only) | 8 | 2% |
 | replaced by a ScummVM service | 8 | |
-| **done (status understood or later and documented)** | **96** | **26%** |
+| **done (status understood or later and documented)** | **97** | **27%** |
 | status ahead of its documentation | 0 | |
 
 ## By cluster
@@ -62,6 +62,14 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 - [x] `1058:01e0` inferred_run_object_action · depth 21 · 1853 bytes · **understood**
 - [x] `1058:0922` inferred_hit_test_click · depth 22 · 408 bytes · **understood**
 
+### conversations (1/5 done)
+
+- [ ] `1068:15b8` inferred_start_dialog_sound · depth 7 · 154 bytes · **decompiled** — unread
+- [x] `1068:1692` inferred_next_conv_token · depth 7 · 839 bytes · **understood**
+- [ ] `1068:1efe` inferred_get_cond_info · depth 10 · 357 bytes · **decompiled** — parses the (Variable) condition prefix of goto/destroy lines ('Expression without ,' error); unread
+- [ ] `1068:2418` inferred_load_conversation · depth 18 · 885 bytes · **decompiled** — reads a CONV file into a node tree: NODE starts a node, ENTRY allocates a 0x42-byte entry (name +0x2b, flag bits at +0x29: INITIAL = 1, PERSIST = 2), TEXT/MESSAGE/HIDE/UNHIDE/ASSIGN/DESTROY/GOTO lists allocated per entry; speaker variable names with Speaker; record layout not resolved
+- [ ] `1068:27a8` inferred_load_conversation_2 · depth 19 · 709 bytes · **decompiled** — second loader variant (INITIAL, PERSIST keywords); unread
+
 ### dialogs (0/12 done)
 
 - [ ] `1010:0000` FUN_1010_0000 · depth 6 · 165 bytes · **untouched**
@@ -97,7 +105,7 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 - [ ] `1018:0648` FUN_1018_0648 · depth 21 · 900 bytes · **untouched**
 - [ ] `1018:01fa` FUN_1018_01fa · depth 22 · 126 bytes · **untouched**
 
-### dialogs and script (0/28 done)
+### dialogs and script (0/23 done)
 
 - [ ] `1068:1654` FUN_1068_1654 · depth 6 · 61 bytes · **untouched**
 - [ ] `1068:19ea` FUN_1068_19ea · depth 6 · 138 bytes · **untouched**
@@ -106,8 +114,6 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 - [ ] `1068:312a` FUN_1068_312a · depth 6 · 124 bytes · **untouched**
 - [ ] `1068:3280` FUN_1068_3280 · depth 6 · 60 bytes · **untouched**
 - [ ] `1068:0edc` FUN_1068_0edc · depth 7 · 334 bytes · **untouched**
-- [ ] `1068:15b8` FUN_1068_15b8 · depth 7 · 154 bytes · **untouched**
-- [ ] `1068:1692` FUN_1068_1692 · depth 7 · 839 bytes · **untouched**
 - [ ] `1068:2074` FUN_1068_2074 · depth 7 · 103 bytes · **untouched**
 - [ ] `1068:20dc` FUN_1068_20dc · depth 7 · 103 bytes · **untouched**
 - [ ] `1068:237a` FUN_1068_237a · depth 7 · 158 bytes · **untouched**
@@ -118,12 +124,9 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 - [ ] `1068:2144` FUN_1068_2144 · depth 8 · 566 bytes · **untouched**
 - [ ] `1068:31a6` FUN_1068_31a6 · depth 8 · 218 bytes · **untouched**
 - [ ] `1068:1e12` FUN_1068_1e12 · depth 9 · 234 bytes · **untouched**
-- [ ] `1068:1efe` FUN_1068_1efe · depth 10 · 357 bytes · **untouched**
 - [ ] `1068:1a74` FUN_1068_1a74 · depth 16 · 249 bytes · **untouched**
 - [ ] `1068:1c6c` FUN_1068_1c6c · depth 16 · 242 bytes · **untouched**
 - [ ] `1068:1b6e` FUN_1068_1b6e · depth 17 · 253 bytes · **untouched**
-- [ ] `1068:2418` FUN_1068_2418 · depth 18 · 885 bytes · **untouched**
-- [ ] `1068:27a8` FUN_1068_27a8 · depth 19 · 709 bytes · **untouched**
 - [ ] `1068:11da` FUN_1068_11da · depth 20 · 987 bytes · **untouched**
 - [ ] `1068:2a72` FUN_1068_2a72 · depth 20 · 750 bytes · **untouched**
 - [ ] `1068:006c` DIALOGPROC · depth 21 · 3637 bytes · **untouched**

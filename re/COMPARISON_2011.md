@@ -179,3 +179,14 @@ Update after reading `1040:011a` in full (14 Nov):
 | Walk first | within 10 pixels of `XYRoom=` x, y and the facing equals the 4th number; else walk and re-run on arrival | not compared | unverified |
 | First true block wins | per object and verb | script chunks with conditions (`conditionsMet`) | probably faithful |
 | Rooms 0x13a and 0x32b | go click with no go list uses the use list | not found | unverified |
+
+## Conversations (compared 14 Nov, from the script files and the line reader only)
+
+2011 sources: `conversation.cpp`, `conversation.h` (the 2011 TODO lists "entry action destroy" and "`CONV0024.TXT` goto = exit, Greeting" as open).
+
+| Item | Contract | 2011 | Verdict |
+|---|---|---|---|
+| Keywords | 15 keys: conversation, declare, import, node, fallthrough, entry, hide, unhide, text, goto, assign, destroy, message, messagestop, speaker | the same set is implied by the open items | not compared line by line |
+| `goto = exit, Node` | 6 uses, all `exit, Greeting` in `CONV0024.TXT`: leave and set the next start node [data] | listed as not understood | **open item explained**: the form is `exit` followed by a node name; the runtime effect is not read in the EXE yet |
+| `destroy = (Var) entry` | 65 uses; removes an entry when the variable holds [data] | listed as not understood | **open item explained** by the file syntax; runtime to be confirmed |
+| Value cleaning | spaces and non-ASCII characters removed (except after the comma in `speaker`) | not compared | unverified: names with spaces would differ |

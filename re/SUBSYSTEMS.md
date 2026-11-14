@@ -305,6 +305,24 @@ is still to be recovered.
 
 **For ScummVM.** Do the entry list after the room is built and in the same order; use `FromRoom` to pick the entry; keep the 8-cell border.
 
+## Conversations 🟡
+
+**What it does.** Talking to someone is a small menu game driven by a text script, one file per person or situation (51 files).
+
+**How it works (from the script files and the line reader; the part that runs it is not read yet).**
+1. A script lists the speakers (0 is Mike) and then *nodes*. A node is a state of the conversation, for example "questions" or "greeting".
+2. A node holds *entries*. Each entry is one thing Mike can say: the name of his line and the name of the reply, a few lists of other entries to show or hide,
+   and the node to go to next. Entries marked `initial` are visible at the start; the others appear when an earlier entry shows them.
+3. The first node of a file often only decides where to start, by testing game variables (`goto = (Var) Node`).
+4. When no choice is left, the node's `fallthrough` says where to go. `goto = exit, Greeting` leaves the conversation and sets the node used next time.
+   `destroy` removes an entry for good when a variable condition holds. `assign` changes game variables.
+5. The words are not in the script: each line is a named text resource (and a named speech clip), looked up like any other resource.
+
+**Checked.** The line reader and the keyword list were read in the code, and every file only uses those keywords. 🟡 because the code that builds the node
+tree and runs a conversation (`1068:2418` and the helpers) is only skimmed.
+
+**For ScummVM.** Parse the file with the same cleaning (spaces removed from values), skip unknown keys, and resolve `text` and `message` as resource names.
+
 ## Clicking things 🟡
 
 **What it does.** A click on the room is turned into one of three verbs: go (0), use (1) or look (2). The game finds the object under the pointer
