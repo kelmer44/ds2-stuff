@@ -209,3 +209,25 @@ Update after reading `EntrySelected` (14 Nov):
 | `hide` / `unhide` | hide clears all flags; unhide sets bit 0 only | not compared | unverified: hiding a `persist` entry also clears its persist bit in the original |
 | Entry after use | non-persist entries are hidden when chosen | not compared | unverified |
 | Order of effects | assign, hide, unhide, destroy, then speech, then goto | not compared | unverified |
+
+## Conversations, runtime (compared 14 Nov, `conversation.cpp` read against `CONVERSATION_LANGUAGE.md` and the contracts `1068_*`)
+
+| Item | Contract (original) | 2011 | Verdict |
+|---|---|---|---|
+| Unknown or `exit` goto target | the conversation ends | `goTo`: `exit` or a name not in the node map breaks out with no current node | **faithful** |
+| First true goto wins | goto lines tried in order, first true condition is taken | loop with `continue` on a false condition, `break` on the first true one | **faithful** |
+| Fallthrough | while visible entries `<=` n, continue in the named node; empty, `exit` or unknown name ends | same loop and same end rule | **faithful** |
+| Entry visible | `flags & 5 == 1` (initial, not destroyed) | one `visible` bool plus a `destroyed` bool that `getVisibleEntries` never checks | **differs**: see destroy |
+| `destroy` | sets bit 2, entry never returns, not even after `unhide` | sets `destroyed = true` (with a TODO warning) but `unhide` sets `visible = true` and the list only tests `visible`, so a destroyed entry can come back | **differs**: fix by testing `destroyed` in the list and in `unhide` |
+| `hide` | clears all flags, including persist | clears `visible` only | **faithful with changes** (the persist bit does not matter once persist is handled as below) |
+| `unhide` | sets bit 0 | sets `visible` | **faithful** (given the destroy fix) |
+| Persist | a chosen entry that is not persist is cleared; a persist entry stays on the list | `persist` is parsed and saved but `pick` always hides the chosen entry | **differs**: persist entries must not be hidden on selection |
+| Effect order | non-persist cleared, assign, hide, unhide, destroy, speech, replies, first true goto | `hide(entry)`, assign, hide, unhide, destroy, goto (speech is played by the caller) | **faithful with changes**: order of the list effects matches; the persist rule above is the only gap |
+| Conditions on actions | evaluated per action with the variable terms | `evalCondition` on each action, in `Variables` | **unverified**: depends on the 2011 prefix guesses already marked `differs` in "Game variables and conditions" |
+| `assign` | `Var = expression` (postfix) | `Assign(var, value)` strings; `CONV0011` workaround, `speaker` handled | **unverified**: expression forms were not checked against the 2011 parser |
+| Node with entries and goto | per original, a node that has both is read as a choice list and the goto is the fallback | only a "TODO ... has goto and entry" warning; `goTo` returns early only for a node with no entries and some gotos | **unverified**: check against `1068:15b8` before reuse |
+| Start node | first node in the file | first node parsed becomes `_startNode` | **faithful** (the original starts from the first node too) |
+| Choice text | first line of `NAME.txt` | full text | **unverified** |
+| Save/load | not read yet | syncs flags, current and start node | **unverified** |
+
+Reuse decision: the node graph, goto and fallthrough code is adoptable as it is. Entry state (`visible`, `destroyed`, `persist`) is replaced by the original's flag byte with the bit rules above. Condition and assign code waits for the variable and expression layer to be settled.
