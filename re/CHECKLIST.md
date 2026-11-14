@@ -8,12 +8,12 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 | Stage | Count | Share |
 |---|---|---|
 | decompiled or later (status only) | 111 | 31% |
-| understood or later (status only) | 93 | 26% |
+| understood or later (status only) | 94 | 26% |
 | ported or later (status only) | 8 | 2% |
 | emu-compared or later (status only) | 8 | 2% |
 | original-compared or later (status only) | 8 | 2% |
 | replaced by a ScummVM service | 8 | |
-| **done (status understood or later and documented)** | **93** | **26%** |
+| **done (status understood or later and documented)** | **94** | **26%** |
 | status ahead of its documentation | 0 | |
 
 ## By cluster
@@ -440,9 +440,9 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 - [ ] `1020:0a14` FUN_1020_0a14 · depth 6 · 44 bytes · **untouched**
 - [ ] `1020:0a40` FUN_1020_0a40 · depth 7 · 229 bytes · **untouched**
 
-### walking (2/3 done)
+### walking (3/3 done)
 
 - [x] `1040:0000` inferred_walk_line_clear · depth 6 · 280 bytes · **understood**
-- [ ] `1040:011a` inferred_find_walk_path · depth 9 · 1860 bytes · **decompiled** — path search on the 80x48 grid: fills DS:3eba from the walk grid (cell > SysMapBlock = walkable), snaps blocked start/target cells to the nearest walkable cell with a 4-neighbour breadth-first search, then searches the path; path extraction into DS:3cb2 not read
+- [x] `1040:011a` inferred_find_walk_path · depth 9 · 1860 bytes · **understood** — path search on the 80x48 grid: fills DS:3eba from the walk grid (cell > SysMapBlock = walkable), snaps blocked start/target cells to the nearest walkable cell with a 4-neighbour breadth-first search, then searches the path; path extraction into DS:3cb2 not read
 - [x] `1010:07c6` inferred_start_walk · depth 10 · 220 bytes · **understood**
 

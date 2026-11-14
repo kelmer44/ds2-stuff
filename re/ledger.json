@@ -1594,7 +1594,7 @@
   ],
   "depth": 9,
   "name": "inferred_find_walk_path",
-  "status": "decompiled",
+  "status": "understood",
   "engine": "",
   "notes": "path search on the 80x48 grid: fills DS:3eba from the walk grid (cell > SysMapBlock = walkable), snaps blocked start/target cells to the nearest walkable cell with a 4-neighbour breadth-first search, then searches the path; path extraction into DS:3cb2 not read",
   "cluster_name": "walking",

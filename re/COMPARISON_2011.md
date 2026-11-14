@@ -161,3 +161,12 @@ The 2011 engine has no equivalent of the original's lookup path. Differences tha
 | Neighbours | 4 (left, right, up, down) | 8, straight ones first | **differs**: the original search moves in 4 directions (path shape and length differ; the later smoothing in the original is unread) |
 | Algorithm | breadth-first search with a nearest-floor snap | IDA* with an 8-direction heuristic | differs; a faithful port should use the original's 4-direction breadth-first search once the path extraction is read |
 | Blocked target | snap to the nearest walkable cell (BFS up to 400 rounds) | `findNearest` over the whole map (squared distance) | differs in which cell is chosen when several are equally near |
+
+Update after reading `1040:011a` in full (14 Nov):
+
+| Item | Contract | 2011 | Verdict |
+|---|---|---|---|
+| Route shape | breadth-first route from the start, kept as corner cells chosen by a straight-line test against walls (string pulling) | IDA* route over cells, then `simplifyPath` removes only middle points of exactly straight or exactly diagonal runs | **differs**: the original skips ahead over any straight line that does not cross a wall, giving long straight runs, 2011 follows the cell route with only exact lines merged |
+| Search limit | gives up after 400 rounds | node limit `3 * width * height` | differs (limit values) |
+| Inner-area rule | the search never expands cells in column 0, column 79, row 0 or row 47 of the 80 by 48 grid | none | differs only at the screen edge |
+| List order | goal first, start last, consumed from the end | positions front to back | equivalent if the consumer reads start to goal |

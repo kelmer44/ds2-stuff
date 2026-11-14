@@ -314,12 +314,15 @@ is still to be recovered.
    give the top of the grid and the cell height). The game copies it into a wider grid with 8 repeated cells on each side.
 2. A cell is **walkable when its number is bigger than the game variable `SysMapBlock`**. The variable is 0 when a room is entered, so
    any number above 0 is floor and 0 is wall. Scripts can raise the variable to close off the areas whose cells have the number 1 (25 of the 84 rooms have such cells).
-3. When you click, the click is turned into a grid cell. If the cell is a wall, the game finds the nearest floor cell first. The path
-   search works on the grid in four directions and gives a list of cells; the player then follows it point by point (see the game tick).
+3. When you click, the click is turned into a grid cell. If the start or the target cell is a wall, the game first finds the nearest floor cell with a small
+   fill that spreads left, right, up and down. Then a second fill spreads from the start over the floor until it reaches the target; every cell
+   remembers which cell it came from. The route is read back from the target to the start. Cells are kept only where the route has to turn
+   (the game checks with a straight-line test whether it can skip ahead), so the player walks in a few straight runs. The player then follows
+   this short list point by point (see the game tick). Searches give up after 400 rounds.
 4. A straight-line test between two cells checks that every cell between them is floor.
 
-**Checked.** The grid layout, the walkable rule (read in the assembly and consistent with the real maps) and the click conversion are read. 🟡 because the
-code that builds the final path from the search is not read yet.
+**Checked.** The grid layout, the walkable rule (read in the assembly and consistent with the real maps) and the click conversion are read. ✅ for the click conversion, the walkable rule, the search and the route building (all read instruction by instruction). 🟡 because the signed-compare quirk
+at the start cell is not confirmed by a run, and the tick's use of the list is only skimmed.
 
 **For ScummVM.** Use `cell > SysMapBlock` as the walkable test and re-evaluate it whenever the variable changes.
 
