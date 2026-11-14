@@ -2200,11 +2200,11 @@
    "10d0:0604"
   ],
   "depth": 21,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_run_object_action",
+  "status": "understood",
   "engine": "",
   "notes": "",
-  "cluster_name": "",
+  "cluster_name": "clicking",
   "cluster": "text and cursors"
  },
  {
@@ -2226,11 +2226,11 @@
    "10d0:029e"
   ],
   "depth": 22,
-  "name": "",
-  "status": "untouched",
+  "name": "inferred_hit_test_click",
+  "status": "understood",
   "engine": "",
   "notes": "",
-  "cluster_name": "",
+  "cluster_name": "clicking",
   "cluster": "text and cursors"
  },
  {

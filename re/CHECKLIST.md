@@ -7,13 +7,13 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 
 | Stage | Count | Share |
 |---|---|---|
-| decompiled or later (status only) | 111 | 31% |
-| understood or later (status only) | 94 | 26% |
+| decompiled or later (status only) | 113 | 31% |
+| understood or later (status only) | 96 | 26% |
 | ported or later (status only) | 8 | 2% |
 | emu-compared or later (status only) | 8 | 2% |
 | original-compared or later (status only) | 8 | 2% |
 | replaced by a ScummVM service | 8 | |
-| **done (status understood or later and documented)** | **94** | **26%** |
+| **done (status understood or later and documented)** | **96** | **26%** |
 | status ahead of its documentation | 0 | |
 
 ## By cluster
@@ -56,6 +56,11 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 - [ ] `10a8:057a` FUN_10a8_057a · depth 19 · 190 bytes · **untouched**
 - [ ] `10a8:0638` FUN_10a8_0638 · depth 19 · 193 bytes · **untouched**
 - [ ] `10a8:06fa` FUN_10a8_06fa · depth 19 · 224 bytes · **untouched**
+
+### clicking (2/2 done)
+
+- [x] `1058:01e0` inferred_run_object_action · depth 21 · 1853 bytes · **understood**
+- [x] `1058:0922` inferred_hit_test_click · depth 22 · 408 bytes · **understood**
 
 ### dialogs (0/12 done)
 
@@ -420,13 +425,11 @@ Generated from `ledger.json` by `tools/make_checklist.py`; update through `tools
 - [ ] `10d0:065c` FUN_10d0_065c · depth 23 · 44 bytes · **untouched**
 - [ ] `10d0:001a` entry · depth 24 · 177 bytes · **untouched**
 
-### text and cursors (0/8 done)
+### text and cursors (0/6 done)
 
 - [ ] `1058:0ca4` FUN_1058_0ca4 · depth 6 · 102 bytes · **untouched**
 - [ ] `1058:0000` FUN_1058_0000 · depth 11 · 479 bytes · **untouched**
 - [ ] `1058:0be2` FUN_1058_0be2 · depth 20 · 193 bytes · **untouched**
-- [ ] `1058:01e0` FUN_1058_01e0 · depth 21 · 1853 bytes · **untouched**
-- [ ] `1058:0922` FUN_1058_0922 · depth 22 · 408 bytes · **untouched**
 - [ ] `1058:0abc` FUN_1058_0abc · depth 23 · 37 bytes · **untouched**
 - [ ] `1058:0ae2` FUN_1058_0ae2 · depth 23 · 37 bytes · **untouched**
 - [ ] `1058:0b08` FUN_1058_0b08 · depth 23 · 217 bytes · **untouched**

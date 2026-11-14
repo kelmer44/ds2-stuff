@@ -170,3 +170,12 @@ Update after reading `1040:011a` in full (14 Nov):
 | Search limit | gives up after 400 rounds | node limit `3 * width * height` | differs (limit values) |
 | Inner-area rule | the search never expands cells in column 0, column 79, row 0 or row 47 of the 80 by 48 grid | none | differs only at the screen edge |
 | List order | goal first, start last, consumed from the end | positions front to back | equivalent if the consumer reads start to goal |
+
+## Clicks and verbs (compared 14 Nov, outline only)
+
+| Item | Contract | 2011 | Verdict |
+|---|---|---|---|
+| Verbs | go (0), use (1), look (2); lists `GoStart`, `UseStart`, `LookStart` | `events.cpp` / `objects.cpp` handle go, look and use | not compared in detail |
+| Walk first | within 10 pixels of `XYRoom=` x, y and the facing equals the 4th number; else walk and re-run on arrival | not compared | unverified |
+| First true block wins | per object and verb | script chunks with conditions (`conditionsMet`) | probably faithful |
+| Rooms 0x13a and 0x32b | go click with no go list uses the use list | not found | unverified |

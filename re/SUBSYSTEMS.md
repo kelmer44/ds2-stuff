@@ -305,6 +305,26 @@ is still to be recovered.
 
 **For ScummVM.** Do the entry list after the room is built and in the same order; use `FromRoom` to pick the entry; keep the 8-cell border.
 
+## Clicking things 🟡
+
+**What it does.** A click on the room is turned into one of three verbs: go (0), use (1) or look (2). The game finds the object under the pointer
+and runs what the object's file says for that verb.
+
+**How it works.**
+1. The game goes through the room's objects in order. An object counts when the pointer is inside its hot-spot rectangle and it is not switched off. Each
+   object has three lists of action blocks (go, use, look); the verb chooses the list. In the first block whose condition is true the action starts.
+2. **Walk to the spot first.** A block names a place and a facing (`XYRoom=`). If the player is not within 10 pixels of that place and facing that way, the
+   game starts the walk and remembers the block. When the player arrives, the window procedure runs the block again and it now goes ahead.
+3. **The action itself.** Start the music, start the conversation, change the cursor, play the video if there is one (skipped under some options), show the picture
+   if there is one, play the effect and the speech sound (with the subtitle text when there is text), and change the variables. If the block
+   has a "wait until" part, it is kept as the next step.
+4. If nothing is hit, or the object has nothing true for that verb, nothing happens, and for "use" the held inventory item goes back to the ordinary hand cursor.
+
+**Checked.** The hit test, the verb lists, the walk-first rule and the order of the action steps were read in the code. 🟡 because the three
+conversation helpers, a few variable names and the MCI video details are not read.
+
+**For ScummVM.** Keep the three verbs and the walk-first rule (10 pixels, facing); the first true block per object wins.
+
 ## Walking and the walk map 🟡
 
 **What it does.** Clicking on the floor makes the player walk there. The floor is described by a small grid picture per room.
