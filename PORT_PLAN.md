@@ -1,21 +1,28 @@
 # Port plan: building the engine from the good parts of the 2011 engine
 
-Created 14 November 2026. For Gabriel. This plan is a reading and copying guide, not code. It follows the verdicts in
+Created 14 November 2026. Revised 25 November 2026 (copy source is now the modern-API port, see below). For Gabriel. This plan is a reading and copying guide, not code. It follows the verdicts in
 [re/COMPARISON_2011.md](re/COMPARISON_2011.md) and the contracts in `re/contracts/`.
 
 ## What this plan is for
 
-You will copy the parts of DrMcCoy's 2011 engine (`ds2-stuff/scummvm-2011-darkseed2/engines/darkseed2`) into the
-current tree (`scummvm-darkseed2/engines/darkseed2`) one piece at a time, fixing each piece where the original
-disagrees with it. You type and adapt the code yourself, so you learn how it works. You say in the PR that the engine
-is based on the 2011 engine, and the PR also discloses the AI-assisted reverse engineering notes.
+You will copy the parts of DrMcCoy's 2011 engine into the current tree (`scummvm-darkseed2/engines/darkseed2`) one piece
+at a time, fixing each piece where the original disagrees with it. You type and adapt the code yourself, so you learn how it
+works. You say in the PR that the engine is based on the 2011 engine, and the PR also discloses the AI-assisted reverse
+engineering notes.
+
+**Copy source (changed on 25 Nov 2026).** You no longer copy from the 2011 tree and port each file to today's API by hand.
+Instead, copy from **`~/Desktop/source/scummvm-darkseed2-2011`** (branch `darkseed2-2011`, a worktree of the same repository,
+based on the engine skeleton commit). There the whole 2011 engine already builds and starts on current ScummVM with its design
+unchanged, so every file is already on the modern API. The original 2011 tree stays in `ds2-stuff/scummvm-2011-darkseed2`
+only as the pristine reference (for credit and for diffing). Details of that workspace are in the section "The reference
+port workspace" below.
 
 Each step below is one commit (sometimes two). Each step gives:
 
 - **Copy**: the 2011 files and classes to take.
 - **Leave out**: what to skip (other game versions, unfinished parts).
 - **Fix**: where the original differs (from the comparison and the contracts).
-- **Adapt**: API changes between 2011 and now.
+- **Adapt**: what still has to change when you move the file from the reference port into the skeleton tree (include order, a stub for something not copied yet). API changes are already done there. Where a step lists "API notes", those are the changes the port made, so you can recognise them.
 - **Test**: a console command or a thing on screen that proves the step works.
 - **Learn**: what the step teaches you about the engine.
 
@@ -84,6 +91,47 @@ make every drawer work on palette indices, and give videos and cursors their pal
 cycling or the exact dim table matter to you, make the background and sprites redraw from their 8-bit data when the palette changes.
 Switching to 8-bit later would cost more than deciding it now, so say so before step 6 if you want it.
 
+## The reference port workspace
+
+`~/Desktop/source/scummvm-darkseed2-2011` holds the 2011 engine running on current ScummVM, as a throwaway reference. Like all
+code from Claude, it is never submitted; you copy and retype from it. Build: `make -j8` in that folder (configured with
+`--disable-all-engines --disable-discord --disable-sonivox --enable-engine=darkseed2 --enable-optimizations`; without `--enable-optimizations` the build has no `-O` and the game crawls; with `--enable-asan` configure misdetects `initializer_list` here; after changing configure flags do `make clean` and delete the `lib*.a` files). Run: `./scummvm --config=<scratch ini> --add --path=<game dir>`, then start the target
+(`darkseed2-win-es`). Verified so far: detects the Spanish Windows copy, builds, links, and starts the engine through the full init
+(resource index, cursors, fonts, variables, Mike) into the main loop on the Spanish data; it ran 20 seconds headless without a warning or crash. Not verified: anything on screen, gameplay, sound,
+saves, other languages (their detection entries are the 2011 ones and untested here).
+
+What the port changed from the 2011 engine (nothing else; behaviour is the 2011 behaviour, bugs included):
+
+- **Detection**: the 2011 `detection.cpp` (old `ADParams`) became the modern `detection.cpp`, `detection_tables.h`, `metaengine.cpp` and
+  `metaengine.h` of the skeleton. Entries: English, German, French, Spanish (Windows), Japanese Saturn, English Mac. The Windows entries use
+  `Common::kPlatformWindows` (was `kPlatformPC`). The detector hashes 10000 bytes (`_md5Bytes = 10000`, as in 2011; the skeleton used the
+  5000 default), so the Spanish entry changed to `gfile.hdr` + `gl00_txt.000` (`c0bed467...`); the skeleton's `dark0001.exe` hash is for 5000 bytes.
+  Debug channels moved into `detection.h`. The engine takes an `ADGameDescription` directly; `DS2GameDescription` is gone.
+- **Engine class**: constructor takes `const ADGameDescription *`; `_rnd` is a value member seeded by name; `initGraphics(w, h)` of 2011
+  is `initGraphicsMode` (the name clashed with `::initGraphics`); `loadGameState(int)`, `saveGameState(int, const String &, bool)`,
+  `canLoadGameStateCurrently(U32String *)`, `canSaveGameStateCurrently(U32String *)` and `hasFeature` are now `override`s; `doLoadDialog()` calls `loadGameDialog()`;
+  the 2011 `EventRecorder` hook and mixer-volume line are removed.
+- **Graphics surfaces**: `Surface::pixels` is `getPixels()`, `Surface::bytesPerPixel` is `format.bytesPerPixel`, and `Surface::create` takes a
+  `PixelFormat` (`createFormatCLUT8()` for the 8-bit surface, the converter's format for true colour). `CursorMan::replaceCursor` lost its
+  `dontScale` argument. `PaletteManager` needs `graphics/paletteman.h`.
+- **Files and archives**: `Common::Path` everywhere a file is opened; `ImageConverter` singleton declared inside `namespace Common`.
+- **Windows cursors**: the NE cursor loader is rewritten on `WinResources::getIDList(kWinGroupCursor)` and `WinCursorGroup::createCursorGroup`. The
+  modern cursor has 3-byte palette entries and a key colour, so the port swaps the key colour with index 0 (the engine's transparent index) in
+  both palette and pixels.
+- **Music**: `MidiPlayer` (the Draci/MADE-style class inside `music.cpp`) gained `isOpen()` and `override`s with the new `metaEvent(byte, const byte *, uint16)`
+  and `TimerManager::TimerProc` signatures.
+- **Movies**: `Video::AviDecoder(mixer, type)` is now `Video::AVIDecoder(type)`; `loadFile` takes a `Path`. The modern decoder must be `start()`ed after loading (otherwise its clock stays at 0 and `getTimeToNextFrame()` returns absolute timestamps, so the loop sleeps longer and longer), `updateStatus` only decodes when `needsUpdate()`, and the loop sleeps at most 10 ms (`getFrameWaitTime` is capped).
+- **Saves**: `SaveLoad::getState/getStates` take the `MetaEngine *` (for `SaveStateDescriptor`) and use the new `loadThumbnail(stream, Surface *&)`.
+  The save format and file names (`<target>.sNN`, own header, thumbnail first) are the 2011 ones.
+- **Left out (does not build or has no modern equivalent)**: the Saturn CPK/SegaFILM decoder (`cpk_decoder.*` deleted, the Saturn movie branch in `Movie::createDecoder` removed;
+  `conversationboxsaturn.cpp` and the other Saturn code still compile but cannot work without it) and Mac `crsr` cursor conversion (`CursorsMac::load` warns and returns false).
+  Both are outside the plan anyway (ground rule 2).
+- **Not in the 2011 game, in the port**: the unstable-game warning dialog appears at start because the entries carry `ADGF_UNSTABLE`.
+- **Kept as 2011**: includes written as `"darkseed2/xxx.h"`, 16-bit RGB565 screen, all subsystem classes and their `doSaveLoad` methods, `Saveable`.
+
+Use this list when a step says "API notes": the change you will see in a file is one of these. If you hit something not listed, the
+port did not need it.
+
 ## Order of work, and why
 
 The 2011 engine's modules depend on each other like this (checked from the `#include`s):
@@ -103,6 +151,7 @@ The steps follow this order, so every commit compiles and runs, and from step 5 
 
 - **Do**: remove the sample drawing loop from `darkseed2.cpp`; set up a 640 by 480 graphics mode (the 2011 `DarkSeed2Engine::initGraphics()` shows how, with the RGB565 format of D1); keep the event loop and `Console`.
 - **Fix/Adapt**: use the current `initGraphics(640, 480, &format)` of `engines/util.h`.
+- **API notes**: in the reference port this step is `DarkSeed2Engine::initGraphicsMode` and `run()` (RGB565 640 by 480); the skeleton already uses `::initGraphics(w, h, &format)`.
 - **Test**: launch the game from the launcher: a black 640 by 480 window; `~` opens the console; `test` prints.
 - **Learn**: `Engine::run`, detection (`detection_tables.h`), the event loop and the frame limiter.
 
@@ -110,6 +159,7 @@ The steps follow this order, so every commit compiles and runs, and from step 5 
 
 - **Copy**: `Options` (it reads ScummVM volume, mute and subtitle settings); the `DarkSeed2Engine` members for the language and the random source.
 - **Leave out**: the Saturn and Mac parts of `VersionFormats`. Keep its Windows part (and the language handling) as the one place for per-version and per-language choices, and trim it later when you know which values are really needed.
+- **API notes**: `Options` is unchanged from 2011 (it reads `ConfMan` keys that still exist). Detection and `hasFeature` are already in the skeleton; see the port workspace section for the detection changes.
 - **Test**: console `options` prints the volumes and subtitle settings.
 - **Learn**: ScummVM's configuration manager (`ConfMan`), engine option registration in `metaengine.cpp`.
 
@@ -118,7 +168,7 @@ The steps follow this order, so every commit compiles and runs, and from step 5 
 - **Copy**: `GlueArchive` (index, `uncompressGlueChunk`, `uncompressGlue`) and the `Resources` front class with its name lookup.
 - **Leave out**: `PGFArchive`, `TNDArchive`, `SaturnGlueArchive` and the Mac archives.
 - **Fix** (comparison, "Resource layer"): prefer reading `GFILE.HDR` (9291 entries of 22 bytes, `STRUCTS.md`) and keep the glue directories as a check; drop the 10 MB assert; replace `isCompressed()`'s heuristic by the `That` trailer test or by the header's own information; contract `10b8:0368` is the exact decompressor.
-- **Adapt**: `Common::Archive`, `Common::SearchSet`, `createReadStreamForMember`, `Common::File::exists` (the 2011 `SearchMan` calls changed names).
+- **Adapt**: the reference port already uses `Common::Path` for every file name (`Common::File::open` and `exists` take a `Path`, not a `String`; it wraps each name in `Common::Path(...)`) and the `Common::isSpace`/`Common::isAlnum` helpers instead of the C `isspace`/`isalnum` (ScummVM forbids those). Drop the Saturn and Mac classes when you copy.
 - **Test**: console `res_list` (glue file count and entry count: 108 and 9291), `res_info NAME` (size and glue file), `res_dump NAME` (hex dump of the first bytes), `res_extract NAME` (write to a file). Compare a few sizes with `re/export/` data.
 - **Learn**: how the game packs data (glue files, the LZ scheme), the ScummVM archive API.
 
@@ -141,6 +191,7 @@ The steps follow this order, so every commit compiles and runs, and from step 5 
 - **Copy**: `Palette`, `ImageConverter`, and from `Sprite` only the picture loading: `loadFromBMP`, `readBMPDataComp0`, `readBMPDataComp2`, `loadFromPALRGBA`, `createTransparencyMap`.
 - **Fix** (comparison, "Pictures and palettes"): the header words at 0x26 and 0x28 are the anchor offsets, signed, not `abs()` clamped to the size (contract `1078:18d8` and `STRUCTS.md`); transparent index is 0; the fixed palette rule of contract `1028:00b6` (first 100 colours and two more come from `fix.pal`).
 - **Leave out**: scaling, animation, blit variants you do not need yet.
+- **API notes**: `Surface::getPixels()`, `format.bytesPerPixel`, `Surface::create(w, h, PixelFormat)`; `Common::Singleton` namespace for `ImgConv`; `CLIP<int>(...)` in `Palette` loaders.
 - **Test**: console `img_show NAME [x y]` loads a picture from the glue files and draws it with its palette (try `RM0101` as a backdrop, then a sprite name): you see the room backdrop. `img_info NAME` prints width, height, compression and anchor offsets.
 - **Learn**: the picture format (BMP with run-length rows), how a 256-colour palette becomes screen colours.
 
@@ -156,6 +207,7 @@ The steps follow this order, so every commit compiles and runs, and from step 5 
 
 - **Copy**: `Cursors` (loading the cursor pictures `cHand`, `cUseIt`, `cLook`, `cLookAt`, `c4Ways`, the cursor modes and `cycleCursorMode`).
 - **Fix**: add the original's hover flags later (step 10), keep the three verb modes (go, use, look).
+- **API notes**: this is the one file with a real rewrite: the Windows cursor loader (`WinCursorGroup`, key colour swapped with index 0). Read that function in the port first. `CursorMan::replaceCursor` without `dontScale`.
 - **Test**: the mouse pointer is the game cursor; Space cycles the three modes; console `cursor NAME`.
 - **Learn**: `CursorMan`, how the game picks a verb.
 
@@ -207,6 +259,7 @@ The steps follow this order, so every commit compiles and runs, and from step 5 
 
 - **Copy**: `Music`, `MidiPlayer` (this part matches the original).
 - **Fix**: none known; keep the file naming (`sndtrack/` + name + `gm` or `fm` + `.mid`), no restart for the same name, loop.
+- **API notes**: `MidiPlayer` overrides (`isOpen`, `metaEvent(byte, const byte *, uint16)`, `TimerManager::TimerProc`).
 - **Test**: console `play_music MM001`, `midi_mode gm|fm`; entering a room starts its music entry.
 - **Learn**: MIDI playback in ScummVM.
 
@@ -230,6 +283,7 @@ The steps follow this order, so every commit compiles and runs, and from step 5 
 - **Copy**: `Movie` with `Video::AviDecoder` (the AVI files of the game).
 - **Leave out**: the CPK/QuickTime paths.
 - **Fix** (comparison, "Animation, mirror and palette entries"): entry videos by name (`T...` transitions full screen, `cut...` and `abh...` cut-scenes), the three sizes (320 by 240 at the top left, centred, doubled), the skip options.
+- **API notes**: `Video::AVIDecoder(type)`, `loadFile(Path)`. The Saturn CPK branch is already removed in the port.
 - **Test**: console `play_movie NAME` plays a video; entering a room with an entry video plays it.
 - **Learn**: ScummVM's video decoders.
 
@@ -252,6 +306,7 @@ Do these one at a time, each from its contract (the old code is no help here):
 
 - **Copy**: `Saveable`, `SaveLoad` and add `saveLoad` methods to each class as the 2011 engine did.
 - **Fix**: nothing to fix; it is by design. Make sure the state matches what the original saves: room, position, facing, cursor mode, game speed, all variables, conversation states.
+- **API notes**: `saveGameState(int, const String &, bool)`, `canSaveGameStateCurrently(U32String *)`, `SaveStateDescriptor(metaEngine, slot, desc)`, `loadThumbnail(stream, Surface *&)`; the metaengine save functions are in `metaengine.cpp`.
 - **Test**: save and load from the ScummVM menu in several rooms; compare variables with `var_list` before and after.
 - **Learn**: ScummVM's `Serializer` and save-state descriptors.
 
@@ -269,8 +324,8 @@ Detection entry, launcher options, a pass over every console command (keep only 
 
 ## Suggested rhythm for each step
 
-1. Read the 2011 file(s) and the contract or comparison section named above (about an hour).
-2. Copy, then make it compile (names and types will not match; the list of "Adapt" notes is a starting point).
+1. Read the file(s) in the reference port (`scummvm-darkseed2-2011`) and the contract or comparison section named above (about an hour).
+2. Copy, then make it compile in the skeleton tree (names should match; the "Adapt" line says what does not).
 3. Apply the "Fix" list one item at a time, running the console test after each.
 4. Read the result once more, trim comments, commit with your own message.
 

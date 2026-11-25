@@ -23,6 +23,7 @@ It does not cover submission.
 | Game data (490 MB) | `~/Desktop/ags/DARKSEED2` | 108 `GL00_*.000` glue archives, `GFILE.HDR`, `DS2RUN.HDR`, 75 AVIs, `SNDTRACK/` MIDI, `DARK0001.EXE` |
 | Executable | `DARK0001.EXE` (184,272 bytes, Apr 1996) | **16-bit NE (Windows 3.x)**, not PE32. Imports MMSYSTEM and drives MCIAVI / MCISEQ for video and music. |
 | 2011 engine | `ds2-stuff/scummvm-2011-darkseed2/engines/darkseed2` | ~20.2k lines, 69 files by DrMcCoy. Builds and runs our copy against 2011 ScummVM. Detection entries: EN, DE, FR PC, Saturn, Mac. |
+| 2011 engine on modern ScummVM | `~/Desktop/source/scummvm-darkseed2-2011` (branch `darkseed2-2011`) | The 2011 engine ported to current ScummVM with its design unchanged (Windows path only; Saturn and Mac parts disabled). Reference and copy source for [PORT_PLAN.md](PORT_PLAN.md); never submitted. |
 | 2011 findings | `ds2-stuff/FINDINGS.md` | Known bugs list, game-data table, build recipe. |
 | Format notes and tools | upstream repo `OLDscummvm-darkseed2` (`formats/`, `deglue`, `depgf`) | Not yet fetched into ds2-stuff. |
 | Partial port | `scummvm-darkseed2/engines/darkseed2/` (untracked) | Only `font`, `graphics`, `versionformats` (1.2k lines) plus stale `.o` files and `libdarkseed2.a`. Several sources are gone, so the `.o` files are leftovers to delete. |
